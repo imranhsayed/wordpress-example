@@ -1,0 +1,25 @@
+/**
+ * Styles for the Notice block.
+ *
+ * Block: Notice
+ */
+
+.aquila-notice {
+	background-color: var(--wp--preset--color--primary);
+	color: var(--wp--preset--color--background);
+	padding: clamp(18px, 2vw, 28px) var(--wp--preset--spacing--40);
+	font-size: var(--wp--preset--font-size--medium);
+	border-radius: var(--wp--custom--border-radius-normal);
+	margin-bottom: var(--wp--preset--spacing--40);
+	max-width: var(--wp--style--global--content-size);
+	margin-inline: auto;
+
+	&__content {
+		margin: 0;
+	}
+
+	a {
+		color: var(--wp--preset--color--background);
+		text-decoration: underline;
+	}
+}

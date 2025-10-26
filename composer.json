@@ -1,0 +1,13 @@
+{
+    "name": "wordpress/example",
+    "description": "WordPress Example",
+    "authors": [
+        {
+            "name": "Imran Sayed",
+            "email": "codeytek@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "php-stubs/wordpress-stubs": "^6.8"
+    }
+}

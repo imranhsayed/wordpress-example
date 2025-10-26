@@ -1,0 +1,7 @@
+packages:
+  - themes/aquila
+
+onlyBuiltDependencies:
+  - '@parcel/watcher'
+  - core-js
+  - esbuild

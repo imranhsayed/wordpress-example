@@ -1,0 +1,24 @@
+{
+  "name": "wordpress-example",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "packageManager": "pnpm@10.15.1",
+  "engines": {
+    "pnpm": ">=10"
+  },
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "lint": "turbo run lint",
+    "format": "turbo run format",
+    "dev": "turbo run dev",
+    "dev:hot": "turbo run dev:hot",
+    "build": "turbo run build"
+  },
+  "devDependencies": {
+    "turbo": "^2.5.6"
+  },
+  "workspaces": [
+    "themes/aquila*"
+  ]
+}

@@ -1,0 +1,25 @@
+/*!**********************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/notice/style.scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************/
+/**
+ * Styles for the Notice block.
+ *
+ * Block: Notice
+ */
+.novanta-notice {
+  background-color: var(--wp--preset--color--primary);
+  color: var(--wp--preset--color--background);
+  padding: clamp(18px, 2vw, 28px) var(--wp--preset--spacing--40);
+  font-size: var(--wp--preset--font-size--medium);
+  border-radius: var(--wp--custom--border-radius-normal);
+  margin-bottom: var(--wp--preset--spacing--40);
+  max-width: var(--wp--style--global--content-size);
+  margin-inline: auto;
+}
+.novanta-notice__content {
+  margin: 0;
+}
+.novanta-notice a {
+  color: var(--wp--preset--color--background);
+  text-decoration: underline;
+}
