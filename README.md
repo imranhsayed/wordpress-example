@@ -183,19 +183,18 @@ pnpm dev
 
 ### Theme Development (Aquila)
 ```bash
-cd themes/aquila
 
-# Development with watch mode
-pnpm run dev
+# Development with watch mode( Run from the root )
+pnpm dev
 
 # Production build
-pnpm run build
+pnpm build
 
 # Linting
-pnpm run lint
+pnpm lint
 
 # Format code
-pnpm run format
+pnpm format
 ```
 
 ### Plugin Development (Todo-List)
