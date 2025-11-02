@@ -16,7 +16,11 @@
  * @package OneNovantaTheme\Blocks
  */
 
-use OneNovanta\Controllers\Common\Template;
+//echo '<pre/>';
+print_r('his');
+print_r($attributes);
+//print_r($content);
+//print_r($block);
 
 // If no content is provided, return.
 if ( empty( $content ) ) {
@@ -24,9 +28,8 @@ if ( empty( $content ) ) {
 }
 
 $wrapper_attributes = get_block_wrapper_attributes();
-
 // Get the accordion component.
-Template::render_component(
+\Aquila\Theme\Template::render_component(
 	'accordion',
 	null,
 	[

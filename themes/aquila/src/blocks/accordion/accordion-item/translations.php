@@ -1,6 +1,6 @@
 <?php
 /**
- * Translations for 'one-novanta/accordion-item' block.
+ * Translations for 'aquila/accordion-item' block.
  * 
  * @package OneNovantaTheme\Blocks
  */

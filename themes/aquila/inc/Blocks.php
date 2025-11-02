@@ -122,8 +122,6 @@ class Blocks {
 
 		// Register all blocks.
 		foreach ( $blocks as $block ) {
-//            echo '<pre/>';
-//            print_r($block);
 			// Register block.
 			$block_metadata = register_block_type_from_metadata(
 				$block,

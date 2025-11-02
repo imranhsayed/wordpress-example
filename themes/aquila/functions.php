@@ -20,7 +20,7 @@ define( 'AQUILA_THEME_BUILD_URI', get_template_directory_uri() . '/build' );
 spl_autoload_register( function( $class ) {
 	$namespaces = [
 		'Aquila\\Theme\\'  => __DIR__ . '/inc/',
-		'Aquila\\Traits\\' => __DIR__ . '/inc/Traits/',
+		'Aquila\\Traits\\' => __DIR__ . '/inc/traits/',
 	];
 
 	foreach ( $namespaces as $prefix => $base_dir ) {

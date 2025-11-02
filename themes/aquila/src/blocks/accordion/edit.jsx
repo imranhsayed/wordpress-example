@@ -22,8 +22,8 @@ export default function Edit() {
 		<>
 			<div { ...blockProps }>
 				<InnerBlocks
-					template={ [ [ 'one-novanta/accordion-item' ] ] }
-					allowedBlocks={ [ 'one-novanta/accordion-item' ] }
+					template={ [ [ 'aquila/accordion-item' ] ] }
+					allowedBlocks={ [ 'aquila/accordion-item' ] }
 					templateLock={ false }
 					renderAppender={
 						() => <InnerBlocks.ButtonBlockAppender />

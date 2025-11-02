@@ -1,12 +1,8 @@
 /**
- * WordPress dependencies
- */
-import { InnerBlocks } from '@wordpress/block-editor';
-
-/**
  * Save component.
+ *
+ * Return null to use server-side rendering (render.php)
  */
 export default function Save() {
-	// Save inner content.
-	return <InnerBlocks.Content />;
+	return null;
 }

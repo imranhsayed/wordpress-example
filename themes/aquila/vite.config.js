@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 import fs from 'fs';
+import chokidar from 'chokidar';
 
 // --- discover entries for components & blocks ---
 function getEntries() {
@@ -147,6 +148,99 @@ function wrapInIIFE() {
 	};
 }
 
+// --- watch and copy PHP files during dev/watch mode
+function watchPhpFiles() {
+	let watcher = null;
+	let isWatchMode = false;
+
+	return {
+		name: 'watch-php-files',
+		buildStart() {
+			// Check if we're in watch mode (vite build --watch)
+			isWatchMode = process.argv.includes('--watch');
+			
+			if (isWatchMode) {
+				const srcDir = path.resolve(__dirname, 'src');
+				const buildDir = path.resolve(__dirname, 'build');
+
+				// Copy PHP file to build directory maintaining structure
+				const copyPhpFile = (srcPath) => {
+					const relativePath = path.relative(srcDir, srcPath);
+					const destPath = path.resolve(buildDir, relativePath);
+					const destDir = path.dirname(destPath);
+
+					// Ensure destination directory exists
+					if (!fs.existsSync(destDir)) {
+						fs.mkdirSync(destDir, { recursive: true });
+					}
+
+					// Copy the file
+					fs.copyFileSync(srcPath, destPath);
+					console.log(`✓ [watch-php] Copied ${relativePath}`);
+				};
+
+				// Copy all existing PHP files initially
+				const copyAllPhpFiles = (dir) => {
+					if (!fs.existsSync(dir)) return;
+					
+					const items = fs.readdirSync(dir);
+					for (const item of items) {
+						const itemPath = path.resolve(dir, item);
+						const stat = fs.statSync(itemPath);
+
+						if (stat.isDirectory()) {
+							copyAllPhpFiles(itemPath);
+						} else if (item.endsWith('.php')) {
+							// Calculate relative path from srcDir
+							const relativePath = path.relative(srcDir, itemPath);
+							const destPath = path.resolve(buildDir, relativePath);
+							const destDir = path.dirname(destPath);
+
+							if (!fs.existsSync(destDir)) {
+								fs.mkdirSync(destDir, { recursive: true });
+							}
+
+							fs.copyFileSync(itemPath, destPath);
+							console.log(`✓ [watch-php] Initial copy: ${relativePath}`);
+						}
+					}
+				};
+
+				// Copy all PHP files from src directory initially
+				copyAllPhpFiles(srcDir);
+
+				// Watch all PHP files in src directory
+				watcher = chokidar.watch(`${srcDir}/**/*.php`, {
+					persistent: true,
+					ignoreInitial: true, // We've already copied initial files
+				});
+
+				// Handle file changes
+				watcher
+					.on('add', copyPhpFile)
+					.on('change', copyPhpFile)
+					.on('unlink', (srcPath) => {
+						const relativePath = path.relative(srcDir, srcPath);
+						const destPath = path.resolve(buildDir, relativePath);
+						if (fs.existsSync(destPath)) {
+							fs.unlinkSync(destPath);
+							console.log(`✓ [watch-php] Deleted ${relativePath}`);
+						}
+					});
+
+				console.log('👁️  Watching PHP files for changes...');
+			}
+		},
+		buildEnd() {
+			// Close watcher when Vite closes
+			if (watcher) {
+				watcher.close();
+				watcher = null;
+			}
+		},
+	};
+}
+
 // --- copy block.json files to build directory and generate .asset.php files
 function copyBlockJson() {
 	return {
@@ -271,6 +365,7 @@ export default defineConfig( {
 		react( {
 			include: '**/*.{js,jsx,ts,tsx}', // <— enable JSX transform for .js files too
 		} ),
+		watchPhpFiles(), // Watch and copy PHP files during dev mode
 		wrapInIIFE(), // Convert ES modules to IIFE with WordPress globals
 		placeCssWithEntry(),
 		copyBlockJson(),

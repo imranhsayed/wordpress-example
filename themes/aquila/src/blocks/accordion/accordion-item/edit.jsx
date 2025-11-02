@@ -28,20 +28,20 @@ export default function Edit( { attributes, setAttributes } ) {
 
 	// Block props.
 	const blockProps = useBlockProps( {
-		className: classnames( 'one-novanta-accordion__item' ),
+		className: classnames( 'aquila-accordion__item' ),
 		...( isOpen && { open: 'yes' } ),
 	} );
 
 	// Inner blocks props.
 	const innerBlocksProps = useInnerBlocksProps(
 		{
-			className: classnames( 'one-novanta-accordion__content', 'one-novanta-accordion__content-info' ),
+			className: classnames( 'aquila-accordion__content', 'aquila-accordion__content-info' ),
 			style: {
 				display: isOpen ? 'block' : 'none',
 			},
 		},
 		{
-			template: [ [ 'core/paragraph', { placeholder: __( 'Add content…', 'one-novanta-theme' ) } ] ],
+			template: [ [ 'core/paragraph', { placeholder: __( 'Add content…', 'aquila-theme' ) } ] ],
 			renderAppender: () => <InnerBlocks.DefaultBlockAppender />,
 		},
 	);
@@ -59,18 +59,18 @@ export default function Edit( { attributes, setAttributes } ) {
 				</PanelBody>
 			</InspectorControls>
 			<div { ...blockProps }>
-				<div className="one-novanta-accordion__handle">
+				<div className="aquila-accordion__handle">
 					<div
-						className="one-novanta-accordion__handle-btn"
+						className="aquila-accordion__handle-btn"
 						onClick={ () => setIsOpen( ! isOpen ) }
 						aria-hidden="true"
 					>
 						<RichText
 							tagName="span"
-							className="one-novanta-accordion__title"
+							className="aquila-accordion__title"
 							value={ attributes.title }
 							onChange={ ( title ) => setAttributes( { title } ) }
-							placeholder={ __( 'Add Accordion title…', 'one-novanta-theme' ) }
+							placeholder={ __( 'Add Accordion title…', 'aquila-theme' ) }
 							allowedFormats={ [] }
 						/>
 					</div>

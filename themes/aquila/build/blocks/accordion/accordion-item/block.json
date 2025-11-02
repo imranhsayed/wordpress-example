@@ -1,10 +1,10 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "one-novanta/accordion-item",
+	"name": "aquila/accordion-item",
 	"version": "0.1.0",
 	"title": "Accordion Item",
-	"category": "one-novanta",
+	"category": "aquila",
 	"description": "Add an item to the accordion.",
 	"example": {
 		"attributes": {
@@ -20,7 +20,7 @@
 			}
 		]
 	},
-	"parent": ["one-novanta/accordion"],
+	"parent": ["aquila/accordion"],
 	"supports": {
 		"align": false,
 		"anchor": false,
@@ -44,7 +44,7 @@
 			"default": false
 		}
 	},
-	"textdomain": "one-novanta-theme",
+	"textdomain": "aquila-theme",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",

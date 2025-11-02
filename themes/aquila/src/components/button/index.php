@@ -29,7 +29,7 @@
  * @package Aquila\Components
  */
 
-use OneNovanta\Controllers\Common\Template;
+use Aquila\Theme\Template;
 
 // Return if required arguments are not available.
 if ( empty( $args ) || ! is_array( $args ) || empty( $args['content'] ) ) {

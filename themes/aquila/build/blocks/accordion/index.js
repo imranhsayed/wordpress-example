@@ -1,5 +1,5 @@
 (function() {
 'use strict';
-const { registerBlockType: t } = wp.blocks;const { jsx: o, Fragment: r } = ReactJSXRuntime;const { useBlockProps: a, InnerBlocks: e } = wp.blockEditor;function c(){const n=a();return o(r,{children:o("div",{...n,children:o(e,{template:[["one-novanta/accordion-item"]],allowedBlocks:["one-novanta/accordion-item"],templateLock:!1,renderAppender:()=>o(e.ButtonBlockAppender,{})})})})}function i(){return o(e.Content,{})}const m="one-novanta/accordion",d={name:m};t(d.name,{edit:c,save:i});
+const { registerBlockType: n } = wp.blocks;const { jsx: e, Fragment: r } = ReactJSXRuntime;const { useBlockProps: a, InnerBlocks: o } = wp.blockEditor;function c(){const t=a();return e(r,{children:e("div",{...t,children:e(o,{template:[["aquila/accordion-item"]],allowedBlocks:["aquila/accordion-item"],templateLock:!1,renderAppender:()=>e(o.ButtonBlockAppender,{})})})})}function i(){return e(o.Content,{})}const l="aquila/accordion",m={name:l};n(m.name,{edit:c,save:i});
 
 })();

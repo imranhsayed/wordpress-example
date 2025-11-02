@@ -15,11 +15,13 @@
  * @package OneNovantaTheme\Blocks
  */
 
-use OneNovanta\Controllers\Common\Template;
+use Aquila\Theme\Template;
 
 $open_by_default = empty( $attributes['openByDefault'] ) ? 'no' : 'yes';
 $accordion_title = $attributes['title'] ?? '';
 $content         = $content ?? '';
+echo '<pre/>';
+print_r('accordion-item-rendereds');
 
 Template::render_component(
 	'accordion',
