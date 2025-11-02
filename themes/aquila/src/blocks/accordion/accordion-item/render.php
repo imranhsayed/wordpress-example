@@ -19,9 +19,29 @@ use Aquila\Theme\Template;
 
 $open_by_default = empty( $attributes['openByDefault'] ) ? 'no' : 'yes';
 $accordion_title = $attributes['title'] ?? '';
-$content         = $content ?? '';
-echo '<pre/>';
-print_r('accordion-s-render');
+
+// Render inner blocks content
+// When using InnerBlocks.Content in save(), WordPress saves the inner blocks HTML
+// That HTML should be available in $content, but if empty, render inner blocks manually
+if ( empty( trim( $content ) ) && ! empty( $block->inner_blocks ) ) {
+	$inner_content = '';
+	foreach ( $block->inner_blocks as $inner_block ) {
+		$inner_content .= $inner_block->render();
+	}
+	$content = $inner_content;
+}
+
+// If still empty, try accessing inner content directly from $block
+if ( empty( trim( $content ) ) && isset( $block->inner_content ) && is_array( $block->inner_content ) ) {
+	$content = '';
+	foreach ( $block->inner_content as $inner_item ) {
+		if ( is_string( $inner_item ) ) {
+			$content .= $inner_item;
+		} elseif ( $inner_item instanceof WP_Block ) {
+			$content .= $inner_item->render();
+		}
+	}
+}
 
 Template::render_component(
 	'accordion',

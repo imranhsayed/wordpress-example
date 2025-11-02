@@ -17,8 +17,8 @@
  */
 
 //echo '<pre/>';
-print_r('hisss');
-print_r($attributes);
+//print_r('hisss');
+//print_r($attributes);
 //print_r($content);
 //print_r($block);
 

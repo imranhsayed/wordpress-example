@@ -1,8 +1,17 @@
 /**
+ * WordPress dependencies
+ */
+import { InnerBlocks } from '@wordpress/block-editor';
+
+/**
  * Save component.
  *
- * Return null to use server-side rendering (render.php)
+ * For dynamic blocks (server-side rendered), we still need to save
+ * inner blocks content so it's available in render.php via $content variable.
+ * The block wrapper itself is rendered server-side via render.php.
  */
 export default function Save() {
-	return null;
+	// Save inner blocks content (paragraphs, headings, etc.)
+	// This content will be available in render.php via the $content variable
+	return <InnerBlocks.Content />;
 }
