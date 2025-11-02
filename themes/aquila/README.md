@@ -343,12 +343,114 @@ build/blocks/accordion/index.asset.php
 build/blocks/accordion/accordion-item/index.asset.php ← Nested block's assets!
 ```
 
-### 5. Build Configuration
+### 5. PHP File Watching Plugin (Development Mode)
+
+```javascript
+function watchPhpFiles() {
+  const srcDir = path.resolve(__dirname, 'src');
+  const buildDir = path.resolve(__dirname, 'build');
+
+  return {
+    name: 'watch-php-files',
+    buildStart() {
+      // Register all PHP files with Rollup's watch system
+      const addPhpFilesToWatch = (dir, pluginContext) => {
+        // Recursively find all .php files
+        const items = fs.readdirSync(dir);
+        for (const item of items) {
+          const itemPath = path.resolve(dir, item);
+          const stat = fs.statSync(itemPath);
+
+          if (stat.isDirectory()) {
+            addPhpFilesToWatch(itemPath, pluginContext);
+          } else if (item.endsWith('.php')) {
+            // ⭐ KEY: Register PHP files with Rollup's watch system
+            pluginContext.addWatchFile(itemPath);
+          }
+        }
+      };
+
+      // Register all PHP files for watching
+      addPhpFilesToWatch(srcDir, this);
+    },
+    watchChange(id, change) {
+      // This fires when any registered file changes
+      if (id.endsWith('.php') && id.startsWith(srcDir)) {
+        // Copy changed PHP file to build directory
+        copyPhpFile(id);
+      }
+    },
+  };
+}
+```
+
+**The Problem:**
+- In development mode (`pnpm dev`), when you edit a PHP file like `render.php`, the changes weren't automatically copied to the `build/` directory
+- You had to manually rebuild or restart the dev server to see PHP changes
+- This disrupted the development workflow (similar to how CopyWebpackPlugin watches files)
+
+**Why Rollup doesn't watch PHP files by default:**
+- Rollup only watches files that are **part of the build graph** (imported JS/CSS files)
+- PHP files (`render.php`, etc.) aren't imported anywhere, so they're not in the dependency graph
+- Without being in the graph, Rollup doesn't know to watch them
+
+**The Solution - Using `addWatchFile()`:**
+The `addWatchFile()` method is Rollup's API for explicitly telling the watch system to monitor files that aren't in the dependency graph.
+
+**How it works:**
+1. **Registration Phase** (`buildStart` hook):
+   - Plugin recursively finds all `.php` files in `src/`
+   - Calls `this.addWatchFile(path)` for each PHP file
+   - This tells Rollup: "Watch this file even though it's not imported"
+
+2. **Change Detection Phase** (`watchChange` hook):
+   - When a registered file changes, Rollup fires `watchChange()` with the file path
+   - Plugin checks if it's a PHP file from `src/`
+   - Copies the file from `src/` to `build/` maintaining directory structure
+
+**Why we used Rollup's watch system instead of chokidar:**
+- ✅ **Better integration** - Uses the same watch system Vite uses for JS/CSS files
+- ✅ **No extra dependency** - No need for chokidar package
+- ✅ **Reliable** - Rollup's watch system is battle-tested and handles edge cases
+- ✅ **Consistent** - All file watching goes through the same system
+- ✅ **Simpler code** - Less to maintain, fewer moving parts
+
+**What it does:**
+- ✅ Watches all PHP files in `src/` directory (recursively)
+- ✅ Automatically copies changes to `build/` directory during `pnpm dev`
+- ✅ Maintains directory structure (`src/blocks/notice/render.php` → `build/blocks/notice/render.php`)
+- ✅ Handles file additions, changes, and deletions
+- ✅ Works seamlessly with Vite's watch mode
+
+**Example workflow:**
+```bash
+# Terminal 1: Start dev server
+pnpm dev
+
+# Terminal 2: Edit PHP file
+# Edit src/blocks/notice/render.php
+# Save file
+
+# Result: File automatically copied to build/blocks/notice/render.php
+# No need to restart dev server!
+```
+
+**Similar to CopyWebpackPlugin:**
+This approach mimics Webpack's `CopyWebpackPlugin` behavior, which:
+- Watches source files during development
+- Automatically copies changes to output directory
+- Integrates with the build system's watch mode
+
+**Key takeaway:**
+By using `addWatchFile()`, we're telling Rollup to treat PHP files as "watchable dependencies" even though they're not JavaScript imports. This gives us CopyWebpackPlugin-like functionality without adding external file watching libraries.
+
+### 6. Build Configuration
 
 ```javascript
 export default defineConfig({
   plugins: [
     react({ include: '**/*.{js,jsx,ts,tsx}' }),
+    watchPhpFiles(),         // Watch & copy PHP files in dev mode
     wrapInIIFE(),           // Convert to WordPress format
     placeCssWithEntry(),     // Co-locate CSS
     copyBlockJson(),         // Handle WordPress files
@@ -415,7 +517,11 @@ Here's what happens when you run `pnpm run build`:
    ├─> Copies render.php files
    └─> Generates .asset.php files
 
-6. Output to build/ directory
+6. watchPhpFiles plugin runs (dev mode only)
+   ├─> Registers all PHP files with Rollup's watch system (addWatchFile)
+   └─> Automatically copies PHP file changes during development
+
+7. Output to build/ directory
    └─> Ready for WordPress!
 ```
 
@@ -506,7 +612,15 @@ pnpm run build --watch
 - Vite watches for file changes
 - Rebuilds only changed files (fast!)
 - Updates `build/` directory
+- **PHP files are automatically watched and copied** (via `addWatchFile()`)
 - Refresh browser to see changes
+
+**PHP file watching:**
+When you edit a PHP file like `src/blocks/notice/render.php` during `pnpm dev`:
+1. The file change is detected by Rollup's watch system
+2. File is automatically copied to `build/blocks/notice/render.php`
+3. No need to restart the dev server
+4. Changes are immediately available in WordPress
 
 **Tip:** Use with browser auto-refresh extension for best experience
 

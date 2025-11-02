@@ -21,7 +21,7 @@ $open_by_default = empty( $attributes['openByDefault'] ) ? 'no' : 'yes';
 $accordion_title = $attributes['title'] ?? '';
 $content         = $content ?? '';
 echo '<pre/>';
-print_r('accordion-item-render');
+print_r('accordion-s-render');
 
 Template::render_component(
 	'accordion',

@@ -2,7 +2,6 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 import fs from 'fs';
-import chokidar from 'chokidar';
 
 // --- discover entries for components & blocks ---
 function getEntries() {
@@ -149,12 +148,11 @@ function wrapInIIFE() {
 }
 
 // --- watch and copy PHP files during dev/watch mode (similar to CopyWebpackPlugin)
+// Uses Rollup's native watch system via addWatchFile() + watchChange()
 function watchPhpFiles() {
 	const srcDir = path.resolve(__dirname, 'src');
 	const buildDir = path.resolve(__dirname, 'build');
-	let watcher = null;
 	let isWatchMode = false;
-	let watcherInitialized = false;
 
 	// Copy PHP file to build directory maintaining structure
 	const copyPhpFile = (srcPath) => {
@@ -217,116 +215,60 @@ function watchPhpFiles() {
 		}
 	};
 
-	// Initialize watcher (similar to CopyWebpackPlugin behavior)
-	const initWatcher = () => {
-		if (watcherInitialized) return;
+	// Recursively add all PHP files to Rollup's watch list
+	const addPhpFilesToWatch = (dir, pluginContext) => {
+		if (!fs.existsSync(dir)) return;
 		
-		isWatchMode = process.argv.includes('--watch');
-		
-		if (!isWatchMode) return;
+		const items = fs.readdirSync(dir);
+		for (const item of items) {
+			const itemPath = path.resolve(dir, item);
+			const stat = fs.statSync(itemPath);
 
-		console.log(`[watch-php] Initializing PHP file watcher (CopyWebpackPlugin-style)...`);
-		console.log(`[watch-php] Source: ${srcDir}`);
-		console.log(`[watch-php] Destination: ${buildDir}`);
-		
-		// Copy all PHP files from src directory initially
-		copyAllPhpFiles(srcDir);
-
-		// Watch all PHP files in src directory using chokidar
-		const watchPattern = `${srcDir}/**/*.php`;
-		
-		watcher = chokidar.watch(watchPattern, {
-			persistent: true,
-			ignoreInitial: true, // We've already copied initial files
-			usePolling: false,
-			atomic: true,
-			awaitWriteFinish: {
-				stabilityThreshold: 200,
-				pollInterval: 100
-			},
-			ignorePermissionErrors: true,
-			alwaysStat: false,
-			followSymlinks: true
-		});
-
-		// Handle file changes - similar to CopyWebpackPlugin
-		watcher
-			.on('add', (srcPath) => {
-				console.log(`[watch-php] + File added: ${path.relative(srcDir, srcPath)}`);
-				copyPhpFile(srcPath);
-			})
-			.on('change', (srcPath) => {
-				console.log(`[watch-php] ~ File changed: ${path.relative(srcDir, srcPath)}`);
-				copyPhpFile(srcPath);
-			})
-			.on('unlink', (srcPath) => {
-				console.log(`[watch-php] - File deleted: ${path.relative(srcDir, srcPath)}`);
-				deletePhpFile(srcPath);
-			})
-			.on('error', (error) => {
-				console.error(`[watch-php] ✗ Error:`, error);
-			})
-			.on('ready', () => {
-				console.log('👁️  [watch-php] Watcher ready. Monitoring PHP files for changes...');
-			});
-
-		watcherInitialized = true;
+			if (stat.isDirectory()) {
+				addPhpFilesToWatch(itemPath, pluginContext);
+			} else if (item.endsWith('.php')) {
+				try {
+					// Register PHP file with Rollup's watch system
+					// This is what makes watchChange() fire when files change
+					pluginContext.addWatchFile(itemPath);
+				} catch (error) {
+					// Ignore errors if watch isn't available (non-watch mode)
+				}
+			}
+		}
 	};
 
 	return {
 		name: 'watch-php-files',
 		buildStart(options) {
-			// Initialize watcher when build starts (works with vite build --watch)
-			initWatcher();
+			isWatchMode = process.argv.includes('--watch');
 			
-			// Also add all PHP files to Rollup's watch list
-			if (isWatchMode) {
-				const addPhpFilesToWatch = (dir) => {
-					if (!fs.existsSync(dir)) return;
-					
-					const items = fs.readdirSync(dir);
-					for (const item of items) {
-						const itemPath = path.resolve(dir, item);
-						const stat = fs.statSync(itemPath);
+			if (!isWatchMode) return;
 
-						if (stat.isDirectory()) {
-							addPhpFilesToWatch(itemPath);
-						} else if (item.endsWith('.php')) {
-							try {
-								// Add PHP files to Rollup's watch system
-								this.addWatchFile(itemPath);
-							} catch (error) {
-								// Ignore errors if watch isn't available
-							}
-						}
-					}
-				};
-				
-				// Add all PHP files to watch list
-				addPhpFilesToWatch(srcDir);
-			}
+			console.log(`[watch-php] Initializing PHP file watcher (using Rollup's watch system)...`);
+			console.log(`[watch-php] Source: ${srcDir}`);
+			console.log(`[watch-php] Destination: ${buildDir}`);
+			
+			// Copy all PHP files from src directory initially
+			copyAllPhpFiles(srcDir);
+			
+			// Register all PHP files with Rollup's watch system
+			// This tells Rollup to watch these files and trigger watchChange() when they change
+			addPhpFilesToWatch(srcDir, this);
+			
+			console.log(`👁️  [watch-php] All PHP files registered with Rollup's watch system`);
 		},
 		watchChange(id, change) {
-			// Handle PHP file changes through Rollup's watch system
+			// This hook fires when ANY file in Rollup's watch list changes
+			// We registered PHP files via addWatchFile(), so this fires when they change
 			if (isWatchMode && id && id.endsWith('.php') && id.startsWith(srcDir)) {
 				if (change.event === 'update' || change.event === 'create') {
-					console.log(`[watch-php] Rollup detected change: ${path.relative(srcDir, id)}`);
+					console.log(`[watch-php] File changed: ${path.relative(srcDir, id)}`);
 					copyPhpFile(id);
 				} else if (change.event === 'delete') {
-					console.log(`[watch-php] Rollup detected deletion: ${path.relative(srcDir, id)}`);
+					console.log(`[watch-php] File deleted: ${path.relative(srcDir, id)}`);
 					deletePhpFile(id);
 				}
-			}
-		},
-		buildEnd() {
-			// Keep watcher alive in watch mode
-		},
-		closeBundle() {
-			// Close watcher when Vite closes
-			if (watcher) {
-				watcher.close();
-				watcher = null;
-				watcherInitialized = false;
 			}
 		},
 	};
