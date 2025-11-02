@@ -16,6 +16,8 @@
  * @package OneNovantaTheme\Blocks
  */
 
+use Aquila\Theme\Template;
+
 //echo '<pre/>';
 //print_r('hisss');
 //print_r($attributes);
@@ -29,7 +31,7 @@ if ( empty( $content ) ) {
 
 $wrapper_attributes = get_block_wrapper_attributes();
 // Get the accordion component.
-\Aquila\Theme\Template::render_component(
+Template::render_component(
 	'accordion',
 	null,
 	[

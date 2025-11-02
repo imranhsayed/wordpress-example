@@ -450,7 +450,10 @@ export default defineConfig( {
 	css: {
 		postcss: './postcss.config.js',
 		preprocessorOptions: {
-			scss: { api: 'modern' },
+			scss: { 
+				api: 'modern',
+				includePaths: [path.resolve(__dirname, 'src')],
+			},
 		},
 	},
 	resolve: { alias: { '@': path.resolve( __dirname, './src' ) } },
