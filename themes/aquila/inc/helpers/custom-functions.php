@@ -151,8 +151,35 @@ function aquila_kses_post( string $data ): string {
 		],
 	];
 
+	$accordion_web_component_args = [
+		'rt-accordion'         => [
+			'class' => true,
+		],
+		'rt-accordion-item'    => [
+			'open-by-default' => true,
+			'aria-expanded'   => true,
+			'expanded'        => true,
+			'class'           => true,
+		],
+		'rt-accordion-handle'  => [
+			'aria-expanded' => true,
+			'class'         => true,
+		],
+		'rt-accordion-content' => [
+			'class' => true,
+		],
+		'button'               => [
+			'aria-expanded' => true,
+			'class'         => true,
+			'tabindex'      => true,
+			'aria-label'    => true,
+			'type'          => true,
+			'id'            => true,
+		],
+	];
+
 	// Updated allowed HTML tags array.
-	$allowed_tags = array_merge( $kses_defaults, $allowed_tags );
+	$allowed_tags = array_merge( $kses_defaults, $allowed_tags, $accordion_web_component_args );
 
 	// Return escaped content.
 	return wp_kses( $data, $allowed_tags );
