@@ -18,6 +18,21 @@ Vite offers significant advantages over traditional WordPress build tools:
 aquila/
 ├── src/                          # Source files
 │   ├── blocks/                   # Custom Gutenberg blocks
+│   │   ├── accordion/            # Parent block
+│   │   │   ├── accordion-item/  # Nested child block ⭐
+│   │   │   │   ├── block.json
+│   │   │   │   ├── index.js
+│   │   │   │   ├── edit.jsx
+│   │   │   │   ├── save.jsx
+│   │   │   │   ├── render.php
+│   │   │   │   ├── editor.scss
+│   │   │   │   └── style.scss
+│   │   │   ├── block.json
+│   │   │   ├── index.js
+│   │   │   ├── edit.jsx
+│   │   │   ├── save.jsx
+│   │   │   ├── render.php
+│   │   │   └── style.scss
 │   │   ├── notice/
 │   │   │   ├── block.json       # Block metadata
 │   │   │   ├── index.jsx        # Block registration
@@ -29,11 +44,25 @@ aquila/
 │   ├── components/               # Reusable components
 │   │   ├── accordion/
 │   │   └── button/
+│   ├── scss/                     # Global SCSS files
+│   │   └── _variables.scss      # SCSS variables (breakpoints, etc.)
 │   ├── style.scss               # Main theme stylesheet
 │   └── index.js                 # Main entry point
 │
 ├── build/                        # Compiled output (auto-generated)
 │   ├── blocks/
+│   │   ├── accordion/
+│   │   │   ├── accordion-item/  # Nested block compiled ⭐
+│   │   │   │   ├── index.js
+│   │   │   │   ├── index.asset.php
+│   │   │   │   ├── style.css
+│   │   │   │   ├── block.json
+│   │   │   │   └── render.php
+│   │   │   ├── index.js
+│   │   │   ├── index.asset.php
+│   │   │   ├── style.css
+│   │   │   ├── block.json
+│   │   │   └── render.php
 │   │   └── notice/
 │   │       ├── index.js         # Compiled JS (IIFE format)
 │   │       ├── index.asset.php  # WordPress dependencies
@@ -47,7 +76,7 @@ aquila/
 ├── inc/                          # PHP classes
 │   ├── AquilaTheme.php          # Main theme class
 │   ├── Assets.php               # Asset enqueuing
-│   ├── Blocks.php               # Block registration
+│   ├── Blocks.php               # Block registration (recursive)
 │   └── helpers/
 │       └── custom-functions.php # Helper functions
 │
@@ -61,36 +90,81 @@ aquila/
 
 The `vite.config.js` file is the heart of the build system. Here's what each part does:
 
-### 1. Entry Point Discovery
+### 1. Entry Point Discovery (Recursive)
 
 ```javascript
 function getEntries() {
   const entries = {};
-  
-  // Auto-discover all blocks
-  const blocksDir = path.resolve(__dirname, 'src/blocks');
-  for (const dir of fs.readdirSync(blocksDir)) {
-    entries[`blocks/${dir}/index`] = path.resolve(blocksDir, dir, 'index.jsx');
-  }
-  
-  // Auto-discover all components
+
+  // Auto-discover components
   const componentsDir = path.resolve(__dirname, 'src/components');
-  for (const dir of fs.readdirSync(componentsDir)) {
-    entries[`components/${dir}/index`] = path.resolve(componentsDir, dir, 'index.js');
+  if (fs.existsSync(componentsDir)) {
+    for (const dir of fs.readdirSync(componentsDir)) {
+      const possibleFiles = ['index.js', 'index.jsx', 'index.ts', 'index.tsx'];
+      for (const file of possibleFiles) {
+        const entry = path.resolve(componentsDir, dir, file);
+        if (fs.existsSync(entry)) {
+          entries[`components/${dir}/index`] = entry;
+          break;
+        }
+      }
+    }
   }
-  
+
+  // Recursively discover all blocks (including nested blocks)
+  const blocksDir = path.resolve(__dirname, 'src/blocks');
+  if (fs.existsSync(blocksDir)) {
+    const scanBlocks = (dir, basePath = '') => {
+      for (const item of fs.readdirSync(dir)) {
+        const itemPath = path.resolve(dir, item);
+        const stat = fs.statSync(itemPath);
+
+        if (stat.isDirectory()) {
+          // Check if this directory has an index file (is a block)
+          const possibleFiles = ['index.js', 'index.jsx', 'index.ts', 'index.tsx'];
+          for (const file of possibleFiles) {
+            const entry = path.resolve(itemPath, file);
+            if (fs.existsSync(entry)) {
+              const entryKey = basePath
+                ? `blocks/${basePath}/${item}/index`
+                : `blocks/${item}/index`;
+              entries[entryKey] = entry;
+              break;
+            }
+          }
+
+          // Recursively scan subdirectories
+          const newBasePath = basePath ? `${basePath}/${item}` : item;
+          scanBlocks(itemPath, newBasePath);
+        }
+      }
+    };
+
+    scanBlocks(blocksDir);
+  }
+
   // Main entry
   entries['index'] = path.resolve(__dirname, 'src/index.js');
-  
+
   return entries;
 }
 ```
 
 **What it does:**
-- Automatically finds all blocks and components
-- Creates separate entry points for each
-- Enables code splitting (each block/component gets its own JS/CSS)
-- No need to manually add entries when creating new blocks
+- ✅ **Recursively scans** for blocks and components (supports nested structures)
+- ✅ Automatically finds blocks like `accordion/accordion-item`
+- ✅ Supports multiple file extensions (`.js`, `.jsx`, `.ts`, `.tsx`)
+- ✅ Creates separate entry points for each block/component
+- ✅ Enables code splitting (each block gets its own JS/CSS bundle)
+- ✅ No need to manually add entries when creating new blocks
+
+**Example output:**
+```
+blocks/accordion/index
+blocks/accordion/accordion-item/index  ← Nested block!
+blocks/notice/index
+blocks/todo-list/index
+```
 
 ### 2. CSS Co-location Plugin
 
@@ -160,24 +234,47 @@ This plugin transforms the code to use WordPress globals:
 - Keeps code scoped and prevents global pollution
 - Compatible with WordPress's script loading system
 
-### 4. Block Metadata & Asset Generation
+### 4. Block Metadata & Asset Generation (Recursive)
 
 ```javascript
 function copyBlockJson() {
   return {
     name: 'copy-block-json',
     writeBundle(options, bundle) {
-      // 1. Copy block.json files
-      fs.copyFileSync(srcBlockJson, destBlockJson);
-      
-      // 2. Copy render.php files
-      fs.copyFileSync(srcRenderPhp, destRenderPhp);
-      
-      // 3. Generate .asset.php files
-      const dependencies = detectDependencies(sourceCode);
-      fs.writeFileSync(assetPhpPath, 
-        `<?php return array('dependencies' => array(${dependencies}), 'version' => '${version}');`
-      );
+      // Helper function to process a single block
+      const processBlock = (blockPath, relativePath) => {
+        // 1. Copy block.json files
+        fs.copyFileSync(srcBlockJson, destBlockJson);
+
+        // 2. Copy render.php files
+        fs.copyFileSync(srcRenderPhp, destRenderPhp);
+
+        // 3. Generate .asset.php files
+        const dependencies = detectDependencies(sourceCode);
+        fs.writeFileSync(assetPhpPath,
+          `<?php return array('dependencies' => array(${dependencies}), 'version' => '${version}');`
+        );
+      };
+
+      // Recursively scan for all blocks (including nested)
+      const scanBlocks = (dir, basePath = '') => {
+        for (const item of fs.readdirSync(dir)) {
+          const itemPath = path.resolve(dir, item);
+          if (fs.statSync(itemPath).isDirectory()) {
+            const relativePath = basePath ? `${basePath}/${item}` : item;
+
+            // Process if this directory has a block.json
+            if (fs.existsSync(path.resolve(itemPath, 'block.json'))) {
+              processBlock(itemPath, relativePath);
+            }
+
+            // Recursively scan subdirectories
+            scanBlocks(itemPath, relativePath);
+          }
+        }
+      };
+
+      scanBlocks(blocksDir);
     }
   };
 }
@@ -185,7 +282,7 @@ function copyBlockJson() {
 
 **What it does:**
 
-#### a) Copies `block.json`
+#### a) Copies `block.json` (Recursively)
 WordPress needs this metadata file to register blocks:
 ```json
 {
@@ -197,7 +294,11 @@ WordPress needs this metadata file to register blocks:
 }
 ```
 
-#### b) Copies `render.php`
+**Supports nested blocks:**
+- `build/blocks/accordion/block.json`
+- `build/blocks/accordion/accordion-item/block.json` ← Nested!
+
+#### b) Copies `render.php` (Recursively)
 For server-side rendered blocks (dynamic blocks):
 ```php
 <?php
@@ -209,13 +310,13 @@ $content = $attributes['content'];
 </div>
 ```
 
-#### c) Generates `.asset.php`
+#### c) Generates `.asset.php` (Recursively)
 WordPress uses this to load dependencies correctly:
 ```php
 <?php return array(
   'dependencies' => array(
     'wp-blocks',
-    'wp-i18n', 
+    'wp-i18n',
     'wp-block-editor',
     'react-jsx-runtime'
   ),
@@ -224,13 +325,23 @@ WordPress uses this to load dependencies correctly:
 ```
 
 **How dependency detection works:**
-1. Scans all `.js/.jsx` files in the block directory
-2. Finds `import` statements
-3. Maps WordPress packages to their script handles:
+1. 🔍 Recursively scans block directories (including nested blocks)
+2. 📄 Reads all `.js/.jsx/.ts/.tsx` files in each block directory
+3. 🔎 Finds `import` statements from WordPress packages
+4. 🗺️ Maps WordPress packages to their script handles:
    - `@wordpress/blocks` → `wp-blocks`
    - `@wordpress/i18n` → `wp-i18n`
+   - `@wordpress/block-editor` → `wp-block-editor`
+   - `@wordpress/components` → `wp-components`
+   - `@wordpress/element` → `wp-element`
    - `react/jsx-runtime` → `react-jsx-runtime`
-4. Generates the `.asset.php` file automatically
+5. ✅ Generates the `.asset.php` file automatically for each block
+
+**Example output for nested blocks:**
+```
+build/blocks/accordion/index.asset.php
+build/blocks/accordion/accordion-item/index.asset.php ← Nested block's assets!
+```
 
 ### 5. Build Configuration
 
@@ -310,17 +421,30 @@ Here's what happens when you run `pnpm run build`:
 
 ## 🎯 WordPress Integration
 
-### How Blocks are Registered
+### How Blocks are Registered (Recursively)
 
 **PHP Side** (`inc/Blocks.php`):
 ```php
-// WordPress scans build/blocks/ directory
-$blocks = glob('build/blocks/*/block.json');
+// WordPress recursively scans build/blocks/ directory for all block.json files
+$iterator = new \RecursiveIteratorIterator(
+  new \RecursiveDirectoryIterator(
+    'build/blocks',
+    \RecursiveDirectoryIterator::SKIP_DOTS
+  ),
+  \RecursiveIteratorIterator::SELF_FIRST
+);
 
+foreach ($iterator as $item) {
+  if ($item->isDir() && file_exists($item->getPathname() . '/block.json')) {
+    $blocks[] = $item->getPathname();
+  }
+}
+
+// Registers all discovered blocks (including nested ones)
 foreach ($blocks as $block) {
   // Registers block using metadata
   register_block_type_from_metadata($block);
-  
+
   // WordPress automatically:
   // 1. Reads block.json
   // 2. Enqueues editorScript (index.js)
@@ -329,6 +453,12 @@ foreach ($blocks as $block) {
   // 5. Uses render callback (render.php) if specified
 }
 ```
+
+**Supports nested blocks:**
+- ✅ `build/blocks/accordion/block.json`
+- ✅ `build/blocks/accordion/accordion-item/block.json` ← Nested block!
+- ✅ `build/blocks/notice/block.json`
+- ✅ Any level of nesting is supported
 
 **JavaScript Side** (`src/blocks/notice/index.jsx`):
 ```javascript
@@ -477,16 +607,88 @@ pnpm run build
 - ✅ Loads dependencies
 - ✅ Shows block in inserter
 
+## 📦 Creating Nested Blocks
+
+Nested blocks (child blocks within parent blocks) are fully supported. Example: `accordion` and `accordion-item`.
+
+### 1. Create Directory Structure
+```bash
+mkdir -p src/blocks/accordion/accordion-item
+```
+
+### 2. Parent Block (`src/blocks/accordion/block.json`)
+```json
+{
+  "apiVersion": 3,
+  "name": "aquila/accordion",
+  "title": "Accordion",
+  "category": "aquila",
+  "editorScript": "file:./index.js",
+  "style": "file:./style.css"
+}
+```
+
+### 3. Child Block (`src/blocks/accordion/accordion-item/block.json`)
+```json
+{
+  "apiVersion": 3,
+  "name": "aquila/accordion-item",
+  "title": "Accordion Item",
+  "category": "aquila",
+  "parent": ["aquila/accordion"],  ← Restricts to parent block
+  "editorScript": "file:./index.js",
+  "style": "file:./style.css"
+}
+```
+
+### 4. Build
+```bash
+pnpm run build
+```
+
+**Vite automatically:**
+- ✅ Discovers both `accordion` and `accordion-item` blocks
+- ✅ Builds them separately with their own JS/CSS bundles
+- ✅ Creates proper directory structure in `build/`
+- ✅ Generates `.asset.php` for each
+
+**Output:**
+```
+build/blocks/
+├── accordion/
+│   ├── index.js
+│   ├── index.asset.php
+│   ├── style.css
+│   └── block.json
+└── accordion/
+    └── accordion-item/
+        ├── index.js
+        ├── index.asset.php
+        ├── style.css
+        └── block.json
+```
+
+**WordPress automatically:**
+- ✅ Registers both blocks
+- ✅ Shows accordion in block inserter
+- ✅ Shows accordion-item only within accordion (due to "parent" restriction)
+
 ## 🐛 Troubleshooting
 
 ### Block not showing in editor?
 
 **Check:**
 1. ✅ `build/blocks/[block-name]/` directory exists
-2. ✅ `block.json` is present
+2. ✅ `block.json` is present with `"inserter": true` (or omit this field)
 3. ✅ `index.js` and `index.asset.php` exist
 4. ✅ Block category exists (register in `inc/Blocks.php`)
-5. ✅ Check browser console for errors
+5. ✅ For nested blocks, check that parent block's `block.json` is copied to `build/`
+6. ✅ Check browser console for errors
+
+**For nested blocks:**
+- Ensure the Vite config is scanning recursively (see configuration above)
+- Check that `build/blocks/parent/child/` directory structure exists
+- Verify both parent and child `block.json` files are in the build output
 
 ### Styles not loading?
 

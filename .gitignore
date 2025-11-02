@@ -68,7 +68,6 @@ dist
 *.sln
 *.sw?
 
-.turbo
 coverage/
 
 /vendor/

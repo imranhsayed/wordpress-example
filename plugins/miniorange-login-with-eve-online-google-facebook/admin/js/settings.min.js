@@ -1,0 +1,1 @@
+jQuery(document).ready(function(){jQuery("#api_help").click(function(){jQuery("#api_instru").toggle()}),jQuery("#toggle2").click(function(){jQuery("#panel2").toggle()}),jQuery("#toggle3").click(function(){jQuery("#panel3").toggle()}),jQuery("#toggle4").click(function(){jQuery("#panel4").toggle()})});

@@ -1,0 +1,122 @@
+/* REST API Advertisement */
+#mo_rest_api_plugin_adv_notice {
+    border-left: 6px solid #012970;
+    padding: 8px 20px 15px;
+    margin: 20px 20px 20px 0;
+    margin-right: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#mo_rest_api_plugin_adv_content {
+    margin: 0 auto;
+}
+
+.mo_rest_api_plugin_adv_title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 15px 0;
+}
+
+.mo_rest_api_plugin_adv_separator {
+    height: 2px;
+    width: 32%;
+    background:rgb(234, 235, 236);
+    margin: 15px auto auto 0;
+    border: none;
+}
+
+.mo_rest_api_plugin_adv_description {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.mo_rest_api_plugin_adv_description a{
+    text-decoration: underline;
+    color:rgb(16, 63, 143);
+}
+
+.mo_rest_api_plugin_adv_description a:hover{
+    color:rgb(9, 45, 107);
+}
+
+.mo_rest_api_plugin_adv_description a:focus{
+    box-shadow: none;
+}
+
+.mo_rest_api_plugin_adv_button {
+    font-size: 14px;
+    padding: 10px 16px;
+    color: #fff;
+    background-color: #012970;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+    margin-right: 10px;
+}
+
+.mo_rest_api_plugin_adv_button:hover {
+    background-color:rgb(8, 33, 75);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.mo_rest_api_plugin_adv_button:active {
+    background-color: #012970;
+}
+
+.mo_rest_api_plugin_adv_test_button {
+    font-size: 14px;
+    padding: 10px 16px;
+    color: #012970;
+    background-color: #fff;
+    border: 1px solid #012970;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.mo_rest_api_plugin_adv_action{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    margin-top: -25px;
+    margin-bottom: -30px;
+}
+
+.mo_rest_api_plugin_adv_logo{
+    opacity: 70%;
+    position: relative;
+    top: -30px;
+}
+
+#mo_rest_api_plugin_adv_action_notice{
+    display: flex;
+}
+
+.mo_rest_api_plugin_security_notice {
+    font-size: 1rem;
+}
+
+#mo_rest_api_plugin_open_endpoints {
+    background-color: #f7f7f7;
+    padding: 1rem;
+    border-radius: 12px;
+    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+}
+
+#mo_rest_api_plugin_open_endpoints li {
+    list-style-type: circle;
+    margin-left: 1rem;
+}
+
+#mo_rest_api_plugin_open_endpoints li a {
+    text-decoration: none;
+}
+
+/* REST API Advertisement Ends*/

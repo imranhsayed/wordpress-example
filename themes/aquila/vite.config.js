@@ -25,16 +25,35 @@ function getEntries() {
 	// --- Blocks ---
 	const blocksDir = path.resolve(__dirname, 'src/blocks');
 	if (fs.existsSync(blocksDir)) {
-		for (const dir of fs.readdirSync(blocksDir)) {
-			const possibleFiles = ['index.js', 'index.jsx', 'index.ts', 'index.tsx'];
-			for (const file of possibleFiles) {
-				const entry = path.resolve(blocksDir, dir, file);
-				if (fs.existsSync(entry)) {
-					entries[`blocks/${dir}/index`] = entry;
-					break;
+		// Recursively scan for blocks
+		const scanBlocks = (dir, basePath = '') => {
+			for (const item of fs.readdirSync(dir)) {
+				const itemPath = path.resolve(dir, item);
+				const stat = fs.statSync(itemPath);
+
+				if (stat.isDirectory()) {
+					// Check if this directory has an index file (is a block)
+					const possibleFiles = ['index.js', 'index.jsx', 'index.ts', 'index.tsx'];
+					let foundEntry = false;
+
+					for (const file of possibleFiles) {
+						const entry = path.resolve(itemPath, file);
+						if (fs.existsSync(entry)) {
+							const entryKey = basePath ? `blocks/${basePath}/${item}/index` : `blocks/${item}/index`;
+							entries[entryKey] = entry;
+							foundEntry = true;
+							break;
+						}
+					}
+
+					// Recursively scan subdirectories
+					const newBasePath = basePath ? `${basePath}/${item}` : item;
+					scanBlocks(itemPath, newBasePath);
 				}
 			}
-		}
+		};
+
+		scanBlocks(blocksDir);
 	}
 	
 	// --- Global entry ---
@@ -134,95 +153,114 @@ function copyBlockJson() {
 		name: 'copy-block-json',
 		apply: 'build',
 		writeBundle(options, bundle) {
-			// Copy block.json files for blocks and generate .asset.php
+			// Helper function to process a single block
+			const processBlock = (blockPath, relativePath) => {
+				const srcBlockJson = path.resolve(blockPath, 'block.json');
+				const destBlockJson = path.resolve(__dirname, 'build/blocks', relativePath, 'block.json');
+
+				if (fs.existsSync(srcBlockJson)) {
+					// Ensure destination directory exists
+					const destDir = path.dirname(destBlockJson);
+					if (!fs.existsSync(destDir)) {
+						fs.mkdirSync(destDir, { recursive: true });
+					}
+
+					// Copy the file
+					fs.copyFileSync(srcBlockJson, destBlockJson);
+					console.log(`✓ Copied block.json for ${relativePath}`);
+				}
+
+				// Also copy render.php if it exists
+				const srcRenderPhp = path.resolve(blockPath, 'render.php');
+				const destRenderPhp = path.resolve(__dirname, 'build/blocks', relativePath, 'render.php');
+
+				if (fs.existsSync(srcRenderPhp)) {
+					fs.copyFileSync(srcRenderPhp, destRenderPhp);
+					console.log(`✓ Copied render.php for ${relativePath}`);
+				}
+
+				// Generate .asset.php file for the block
+				const blockIndexJs = `blocks/${relativePath}/index.js`;
+				if (bundle[blockIndexJs]) {
+					// Read ALL source files in the block directory to detect imports
+					let allSourceCode = '';
+
+					// Read all .js, .jsx, .ts, .tsx files in the block directory
+					if (fs.existsSync(blockPath)) {
+						const files = fs.readdirSync(blockPath);
+						for (const file of files) {
+							if (/\.(js|jsx|ts|tsx)$/.test(file)) {
+								const filePath = path.resolve(blockPath, file);
+								allSourceCode += fs.readFileSync(filePath, 'utf-8') + '\n';
+							}
+						}
+					}
+
+					// Map of external modules to their WordPress handles
+					const wpDependencies = {
+						'@wordpress/blocks': 'wp-blocks',
+						'@wordpress/i18n': 'wp-i18n',
+						'@wordpress/block-editor': 'wp-block-editor',
+						'@wordpress/components': 'wp-components',
+						'@wordpress/data': 'wp-data',
+						'@wordpress/element': 'wp-element',
+						'@wordpress/api-fetch': 'wp-api-fetch',
+						'@wordpress/hooks': 'wp-hooks',
+						'@wordpress/dom-ready': 'wp-dom-ready',
+					};
+
+					const dependencies = new Set();
+
+					// Detect dependencies from all source code
+					for (const [module, handle] of Object.entries(wpDependencies)) {
+						if (allSourceCode.includes(`from '${module}'`) ||
+						    allSourceCode.includes(`from "${module}"`)) {
+							dependencies.add(handle);
+						}
+					}
+
+					// Always include react-jsx-runtime for JSX
+					dependencies.add('react-jsx-runtime');
+
+					// Convert Set to sorted array
+					const depsArray = Array.from(dependencies).sort();
+
+					// Generate a version hash based on file modification time
+					const version = Date.now().toString(36);
+
+					// Create .asset.php content
+					const assetPhpContent = `<?php return array('dependencies' => array(${depsArray.map(d => `'${d}'`).join(', ')}), 'version' => '${version}');\n`;
+
+					// Write .asset.php file
+					const assetPhpPath = path.resolve(__dirname, 'build/blocks', relativePath, 'index.asset.php');
+					fs.writeFileSync(assetPhpPath, assetPhpContent);
+					console.log(`✓ Generated index.asset.php for ${relativePath} with dependencies: [${depsArray.join(', ')}]`);
+				}
+			};
+
+			// Recursively scan for blocks
 			const blocksDir = path.resolve(__dirname, 'src/blocks');
 			if (fs.existsSync(blocksDir)) {
-				for (const dir of fs.readdirSync(blocksDir)) {
-					const srcBlockJson = path.resolve(blocksDir, dir, 'block.json');
-					const destBlockJson = path.resolve(__dirname, 'build/blocks', dir, 'block.json');
-					
-					if (fs.existsSync(srcBlockJson)) {
-						// Ensure destination directory exists
-						const destDir = path.dirname(destBlockJson);
-						if (!fs.existsSync(destDir)) {
-							fs.mkdirSync(destDir, { recursive: true });
-						}
-						
-						// Copy the file
-						fs.copyFileSync(srcBlockJson, destBlockJson);
-						console.log(`✓ Copied block.json for ${dir}`);
-					}
-					
-					// Also copy render.php if it exists
-					const srcRenderPhp = path.resolve(blocksDir, dir, 'render.php');
-					const destRenderPhp = path.resolve(__dirname, 'build/blocks', dir, 'render.php');
-					
-					if (fs.existsSync(srcRenderPhp)) {
-						fs.copyFileSync(srcRenderPhp, destRenderPhp);
-						console.log(`✓ Copied render.php for ${dir}`);
-					}
-					
-					// Generate .asset.php file for the block
-					const blockIndexJs = `blocks/${dir}/index.js`;
-					if (bundle[blockIndexJs]) {
-						const chunk = bundle[blockIndexJs];
-						
-						// Read ALL source files in the block directory to detect imports
-						const blockSrcDir = path.resolve(blocksDir, dir);
-						let allSourceCode = '';
-						
-						// Read all .js, .jsx, .ts, .tsx files in the block directory
-						if (fs.existsSync(blockSrcDir)) {
-							const files = fs.readdirSync(blockSrcDir);
-							for (const file of files) {
-								if (/\.(js|jsx|ts|tsx)$/.test(file)) {
-									const filePath = path.resolve(blockSrcDir, file);
-									allSourceCode += fs.readFileSync(filePath, 'utf-8') + '\n';
-								}
+				const scanBlocks = (dir, basePath = '') => {
+					for (const item of fs.readdirSync(dir)) {
+						const itemPath = path.resolve(dir, item);
+						const stat = fs.statSync(itemPath);
+
+						if (stat.isDirectory()) {
+							const relativePath = basePath ? `${basePath}/${item}` : item;
+
+							// Check if this directory has a block.json (is a block)
+							if (fs.existsSync(path.resolve(itemPath, 'block.json'))) {
+								processBlock(itemPath, relativePath);
 							}
+
+							// Recursively scan subdirectories
+							scanBlocks(itemPath, relativePath);
 						}
-						
-						// Map of external modules to their WordPress handles
-						const wpDependencies = {
-							'@wordpress/blocks': 'wp-blocks',
-							'@wordpress/i18n': 'wp-i18n',
-							'@wordpress/block-editor': 'wp-block-editor',
-							'@wordpress/components': 'wp-components',
-							'@wordpress/data': 'wp-data',
-							'@wordpress/element': 'wp-element',
-							'@wordpress/api-fetch': 'wp-api-fetch',
-							'@wordpress/hooks': 'wp-hooks',
-							'@wordpress/dom-ready': 'wp-dom-ready',
-						};
-						
-						const dependencies = new Set();
-						
-						// Detect dependencies from all source code
-						for (const [module, handle] of Object.entries(wpDependencies)) {
-							if (allSourceCode.includes(`from '${module}'`) || 
-							    allSourceCode.includes(`from "${module}"`)) {
-								dependencies.add(handle);
-							}
-						}
-						
-						// Always include react-jsx-runtime for JSX
-						dependencies.add('react-jsx-runtime');
-						
-						// Convert Set to sorted array
-						const depsArray = Array.from(dependencies).sort();
-						
-						// Generate a version hash based on file modification time
-						const version = Date.now().toString(36);
-						
-						// Create .asset.php content
-						const assetPhpContent = `<?php return array('dependencies' => array(${depsArray.map(d => `'${d}'`).join(', ')}), 'version' => '${version}');\n`;
-						
-						// Write .asset.php file
-						const assetPhpPath = path.resolve(__dirname, 'build/blocks', dir, 'index.asset.php');
-						fs.writeFileSync(assetPhpPath, assetPhpContent);
-						console.log(`✓ Generated index.asset.php for ${dir} with dependencies: [${depsArray.join(', ')}]`);
 					}
-				}
+				};
+
+				scanBlocks(blocksDir);
 			}
 		},
 	};

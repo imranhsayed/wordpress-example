@@ -6,7 +6,7 @@ A modern WordPress development environment demonstrating best practices for them
 
 This `wp-content` directory showcases a production-ready WordPress setup using:
 
-- **Monorepo Management**: PNPM workspaces + Turborepo
+- **Monorepo Management**: PNPM workspaces
 - **Modern Build Tools**: Vite for theme assets, @wordpress/scripts for plugins
 - **Component Architecture**: Reusable blocks and components
 - **Type Safety**: PHP namespaces and modern JavaScript
@@ -16,10 +16,6 @@ This `wp-content` directory showcases a production-ready WordPress setup using:
 ### Package Management
 - **PNPM** (v10.15.1+): Fast, disk-efficient package manager
 - **PNPM Workspaces**: Manages multiple packages (themes/plugins) in a single repository
-- **Turborepo** (v2.5.6): High-performance build system for monorepos
-  - Intelligent caching
-  - Parallel task execution
-  - Dependency-aware builds
 
 ### Build Tools
 
@@ -63,22 +59,21 @@ function wrapInIIFE() {
 - 🔧 Modern JavaScript (ES2020+)
 - 🎨 SCSS/PostCSS support
 
-### 2. **Monorepo with Turborepo**
+### 2. **Monorepo with PNPM Workspaces**
 Efficient workspace management across themes and plugins:
 
 ```json
 {
-  "tasks": {
-    "dev": { "cache": false, "persistent": true },
-    "build": { "dependsOn": ["^build"], "outputs": ["build/**"] }
-  }
+  "workspaces": [
+    "themes/aquila*"
+  ]
 }
 ```
 
 **Benefits:**
-- 🚀 Parallel builds across packages
-- 💾 Intelligent caching (only rebuild what changed)
-- 📊 Task orchestration and dependencies
+- 🚀 Parallel execution across packages
+- 📦 Shared dependencies
+- 🔧 Consistent tooling
 
 ### 3. **Custom Gutenberg Blocks**
 Both theme and plugin include custom blocks:
@@ -116,7 +111,6 @@ Sophisticated asset handling system:
 wp-content/
 ├── package.json              # Root workspace config
 ├── pnpm-workspace.yaml       # PNPM workspace definition
-├── turbo.json               # Turborepo configuration
 │
 ├── themes/
 │   └── aquila/              # Custom theme with Vite
@@ -265,7 +259,6 @@ src/blocks/my-block/
 ## 📚 Additional Resources
 
 - [Vite Documentation](https://vitejs.dev/)
-- [Turborepo Documentation](https://turbo.build/repo)
 - [WordPress Block Editor Handbook](https://developer.wordpress.org/block-editor/)
 - [PNPM Workspaces](https://pnpm.io/workspaces)
 

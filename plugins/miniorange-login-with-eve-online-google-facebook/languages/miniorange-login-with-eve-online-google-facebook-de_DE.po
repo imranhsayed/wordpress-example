@@ -1,0 +1,465 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-01-29 15:06+0530\n"
+"PO-Revision-Date: 2021-01-29 15:15+0530\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.4.2\n"
+"Last-Translator: \n"
+"Language: de_DE\n"
+
+#: class-mooauth-widget.php:14
+msgid "Login to Apps with OAuth"
+msgstr ""
+
+#: class-mooauth-widget.php:128
+msgid "Howdy, "
+msgstr ""
+
+#: mo_oauth_settings.php:123
+msgid "Every Three minutes"
+msgstr ""
+
+#: mo_oauth_settings.php:128
+msgid "Every Five minutes"
+msgstr ""
+
+#: mo_oauth_settings.php:133
+msgid "Every Ten minutes"
+msgstr ""
+
+#: mo_oauth_settings.php:138
+msgid "Every Three days"
+msgstr ""
+
+#: mo_oauth_settings.php:143
+msgid "Every Five days"
+msgstr ""
+
+#: pointers.php:6
+msgid "Test Your Application Configuration"
+msgstr ""
+
+#: pointers.php:7
+msgid ""
+"Click here to see the list of attributes provided by your OAuth Provider. If "
+"you are getting any error, please refer the FAQ tab."
+msgstr ""
+
+#: pointers.php:17
+msgid "Configure Your Application"
+msgstr ""
+
+#: pointers.php:18
+msgid "Need help with configuration? Click on How to Configure?"
+msgstr ""
+
+#: pointers.php:28
+msgid "We are here!!"
+msgstr ""
+
+#: pointers.php:29
+msgid "Get in touch with us and we will help you setup the plugin in no time."
+msgstr ""
+
+#: pointers.php:39
+msgid "App List"
+msgstr ""
+
+#: pointers.php:40
+msgid "Click here to Update or Delete the application."
+msgstr ""
+
+#: pointers.php:48
+msgid "Select your OAuth Provider"
+msgstr ""
+
+#: pointers.php:49
+msgid "Choose your OAuth Provider from the list of OAuth Providers"
+msgstr ""
+
+#: pointers.php:61
+msgid "Mapping Attributes"
+msgstr ""
+
+#: pointers.php:62
+msgid ""
+"Enter the appropriate values(attribute names) from the Test Configuration "
+"table."
+msgstr ""
+
+#: admin/class-mo-oauth-client-admin.php:40
+#: admin/class-mo-oauth-client-admin.php:44
+#: admin/partials/class-mo-oauth-client-admin-menu.php:124
+msgid "Configure OAuth"
+msgstr ""
+
+#: admin/partials/class-mo-oauth-client-admin-menu.php:93
+msgid "OAuth Single Sign On"
+msgstr ""
+
+#: admin/partials/class-mo-oauth-client-admin-menu.php:94
+msgid "Premium plans"
+msgstr ""
+
+#: admin/partials/class-mo-oauth-client-admin-menu.php:95
+msgid "Troubleshooting"
+msgstr ""
+
+#: admin/partials/class-mo-oauth-client-admin-menu.php:96
+msgid "Ask questions on our forum"
+msgstr ""
+
+#: admin/partials/class-mo-oauth-client-admin-menu.php:97
+msgid "Feature Details"
+msgstr ""
+
+#: admin/partials/class-mo-oauth-client-admin-menu.php:98
+msgid "Download Error Logs"
+msgstr ""
+
+#: admin/partials/class-mo-oauth-client-admin-menu.php:125
+msgid "Attribute/Role Mapping"
+msgstr ""
+
+#: admin/partials/class-mo-oauth-client-admin-menu.php:126
+msgid "Login Settings"
+msgstr ""
+
+#: admin/partials/class-mo-oauth-client-admin-menu.php:127
+msgid "Login Button Customization"
+msgstr ""
+
+#: admin/partials/class-mo-oauth-client-admin-menu.php:128
+msgid "Trials Available"
+msgstr ""
+
+#: admin/partials/class-mo-oauth-client-admin-menu.php:130
+msgid "Account Setup"
+msgstr ""
+
+#: admin/partials/class-mo-oauth-client-admin-menu.php:131
+msgid "Add-ons"
+msgstr ""
+
+#: admin/partials/apps/partials/addapp.php:16
+msgid "Add Application"
+msgstr ""
+
+#: admin/partials/apps/partials/addapp.php:61
+msgid "Application:"
+msgstr ""
+
+#: admin/partials/apps/partials/addapp.php:65
+msgid "Change Application"
+msgstr ""
+
+#: admin/partials/apps/partials/addapp.php:68
+msgid "Redirect / Callback URL: "
+msgstr ""
+
+#: admin/partials/apps/partials/addapp.php:68
+msgid "Editable in "
+msgstr ""
+
+#: admin/partials/apps/partials/addapp.php:76
+msgid "App Name"
+msgstr ""
+
+#: admin/partials/apps/partials/addapp.php:76
+#: admin/partials/apps/partials/addapp.php:107
+#: admin/partials/apps/partials/addapp.php:113
+#: admin/partials/apps/partials/addapp.php:118
+#: admin/partials/apps/partials/addapp.php:123
+#, php-format
+msgid "%s"
+msgstr ""
+
+#: admin/partials/apps/partials/addapp.php:87
+msgid "Client ID:"
+msgstr ""
+
+#: admin/partials/apps/partials/addapp.php:91
+msgid "Client Secret:"
+msgstr ""
+
+#: admin/partials/apps/partials/addapp.php:107
+msgid "Domain:"
+msgstr ""
+
+#: admin/partials/apps/partials/addapp.php:113
+msgid " Tenant:"
+msgstr ""
+
+#: admin/partials/apps/partials/addapp.php:118
+msgid "Policy:"
+msgstr ""
+
+#: admin/partials/apps/partials/addapp.php:123
+msgid "Realm:"
+msgstr ""
+
+#: admin/partials/apps/partials/addapp.php:132
+msgid "Scope:"
+msgstr ""
+
+#: admin/partials/apps/partials/addapp.php:137
+msgid "Authorize Endpoint:"
+msgstr ""
+
+#: admin/partials/apps/partials/addapp.php:141
+msgid "Access Token Endpoint:"
+msgstr ""
+
+#: admin/partials/apps/partials/addapp.php:146
+msgid "Get User Info Endpoint:"
+msgstr ""
+
+#: admin/partials/apps/partials/addapp.php:153
+msgid "Send client credentials in:"
+msgstr ""
+
+#: admin/partials/apps/partials/addapp.php:158
+msgid "State Parameter :"
+msgstr ""
+
+#: admin/partials/apps/partials/addapp.php:159
+msgid "Send state parameter"
+msgstr ""
+
+#: admin/partials/apps/partials/addapp.php:163
+msgid "login button:"
+msgstr ""
+
+#: admin/partials/apps/partials/addapp.php:164
+msgid "Show on login page"
+msgstr ""
+
+#: admin/partials/apps/partials/attr-role-mapping.php:26
+msgid "Attribute Mapping "
+msgstr ""
+
+#: admin/partials/apps/partials/attr-role-mapping.php:26
+msgid "required for SSO & ACCOUNT LINKING "
+msgstr ""
+
+#: admin/partials/apps/partials/attr-role-mapping.php:27
+msgid "NOTE : "
+msgstr ""
+
+#: admin/partials/apps/partials/attr-role-mapping.php:27
+msgid ""
+"Please note that, with free plugin auto-creation for only 10 user accounts "
+"is allowed during SSO, but you can manually add users to WordPress."
+msgstr ""
+"Bitte beachten Sie, dass mit dem kostenlosen Plugin die automatische "
+"Erstellung für nur 10 Benutzerkonten während SSO zulässig ist. Sie können "
+"Benutzer jedoch manuell zu WordPress hinzufügen."
+
+#: admin/partials/apps/partials/attr-role-mapping.php:28
+msgid "Do "
+msgstr ""
+
+#: admin/partials/apps/partials/attr-role-mapping.php:28
+msgid "Test Configuration"
+msgstr ""
+
+#: admin/partials/apps/partials/attr-role-mapping.php:28
+msgid " to get configuration for attribute mapping."
+msgstr ""
+
+#: admin/partials/apps/partials/attr-role-mapping.php:34
+msgid "Username:"
+msgstr ""
+
+#: admin/partials/apps/partials/defaultapps.php:4
+msgid "Select application"
+msgstr ""
+
+#: admin/partials/apps/partials/defaultapps.php:6
+msgid "OAuth / OpenID Connect Providers"
+msgstr ""
+
+#: admin/partials/apps/partials/defaultapps.php:8
+msgid "Pre-Configured Applications"
+msgstr ""
+
+#: admin/partials/apps/partials/defaultapps.php:8
+msgid ""
+"By selecting pre-configured applications, the configuration would already be "
+"half-done!"
+msgstr ""
+
+#: admin/partials/apps/partials/defaultapps.php:26
+msgid "Custom Applications"
+msgstr ""
+
+#: admin/partials/apps/partials/defaultapps.php:26
+msgid ""
+"Your provider is not in the list? You can select the type of your provider "
+"and configure it yourself!"
+msgstr ""
+
+#: admin/partials/apps/partials/grant-settings.php:9
+msgid "Grant Settings"
+msgstr ""
+
+#: admin/partials/apps/partials/grant-settings.php:14
+msgid "Select Grant Type:"
+msgstr ""
+
+#: admin/partials/apps/partials/grant-settings.php:15
+msgid "Authorization Code Grant"
+msgstr ""
+
+#: admin/partials/apps/partials/grant-settings.php:17
+msgid "The Authorization Code grant type is used by web and mobile apps."
+msgstr ""
+
+#: admin/partials/apps/partials/grant-settings.php:18
+msgid ""
+"It requires the client to exchange authorization code with access token from "
+"the server."
+msgstr ""
+
+#: admin/partials/apps/partials/grant-settings.php:19
+msgid ""
+"If you have doubt on which settings to use, you can leave this checked and "
+"disable all others."
+msgstr ""
+
+#: admin/partials/apps/partials/grant-settings.php:21
+msgid "Implicit Grant"
+msgstr ""
+
+#: admin/partials/apps/partials/grant-settings.php:23
+msgid ""
+"The Implicit grant type is a simplified version of the Authorization Code "
+"Grant flow."
+msgstr ""
+
+#: admin/partials/apps/partials/grant-settings.php:23
+msgid "OAuth providers directly offer access token when using this grant type."
+msgstr ""
+
+#: admin/partials/apps/partials/grant-settings.php:25
+msgid "Password Grant"
+msgstr ""
+
+#: admin/partials/apps/partials/grant-settings.php:27
+msgid ""
+"Password grant is used by application to exchange user's credentials for "
+"access token."
+msgstr ""
+
+#: admin/partials/apps/partials/grant-settings.php:28
+msgid "This, generally, should be used by internal applications."
+msgstr ""
+
+#: admin/partials/apps/partials/grant-settings.php:30
+msgid "Refresh Token Grant"
+msgstr ""
+
+#: admin/partials/apps/partials/grant-settings.php:32
+msgid "The Refresh Token grant type is used by clients."
+msgstr ""
+
+#: admin/partials/apps/partials/grant-settings.php:33
+msgid "This can help in keeping user session persistent."
+msgstr ""
+
+#: admin/partials/apps/partials/grant-settings.php:37
+msgid "JWT Validation & PKCE"
+msgstr ""
+
+#: admin/partials/apps/partials/grant-settings.php:38
+msgid "to know how this is useful."
+msgstr ""
+
+#: admin/partials/apps/partials/grant-settings.php:42
+msgid "Enable JWT Verification:"
+msgstr ""
+
+#: admin/partials/apps/partials/grant-settings.php:46
+msgid "JWT Signing Algorithm:"
+msgstr ""
+
+#: admin/partials/apps/partials/grant-settings.php:58
+msgid "PKCE (Proof Key for Code Exchange):"
+msgstr ""
+
+#: admin/partials/apps/partials/grant-settings.php:62
+msgid ""
+"PKCE can be used with Authorization Code Grant and users aren't required to "
+"provide a client_secret."
+msgstr ""
+
+#: admin/partials/apps/partials/grant-settings.php:67
+msgid "Grant Type Settings and JWT Validation & PKCE are configurable in "
+msgstr ""
+
+#: admin/partials/apps/partials/grant-settings.php:67
+msgid " versions of the plugin."
+msgstr ""
+
+#: admin/partials/support/class-mo-oauth-client-support.php:14
+msgid "Contact Us"
+msgstr ""
+
+#: admin/partials/support/class-mo-oauth-client-support.php:15
+msgid "Need any help? Couldn't find an answer in "
+msgstr ""
+
+#: admin/partials/support/class-mo-oauth-client-support.php:15
+msgid "Just send us a query so we can help you."
+msgstr ""
+
+#: admin/partials/support/class-mo-oauth-client-support.php:31
+msgid "Send Plugin Configuration"
+msgstr ""
+
+#: admin/partials/support/class-mo-oauth-client-support.php:34
+msgid "We will not be sending your Client IDs or Client Secrets."
+msgstr ""
+
+#: admin/partials/support/class-mo-oauth-client-support.php:40
+msgid "If you want custom features in the plugin, just drop an email at "
+msgstr ""
+
+#: admin/partials/support/class-mo-oauth-client-support.php:72
+msgid "Setup a Call / Screen-share session"
+msgstr ""
+
+#: admin/partials/support/class-mo-oauth-client-support.php:78
+msgid "Email:"
+msgstr ""
+
+#: admin/partials/support/class-mo-oauth-client-support.php:82
+msgid "Issue:"
+msgstr ""
+
+#: admin/partials/support/class-mo-oauth-client-support.php:91
+msgid "Have you checked the setup guide "
+msgstr ""
+
+#: admin/partials/support/class-mo-oauth-client-support.php:98
+msgid "Date:"
+msgstr ""
+
+#: admin/partials/support/class-mo-oauth-client-support.php:102
+msgid "Time(Local):"
+msgstr ""
+
+#: admin/partials/support/class-mo-oauth-client-support.php:110
+msgid "We are available from 3:30 to 18:30 UTC"
+msgstr ""

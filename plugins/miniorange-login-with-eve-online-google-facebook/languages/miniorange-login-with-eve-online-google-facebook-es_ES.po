@@ -1,0 +1,1296 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-02-02 18:15+0530\n"
+"PO-Revision-Date: 2021-02-05 15:11+0530\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.4.2\n"
+"Last-Translator: \n"
+"Language: es_ES\n"
+
+#: class-mooauth-widget.php:14
+msgid "Login to Apps with OAuth"
+msgstr "Iniciar sesión en aplicaciones con OAuthPre-Configured Applications"
+
+#: class-mooauth-widget.php:128
+msgid "Howdy, "
+msgstr "Hola, "
+
+#: class-mooauth-widget.php:458
+#: admin/partials/apps/partials/attr-role-mapping.php:28
+#: admin/partials/apps/partials/updateapp.php:153
+msgid "Test Configuration"
+msgstr "Configuración de prueba"
+
+#: class-mooauth-widget.php:458
+msgid "Attribute Name"
+msgstr "Nombre del Atributo"
+
+#: class-mooauth-widget.php:458
+msgid "Attribute Value"
+msgstr "Valor de atributo"
+
+#: mo_oauth_settings.php:123
+msgid "Every Three minutes"
+msgstr "Cada tres minutos"
+
+#: mo_oauth_settings.php:128
+msgid "Every Five minutes"
+msgstr "Cada cinco minutos"
+
+#: mo_oauth_settings.php:133
+msgid "Every Ten minutes"
+msgstr "Cada diez minutos"
+
+#: mo_oauth_settings.php:138
+msgid "Every Three days"
+msgstr "Cada tres días"
+
+#: mo_oauth_settings.php:143
+msgid "Every Five days"
+msgstr "Cada cinco dias"
+
+#: pointers.php:6
+msgid "Test Your Application Configuration"
+msgstr "Pruebe la configuración de su aplicación"
+
+#: pointers.php:7
+msgid ""
+"Click here to see the list of attributes provided by your OAuth Provider. If "
+"you are getting any error, please refer the FAQ tab."
+msgstr ""
+"Haga clic aquí para ver la lista de atributos proporcionada por su proveedor "
+"de OAuth. Si recibe algún error, consulte la pestaña de preguntas frecuentes."
+
+#: pointers.php:17
+msgid "Configure Your Application"
+msgstr "Configure su aplicación"
+
+#: pointers.php:18
+msgid "Need help with configuration? Click on How to Configure?"
+msgstr "¿Necesitas ayuda con la configuración? Haga clic en ¿Cómo configurar?"
+
+#: pointers.php:28
+msgid "We are here!!"
+msgstr "Nosotros estamos aqui !!"
+
+#: pointers.php:29
+msgid "Get in touch with us and we will help you setup the plugin in no time."
+msgstr ""
+"Póngase en contacto con nosotros y lo ayudaremos a configurar el complemento "
+"en poco tiempo."
+
+#: pointers.php:39
+msgid "App List"
+msgstr "Lista de aplicaciones"
+
+#: pointers.php:40
+msgid "Click here to Update or Delete the application."
+msgstr "Haga clic aquí para actualizar o eliminar la aplicación."
+
+#: pointers.php:48
+msgid "Select your OAuth Provider"
+msgstr "Seleccione su proveedor de OAuth"
+
+#: pointers.php:49
+msgid "Choose your OAuth Provider from the list of OAuth Providers"
+msgstr "Elija su proveedor OAuth de la lista de proveedores OAuth"
+
+#: pointers.php:61
+msgid "Mapping Attributes"
+msgstr "Asignación de atributos"
+
+#: pointers.php:62
+msgid ""
+"Enter the appropriate values(attribute names) from the Test Configuration "
+"table."
+msgstr ""
+"Ingrese los valores apropiados (nombres de atributos) de la tabla "
+"Configuración de prueba."
+
+#: admin/class-mo-oauth-client-admin.php:40
+#: admin/class-mo-oauth-client-admin.php:44
+#: admin/partials/class-mo-oauth-client-admin-menu.php:124
+msgid "Configure OAuth"
+msgstr "Configurar OAuth"
+
+#: admin/partials/class-mo-oauth-client-admin-menu.php:93
+msgid "OAuth Single Sign On"
+msgstr "Inicio de sesión único de OAuth"
+
+#: admin/partials/class-mo-oauth-client-admin-menu.php:94
+msgid "Premium plans"
+msgstr "Planes premium"
+
+#: admin/partials/class-mo-oauth-client-admin-menu.php:95
+msgid "Troubleshooting"
+msgstr "Solución de problemas"
+
+#: admin/partials/class-mo-oauth-client-admin-menu.php:96
+msgid "Ask questions on our forum"
+msgstr "Haz preguntas en nuestro foro"
+
+#: admin/partials/class-mo-oauth-client-admin-menu.php:97
+msgid "Feature Details"
+msgstr "Detalles de la característica"
+
+#: admin/partials/class-mo-oauth-client-admin-menu.php:98
+msgid "Download Error Logs"
+msgstr "Descargar registros de errores"
+
+#: admin/partials/class-mo-oauth-client-admin-menu.php:103
+msgid "Full Feature List"
+msgstr "Lista completa de funciones"
+
+#: admin/partials/class-mo-oauth-client-admin-menu.php:103
+msgid "Get License Keys"
+msgstr "Obtener claves de licencia"
+
+#: admin/partials/class-mo-oauth-client-admin-menu.php:125
+msgid "Attribute/Role Mapping"
+msgstr "Asignación de atributos / roles"
+
+#: admin/partials/class-mo-oauth-client-admin-menu.php:126
+msgid "Login Settings"
+msgstr "Configuración de inicio de sesión"
+
+#: admin/partials/class-mo-oauth-client-admin-menu.php:127
+msgid "Login Button Customization"
+msgstr "Personalización del botón de inicio de sesión"
+
+#: admin/partials/class-mo-oauth-client-admin-menu.php:128
+msgid "Trials Available"
+msgstr "Ensayos disponibles"
+
+#: admin/partials/class-mo-oauth-client-admin-menu.php:130
+msgid "Account Setup"
+msgstr "Configuracion de cuenta"
+
+#: admin/partials/class-mo-oauth-client-admin-menu.php:131
+msgid "Add-ons"
+msgstr "Complementos"
+
+#: admin/partials/class-mo-oauth-client-admin-menu.php:200
+msgid ""
+"Looking for a User Storage/OAuth Server? We have a B2C Service(Cloud IDP) "
+"which can scale to hundreds of millions of consumer identities. You can"
+msgstr ""
+"¿Busca un servidor de almacenamiento de usuario / OAuth? Tenemos un servicio "
+"B2C (Cloud IDP) que puede escalar a cientos de millones de identidades de "
+"consumidores. Usted puede"
+
+#: admin/partials/class-mo-oauth-client-admin-menu.php:200
+msgid "click here"
+msgstr "haga clic aquí"
+
+#: admin/partials/class-mo-oauth-client-admin-menu.php:200
+msgid "to find more about it."
+msgstr "para obtener más información al respecto."
+
+#: admin/partials/account/partials/register.php:13
+msgid "Register with miniOrange"
+msgstr "Registrarse con miniOrange"
+
+#: admin/partials/account/partials/register.php:19
+msgid "Why should I register?"
+msgstr "¿Por qué debería registrarme?"
+
+#: admin/partials/account/partials/register.php:21
+msgid ""
+"You should register so that in case you need help, we can help you with step "
+"by step instructions."
+msgstr ""
+"Debe registrarse para que, en caso de que necesite ayuda, podamos ayudarlo "
+"con instrucciones paso a paso."
+
+#: admin/partials/account/partials/register.php:22
+msgid ""
+"You will also need a miniOrange account to upgrade to the premium version of "
+"the plugins."
+msgstr ""
+"También necesitará una cuenta miniOrange para actualizar a la versión "
+"premium de los complementos."
+
+#: admin/partials/account/partials/register.php:22
+msgid ""
+"We do not store any information except the email that you will use to "
+"register with us."
+msgstr ""
+"No almacenamos ninguna información excepto el correo electrónico que "
+"utilizará para registrarse con nosotros."
+
+#: admin/partials/account/partials/register.php:74
+msgid "Register"
+msgstr "Registrarse"
+
+#: admin/partials/account/partials/register.php:75
+msgid "Already have an account?"
+msgstr "¿Ya tienes una cuenta?"
+
+#: admin/partials/addons/class-mo-oauth-client-addons.php:156
+msgid "Check out our add-ons :"
+msgstr "Consulte nuestros complementos:"
+
+#: admin/partials/addons/class-mo-oauth-client-addons.php:167
+msgid "Page & Post Restriction"
+msgstr "Restricción de página y publicación"
+
+#: admin/partials/addons/class-mo-oauth-client-addons.php:170
+msgid ""
+"Allows to restrict access to WordPress pages/posts based on user roles and "
+"their login status, thereby preventing them from unauthorized access."
+msgstr ""
+"Permite restringir el acceso a las páginas / publicaciones de WordPress "
+"según los roles del usuario y su estado de inicio de sesión, evitando así el "
+"acceso no autorizado."
+
+#: admin/partials/addons/class-mo-oauth-client-addons.php:182
+msgid "Two Factor Authentication"
+msgstr "Autenticación de dos factores"
+
+#: admin/partials/addons/class-mo-oauth-client-addons.php:185
+msgid "Supported 2FA methods:- "
+msgstr "Métodos 2FA compatibles: - "
+
+#: admin/partials/addons/class-mo-oauth-client-addons.php:185
+msgid ""
+"Google Authenticator, OTP Over SMS, OTP Over Email, Email Verification, "
+"miniOrange methods."
+msgstr ""
+"Autenticador de Google, OTP por SMS, OTP por correo electrónico, "
+"Verificación de correo electrónico, métodos miniOrange."
+
+#: admin/partials/addons/class-mo-oauth-client-addons.php:185
+msgid "Additional Features:-"
+msgstr "Características adicionales:-"
+
+#: admin/partials/addons/class-mo-oauth-client-addons.php:185
+msgid "Unlimited Users & Multisite support,Website Security features"
+msgstr ""
+"Usuarios ilimitados y soporte multisitio, funciones de seguridad del sitio "
+"web"
+
+#: admin/partials/addons/class-mo-oauth-client-addons.php:197
+msgid "BuddyPress Integrator"
+msgstr "Integrador BuddyPress"
+
+#: admin/partials/addons/class-mo-oauth-client-addons.php:200
+msgid ""
+"Allows to integrate user information received from OAuth/OpenID Provider "
+"with the BuddyPress profile."
+msgstr ""
+"Permite integrar la información del usuario recibida de OAuth / OpenID "
+"Provider con el perfil BuddyPress."
+
+#: admin/partials/addons/class-mo-oauth-client-addons.php:213
+msgid "Login Form Add-on"
+msgstr "Complemento de formulario de inicio de sesión"
+
+#: admin/partials/addons/class-mo-oauth-client-addons.php:216
+msgid ""
+"Provides Login form for OAuth/OpenID login instead of a only a button. It "
+"relies on OAuth/OpenID plugin to have Password Grant configured. It can be "
+"customized using custom CSS and JS."
+msgstr ""
+"Proporciona un formulario de inicio de sesión para el inicio de sesión "
+"OAuth / OpenID en lugar de solo un botón. Se basa en el complemento OAuth / "
+"OpenID para configurar la concesión de contraseña. Se puede personalizar "
+"usando CSS y JS personalizados."
+
+#: admin/partials/addons/class-mo-oauth-client-addons.php:228
+msgid "Membership based Login"
+msgstr "Inicio de sesión basado en membresía"
+
+#: admin/partials/addons/class-mo-oauth-client-addons.php:231
+msgid ""
+"Allows to redirect users to custom pages based on users' membership levels. "
+"Checks for the user's membership level during every login, so any update on "
+"the membership level doesn't affect redirection."
+msgstr ""
+"Permite redirigir a los usuarios a páginas personalizadas según los niveles "
+"de membresía de los usuarios. Comprueba el nivel de membresía del usuario "
+"durante cada inicio de sesión, por lo que cualquier actualización en el "
+"nivel de membresía no afecta la redirección."
+
+#: admin/partials/addons/class-mo-oauth-client-addons.php:243
+msgid "LearnDash Integration"
+msgstr "Integración LearnDash"
+
+#: admin/partials/addons/class-mo-oauth-client-addons.php:246
+msgid ""
+"LearnDash is popular WordPress LMS plugin. If you want to integrate "
+"LearnDash with your IDP then you can opt-in for this add-on. This add-on "
+"will map the users to LearnDash groups based on the attributes sent by your "
+"IDP."
+msgstr ""
+"LearnDash es un popular complemento de WordPress LMS. Si desea integrar "
+"LearnDash con su IDP, puede optar por este complemento. Este complemento "
+"asignará a los usuarios a los grupos de LearnDash según los atributos "
+"enviados por su IDP."
+
+#: admin/partials/addons/class-mo-oauth-client-addons.php:259
+msgid "SSO Login Audit"
+msgstr "Auditoría de inicio de sesión SSO"
+
+#: admin/partials/addons/class-mo-oauth-client-addons.php:262
+msgid ""
+"SSO Login Audit captures all the SSO users and will generate the reports."
+msgstr ""
+"SSO Login Audit captura todos los usuarios de SSO y generará los informes."
+
+#: admin/partials/addons/class-mo-oauth-client-addons.php:274
+msgid "Attribute Based Redirection"
+msgstr "Redirección basada en atributos"
+
+#: admin/partials/addons/class-mo-oauth-client-addons.php:277
+msgid ""
+"ABR add-on helps you to redirect your users to different pages after they "
+"log into your site, based on the attributes sent by your Identity Provider."
+msgstr ""
+"El complemento ABR le ayuda a redirigir a sus usuarios a diferentes páginas "
+"después de que inician sesión en su sitio, según los atributos enviados por "
+"su proveedor de identidad."
+
+#: admin/partials/addons/class-mo-oauth-client-addons.php:289
+msgid "SCIM User Provisioning"
+msgstr "Aprovisionamiento de usuarios de SCIM"
+
+#: admin/partials/addons/class-mo-oauth-client-addons.php:292
+msgid ""
+"This plugin allows user provisioning with SCIM standard. System for Cross-"
+"domain Identity Management is a standard for automating the exchange of user "
+"identity information between identity domains, or IT systems."
+msgstr ""
+"Este complemento permite el aprovisionamiento de usuarios con el estándar "
+"SCIM. System for Cross-domain Identity Management es un estándar para "
+"automatizar el intercambio de información de identidad de usuario entre "
+"dominios de identidad o sistemas de TI."
+
+#: admin/partials/addons/class-mo-oauth-client-addons.php:307
+msgid "Discord Role Mapping"
+msgstr "Mapeo de roles de discordia"
+
+#: admin/partials/addons/class-mo-oauth-client-addons.php:310
+msgid ""
+"Discord Role Mapping add-on helps you to get roles from your discord server "
+"and maps it to WordPress user while SSO."
+msgstr ""
+"El complemento Discord Role Mapping lo ayuda a obtener roles de su servidor "
+"de discord y lo asigna al usuario de WordPress mientras está SSO."
+
+#: admin/partials/addons/class-mo-oauth-client-addons.php:322
+msgid "SSO Session Management"
+msgstr "Gestión de sesiones SSO"
+
+#: admin/partials/addons/class-mo-oauth-client-addons.php:326
+msgid ""
+"SSO session management add-on manages the login session time of your users "
+"based on their WordPress roles."
+msgstr ""
+"El complemento de administración de sesión SSO administra el tiempo de "
+"sesión de inicio de sesión de sus usuarios según sus roles de WordPress."
+
+#: admin/partials/addons/class-mo-oauth-client-addons.php:338
+msgid "Media Restriction"
+msgstr "Restricción de medios"
+
+#: admin/partials/addons/class-mo-oauth-client-addons.php:342
+msgid ""
+"miniOrange Media Restriction add-on restrict unauthorized users from "
+"accessing the media files on your WordPress site."
+msgstr ""
+"el complemento miniOrange Media Restriction restringe el acceso de usuarios "
+"no autorizados a los archivos multimedia en su sitio de WordPress."
+
+#: admin/partials/apps/partials/addapp.php:16
+#: admin/partials/apps/partials/app-list.php:57
+msgid "Add Application"
+msgstr "Agregar aplicación"
+
+#: admin/partials/apps/partials/addapp.php:61
+msgid "Application:"
+msgstr "Aplicación:"
+
+#: admin/partials/apps/partials/addapp.php:65
+msgid "Change Application"
+msgstr "Cambiar aplicación"
+
+#: admin/partials/apps/partials/addapp.php:68
+msgid "Redirect / Callback URL: "
+msgstr "URL de redireccionamiento / devolución de llamada: "
+
+#: admin/partials/apps/partials/addapp.php:68
+msgid "Editable in "
+msgstr "Editable en "
+
+#: admin/partials/apps/partials/addapp.php:76
+msgid "App Name"
+msgstr "Nombre de la aplicación"
+
+#: admin/partials/apps/partials/addapp.php:76
+#: admin/partials/apps/partials/addapp.php:107
+#: admin/partials/apps/partials/addapp.php:113
+#: admin/partials/apps/partials/addapp.php:118
+#: admin/partials/apps/partials/addapp.php:123
+#, php-format
+msgid "%s"
+msgstr "% s"
+
+#: admin/partials/apps/partials/addapp.php:87
+#: admin/partials/apps/partials/updateapp.php:50
+msgid "Client ID:"
+msgstr "Identificación del cliente:"
+
+#: admin/partials/apps/partials/addapp.php:91
+#: admin/partials/apps/partials/updateapp.php:54
+msgid "Client Secret:"
+msgstr "Secreto del cliente:"
+
+#: admin/partials/apps/partials/addapp.php:107
+#: admin/partials/apps/partials/updateapp.php:72
+msgid "Domain:"
+msgstr "Dominio:"
+
+#: admin/partials/apps/partials/addapp.php:113
+msgid " Tenant:"
+msgstr " Inquilino:"
+
+#: admin/partials/apps/partials/addapp.php:118
+#: admin/partials/apps/partials/updateapp.php:84
+msgid "Policy:"
+msgstr "Política:"
+
+#: admin/partials/apps/partials/addapp.php:123
+#: admin/partials/apps/partials/updateapp.php:89
+msgid "Realm:"
+msgstr "Reino:"
+
+#: admin/partials/apps/partials/addapp.php:132
+#: admin/partials/apps/partials/updateapp.php:62
+msgid "Scope:"
+msgstr "Alcance:"
+
+#: admin/partials/apps/partials/addapp.php:137
+#: admin/partials/apps/partials/updateapp.php:101
+msgid "Authorize Endpoint:"
+msgstr "Autorizar punto final:"
+
+#: admin/partials/apps/partials/addapp.php:141
+#: admin/partials/apps/partials/updateapp.php:105
+msgid "Access Token Endpoint:"
+msgstr "Punto final del token de acceso:"
+
+#: admin/partials/apps/partials/addapp.php:146
+#: admin/partials/apps/partials/updateapp.php:115
+msgid "Get User Info Endpoint:"
+msgstr "Get User Info Endpoint:"
+
+#: admin/partials/apps/partials/addapp.php:153
+#: admin/partials/apps/partials/updateapp.php:121
+msgid "Send client credentials in:"
+msgstr "Envíe las credenciales del cliente en:"
+
+#: admin/partials/apps/partials/addapp.php:158
+#: admin/partials/apps/partials/updateapp.php:125
+msgid "State Parameter :"
+msgstr "Parámetro de estado:"
+
+#: admin/partials/apps/partials/addapp.php:159
+#: admin/partials/apps/partials/updateapp.php:126
+msgid "Send state parameter"
+msgstr "Enviar parámetro de estado"
+
+#: admin/partials/apps/partials/addapp.php:163
+msgid "login button:"
+msgstr "botón de inicio de sesión:"
+
+#: admin/partials/apps/partials/addapp.php:164
+#: admin/partials/apps/partials/updateapp.php:147
+msgid "Show on login page"
+msgstr "Mostrar en la página de inicio de sesión"
+
+#: admin/partials/apps/partials/addapp.php:174
+#: admin/partials/apps/partials/attr-role-mapping.php:163
+#: admin/partials/apps/partials/customization.php:43
+#: admin/partials/apps/partials/updateapp.php:151
+msgid "Save settings"
+msgstr "Guardar ajustes"
+
+#: admin/partials/apps/partials/app-list.php:58
+msgid "Applications List"
+msgstr "Lista de aplicaciones"
+
+#: admin/partials/apps/partials/app-list.php:60
+msgid "You can only add 1 application with free version. Upgrade to"
+msgstr "Solo puede agregar 1 aplicación con versión gratuita. Actualizar a"
+
+#: admin/partials/apps/partials/app-list.php:60
+msgid "to add more."
+msgstr "para agregar más."
+
+#: admin/partials/apps/partials/app-list.php:62
+msgid "Name"
+msgstr "Nombre"
+
+#: admin/partials/apps/partials/app-list.php:62
+msgid "Action"
+msgstr "Acción"
+
+#: admin/partials/apps/partials/app-list.php:65
+msgid "Edit Application"
+msgstr "Editar aplicación"
+
+#: admin/partials/apps/partials/app-list.php:65
+#: admin/partials/apps/partials/updateapp.php:160
+msgid "Attribute Mapping"
+msgstr "Mapeo de atributos"
+
+#: admin/partials/apps/partials/app-list.php:65
+msgid "Role Mapping"
+msgstr "Mapeo de roles"
+
+#: admin/partials/apps/partials/app-list.php:65
+msgid "Delete"
+msgstr "Eliminar"
+
+#: admin/partials/apps/partials/app-list.php:68
+msgid "Hide Instructions"
+msgstr "Ocultar instrucciones"
+
+#: admin/partials/apps/partials/app-list.php:71
+msgid "How to Configure?"
+msgstr "Cómo configurar?"
+
+#: admin/partials/apps/partials/attr-role-mapping.php:26
+msgid "Attribute Mapping "
+msgstr "Mapeo de atributos "
+
+#: admin/partials/apps/partials/attr-role-mapping.php:26
+msgid "required for SSO & ACCOUNT LINKING "
+msgstr "requerido para SSO & ACCOUNT LINKING "
+
+#: admin/partials/apps/partials/attr-role-mapping.php:27
+msgid "NOTE : "
+msgstr "NOTA : "
+
+#: admin/partials/apps/partials/attr-role-mapping.php:27
+msgid ""
+"Please note that, with free plugin auto-creation for only 10 user accounts "
+"is allowed during SSO, but you can manually add users to WordPress."
+msgstr ""
+"Tenga en cuenta que, con la creación automática de complementos gratuitos "
+"para solo 10 cuentas de usuario, se permite durante el inicio de sesión "
+"único, pero puede agregar usuarios manualmente a WordPress."
+
+#: admin/partials/apps/partials/attr-role-mapping.php:28
+msgid "Do "
+msgstr "Hacer "
+
+#: admin/partials/apps/partials/attr-role-mapping.php:28
+msgid " to get configuration for attribute mapping."
+msgstr " para obtener la configuración para la asignación de atributos."
+
+#: admin/partials/apps/partials/attr-role-mapping.php:34
+msgid "Username:"
+msgstr "Nombre de usuario:"
+
+#: admin/partials/apps/partials/attr-role-mapping.php:95
+msgid "Advanced attribute mapping is available in"
+msgstr "El mapeo de atributos avanzado está disponible en"
+
+#: admin/partials/apps/partials/attr-role-mapping.php:97
+msgid "How to map Attributes?"
+msgstr "¿Cómo mapear atributos?"
+
+#: admin/partials/apps/partials/attr-role-mapping.php:102
+msgid "First Name:"
+msgstr "Primer nombre:"
+
+#: admin/partials/apps/partials/attr-role-mapping.php:103
+msgid "Enter attribute name for First Name"
+msgstr "Ingrese el nombre del atributo para el nombre"
+
+#: admin/partials/apps/partials/attr-role-mapping.php:106
+msgid "Last Name:"
+msgstr "Apellido:"
+
+#: admin/partials/apps/partials/attr-role-mapping.php:108
+msgid "Enter attribute name for Last Name"
+msgstr "Ingrese el nombre del atributo para el apellido"
+
+#: admin/partials/apps/partials/attr-role-mapping.php:111
+#: admin/partials/support/class-mo-oauth-client-support.php:78
+msgid "Email:"
+msgstr "Email:"
+
+#: admin/partials/apps/partials/attr-role-mapping.php:112
+msgid "Enter attribute name for Email"
+msgstr "Ingrese el nombre del atributo para el correo electrónico"
+
+#: admin/partials/apps/partials/attr-role-mapping.php:115
+msgid "Group/Role:"
+msgstr "Grupo / Rol:"
+
+#: admin/partials/apps/partials/attr-role-mapping.php:116
+msgid "Enter attribute name for Group/Role"
+msgstr "Ingrese el nombre del atributo para el grupo / rol"
+
+#: admin/partials/apps/partials/attr-role-mapping.php:119
+msgid "Display Name:"
+msgstr "Nombre para mostrar:"
+
+#: admin/partials/apps/partials/attr-role-mapping.php:122
+msgid "Username"
+msgstr "Nombre de usuario"
+
+#: admin/partials/apps/partials/attr-role-mapping.php:130
+msgid " Keep Existing User Attributes"
+msgstr " Mantener los atributos de usuario existentes"
+
+#: admin/partials/apps/partials/attr-role-mapping.php:135
+msgid ""
+"If unchecked, each time existing WordPress User profile will get updated "
+"with above mapping. "
+msgstr ""
+"Si no se marca, cada vez que el perfil de usuario de WordPress existente se "
+"actualizará con la asignación anterior. "
+
+#: admin/partials/apps/partials/attr-role-mapping.php:135
+msgid " User profile will get updated based on existing Usernames."
+msgstr ""
+" El perfil de usuario se actualizará según los nombres de usuario existentes."
+
+#: admin/partials/apps/partials/attr-role-mapping.php:143
+msgid " Keep Existing Email Attribute"
+msgstr " Mantener el atributo de correo electrónico existente"
+
+#: admin/partials/apps/partials/attr-role-mapping.php:146
+msgid ""
+"Uncheck only if you want existing user email to get updated each time after "
+"SSO."
+msgstr ""
+"Desmarque solo si desea que el correo electrónico del usuario existente se "
+"actualice cada vez después del inicio de sesión único."
+
+#: admin/partials/apps/partials/attr-role-mapping.php:152
+msgid "Map Custom Attributes "
+msgstr "Asignar atributos personalizados "
+
+#: admin/partials/apps/partials/attr-role-mapping.php:153
+msgid "How to map Custom Attributes?"
+msgstr "¿Cómo mapear atributos personalizados?"
+
+#: admin/partials/apps/partials/attr-role-mapping.php:154
+msgid ""
+"Map extra OAuth Provider attributes which you wish to be included in the "
+"user profile below"
+msgstr ""
+"Asigne atributos adicionales del proveedor de OAuth que desea que se "
+"incluyan en el perfil de usuario a continuación"
+
+#: admin/partials/apps/partials/attr-role-mapping.php:157
+msgid "Enter field meta name"
+msgstr "Ingrese el meta nombre del campo"
+
+#: admin/partials/apps/partials/attr-role-mapping.php:158
+msgid "Enter attribute name from OAuth Provider"
+msgstr "Ingrese el nombre del atributo del proveedor OAuth"
+
+#: admin/partials/apps/partials/attr-role-mapping.php:169
+msgid "Role Mapping "
+msgstr "Mapeo de roles "
+
+#: admin/partials/apps/partials/attr-role-mapping.php:170
+msgid "How to map Roles?"
+msgstr "¿Cómo mapear roles?"
+
+#: admin/partials/apps/partials/attr-role-mapping.php:171
+msgid ""
+"Role will be assigned only to non-admin users (user that do NOT have "
+"Administrator privileges). You will have to manually change the role of "
+"Administrator users."
+msgstr ""
+"La función se asignará solo a usuarios que no sean administradores (usuarios "
+"que NO tienen privilegios de administrador). Tendrá que cambiar manualmente "
+"el rol de los usuarios administradores."
+
+#: admin/partials/apps/partials/attr-role-mapping.php:176
+msgid " Keep existing user roles"
+msgstr " Mantener los roles de usuario existentes"
+
+#: admin/partials/apps/partials/attr-role-mapping.php:176
+msgid "Role mapping won't apply to existing wordpress users"
+msgstr ""
+"La asignación de roles no se aplicará a los usuarios de wordpress existentes"
+
+#: admin/partials/apps/partials/attr-role-mapping.php:177
+msgid " Do Not allow login if roles are not mapped here "
+msgstr " No permitir el inicio de sesión si los roles no están asignados aquí "
+
+#: admin/partials/apps/partials/attr-role-mapping.php:177
+msgid ""
+"We won't allow users to login if we don't find users role/group mapped below."
+msgstr ""
+"No permitiremos que los usuarios inicien sesión si no encontramos el rol / "
+"grupo de los usuarios asignado a continuación."
+
+#: admin/partials/apps/partials/attr-role-mapping.php:183
+msgid "Default Role "
+msgstr "Rol predeterminado "
+
+#: admin/partials/apps/partials/attr-role-mapping.php:187
+#: admin/partials/apps/partials/attr-role-mapping.php:206
+msgid "Subscriber"
+msgstr "Abonado"
+
+#: admin/partials/apps/partials/attr-role-mapping.php:193
+msgid ""
+" Default role will be assigned to all users for which mapping is not "
+"specified."
+msgstr ""
+" La función predeterminada se asignará a todos los usuarios para los que no "
+"se especifique la asignación."
+
+#: admin/partials/apps/partials/attr-role-mapping.php:197
+msgid "Group Attribute Value"
+msgstr "Valor de atributo de grupo"
+
+#: admin/partials/apps/partials/attr-role-mapping.php:198
+msgid "WordPress Role"
+msgstr "Rol de WordPress"
+
+#: admin/partials/apps/partials/attr-role-mapping.php:202
+msgid "group name"
+msgstr "nombre del grupo"
+
+#: admin/partials/apps/partials/attr-role-mapping.php:212
+msgid "Add More Mapping"
+msgstr "Agregar más mapeo"
+
+#: admin/partials/apps/partials/attr-role-mapping.php:214
+msgid "Save Mapping"
+msgstr "Guardar asignación"
+
+#: admin/partials/apps/partials/customization.php:9
+msgid "Customize Icons"
+msgstr "Personalizar iconos"
+
+#: admin/partials/apps/partials/customization.php:10
+#: admin/partials/apps/partials/sign-in-settings.php:6
+#: admin/partials/apps/partials/sign-in-settings.php:22
+msgid "Click here"
+msgstr "Haga clic aquí"
+
+#: admin/partials/apps/partials/customization.php:10
+#: admin/partials/apps/partials/grant-settings.php:38
+#: admin/partials/apps/partials/sign-in-settings.php:22
+msgid "to know how this is useful."
+msgstr "para saber cómo es útil."
+
+#: admin/partials/apps/partials/customization.php:14
+msgid "Icon Width"
+msgstr "Ancho del icono"
+
+#: admin/partials/apps/partials/customization.php:18
+msgid "Icon Height"
+msgstr "Altura del icono"
+
+#: admin/partials/apps/partials/customization.php:22
+msgid "Icon Margins"
+msgstr "Márgenes del icono"
+
+#: admin/partials/apps/partials/customization.php:26
+msgid "Custom CSS"
+msgstr "CSS personalizado"
+
+#: admin/partials/apps/partials/customization.php:38
+msgid "Custom Logout button text"
+msgstr "Texto del botón de cierre de sesión personalizado"
+
+#: admin/partials/apps/partials/defaultapps.php:4
+msgid "Select application"
+msgstr "Seleccionar aplicación"
+
+#: admin/partials/apps/partials/defaultapps.php:6
+msgid "OAuth / OpenID Connect Providers"
+msgstr "Proveedores de OAuth / OpenID Connect"
+
+#: admin/partials/apps/partials/defaultapps.php:8
+msgid "Pre-Configured Applications"
+msgstr "Aplicaciones preconfiguradas"
+
+#: admin/partials/apps/partials/defaultapps.php:8
+msgid ""
+"By selecting pre-configured applications, the configuration would already be "
+"half-done!"
+msgstr ""
+"Al seleccionar aplicaciones preconfiguradas, ¡la configuración ya estaría a "
+"medio hacer!"
+
+#: admin/partials/apps/partials/defaultapps.php:26
+msgid "Custom Applications"
+msgstr "Aplicaciones personalizadas"
+
+#: admin/partials/apps/partials/defaultapps.php:26
+msgid ""
+"Your provider is not in the list? You can select the type of your provider "
+"and configure it yourself!"
+msgstr ""
+"¿Su proveedor no está en la lista? ¡Puede seleccionar el tipo de su "
+"proveedor y configurarlo usted mismo!"
+
+#: admin/partials/apps/partials/grant-settings.php:9
+msgid "Grant Settings"
+msgstr "Configuración de subvenciones"
+
+#: admin/partials/apps/partials/grant-settings.php:14
+msgid "Select Grant Type:"
+msgstr "Seleccione el tipo de concesión:"
+
+#: admin/partials/apps/partials/grant-settings.php:15
+msgid "Authorization Code Grant"
+msgstr "Concesión de código de autorización"
+
+#: admin/partials/apps/partials/grant-settings.php:17
+msgid "The Authorization Code grant type is used by web and mobile apps."
+msgstr ""
+"Las aplicaciones web y móviles utilizan el tipo de concesión del Código de "
+"autorización."
+
+#: admin/partials/apps/partials/grant-settings.php:18
+msgid ""
+"It requires the client to exchange authorization code with access token from "
+"the server."
+msgstr ""
+"Requiere que el cliente intercambie el código de autorización con el token "
+"de acceso del servidor."
+
+#: admin/partials/apps/partials/grant-settings.php:19
+msgid ""
+"If you have doubt on which settings to use, you can leave this checked and "
+"disable all others."
+msgstr ""
+"Si tiene dudas sobre qué configuración usar, puede dejar esta casilla "
+"marcada y deshabilitar todas las demás."
+
+#: admin/partials/apps/partials/grant-settings.php:21
+msgid "Implicit Grant"
+msgstr "Subvención implícita"
+
+#: admin/partials/apps/partials/grant-settings.php:23
+msgid ""
+"The Implicit grant type is a simplified version of the Authorization Code "
+"Grant flow."
+msgstr ""
+"El tipo de concesión implícita es una versión simplificada del flujo de "
+"concesión del código de autorización."
+
+#: admin/partials/apps/partials/grant-settings.php:23
+msgid "OAuth providers directly offer access token when using this grant type."
+msgstr ""
+"Los proveedores de OAuth ofrecen directamente el token de acceso cuando se "
+"utiliza este tipo de concesión."
+
+#: admin/partials/apps/partials/grant-settings.php:25
+msgid "Password Grant"
+msgstr "Concesión de contraseña"
+
+#: admin/partials/apps/partials/grant-settings.php:27
+msgid ""
+"Password grant is used by application to exchange user's credentials for "
+"access token."
+msgstr ""
+"La aplicación utiliza la concesión de contraseña para intercambiar las "
+"credenciales del usuario por el token de acceso."
+
+#: admin/partials/apps/partials/grant-settings.php:28
+msgid "This, generally, should be used by internal applications."
+msgstr "Esto, generalmente, debe ser utilizado por aplicaciones internas."
+
+#: admin/partials/apps/partials/grant-settings.php:30
+msgid "Refresh Token Grant"
+msgstr "Actualizar concesión de token"
+
+#: admin/partials/apps/partials/grant-settings.php:32
+msgid "The Refresh Token grant type is used by clients."
+msgstr "Los clientes utilizan el tipo de concesión Refresh Token."
+
+#: admin/partials/apps/partials/grant-settings.php:33
+msgid "This can help in keeping user session persistent."
+msgstr "Esto puede ayudar a mantener la persistencia de la sesión del usuario."
+
+#: admin/partials/apps/partials/grant-settings.php:37
+msgid "JWT Validation & PKCE"
+msgstr "Validación JWT y PKCE"
+
+#: admin/partials/apps/partials/grant-settings.php:42
+msgid "Enable JWT Verification:"
+msgstr "Habilite la verificación JWT:"
+
+#: admin/partials/apps/partials/grant-settings.php:46
+msgid "JWT Signing Algorithm:"
+msgstr "Algoritmo de firma JWT:"
+
+#: admin/partials/apps/partials/grant-settings.php:58
+msgid "PKCE (Proof Key for Code Exchange):"
+msgstr "PKCE (clave de prueba para intercambio de código):"
+
+#: admin/partials/apps/partials/grant-settings.php:62
+msgid ""
+"PKCE can be used with Authorization Code Grant and users aren't required to "
+"provide a client_secret."
+msgstr ""
+"PKCE se puede utilizar con la concesión de código de autorización y no es "
+"necesario que los usuarios proporcionen un client_secret."
+
+#: admin/partials/apps/partials/grant-settings.php:67
+msgid "Grant Type Settings and JWT Validation & PKCE are configurable in "
+msgstr ""
+"La configuración del tipo de concesión y la validación de JWT y PKCE se "
+"pueden configurar en "
+
+#: admin/partials/apps/partials/grant-settings.php:67
+msgid " versions of the plugin."
+msgstr " versiones del complemento."
+
+#: admin/partials/apps/partials/sign-in-settings.php:6
+msgid "Sign in options"
+msgstr "Opciones de inicio de sesión"
+
+#: admin/partials/apps/partials/sign-in-settings.php:6
+msgid " to know how this is useful"
+msgstr " para saber cómo es útil esto"
+
+#: admin/partials/apps/partials/sign-in-settings.php:7
+msgid "Option 1: Use a Widget"
+msgstr "Opción 1: usar un widget"
+
+#: admin/partials/apps/partials/sign-in-settings.php:9
+msgid "Go to Appearances > Widgets."
+msgstr "Ve a Apariencias> Widgets."
+
+#: admin/partials/apps/partials/sign-in-settings.php:10
+msgid "Drag and drop to your favourite location and save."
+msgstr "Arrastra y suelta en tu ubicación favorita y guarda."
+
+#: admin/partials/apps/partials/sign-in-settings.php:13
+msgid "Option 2: Use a Shortcode"
+msgstr "Opción 2: use un código corto"
+
+#: admin/partials/apps/partials/sign-in-settings.php:15
+msgid "Place shortcode"
+msgstr "Colocar shortcode"
+
+#: admin/partials/apps/partials/sign-in-settings.php:15
+msgid "in wordpress pages or posts."
+msgstr "en páginas o publicaciones de wordpress."
+
+#: admin/partials/apps/partials/sign-in-settings.php:22
+msgid "Advanced Settings"
+msgstr "Ajustes avanzados"
+
+#: admin/partials/apps/partials/sign-in-settings.php:25
+msgid ""
+"Custom redirect URL, Logging Out Confirmation, Allow Restricted Domains are "
+"available in"
+msgstr ""
+"URL de redireccionamiento personalizado, confirmación de cierre de sesión, "
+"permitir dominios restringidos están disponibles en"
+
+#: admin/partials/apps/partials/sign-in-settings.php:25
+#: admin/partials/apps/partials/sign-in-settings.php:27
+msgid "version and above."
+msgstr "versión y superior."
+
+#: admin/partials/apps/partials/sign-in-settings.php:26
+msgid ""
+"Dynamic Callback URL, Single Login Flow, Hide & Disable WP Login and User "
+"Analytics are available in the"
+msgstr ""
+"URL de devolución de llamada dinámica, flujo de inicio de sesión único, "
+"ocultar y deshabilitar el inicio de sesión de WP y análisis de usuario están "
+"disponibles en el"
+
+#: admin/partials/apps/partials/sign-in-settings.php:27
+msgid "Other features are available in the"
+msgstr "Otras funciones están disponibles en el"
+
+#: admin/partials/apps/partials/sign-in-settings.php:31
+msgid "Restrict site to logged in users"
+msgstr "Restringir el sitio a los usuarios registrados"
+
+#: admin/partials/apps/partials/sign-in-settings.php:31
+msgid "(Users will be auto redirected to OAuth login if not logged in)"
+msgstr ""
+"(Los usuarios serán redirigidos automáticamente al inicio de sesión de OAuth "
+"si no inician sesión)"
+
+#: admin/partials/apps/partials/sign-in-settings.php:31
+#: admin/partials/apps/partials/sign-in-settings.php:34
+#: admin/partials/apps/partials/sign-in-settings.php:35
+#: admin/partials/apps/partials/sign-in-settings.php:37
+#: admin/partials/apps/partials/sign-in-settings.php:49
+#: admin/partials/apps/partials/sign-in-settings.php:54
+#: admin/partials/apps/partials/sign-in-settings.php:59
+#: admin/partials/apps/partials/sign-in-settings.php:64
+msgid "Learn more"
+msgstr "Aprende más"
+
+#: admin/partials/apps/partials/sign-in-settings.php:32
+msgid "Open login window in Popup"
+msgstr "Abrir ventana de inicio de sesión en Popup"
+
+#: admin/partials/apps/partials/sign-in-settings.php:34
+msgid "Auto register Users"
+msgstr "Usuarios de registro automático"
+
+#: admin/partials/apps/partials/sign-in-settings.php:34
+msgid "(If unchecked, only existing users will be able to log-in)"
+msgstr ""
+"(Si no está marcada, solo los usuarios existentes podrán iniciar sesión)"
+
+#: admin/partials/apps/partials/sign-in-settings.php:35
+msgid "Keep Existing Users"
+msgstr "Mantener usuarias existentes"
+
+#: admin/partials/apps/partials/sign-in-settings.php:35
+msgid "(If checked, existing users' attributes will"
+msgstr "(Si está marcada, los atributos de los usuarios existentes"
+
+#: admin/partials/apps/partials/sign-in-settings.php:35
+msgid "NOT"
+msgstr "NO"
+
+#: admin/partials/apps/partials/sign-in-settings.php:35
+msgid "be overwritten when they log-in)"
+msgstr "se sobrescribirá cuando inicien sesión)"
+
+#: admin/partials/apps/partials/sign-in-settings.php:36
+msgid "Confirm when logging out"
+msgstr "Confirmar al cerrar la sesión"
+
+#: admin/partials/apps/partials/sign-in-settings.php:36
+msgid "(If checked, users will be"
+msgstr "(Si está marcada, las usuarias serán"
+
+#: admin/partials/apps/partials/sign-in-settings.php:36
+msgid "ASKED"
+msgstr "PREGUNTÓ"
+
+#: admin/partials/apps/partials/sign-in-settings.php:36
+msgid ""
+"to confirm if they want to log-out, when they click the widget/shortcode "
+"logout button)"
+msgstr ""
+"para confirmar si quieren cerrar la sesión, cuando hacen clic en el botón de "
+"cierre de sesión de widget / shortcode)"
+
+#: admin/partials/apps/partials/sign-in-settings.php:37
+msgid "Enable User login reports"
+msgstr "Habilitar informes de inicio de sesión de usuario"
+
+#: admin/partials/apps/partials/sign-in-settings.php:38
+msgid "Hide & Disable WP Login"
+msgstr "Ocultar y deshabilitar el inicio de sesión de WP"
+
+#: admin/partials/apps/partials/sign-in-settings.php:39
+msgid "Allow Restricted Domains"
+msgstr "Permitir dominios restringidos"
+
+#: admin/partials/apps/partials/sign-in-settings.php:39
+msgid "(By default, all domains in"
+msgstr "(De forma predeterminada, todos los dominios en"
+
+#: admin/partials/apps/partials/sign-in-settings.php:39
+#: admin/partials/apps/partials/sign-in-settings.php:44
+msgid "Restricted Domains"
+msgstr "Dominios restringidos"
+
+#: admin/partials/apps/partials/sign-in-settings.php:39
+msgid ""
+"field will be restricted. This option will invert this feature by allowing "
+"ONLY these domains)"
+msgstr ""
+"el campo estará restringido. Esta opción invertirá esta función al permitir "
+"SOLO estos dominios)"
+
+#: admin/partials/apps/partials/sign-in-settings.php:49
+msgid "Custom redirect URL after login"
+msgstr "URL de redireccionamiento personalizado después de iniciar sesión"
+
+#: admin/partials/apps/partials/sign-in-settings.php:49
+msgid ""
+"(Keep blank in case you want users to redirect to page from where SSO "
+"originated)"
+msgstr ""
+"(Manténgase en blanco en caso de que desee que los usuarios redirijan a la "
+"página desde donde se originó el SSO)"
+
+#: admin/partials/apps/partials/sign-in-settings.php:54
+msgid "Custom redirect URL after logout"
+msgstr "URL de redireccionamiento personalizado después de cerrar la sesión"
+
+#: admin/partials/apps/partials/sign-in-settings.php:59
+msgid "Dynamic Callback URL"
+msgstr "URL de devolución de llamada dinámica"
+
+#: admin/partials/apps/partials/sign-in-settings.php:64
+msgid "Enable Single Login Flow"
+msgstr "Habilitar el flujo de inicio de sesión único"
+
+#: admin/partials/apps/partials/sign-in-settings.php:68
+msgid "Save Settings"
+msgstr "Guardar ajustes"
+
+#: admin/partials/apps/partials/updateapp.php:26
+msgid "Configure OAuth Provider"
+msgstr "Configurar el proveedor de OAuth"
+
+#: admin/partials/apps/partials/updateapp.php:40
+msgid "Display App Name:"
+msgstr "Mostrar nombre de la aplicación:"
+
+#: admin/partials/apps/partials/updateapp.php:43
+msgid "Redirect / Callback URL:"
+msgstr "URL de redireccionamiento / devolución de llamada:"
+
+#: admin/partials/apps/partials/updateapp.php:43
+msgid "Editable in"
+msgstr "Editable en"
+
+#: admin/partials/apps/partials/updateapp.php:78
+msgid "Tenant:"
+msgstr "Inquilina:"
+
+#: admin/partials/apps/partials/updateapp.php:122
+msgid "Header"
+msgstr "Encabezamiento"
+
+#: admin/partials/apps/partials/updateapp.php:122
+msgid "Body"
+msgstr "Cuerpo"
+
+#: admin/partials/apps/partials/updateapp.php:130
+msgid "Group User Info Endpoint:"
+msgstr "Punto final de información de usuario de grupo:"
+
+#: admin/partials/apps/partials/updateapp.php:134
+msgid "JWKS URL:"
+msgstr "URL de JWKS:"
+
+#: admin/partials/apps/partials/updateapp.php:146
+msgid "Login Button:"
+msgstr "Botón de inicio de sesión:"
+
+#: admin/partials/apps/partials/updateapp.php:160
+msgid "Please configure"
+msgstr "Por favor configure"
+
+#: admin/partials/apps/partials/updateapp.php:160
+msgid "before trying Single Sign-On."
+msgstr "antes de probar el inicio de sesión único."
+
+#: admin/partials/demo/class-mo-oauth-client-demo.php:13
+msgid "Demo Request Form"
+msgstr "Formulario de solicitud de demostración"
+
+#: admin/partials/demo/class-mo-oauth-client-demo.php:20
+msgid "Usecase"
+msgstr "Caso de uso"
+
+#: admin/partials/demo/class-mo-oauth-client-demo.php:22
+msgid "Write us about your usecase"
+msgstr "Escríbanos sobre su caso de uso"
+
+#: admin/partials/demo/class-mo-oauth-client-demo.php:34
+msgid "Request a demo for"
+msgstr "Solicite una demostración para"
+
+#: admin/partials/demo/class-mo-oauth-client-demo.php:57
+msgid "Submit Demo Request"
+msgstr "Enviar solicitud de demostración"
+
+#: admin/partials/licensing/class-mo-oauth-client-license.php:188
+msgid "Single Site"
+msgstr "Sitio único"
+
+#: admin/partials/licensing/class-mo-oauth-client-license.php:190
+msgid "Multisite Network"
+msgstr "Red multisitio"
+
+#: admin/partials/licensing/class-mo-oauth-client-license.php:215
+#: admin/partials/licensing/class-mo-oauth-client-license.php:246
+#: admin/partials/licensing/class-mo-oauth-client-license.php:277
+#: admin/partials/licensing/class-mo-oauth-client-license.php:308
+msgid "Buy Now"
+msgstr "Compra ahora"
+
+#: admin/partials/licensing/class-mo-oauth-client-license.php:326
+#: admin/partials/support/class-mo-oauth-client-support.php:14
+msgid "Contact Us"
+msgstr "Contacta con nosotros"
+
+#: admin/partials/support/class-mo-oauth-client-support.php:15
+msgid "Need any help? Couldn't find an answer in "
+msgstr "Necesita ayuda? No pude encontrar una respuesta en "
+
+#: admin/partials/support/class-mo-oauth-client-support.php:15
+msgid "Just send us a query so we can help you."
+msgstr "Envíanos una consulta para que podamos ayudarte."
+
+#: admin/partials/support/class-mo-oauth-client-support.php:28
+msgid "Enter your query here"
+msgstr "Ingrese su consulta aquí"
+
+#: admin/partials/support/class-mo-oauth-client-support.php:31
+msgid "Send Plugin Configuration"
+msgstr "Enviar configuración de complemento"
+
+#: admin/partials/support/class-mo-oauth-client-support.php:34
+msgid "We will not be sending your Client IDs or Client Secrets."
+msgstr "No enviaremos sus ID de cliente o secretos de cliente."
+
+#: admin/partials/support/class-mo-oauth-client-support.php:38
+#: admin/partials/support/class-mo-oauth-client-support.php:107
+msgid "Submit"
+msgstr "Enviar"
+
+#: admin/partials/support/class-mo-oauth-client-support.php:40
+msgid "If you want custom features in the plugin, just drop an email at "
+msgstr ""
+"Si desea funciones personalizadas en el complemento, simplemente envíe un "
+"correo electrónico a "
+
+#: admin/partials/support/class-mo-oauth-client-support.php:72
+msgid "Setup a Call / Screen-share session"
+msgstr "Configurar una sesión de llamada / pantalla compartida"
+
+#: admin/partials/support/class-mo-oauth-client-support.php:82
+msgid "Issue:"
+msgstr "Problema:"
+
+#: admin/partials/support/class-mo-oauth-client-support.php:91
+msgid "Have you checked the setup guide "
+msgstr "¿Ha revisado la guía de instalación? "
+
+#: admin/partials/support/class-mo-oauth-client-support.php:98
+msgid "Date:"
+msgstr "Fecha:"
+
+#: admin/partials/support/class-mo-oauth-client-support.php:102
+msgid "Time(Local):"
+msgstr "Hora (local):"
+
+#: admin/partials/support/class-mo-oauth-client-support.php:110
+msgid "We are available from 3:30 to 18:30 UTC"
+msgstr "Estamos disponibles de 3:30 a 18:30 UTC"

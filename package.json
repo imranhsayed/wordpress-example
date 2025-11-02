@@ -9,14 +9,11 @@
   },
   "scripts": {
     "preinstall": "npx only-allow pnpm",
-    "lint": "turbo run lint",
-    "format": "turbo run format",
-    "dev": "turbo run dev",
-    "dev:hot": "turbo run dev:hot",
-    "build": "turbo run build"
-  },
-  "devDependencies": {
-    "turbo": "^2.5.6"
+    "lint": "pnpm -r run lint",
+    "format": "pnpm -r run format",
+    "dev": "pnpm -r run dev",
+    "dev:hot": "pnpm -r run dev:hot",
+    "build": "pnpm -r run build"
   },
   "workspaces": [
     "themes/aquila*"

@@ -1,0 +1,25 @@
+{
+    "discord":{"1":"Role Mapping from Discord to WordPress","2":"Managing guild members from WordPress (add, delete, update)","3":"Role Mapping from WordPress to Discord","4":"Handling subscription based access to the discord channels from WordPress","5":"Discord Avatar Mapping to WordPress profile picture","link":"https://plugins.miniorange.com/discord-wordpress-single-sign-on-integration"
+    },
+    "whmcs":{"1":"Auto populate some user fields at WooCommerce checkout","2":"Login into WHMCS using WordPress credentials","link":"https://plugins.miniorange.com/wordpress-woocommerce-integrator"
+    },
+    "cognito":{"1":"Register User in Amazon Cognito pools from the WordPress website","2":"Login users into WordPress without redirecting them to Cognito","3":"Enable PKCE flow for SSO","4":"Create and verify users via OTP in Cognito at the woocommerce checkout page","5":"From website, update or delete users to Cognito user pool","link":"https://plugins.miniorange.com/aws-cognito-wordpress-single-sign-on-integration"
+    },
+    "azure":{"1":"Azure Multi-tenant login","2":"User Registration in Azure AD at WooCommerce checkout","3":"Provision/Sync users from WordPress to Azure AD (On the fly user provisioning)","4":"Restrict WP pages and posts based on Azure user groups","link":"https://plugins.miniorange.com/wordpress-azure-office365-integrations"
+    },
+    "azureb2c":{"1":"User Registration in Azure B2C at WooCommerce checkout","2":"Synchronize your users and groups from Azure B2C to WordPress & vice versa","3":"Display your complete Azure B2C users directory in the WordPress along with profile pictures","link":"https://plugins.miniorange.com/wordpress-azure-integration"
+    },
+    "salesforce":{"1":"Entire website access based on user Salesforce badge","2":"Website content restriction based on Salesforce badge"
+    },
+    "keycloak":{"1":"Logout user from Keycloak after loging out from Wordpress & vice versa","2":"Keycloak Multi-tenant (Relam) login","link":"https://plugins.miniorange.com/wordpress-single-sign-on-customized-login-and-logout-flow"
+    },
+    "clever":{"1":"Learndash courses access based on SSO user's school section","2":"Website content restriction based on SSO user roles like student, teacher, parent, district admin","link":"https://plugins.miniorange.com/wordpress-single-sign-on-sso-for-education"
+    },
+    "classlink":{"1":"Learndash courses access based on SSO user's school section","2":"Website content restriction based on SSO user roles like student, teacher, parent, district admin","link":"https://plugins.miniorange.com/wordpress-single-sign-on-sso-for-education"
+    },
+    "office365":{"1":"User Registration in Azure at WooCommerce checkout","2":"Synchronize your users and groups from Office 365 to WordPress & vice versa","3":"Enable seamless integration with Office 365 apps like Dynamic CRM, Power Apps, Outlook, Calendar","link":"https://plugins.miniorange.com/wordpress-azure-office365-integrations"
+    },
+    "okta":{"1":"Email domain restriction to access the website","2":"Website content restriction based on Okta groups","link":"https://developers.miniorange.com/docs/oauth/wordpress/client/forced-authentication"
+    },
+    "hubspot":{"1":"Single Sign-On into Hubspot with any IDP","2":"Synchronize your users from Hubspot to WordPress & vice versa","3":"Hubspot API Integration","link":"https://plugins.miniorange.com/hubspot"}
+}
