@@ -127,11 +127,12 @@ function wrapInIIFE() {
 			for (const [fileName, chunk] of Object.entries(bundle)) {
 				if (chunk.type === 'chunk' && chunk.isEntry) {
 					let code = chunk.code;
-					
+
 					// Replace ES module imports with WordPress globals
 					for (const [module, global] of Object.entries(wpGlobals)) {
-						const importRegex = new RegExp(`import\\s*{([^}]+)}\\s*from\\s*['"]${module.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}['"];?`, 'g');
-						code = code.replace(importRegex, (match, imports) => {
+						// Handle named imports: import { foo, bar } from 'module'
+						const namedImportRegex = new RegExp(`import\\s*{([^}]+)}\\s*from\\s*['"]${module.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}['"];?`, 'g');
+						code = code.replace(namedImportRegex, (match, imports) => {
 							const parts = imports.split(',').map(i => i.trim());
 							const destructure = parts.map(p => {
 								const [imported, alias] = p.split(' as ').map(s => s.trim());
@@ -139,8 +140,14 @@ function wrapInIIFE() {
 							}).join(', ');
 							return `const { ${destructure} } = ${global};`;
 						});
+
+						// Handle default imports: import Foo from 'module'
+						const defaultImportRegex = new RegExp(`import\\s+(\\w+)\\s+from\\s*['"]${module.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}['"];?`, 'g');
+						code = code.replace(defaultImportRegex, (match, varName) => {
+							return `const ${varName} = ${global};`;
+						});
 					}
-					
+
 					// Wrap in IIFE
 					chunk.code = `(function() {\n'use strict';\n${code}\n})();`;
 				}

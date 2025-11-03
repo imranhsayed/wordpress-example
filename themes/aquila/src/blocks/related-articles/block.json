@@ -5,13 +5,15 @@
 	"version": "0.1.0",
 	"title": "Related Articles",
 	"category": "aquila",
+	"icon": "grid-view",
 	"description": "Displays 4 latest posts from a selected category.",
 	"textdomain": "aquila-theme",
 	"editorScript": "file:./index.js",
-	"editorStyle": "file:./editor.css",
+	"style": "file:./style.css",
 	"render": "file:./render.php",
 	"supports": {
-		"inserter": false
+		"html": false,
+		"inserter": true
 	},
 	"attributes": {
 		"categoryId": {
