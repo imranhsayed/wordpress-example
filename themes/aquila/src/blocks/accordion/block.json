@@ -5,7 +5,7 @@
 	"version": "0.1.0",
 	"title": "Accordion",
 	"category": "aquila",
-	"description": "A custom accordion block for OneNovanta theme.",
+	"description": "A custom accordion block for Aquila theme.",
 	"example": {
 		"attributes": {
 			"align": "wide",

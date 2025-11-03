@@ -117,6 +117,8 @@ function wrapInIIFE() {
 				'@wordpress/api-fetch': 'wp.apiFetch',
 				'@wordpress/hooks': 'wp.hooks',
 				'@wordpress/dom-ready': 'wp.domReady',
+				'@wordpress/server-side-render': 'wp.serverSideRender',
+				'@wordpress/core-data': 'wp.coreData',
 				'react': 'React',
 				'react-dom': 'ReactDOM',
 				'react/jsx-runtime': 'ReactJSXRuntime',
@@ -334,6 +336,8 @@ function copyBlockJson() {
 						'@wordpress/api-fetch': 'wp-api-fetch',
 						'@wordpress/hooks': 'wp-hooks',
 						'@wordpress/dom-ready': 'wp-dom-ready',
+						'@wordpress/server-side-render': 'wp-server-side-render',
+						'@wordpress/core-data': 'wp-core-data',
 					};
 
 					const dependencies = new Set();
@@ -422,6 +426,8 @@ export default defineConfig( {
 				'@wordpress/api-fetch',
 				'@wordpress/hooks',
 				'@wordpress/dom-ready',
+				'@wordpress/server-side-render',
+				'@wordpress/core-data',
 			],
 			output: {
 				format: 'es', // ES modules format
@@ -443,6 +449,8 @@ export default defineConfig( {
 					'@wordpress/api-fetch': '@wordpress/api-fetch',
 					'@wordpress/hooks': '@wordpress/hooks',
 					'@wordpress/dom-ready': '@wordpress/dom-ready',
+					'@wordpress/server-side-render': '@wordpress/server-side-render',
+					'@wordpress/core-data': '@wordpress/core-data',
 				},
 			},
 		},

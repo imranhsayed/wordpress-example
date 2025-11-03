@@ -1,0 +1,6 @@
+@use "../../components/cards/article";
+
+.article-card {
+	pointer-events: none;
+	cursor: default;
+}

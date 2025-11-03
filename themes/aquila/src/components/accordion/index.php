@@ -64,7 +64,7 @@
  *    'wrapper_attributes' => '',
  * ] );
  *
- * @package OneNovantaTheme\Components
+ * @package Aquila\Components
  */
 
 // Return if required arguments are not available.

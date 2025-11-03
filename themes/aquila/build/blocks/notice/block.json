@@ -11,8 +11,8 @@
 		}
 	},
 	"icon": "info-outline",
-	"description": "A custom notice block for OneNovanta theme.",
-	"keywords": [ "aquila", "notice", "Notice", "Novanta" ],
+	"description": "A custom notice block for Aquila theme.",
+	"keywords": [ "aquila", "notice", "Notice", "Aquila" ],
 	"supports": {
 		"html": false,
 		"align": [ "full", "wide" ],

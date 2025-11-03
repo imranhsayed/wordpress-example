@@ -1,0 +1,74 @@
+/**
+ * Component: Article Collection Card.
+ */
+
+@use "../../../scss/variables";
+@use "../../../scss/mixins";
+
+.article-collection-card {
+
+  .grid:has(> &) {
+		gap: var(--wp--preset--spacing--30);
+	}
+
+	&__content-wrap {
+		display: flex;
+		flex-direction: column;
+		margin-block-start: var(--wp--preset--spacing--30);
+
+		@media screen and (min-width: variables.$lg) {
+			flex-direction: row;
+			justify-content: space-between;
+		}
+	}
+
+	&__image-wrap {
+		border-radius: var(--wp--custom--border-radius-normal);
+		overflow: hidden;
+		aspect-ratio: 2 / 1;
+		margin: 0;
+		min-width: 0;
+
+		img {
+			height: 100%;
+			width: 100%;
+			object-fit: cover;
+		}
+	}
+
+	&__heading-wrap {
+
+		@media screen and (min-width: variables.$lg) {
+			flex: 0 0 47.560%;
+			min-width: 0;
+		}
+	}
+
+	&__category {
+		font-weight: 700;
+		margin-block-end: 4px;
+	}
+
+	&__content {
+		margin-block-start: var(--wp--preset--spacing--20);
+
+		@media screen and (min-width: variables.$lg) {
+			flex: 0 0 47.560%;
+			margin-block-start: 0;
+			min-width: 0;
+		}
+	}
+
+	&__heading {
+		font-weight: 400;
+
+		a {
+			color: inherit;
+			text-decoration: none;
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+}

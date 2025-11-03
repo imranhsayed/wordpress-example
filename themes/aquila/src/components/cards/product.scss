@@ -1,0 +1,113 @@
+/**
+ * Component: Product Card.
+ */
+
+@use "../../../scss/variables";
+@use "../../../scss/mixins";
+
+.product-card {
+	position: relative;
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: column;
+	gap: var(--wp--preset--spacing--20);
+	border: 1px solid var(--wp--custom--color-cloud-gray);
+	padding: 0 var(--wp--preset--spacing--20) var(--wp--preset--spacing--20);
+	border-radius: var(--wp--custom--border-radius-normal);
+	transition: box-shadow 0.3s ease-in-out;
+
+	&:hover {
+		box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.16);
+	}
+
+	.grid:has(> &) {
+		gap: var(--wp--preset--spacing--30);
+	}
+
+	&__image-wrap {
+		border-radius: var(--wp--custom--border-radius-normal);
+		overflow: hidden;
+		aspect-ratio: 1 / 1;
+		margin: 0;
+		min-width: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		img {
+			height: 100%;
+			width: 100%;
+			object-fit: cover;
+		}
+
+		&:first-child {
+			margin-block-start: var(--wp--preset--spacing--60);
+		}
+	}
+
+	&__meta {
+		display: flex;
+		align-items: center;
+		letter-spacing: 0.08em;
+		justify-content: space-between;
+		gap: var(--wp--preset--spacing--10);
+		min-height: var(--wp--preset--spacing--60);
+		padding-block: var(--wp--preset--spacing--10);
+		text-transform: uppercase;
+	}
+
+	&__category {
+		font-weight: 600;
+		word-break: break-word;
+	}
+
+	&__content {
+		word-break: break-word;
+		flex: auto;
+		display: flex;
+		justify-content: space-between;
+		flex-direction: column;
+		gap: var(--wp--preset--spacing--20);
+
+		&:has(ati-add-to-cart-button:only-child) {
+			justify-content: flex-end;
+		}
+	}
+
+	&__product-tag {
+		color: var(--wp--custom--color-light-green);
+		font-weight: 500;
+		display: inline-flex;
+		align-items: center;
+		gap: 5px;
+
+		&::before {
+			background-color: var(--wp--custom--color-light-green);
+			border-radius: 50%;
+			content: "";
+			height: 6px;
+			width: 6px;
+		}
+	}
+
+	&__heading {
+		margin-block-start: var(--wp--preset--spacing--20);
+		word-break: break-word;
+		margin-block-end: 0;
+
+
+		a {
+			color: inherit;
+
+			@include mixins.line-clamp(3);
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+
+	.wp-aquila-button {
+		position: relative;
+	}
+}

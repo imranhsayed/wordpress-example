@@ -2,7 +2,7 @@
 /**
  * Accordion item component.
  *
- * @package OneNovantaTheme\Blocks
+ * @package Aquila\Blocks
  */
 
 $base_class      = 'wp-aquila-accordion';

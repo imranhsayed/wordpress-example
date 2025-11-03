@@ -13,7 +13,7 @@
  * @var string       $content The block content.
  * @var WP_Block     $block The block.
  *
- * @package OneNovantaTheme\Blocks
+ * @package AquilaTheme\Blocks
  */
 
 use Aquila\Theme\Template;

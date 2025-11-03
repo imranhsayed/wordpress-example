@@ -515,6 +515,32 @@ if (empty(trim($content)) && !empty($block->inner_blocks)) {
 
 ---
 
+### Reason for using block file extensions to `.jsx`.
+
+The Core Issue
+
+JSX is not valid JavaScript - it's a syntax extension created by React.
+
+When you write:
+  `<div {...blockProps}>`
+This is not valid JavaScript. Browsers and JavaScript engines can't execute this directly. It needs to be transformed into regular JavaScript:
+
+React.createElement('div', blockProps)
+
+Why File Extensions Matter
+
+Build tools (like esbuild, Babel, Vite) need to know which files to transform:
+
+1. .js files → Assumed to be plain JavaScript (no transformation needed)
+2. .jsx files → Assumed to contain JSX (needs transformation)
+
+This convention exists because:
+
+- Performance: Skipping JSX parsing on plain .js files makes builds faster
+- Safety: Prevents accidentally breaking plain JavaScript files by running JSX transformations on them
+- Clarity: Makes it immediately obvious which files use React/JSX
+
+
 ## 📚 Additional Resources
 
 - [WordPress Block Editor Handbook](https://developer.wordpress.org/block-editor/)

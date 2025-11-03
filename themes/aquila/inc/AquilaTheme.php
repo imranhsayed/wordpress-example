@@ -1,6 +1,6 @@
 <?php
 /**
- * One Novanta Theme.
+ * Aquila Theme.
  *
  * @package AquilaTheme
  */
@@ -63,7 +63,7 @@ class AquilaTheme {
 	public function load_theme() {
 		// @TODO: We are mixing singleton and non-singleton classes, will revisit this later.
 		Assets::get_instance();
-//		$assets = new Assets( ONE_NOVANTA_THEME_BUILD_DIR, ONE_NOVANTA_THEME_BUILD_URI );
+//		$assets = new Assets( AQUILA_THEME_BUILD_DIR, AQUILA_THEME_BUILD_URI );
 //		$assets->bootstrap();
 //
 		Blocks::get_instance();

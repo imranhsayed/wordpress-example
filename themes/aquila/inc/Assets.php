@@ -1,6 +1,6 @@
 <?php
 /**
- * One Aquila Theme Assets.
+ * Aquila Theme Assets.
  *
  * @package Aquila
  */
@@ -43,7 +43,7 @@ class Assets {
 		// Enqueue assets for the dashboard.
 		add_action( 'admin_enqueue_scripts', [ $this, 'admin_enqueue' ] );
 		add_action( 'enqueue_block_assets', [ $this, 'register_block_assets' ] );
-		
+
 		// Enqueue frontend assets.
 		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_frontend_assets' ] );
 	}

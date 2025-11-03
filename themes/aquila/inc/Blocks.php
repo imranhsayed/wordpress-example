@@ -62,7 +62,7 @@ class Blocks {
 		$new_category = array(
 			array(
 				'slug'  => 'aquila',
-				'title' => __( 'One Novanta', 'aquila' ),
+				'title' => __( 'Aquila', 'aquila' ),
 			),
 		);
 
@@ -250,7 +250,7 @@ class Blocks {
 		$category_registration = array(
 			array(
 				'category' => 'aquila',
-				'label'    => 'One Novanta',
+				'label'    => 'Aquila',
 			),
 			array(
 				'category' => 'homepage',
