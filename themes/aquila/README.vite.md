@@ -446,6 +446,120 @@ Now you can use absolute paths from the `src` directory:
 @use "components/accordion/index.scss";
 ```
 
+### 6.5. Automatic SCSS Compilation to build/css
+
+Vite automatically compiles standalone SCSS files from `src/scss/` to `build/css/` with matching filenames, excluding partial files (those starting with underscore).
+
+**How it works:**
+
+```javascript
+// In getEntries() function
+const scssDir = path.resolve(__dirname, 'src/scss');
+const jsWrappersDir = path.resolve(__dirname, 'src/js');
+
+if (fs.existsSync(scssDir)) {
+  for (const file of fs.readdirSync(scssDir)) {
+    // Only include .scss files that don't start with underscore (exclude partials)
+    if (file.endsWith('.scss') && !file.startsWith('_')) {
+      const jsWrapperName = file.replace('.scss', '.js');
+      const jsWrapperPath = path.resolve(jsWrappersDir, jsWrapperName);
+
+      // Create JS wrapper if it doesn't exist
+      if (!fs.existsSync(jsWrapperPath)) {
+        const wrapperContent = `// Auto-generated wrapper to compile ${file}\nimport '../scss/${file}';\n`;
+        fs.writeFileSync(jsWrapperPath, wrapperContent);
+      }
+
+      // Add as entry
+      const entryKey = `css/${file.replace('.scss', '')}`;
+      entries[entryKey] = jsWrapperPath;
+    }
+  }
+}
+```
+
+**The Process:**
+
+1. **Auto-discovery**: Scans `src/scss/` for `.scss` files (excluding `_*.scss` partials)
+2. **JS Wrapper Creation**: Auto-generates JavaScript wrapper files in `src/js/` that import the SCSS
+3. **Build Entry**: Adds each SCSS file as a Vite entry point
+4. **Compilation**: Vite compiles SCSS to CSS
+5. **Cleanup**: Custom plugin removes empty JS files and moves CSS to `build/css/`
+
+**File Naming:**
+- `src/scss/main.scss` → `build/css/main.css`
+- `src/scss/admin.scss` → `build/css/admin.css`
+- `src/scss/_variables.scss` → **Not compiled** (partial file, meant for imports only)
+
+**Directory Structure:**
+
+```
+src/
+├── scss/
+│   ├── _variables.scss   ← Partial (not compiled)
+│   ├── _mixins.scss      ← Partial (not compiled)
+│   ├── _grid.scss        ← Partial (not compiled)
+│   ├── main.scss         ← Compiled to build/css/main.css
+│   └── admin.scss        ← Compiled to build/css/admin.css
+└── js/                   ← Auto-generated wrappers
+    ├── main.js           ← Auto-generated: imports '../scss/main.scss'
+    └── admin.js          ← Auto-generated: imports '../scss/admin.scss'
+
+build/
+└── css/
+    ├── main.css          ← Compiled output
+    └── admin.css         ← Compiled output
+```
+
+**Cleanup Plugin:**
+
+The `cleanupScssEntries()` plugin handles the final output:
+
+```javascript
+function cleanupScssEntries() {
+  return {
+    name: 'cleanup-scss-entries',
+    generateBundle(options, bundle) {
+      // 1. Remove empty JS files from css/* entries
+      // 2. Move CSS files to build/css/ folder with original filenames
+
+      for (const [fileName, asset] of Object.entries(bundle)) {
+        if (fileName.startsWith('css/') && fileName.endsWith('.js')) {
+          delete bundle[fileName]; // Remove empty JS wrapper
+        }
+
+        if (asset.type === 'asset' && fileName.endsWith('.css')) {
+          const baseName = path.basename(fileName, '.css');
+          if (scssFileNames.has(baseName)) {
+            // Move to css/ folder
+            asset.fileName = `css/${fileName}`;
+            bundle[`css/${fileName}`] = asset;
+            delete bundle[fileName];
+          }
+        }
+      }
+    }
+  };
+}
+```
+
+**Development Workflow:**
+
+1. Create a new SCSS file: `src/scss/custom.scss`
+2. Run `pnpm run build` or `pnpm run dev`
+3. Vite automatically:
+   - Creates `src/js/custom.js` wrapper
+   - Compiles `src/scss/custom.scss` to `build/css/custom.css`
+   - Removes the empty `custom.js` from output
+4. Enqueue `build/css/custom.css` in WordPress
+
+**Use Cases:**
+
+- **Global styles**: `main.scss` for site-wide styles
+- **Admin styles**: `admin.scss` for WordPress admin customizations
+
+**Note:** Block-specific and component-specific styles should still be placed next to their JS files (e.g., `src/blocks/notice/style.scss`). This system is for standalone global stylesheets.
+
 ### 7. Build Configuration
 
 ```javascript

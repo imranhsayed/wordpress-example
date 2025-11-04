@@ -106,6 +106,13 @@ class Assets {
 			$handle . '-style',
 			'css/editor.css',
 		);
+
+		if ( ! is_admin() ) {
+			$this->register_style(
+				self::$handle . '-style',
+				'css/main.css',
+			);
+		}
 	}
 
 	/**

@@ -300,20 +300,6 @@ function aquila_get_posts( array $args = [], bool $force = false ): array {
 		$current_language = 'en';
 	}
 
-	// Inject meta_query for language.
-	$language_meta_query = [
-		'key'     => 'aquila_language',
-		'value'   => $current_language,
-		'compare' => '=',
-	];
-
-	// Ensure meta_query is merged properly.
-	if ( isset( $args['meta_query'] ) && is_array( $args['meta_query'] ) ) {
-		$args['meta_query'][] = $language_meta_query;
-	} else {
-		$args['meta_query'] = [ $language_meta_query ]; // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query -- We need this for elastic search.
-	}
-
 	// Default args.
 	$default_args = [
 		'post_status'    => 'publish',
@@ -363,6 +349,130 @@ function aquila_get_posts( array $args = [], bool $force = false ): array {
 	}
 
 	return $post_ids;
+}
+
+/**
+ * Get post data.
+ *
+ * @param int $post_id Post ID.
+ *
+ * @return array{
+ *     post: WP_Post|null,
+ *     permalink: string,
+ *     post_thumbnail: int,
+ *     post_meta: mixed[],
+ *     post_taxonomies: mixed[],
+ *     data: mixed[]
+ * }
+ */
+function aquila_get_post( int $post_id = 0 ): array {
+	// Get post ID.
+	if ( 0 === $post_id ) {
+		$post_id = absint( get_the_ID() );
+	}
+
+	// Check for cached version.
+	$cache_key    = sprintf( '%s_%d', AQUILA_POST_CACHE_KEY, $post_id );
+	$cached_value = wp_cache_get( $cache_key, AQUILA_POST_CACHE_GROUP );
+
+	// Check for cached value.
+	if ( is_array( $cached_value ) && ! empty( $cached_value['post'] ) && $cached_value['post'] instanceof WP_Post ) {
+		return [
+			'post'            => $cached_value['post'],
+			'permalink'       => $cached_value['permalink'] ?? '',
+			'post_thumbnail'  => $cached_value['post_thumbnail'] ?? 0,
+			'post_meta'       => $cached_value['post_meta'] ?? [],
+			'post_taxonomies' => $cached_value['post_taxonomies'] ?? [],
+			'data'            => $cached_value['data'] ?? [],
+		];
+	}
+
+	// Get post.
+	$post = get_post( $post_id );
+
+	// Check for post.
+	if ( ! $post instanceof WP_Post ) {
+		return [
+			'post'            => null,
+			'permalink'       => '',
+			'post_thumbnail'  => 0,
+			'post_meta'       => [],
+			'post_taxonomies' => [],
+			'data'            => [],
+		];
+	}
+
+	$post->post_title = html_entity_decode( $post->post_title );
+
+	// Build data.
+	$data = [
+		'post'            => $post,
+		'permalink'       => strval( get_permalink( $post ) ),
+		'post_thumbnail'  => absint( get_post_thumbnail_id( $post ) ),
+		'post_meta'       => [],
+		'post_taxonomies' => [],
+		'data'            => [],
+	];
+
+	// Get all post meta.
+	$meta = get_post_meta( $post->ID );
+	if ( ! empty( $meta ) && is_array( $meta ) ) {
+		$data['post_meta'] = array_filter(
+			array_map(
+				fn( $value ) => maybe_unserialize( $value[0] ?? '' ),
+				$meta
+			),
+			fn( $key ) => ! str_starts_with( $key, '__' ),
+			ARRAY_FILTER_USE_KEY
+		);
+	}
+
+	// Taxonomy terms.
+	global $wpdb; // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery
+	$taxonomy_terms = $wpdb->get_results( // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery
+		$wpdb->prepare(
+			"
+			SELECT
+				t.*,
+				tt.taxonomy,
+				tt.description,
+				tt.parent
+			FROM
+				$wpdb->term_relationships AS tr
+			LEFT JOIN
+				$wpdb->term_taxonomy AS tt ON tt.term_taxonomy_id = tr.term_taxonomy_id
+			LEFT JOIN
+				$wpdb->terms AS t ON t.term_id = tt.term_taxonomy_id
+			WHERE
+				tr.object_id = %d
+			ORDER BY
+				t.name ASC
+			",
+			[
+				$post->ID,
+			]
+		),
+		ARRAY_A
+	);
+
+	// Check if taxonomy terms are not empty, and fill the data.
+	if ( ! empty( $taxonomy_terms ) ) {
+		foreach ( $taxonomy_terms as $taxonomy_term ) {
+			if ( ! array_key_exists( $taxonomy_term['taxonomy'], $data['post_taxonomies'] ) ) {
+				$data['post_taxonomies'][ $taxonomy_term['taxonomy'] ] = [];
+			}
+			$data['post_taxonomies'][ $taxonomy_term['taxonomy'] ][] = $taxonomy_term;
+		}
+	}
+
+	// Apply filters to the data.
+	$data['data'] = (array) apply_filters( 'one_novanta_get_post_data', $data['data'], $data, $post_id );
+
+	// Set cache to store the data.
+	wp_cache_set( $cache_key, $data, AQUILA_POST_CACHE_GROUP );
+
+	// Return data.
+	return $data;
 }
 
 /**

@@ -1,0 +1,17 @@
+/**
+ * Mixins.
+ */
+
+@mixin grid( $gutter: var(--grid-col-gutter) ) {
+	display: grid;
+	grid-template-rows: auto;
+	grid-gap: $gutter;
+}
+
+@mixin grid-columns( $columns: 1, $row-gutter: var(--grid-row-gutter) ) {
+	grid-template-columns: repeat($columns, 1fr);
+
+	@if ( var(--grid-row-gutter) != $row-gutter ) {
+		grid-row-gap: $row-gutter;
+	}
+}

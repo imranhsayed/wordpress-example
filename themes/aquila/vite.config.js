@@ -58,7 +58,36 @@ function getEntries() {
 	
 	// --- Global entry ---
 	entries['index'] = path.resolve(__dirname, 'src/index.js');
-	
+
+	// --- SCSS files via JS wrappers ---
+	const scssDir = path.resolve(__dirname, 'src/scss');
+	const jsWrappersDir = path.resolve(__dirname, 'src/js');
+
+	// Ensure js directory exists
+	if (!fs.existsSync(jsWrappersDir)) {
+		fs.mkdirSync(jsWrappersDir, { recursive: true });
+	}
+
+	if (fs.existsSync(scssDir)) {
+		for (const file of fs.readdirSync(scssDir)) {
+			// Only include .scss files that don't start with underscore (exclude partials)
+			if (file.endsWith('.scss') && !file.startsWith('_')) {
+				const jsWrapperName = file.replace('.scss', '.js');
+				const jsWrapperPath = path.resolve(jsWrappersDir, jsWrapperName);
+
+				// Create JS wrapper if it doesn't exist
+				if (!fs.existsSync(jsWrapperPath)) {
+					const wrapperContent = `// Auto-generated wrapper to compile ${file}\nimport '../scss/${file}';\n`;
+					fs.writeFileSync(jsWrapperPath, wrapperContent);
+				}
+
+				// Add as entry
+				const entryKey = `css/${file.replace('.scss', '')}`;
+				entries[entryKey] = jsWrapperPath;
+			}
+		}
+	}
+
 	return entries;
 }
 
@@ -72,27 +101,30 @@ function placeCssWithEntry() {
 			// walk all output chunks
 			for( const [ jsFileName, chunk ] of Object.entries( bundle ) ) {
 				if ( chunk.type !== 'chunk' || ! chunk.isEntry ) continue;
-				
+
+				// Skip SCSS entries (css/* entries) - their CSS should stay in css/ folder with original names
+				if ( jsFileName.startsWith( 'css/' ) ) continue;
+
 				// vite adds metadata listing css assets this chunk imported
 				const meta = chunk.viteMetadata;
 				if ( ! meta || ! meta.importedCss || meta.importedCss.size === 0 ) continue;
-				
+
 				const jsDir = path.posix.dirname( jsFileName ); // use posix paths
 				let idx = 0;
-				
+
 				for( const cssAssetName of meta.importedCss ) {
 					const cssAsset = bundle[ cssAssetName ];
 					if ( ! cssAsset ) continue;
-					
+
 					// first CSS -> style.css, additional ones -> style2.css, style3.css...
 					const targetBase = idx === 0 ? 'style.css' : `style${ idx + 1 }.css`;
 					const targetName = jsDir === '.' ? targetBase : `${ jsDir }/${ targetBase }`;
-					
+
 					// reassign and move
 					cssAsset.fileName = targetName;
 					bundle[ targetName ] = cssAsset;
 					delete bundle[ cssAssetName ];
-					
+
 					idx++;
 				}
 			}
@@ -404,6 +436,65 @@ function copyBlockJson() {
 	};
 }
 
+// --- cleanup SCSS entry JS files and move CSS to css/ folder
+function cleanupScssEntries() {
+	return {
+		name: 'cleanup-scss-entries',
+		apply: 'build',
+		generateBundle(options, bundle) {
+			const toDelete = [];
+			const toRename = [];
+
+			// Get list of SCSS file names (without extension) from src/scss
+			const scssDir = path.resolve(__dirname, 'src/scss');
+			const scssFileNames = new Set();
+			if (fs.existsSync(scssDir)) {
+				for (const file of fs.readdirSync(scssDir)) {
+					if (file.endsWith('.scss') && !file.startsWith('_')) {
+						scssFileNames.add(file.replace('.scss', ''));
+					}
+				}
+			}
+
+			for (const [fileName, asset] of Object.entries(bundle)) {
+				// Delete JS files from css/ folder (these are from scss-entries)
+				if (fileName.startsWith('css/') && fileName.endsWith('.js')) {
+					toDelete.push(fileName);
+				}
+
+				// Move CSS files generated from SCSS entries to css/ folder
+				if (asset.type === 'asset' && fileName.endsWith('.css')) {
+					const baseName = path.basename(fileName, '.css');
+					// Check if this CSS file corresponds to an SCSS file
+					if (scssFileNames.has(baseName) && !fileName.startsWith('css/')) {
+						toRename.push({ from: fileName, to: `css/${fileName}` });
+					}
+				}
+			}
+
+			// Delete JS files
+			for (const fileName of toDelete) {
+				delete bundle[fileName];
+			}
+
+			// Rename/move CSS files
+			for (const { from, to } of toRename) {
+				const asset = bundle[from];
+				asset.fileName = to;
+				bundle[to] = asset;
+				delete bundle[from];
+			}
+
+			if (toDelete.length > 0) {
+				console.log(`✓ Cleaned up ${toDelete.length} SCSS entry JS file(s)`);
+			}
+			if (toRename.length > 0) {
+				console.log(`✓ Moved ${toRename.length} CSS file(s) to css/ folder`);
+			}
+		},
+	};
+}
+
 export default defineConfig( {
 	plugins: [
 		react( {
@@ -413,6 +504,7 @@ export default defineConfig( {
 		wrapInIIFE(), // Convert ES modules to IIFE with WordPress globals
 		placeCssWithEntry(),
 		copyBlockJson(),
+		cleanupScssEntries(), // Remove empty JS files from SCSS entries
 	],
 	build: {
 		outDir: 'build',
