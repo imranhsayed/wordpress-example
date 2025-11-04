@@ -71,3 +71,6 @@ dist
 coverage/
 
 /vendor/
+
+/postmedia-master/
+postmedia-master

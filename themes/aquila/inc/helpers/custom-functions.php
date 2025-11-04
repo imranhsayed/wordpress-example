@@ -512,3 +512,30 @@ function aquila_merge_classes( ...$args ): string {
 
 	return implode( ' ', $classes );
 }
+
+/**
+ * Displays the post thumbnail.
+ *
+ * Wraps WordPress core's the_post_thumbnail() function with a custom wrapper.
+ *
+ * @return void
+ */
+function aquila_post_thumbnail() {
+	if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
+		return;
+	}
+
+	if ( is_singular() ) {
+		?>
+		<div class="post-thumbnail">
+			<?php the_post_thumbnail(); ?>
+		</div>
+		<?php
+	} else {
+		?>
+		<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
+			<?php the_post_thumbnail( 'post-thumbnail' ); ?>
+		</a>
+		<?php
+	}
+}
