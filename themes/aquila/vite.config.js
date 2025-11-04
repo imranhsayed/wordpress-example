@@ -157,7 +157,7 @@ function wrapInIIFE() {
 			};
 
 			for (const [fileName, chunk] of Object.entries(bundle)) {
-				if (chunk.type === 'chunk' && chunk.isEntry) {
+				if (chunk.type === 'chunk') {
 					let code = chunk.code;
 
 					// Replace ES module imports with WordPress globals
@@ -180,8 +180,12 @@ function wrapInIIFE() {
 						});
 					}
 
-					// Wrap in IIFE
-					chunk.code = `(function() {\n'use strict';\n${code}\n})();`;
+					// Wrap in IIFE only for entry chunks
+					if (chunk.isEntry) {
+						chunk.code = `(function() {\n'use strict';\n${code}\n})();`;
+					} else {
+						chunk.code = code;
+					}
 				}
 			}
 		},

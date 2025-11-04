@@ -16,6 +16,14 @@
 		"inserter": true
 	},
 	"attributes": {
+		"mode": {
+			"type": "string",
+			"default": "automatic"
+		},
+		"selectedPosts": {
+			"type": "array",
+			"default": []
+		},
 		"categoryId": {
 			"type": "number",
 			"default": 0

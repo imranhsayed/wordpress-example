@@ -11,31 +11,39 @@
 
 use Aquila\Theme\Template;
 
-$category_id  = ! empty( $attributes['categoryId'] ) ? $attributes['categoryId'] : 0;
-$order_by     = $attributes['orderBy'] ?? 'date';
-$post_order   = $attributes['order'] ?? 'desc';
-$limit        = isset( $attributes['numberOfItems'] ) ? (int) $attributes['numberOfItems'] : 4;
-$column_count = 4;
+$mode          = $attributes['mode'] ?? 'automatic';
+$selected_posts = $attributes['selectedPosts'] ?? [];
+$category_id   = ! empty( $attributes['categoryId'] ) ? $attributes['categoryId'] : 0;
+$order_by      = $attributes['orderBy'] ?? 'date';
+$post_order    = $attributes['order'] ?? 'desc';
+$limit         = isset( $attributes['numberOfItems'] ) ? (int) $attributes['numberOfItems'] : 4;
+$column_count  = 4;
 
-$args = [
-	'post_type'      => 'post',
-	'posts_per_page' => $limit,
-	'post_status'    => 'publish',
-	'orderby'        => $order_by,
-	'order'          => $post_order,
-];
-
-if ( 0 !== $category_id ) {
-	$args['cat'] = $category_id;
+// Handle manual mode - use selected posts
+if ( 'manual' === $mode && ! empty( $selected_posts ) ) {
+	$post_ids = array_map( 'intval', $selected_posts );
 } else {
-	$post_categories = get_the_category();
+	// Automatic mode - query posts based on criteria
+	$args = [
+		'post_type'      => 'post',
+		'posts_per_page' => $limit,
+		'post_status'    => 'publish',
+		'orderby'        => $order_by,
+		'order'          => $post_order,
+	];
 
-	if ( ! empty( $post_categories ) && ! is_wp_error( $post_categories ) ) {
-		$args['cat'] = (int) $post_categories[0]->term_id;
+	if ( 0 !== $category_id ) {
+		$args['cat'] = $category_id;
+	} else {
+		$post_categories = get_the_category();
+
+		if ( ! empty( $post_categories ) && ! is_wp_error( $post_categories ) ) {
+			$args['cat'] = (int) $post_categories[0]->term_id;
+		}
 	}
-}
 
-$post_ids = aquila_get_posts( $args );
+	$post_ids = aquila_get_posts( $args );
+}
 
 if ( empty( $post_ids ) ) {
 	return;

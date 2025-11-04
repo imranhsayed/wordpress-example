@@ -160,6 +160,31 @@ This plugin transforms the code to use WordPress globals:
 - Keeps code scoped and prevents global pollution
 - Compatible with WordPress's script loading system
 
+#### Code-Splitting Issue & Fix
+
+**Problem:**
+When Vite code-splits modules (like `@wordpress/server-side-render`), it creates separate chunks. The original `wrapInIIFE` plugin only processed entry chunks, leaving `import` statements in non-entry chunks, which caused syntax errors inside IIFEs.
+
+**Solution:**
+Process **all chunks** for import replacement, not just entry chunks:
+
+```javascript
+// BEFORE: Only processed entry chunks
+if (chunk.type === 'chunk' && chunk.isEntry) {
+  // Replace imports & wrap in IIFE
+}
+
+// AFTER: Process all chunks, wrap only entries
+if (chunk.type === 'chunk') {
+  // Replace imports in ALL chunks
+  if (chunk.isEntry) {
+    // Wrap only entries in IIFE
+  }
+}
+```
+
+This allows default imports like `import ServerSideRender from '@wordpress/server-side-render'` to work correctly even when code-split.
+
 ### 4. Block Metadata & Asset Generation (Recursive)
 
 ```javascript
