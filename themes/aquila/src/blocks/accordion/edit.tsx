@@ -1,10 +1,7 @@
 /**
  * WordPress dependencies
  */
-import {
-	useBlockProps,
-	InnerBlocks,
-} from '@wordpress/block-editor';
+import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -20,14 +17,12 @@ export default function Edit() {
 
 	return (
 		<>
-			<div { ...blockProps }>
+			<div {...blockProps}>
 				<InnerBlocks
-					template={ [ [ 'aquila/accordion-item' ] ] }
-					allowedBlocks={ [ 'aquila/accordion-item' ] }
-					templateLock={ false }
-					renderAppender={
-						() => <InnerBlocks.ButtonBlockAppender />
-					}
+					template={[['aquila/accordion-item']]}
+					allowedBlocks={['aquila/accordion-item']}
+					templateLock={false}
+					renderAppender={() => <InnerBlocks.ButtonBlockAppender />}
 				/>
 			</div>
 		</>

@@ -57,7 +57,7 @@ function getEntries() {
 	}
 	
 	// --- Global entry ---
-	entries['index'] = path.resolve(__dirname, 'src/index.js');
+	entries['index'] = path.resolve(__dirname, 'src/index.ts');
 
 	// --- SCSS files via JS wrappers ---
 	const scssDir = path.resolve(__dirname, 'src/scss');

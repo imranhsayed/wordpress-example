@@ -8,8 +8,8 @@ import { registerBlockType } from '@wordpress/blocks';
  */
 import './style.scss';
 import './editor.scss';
-import Edit from './edit.jsx';
-import Save from './save.jsx';
+import Edit from './edit.tsx';
+import Save from './save.tsx';
 import metadata from './block.json';
 
 /**
@@ -17,7 +17,7 @@ import metadata from './block.json';
  *
  * @see https://developer.wordpress.org/block-editor/developers/block-api/#registering-a-block
  */
-registerBlockType( metadata.name, {
+registerBlockType(metadata.name, {
 	/**
 	 * @see ./edit.js
 	 */
@@ -26,4 +26,4 @@ registerBlockType( metadata.name, {
 	 * @see ./save.js
 	 */
 	save: Save,
-} );
+});

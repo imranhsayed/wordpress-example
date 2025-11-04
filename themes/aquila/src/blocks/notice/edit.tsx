@@ -3,11 +3,11 @@ import { useBlockProps, RichText } from '@wordpress/block-editor';
 
 export default function Edit({ attributes, setAttributes }) {
 	const { content } = attributes;
-	
+
 	const blockProps = useBlockProps({
 		className: 'aquila-notice',
 	});
-	
+
 	return (
 		<>
 			<div {...blockProps}>
