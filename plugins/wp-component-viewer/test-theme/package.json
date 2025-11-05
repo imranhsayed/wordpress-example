@@ -1,0 +1,27 @@
+{
+	"name": "test-theme",
+	"version": "1.0.0",
+	"description": "A WordPress theme for testing purposes",
+	"author": "rtCamp Inc.",
+	"license": "GPL-3.0-or-later",
+	"scripts": {
+		"start": "wp-scripts start",
+		"build": "wp-scripts build",
+		"lint:css": "wp-scripts lint-style",
+		"lint:package-json": "wp-scripts lint-pkg-json",
+		"format:css": "wp-scripts format-style"
+	},
+	"devDependencies": {
+		"@wordpress/scripts": "^3.4.0",
+		"clean-webpack-plugin": "^4.0.0",
+		"css-loader": "^7.1.2",
+		"mini-css-extract-plugin": "^2.9.2",
+		"postcss": "^8.5.4",
+		"postcss-loader": "^8.1.1",
+		"sass": "^1.87.0",
+		"sass-loader": "^16.0.5",
+		"webpack-cli": "^6.0.1",
+		"webpack-remove-empty-scripts": "^1.0.4",
+		"webpack-watched-glob-entries-plugin": "^3.0.2"
+	}
+}

@@ -1,0 +1,2 @@
+(()=>{"use strict";document.addEventListener("DOMContentLoaded",(function(){document.querySelectorAll(".impact-stats__number").forEach((t=>{const e=()=>{const n=+t.getAttribute("data-target"),r=+t.innerText,a=n/200;r<n?(t.innerText=Math.ceil(r+a),requestAnimationFrame(e)):t.innerText=n};e()}))}))})();
+//# sourceMappingURL=impact-stats.js.map

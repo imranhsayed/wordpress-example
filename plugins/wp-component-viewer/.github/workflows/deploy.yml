@@ -1,0 +1,19 @@
+name: Deploy to wp-components-theme
+
+on:
+  push:
+    branches:
+      - develop
+      - main
+
+jobs:
+  trigger-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger wp-components-theme workflow
+        uses: peter-evans/repository-dispatch@ff45666b9427631e3450c54a1bcbee4d9ff4d7c0
+        with:
+          token: ${{ secrets.RTBOT_TOKEN }}
+          repository: rtCamp/wp-components-theme
+          event-type: deploy-triggered
+          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'

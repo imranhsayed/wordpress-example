@@ -1,0 +1,3 @@
+.current-time-component{font-family:monospace;font-size:2rem;color:#333}.current-time-component__clock{display:inline-block}.current-time-component.variant-default{text-align:center;padding:1rem;background-color:#f9f9f9;border-radius:6px}.current-time-component.variant-minimal{font-size:1.5rem;color:#007cba;background:none;padding:0}.current-time-component.variant-boxed{border:2px solid #007cba;background-color:#eef7fb;padding:1rem 2rem;border-radius:8px;box-shadow:0 0 0 4px rgba(0,124,186,.1)}
+
+/*# sourceMappingURL=current-time.css.map*/

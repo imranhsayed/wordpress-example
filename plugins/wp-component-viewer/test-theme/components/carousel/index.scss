@@ -1,0 +1,95 @@
+.carousel-component {
+	position: relative;
+	width: 600px;
+	height: 400px;
+	border-radius: 8px;
+  
+	&__track {
+	  display: flex;
+	  height: 100%;
+	  position: relative;
+	}
+  
+	&__slide {
+	  min-width: 100%;
+	  height: 100%;
+	  transition: opacity 0.3s ease;
+	  opacity: 0;
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+  
+	  &.is-active {
+		opacity: 1;
+		position: relative;
+		z-index: 1;
+	  }
+  
+	  img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		display: block;
+	  }
+	}
+  
+	&__caption {
+	  position: absolute;
+	  bottom: 1rem;
+	  left: 1rem;
+	  background: rgba(0, 0, 0, 0.5);
+	  color: white;
+	  padding: 0.5rem 1rem;
+	  border-radius: 4px;
+	  font-size: 14px;
+	}
+  
+	&__prev,
+	&__next {
+	  position: absolute;
+	  top: 50%;
+	  transform: translateY(-50%);
+	  background: #00000088;
+	  color: #fff;
+	  border: none;
+	  font-size: 1.5rem;
+	  padding: 0.5rem 1rem;
+	  cursor: pointer;
+	  z-index: 2;
+	  border-radius: 4px;
+  
+	  &:hover {
+		background: #000;
+	  }
+	}
+  
+	&__prev {
+	  left: 10px;
+	}
+  
+	&__next {
+	  right: 10px;
+	}
+  
+	&__dots {
+	color: #000;
+	  display: flex;
+	  justify-content: center;
+	  gap: 8px;
+	  margin-top: 1rem;
+  
+	  button {
+		width: 10px;
+		height: 10px;
+		border-radius: 50%;
+		background: #ccc;
+		border: none;
+		cursor: pointer;
+  
+		&.is-active {
+		  background: #333;
+		}
+	  }
+	}
+  }
+  

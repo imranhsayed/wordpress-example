@@ -1,0 +1,1 @@
+{"version":3,"file":"css/map.css","mappings":"AAAA,KACC,WACA,kBACA,gBACA,oC","sources":["webpack://test-theme/./components/map/index.scss"],"sourcesContent":[".map {\n\twidth: 100%;\n\tborder-radius: 8px;\n\toverflow: hidden;\n\tbox-shadow: 0 2px 6px rgb(0 0 0 / 0.1);\n}\n"],"names":[],"sourceRoot":""}

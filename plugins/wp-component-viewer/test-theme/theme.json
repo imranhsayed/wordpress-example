@@ -1,0 +1,24 @@
+{
+  "version": 3,
+  "settings": {
+    "layout": {
+      "contentSize": "800px",
+      "wideSize": "1200px"
+    },
+    "custom": {
+      "slug": "test-theme"
+    }
+  },
+  "templateParts": [
+    {
+      "name": "header",
+      "title": "Header",
+      "area": "header"
+    },
+    {
+      "name": "footer",
+      "title": "Footer",
+      "area": "footer"
+    }
+  ]
+}

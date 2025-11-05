@@ -1,0 +1,49 @@
+# Dependencies
+## Avoid any node_modules folders anywhere in the repo; see see https://docs.wpvip.com/how-tos/manage-dependencies/#version-management
+node_modules
+
+# Ignore temporary OS files
+.DS_Store
+.DS_Store?
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+debug.log
+.phpunit.result.cache
+
+# Ignore editor config
+.idea/
+.vscode/
+
+# Other files and folders
+*.map
+
+# Local PHPCS configuration files
+.phpcs.xml
+phpcs.xml
+
+# Extra directories
+.discovery/
+
+# Excluded directories and files
+.devcontainer/
+.husky/
+.tests/
+.eslintrc
+.eslintignore
+.browserslistrc
+.editorconfig
+.lintstagedrc.js
+.nvmrc
+.phpcs.xml.dist
+.stylelintignore
+.stylelintrc.json
+phpstan.neon
+phpunit.xml
+
+# Test files
+tests/
+
+# Client mu-plugins ignore files.
+client-mu-plugins/.env.php

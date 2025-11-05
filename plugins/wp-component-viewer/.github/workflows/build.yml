@@ -1,0 +1,48 @@
+on:
+  push:
+    branches:
+      - develop
+      - main
+
+name: Build and Slack Notification
+jobs:
+  build:
+    name: Build Plugin
+    # Change below line to: `runs-on: ubuntu-latest` if not using self-hosted runners or if it is a public repo.
+    runs-on: self-hosted
+    steps:
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+
+    # Set up Node.js
+    - name: Setup Node.js
+      uses: actions/setup-node@cdca7365b2dadb8aad0a33bc7601856ffabcc48e # @v4
+      with:
+        node-version: "22"
+        cache: "npm"
+
+    # Install Node.js dependencies
+    - name: Install Node.js dependencies
+      run: npm ci
+
+    # Build the project
+    - name: Build Plugin
+      run: |
+        npm run build
+
+    - name: Deploy -built branch to github
+      run: |
+        export GITHUB_AUTH_TOKEN=$(echo -n "x-access-token:${GITHUB_TOKEN}" | base64 -w 0)
+        export GITHUB_TOKEN=""
+        chmod +x ./.github/deploy.sh
+        ./.github/deploy.sh
+      env:
+        GITHUB_TOKEN: ${{ secrets.RTBOT_TOKEN }}
+
+    - name: Slack Notification
+      uses: rtCamp/action-slack-notify@master
+      env:
+        SLACK_CHANNEL: lab-alerts
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+    - name: Cleanup
+      if: ${{ always() }}
+      uses: rtCamp/action-cleanup@master

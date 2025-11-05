@@ -287,21 +287,25 @@ function watchPhpFiles() {
 		name: 'watch-php-files',
 		buildStart(options) {
 			isWatchMode = process.argv.includes('--watch');
-			
-			if (!isWatchMode) return;
 
-			console.log(`[watch-php] Initializing PHP file watcher (using Rollup's watch system)...`);
+			if (isWatchMode) {
+				console.log(`[watch-php] Initializing PHP file watcher (using Rollup's watch system)...`);
+				console.log(`[watch-php] Source: ${srcDir}`);
+				console.log(`[watch-php] Destination: ${buildDir}`);
+
+				// Register all PHP files with Rollup's watch system
+				addPhpFilesToWatch(srcDir, this);
+				console.log(`👁️  [watch-php] All PHP files registered with Rollup's watch system`);
+			}
+		},
+		writeBundle() {
+			// Copy PHP files after build completes (after emptyOutDir has cleared the directory)
+			// This works for both watch and build modes
+			console.log(`[watch-php] Copying PHP files to build directory...`);
 			console.log(`[watch-php] Source: ${srcDir}`);
 			console.log(`[watch-php] Destination: ${buildDir}`);
-			
-			// Copy all PHP files from src directory initially
 			copyAllPhpFiles(srcDir);
-			
-			// Register all PHP files with Rollup's watch system
-			// This tells Rollup to watch these files and trigger watchChange() when they change
-			addPhpFilesToWatch(srcDir, this);
-			
-			console.log(`👁️  [watch-php] All PHP files registered with Rollup's watch system`);
+			console.log(`✓ [watch-php] PHP files copied to build directory`);
 		},
 		watchChange(id, change) {
 			// This hook fires when ANY file in Rollup's watch list changes

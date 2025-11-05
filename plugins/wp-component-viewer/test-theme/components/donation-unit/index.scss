@@ -1,0 +1,65 @@
+.donation-unit {
+	background: #f9fafb;
+	padding: 2rem;
+	border-radius: 12px;
+	border: 1px solid #e5e7eb;
+	max-width: 400px;
+	font-family: system-ui, sans-serif;
+
+	&__title {
+		font-size: 1.25rem;
+		margin-bottom: 0.5rem;
+	}
+
+	&__description {
+		color: #6b7280;
+		margin-bottom: 1.25rem;
+	}
+
+	&__amounts {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		margin-bottom: 1rem;
+	}
+
+	&__amount-option {
+		background: white;
+		border: 1px solid #d1d5db;
+		border-radius: 6px;
+		padding: 0.5rem 1rem;
+		cursor: pointer;
+		font-size: 0.95rem;
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+
+		input {
+			accent-color: #2563eb;
+		}
+	}
+
+	&__recurring {
+		margin-bottom: 1rem;
+
+		label {
+			font-size: 0.9rem;
+			color: #374151;
+		}
+	}
+
+	&__submit button {
+		background-color: #2563eb;
+		color: #fff;
+		border: none;
+		padding: 0.75rem 1.5rem;
+		border-radius: 6px;
+		cursor: pointer;
+		font-weight: 500;
+		transition: background 0.2s ease;
+
+		&:hover {
+			background-color: #1d4ed8;
+		}
+	}
+}

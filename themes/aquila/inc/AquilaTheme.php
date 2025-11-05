@@ -49,7 +49,7 @@ class AquilaTheme {
 	 */
 	public function configure_component_scan_paths( $paths ) {
 		$paths['components']     = '/src/components';
-		$paths['css_build_path'] = '/build/components/{{component_name}}/index.css';
+		$paths['css_build_path'] = '/build/components/{{component_name}}/style.css';
 		$paths['js_build_path']  = '/build/components/{{component_name}}/index.js';
 
 		return $paths;

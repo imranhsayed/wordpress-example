@@ -1,0 +1,52 @@
+{
+  "name": "wp-component-viewer",
+  "version": "1.0.0",
+  "description": "A WordPress package that helps front-end developers build and view components in one place, similar to Storybook for React.",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "build": "npm-run-all --parallel build:css build:js",
+    "build:css": "sass assets/scss:assets/css --style=compressed",
+    "build:js": "webpack --config webpack.config.js --mode=production",
+    "dev": "npm-run-all --parallel dev:watch",
+    "dev:watch": "npm-run-all --parallel watch:*",
+    "watch:css": "sass assets/scss:assets/css --watch",
+    "watch:js": "webpack --config webpack.config.js --mode=development --watch",
+    "lint": "npm-run-all --parallel lint:*",
+    "lint:php": "composer run-script lint",
+    "lint:js": "eslint assets/js/src",
+    "lint:css": "stylelint 'assets/scss/**/*.scss'",
+    "format": "npm-run-all --parallel format:*",
+    "format:php": "composer run-script fix",
+    "format:js": "eslint assets/js/src --fix",
+    "test": "npm-run-all --parallel test:php",
+    "test:php": "composer run-script test",
+    "prepare": "husky install",
+    "create-component": "node scripts/create-component.js",
+	"env-start": "wp-env start && wp-env run cli wp theme activate test-theme",
+	"env-destory": "wp-env destroy"
+  },
+  "keywords": [
+    "wordpress",
+    "component",
+    "viewer",
+    "storybook"
+  ],
+  "author": "rtCamp",
+  "license": "GPL-2.0-or-later",
+  "devDependencies": {
+    "@wordpress/scripts": "^26.0.0",
+    "eslint": "^8.40.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.2",
+    "npm-run-all": "^4.1.5",
+    "sass": "^1.62.1",
+    "stylelint": "^15.6.1",
+    "stylelint-config-standard-scss": "^9.0.0",
+    "webpack": "^5.82.0",
+    "webpack-cli": "^5.1.0",
+    "@wordpress/env": "^10.24.0"
+  }
+}

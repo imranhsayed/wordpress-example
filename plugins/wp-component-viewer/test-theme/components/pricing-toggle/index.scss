@@ -1,0 +1,293 @@
+/**
+ * Pricing Toggle Component Styles
+ * 
+ * Modern, accessible toggle component for switching between pricing periods
+ */
+
+// Variables
+$toggle-bg: #f1f5f9;
+$toggle-active-bg: #3b82f6;
+$toggle-text: #64748b;
+$toggle-active-text: #ffffff;
+$toggle-border: #e2e8f0;
+$toggle-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+$toggle-hover-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+$discount-bg: #ef4444;
+$discount-text: #ffffff;
+
+// Animations
+$toggle-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+$slide-transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+.pricing-toggle {
+	display: flex;
+	justify-content: center;
+	margin: 2rem 0;
+	
+	&__wrapper {
+		position: relative;
+		display: inline-flex;
+		align-items: center;
+	}
+	
+	&__container {
+		position: relative;
+		display: flex;
+		background: $toggle-bg;
+		border-radius: 12px;
+		padding: 4px;
+		border: 1px solid $toggle-border;
+		box-shadow: $toggle-shadow;
+		transition: $toggle-transition;
+		
+		&:hover {
+			box-shadow: $toggle-hover-shadow;
+		}
+	}
+	
+	// Toggle option buttons (no longer hidden inputs)
+	&__option {
+		position: relative;
+		z-index: 2;
+		background: none;
+		border: none;
+		cursor: pointer;
+		transition: $toggle-transition;
+		border-radius: 8px;
+		outline: none;
+		
+		&:focus-visible {
+			outline: 2px solid $toggle-active-bg;
+			outline-offset: 2px;
+		}
+		
+		&--active {
+			.pricing-toggle__label {
+				color: $toggle-active-text;
+				font-weight: 600;
+			}
+		}
+		
+		&:hover:not(&--active) {
+			.pricing-toggle__label {
+				color: darken($toggle-text, 20%);
+			}
+		}
+	}
+	
+	&__label {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		padding: 12px 24px;
+		font-size: 14px;
+		font-weight: 500;
+		color: $toggle-text;
+		cursor: pointer;
+		border-radius: 8px;
+		transition: $toggle-transition;
+		white-space: nowrap;
+		user-select: none;
+		
+		&:hover {
+			color: darken($toggle-text, 20%);
+		}
+		
+		// Ensure text stays readable on active state
+		.pricing-toggle__option--active & {
+			color: $toggle-active-text;
+			
+			&:hover {
+				color: $toggle-active-text;
+			}
+		}
+	}
+	
+	&__discount {
+		display: inline-flex;
+		align-items: center;
+		background: $discount-bg;
+		color: $discount-text;
+		font-size: 11px;
+		font-weight: 600;
+		padding: 2px 6px;
+		border-radius: 4px;
+		text-transform: uppercase;
+		letter-spacing: 0.5px;
+		animation: pulse-discount 2s infinite;
+		
+		// Override color when parent is active
+		.pricing-toggle__option--active & {
+			background: rgba(255, 255, 255, 0.2);
+			color: $toggle-active-text;
+		}
+	}
+	
+	// Animated slider background
+	&__slider {
+		position: absolute;
+		top: 4px;
+		left: 4px;
+		bottom: 4px;
+		width: calc(50% - 4px);
+		background: $toggle-active-bg;
+		border-radius: 8px;
+		transition: $slide-transition;
+		z-index: 1;
+		
+		&--yearly {
+			transform: translateX(100%);
+		}
+	}
+	
+	// Smooth transition state
+	&--transitioning {
+		.pricing-toggle__container {
+			&::after {
+				content: '';
+				position: absolute;
+				inset: 0;
+				border-radius: 12px;
+				background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+				animation: shimmer 0.6s ease-out;
+			}
+		}
+	}
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+	.pricing-toggle {
+		margin: 1.5rem 0;
+		
+		&__label {
+			padding: 10px 16px;
+			font-size: 13px;
+		}
+		
+		&__discount {
+			font-size: 10px;
+			padding: 2px 4px;
+		}
+	}
+}
+
+@media (max-width: 480px) {
+	.pricing-toggle {
+		&__container {
+			width: 100%;
+			max-width: 280px;
+		}
+		
+		&__label {
+			padding: 8px 12px;
+			font-size: 12px;
+		}
+	}
+}
+
+// Animations
+@keyframes pulse-discount {
+	0%, 100% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.05);
+	}
+}
+
+@keyframes shimmer {
+	0% {
+		transform: translateX(-100%);
+	}
+	100% {
+		transform: translateX(100%);
+	}
+}
+
+// Dark mode support
+@media (prefers-color-scheme: dark) {
+	.pricing-toggle {
+		&__container {
+			background: #1e293b;
+			border-color: #334155;
+		}
+		
+		&__label {
+			color: #94a3b8;
+			
+			&:hover {
+				color: #cbd5e1;
+			}
+		}
+		
+		&__slider {
+			background: #3b82f6;
+		}
+		
+		&__discount {
+			background: #dc2626;
+		}
+	}
+}
+
+// High contrast mode support
+@media (prefers-contrast: high) {
+	.pricing-toggle {
+		&__container {
+			border-width: 2px;
+		}
+		
+		&__slider {
+			border: 2px solid currentColor;
+		}
+		
+		&__label {
+			font-weight: 600;
+		}
+	}
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+	.pricing-toggle {
+		&__slider,
+		&__container,
+		&__label,
+		&__option {
+			transition: none;
+		}
+		
+		&__discount {
+			animation: none;
+		}
+	}
+}
+
+// Focus styles for better accessibility
+.pricing-toggle {
+	&__option:focus-visible {
+		outline: 2px solid $toggle-active-bg;
+		outline-offset: 2px;
+		border-radius: 8px;
+	}
+}
+
+// Print styles
+@media print {
+	.pricing-toggle {
+		&__slider {
+			display: none;
+		}
+		
+		&__option--active .pricing-toggle__label {
+			background: #000;
+			color: #fff;
+		}
+	}
+}
+
+.pricing-toggle__container > button {
+    flex: 1;
+    min-width: 0;
+}

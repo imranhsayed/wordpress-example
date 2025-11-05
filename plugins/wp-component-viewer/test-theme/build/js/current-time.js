@@ -1,0 +1,2 @@
+(()=>{"use strict";(()=>{const e=e=>e<10?"0"+e:e;function t(){const t=new Date;document.querySelectorAll(".current-time-component").forEach((c=>{const n=c.dataset.timeFormat||"H:i:s",r=c.querySelector(".current-time-component__clock");r&&(r.textContent=function(t,c){let n=t.getHours(),r=n%12||12,o=e(t.getMinutes()),l=e(t.getSeconds()),s=n>=12?"PM":"AM";return c.replace(/H/,e(n)).replace(/h/,e(r)).replace(/i/,o).replace(/s/,l).replace(/A/,s)}(t,n))}))}setInterval(t,1e3),t()})()})();
+//# sourceMappingURL=current-time.js.map

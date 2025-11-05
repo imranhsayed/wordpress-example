@@ -1,0 +1,76 @@
+/*
+Theme Name: WP Component Viewer Test Theme
+Theme URI: https://github.com/rtCamp/wp-component-viewer
+Slug: test-theme
+Author: rtCamp
+Author URI: https://rtcamp.com
+Description: A test theme for the WP Component Viewer plugin demonstrating component organization
+Version: 1.0.0
+License: GPL-2.0+
+License URI: http://www.gnu.org/licenses/gpl-2.0.txt
+Text Domain: test-theme
+*/
+
+/* Basic theme styling */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Sticky footer layout */
+.site-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.site-main {
+    flex: 1;
+}
+
+/* Header styling */
+header.wp-block-group.container {
+    background-color: #1a202c;
+    color: #fff;
+    padding: 20px 0;
+    border-bottom: 4px solid #4FD1C5;
+}
+
+header .wp-block-site-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+header .wp-block-navigation {
+    margin-top: 10px;
+}
+
+/* Add spacing for navigation links if needed */
+header .wp-block-navigation a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 15px;
+    font-weight: 500;
+}
+
+header .wp-block-navigation a:hover {
+    text-decoration: underline;
+}
+
+/* Footer styling */
+footer {
+    background-color: #f7fafc;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9rem;
+    color: #666;
+    border-top: 1px solid #e2e8f0;
+}

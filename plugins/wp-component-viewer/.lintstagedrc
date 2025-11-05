@@ -1,0 +1,14 @@
+{
+  "*.php": [
+    "composer run-script lint"
+  ],
+  "*.js": [
+    "eslint --fix"
+  ],
+  "*.scss": [
+    "stylelint --fix"
+  ],
+  "*.css": [
+    "stylelint --fix"
+  ]
+}

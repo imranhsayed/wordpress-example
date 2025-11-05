@@ -1,0 +1,58 @@
+.testimonial-slider {
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+  font-family: system-ui, sans-serif;
+
+  &__viewport {
+    overflow: hidden;
+    border-radius: 10px;
+    background: #f9f9f9;
+  }
+
+  &__track {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 100%;
+  }
+
+  &__slide {
+    flex: 0 0 100%;
+    padding: 2rem;
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+  &__message {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 1rem;
+  }
+
+  &__footer {
+    font-size: 0.9rem;
+    color: #666;
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    gap: 1rem;
+  }
+
+  &__prev,
+  &__next {
+    background: #0073aa;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  &__prev:hover,
+  &__next:hover {
+    background: #005177;
+  }
+}

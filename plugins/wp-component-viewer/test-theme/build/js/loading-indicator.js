@@ -1,0 +1,2 @@
+(()=>{"use strict";window.showLoader=function(e){const o=document.querySelector(e);o&&o.classList.remove("is-hidden")},window.hideLoader=function(e){const o=document.querySelector(e);o&&o.classList.add("is-hidden")},document.querySelectorAll('.loading-indicator-component[data-auto-hide="true"]').forEach((e=>{setTimeout((()=>e.classList.add("is-hidden")),2e3)}))})();
+//# sourceMappingURL=loading-indicator.js.map
