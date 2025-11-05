@@ -14,6 +14,12 @@
  *   "default": {"content": "<rt-accordion-item class=\"wp-aquila-accordion__item\" open-by-default=\"yes\"><rt-accordion-handle class=\"wp-aquila-accordion__handle\"><button class=\"wp-aquila-accordion__heading\"><span class=\"has-heading-font-family\">What is an accordion component?</span></button></rt-accordion-handle><rt-accordion-content class=\"wp-aquila-accordion__content\"><div class=\"wp-aquila-accordion__content-wrap\"><p>An accordion is a vertically stacked list of items. Each item can be expanded or collapsed to reveal the content associated with that item.</p></div></rt-accordion-content></rt-accordion-item>", "background_color": "", "wrapper_attributes": ""},
  *   "multiple-items": {"content": "<rt-accordion-item class=\"wp-aquila-accordion__item\" open-by-default=\"yes\"><rt-accordion-handle class=\"wp-aquila-accordion__handle\"><button class=\"wp-aquila-accordion__heading\"><span class=\"has-heading-font-family\">First Accordion Item</span></button></rt-accordion-handle><rt-accordion-content class=\"wp-aquila-accordion__content\"><div class=\"wp-aquila-accordion__content-wrap\"><p>This is the content of the first accordion item. It can contain any HTML content.</p></div></rt-accordion-content></rt-accordion-item><rt-accordion-item class=\"wp-aquila-accordion__item\"><rt-accordion-handle class=\"wp-aquila-accordion__handle\"><button class=\"wp-aquila-accordion__heading\"><span class=\"has-heading-font-family\">Second Accordion Item</span></button></rt-accordion-handle><rt-accordion-content class=\"wp-aquila-accordion__content\"><div class=\"wp-aquila-accordion__content-wrap\"><p>This is the content of the second accordion item with more details about the component functionality.</p></div></rt-accordion-content></rt-accordion-item>", "background_color": "", "wrapper_attributes": ""}
  * }
+ * @extra_allowed_tags {
+ *   "rt-accordion": {"class": true},
+ *   "rt-accordion-item": {"open-by-default": true, "aria-expanded": true, "expanded": true, "class": true},
+ *   "rt-accordion-handle": {"aria-expanded": true, "class": true},
+ *   "rt-accordion-content": {"class": true}
+ * }
  * @example render_component( 'accordion', [
  *    'content' => get_component(
  *                     'accordion',
