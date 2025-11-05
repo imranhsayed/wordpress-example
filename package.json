@@ -17,5 +17,21 @@
   },
   "workspaces": [
     "themes/aquila*"
-  ]
+  ],
+  "pnpm": {
+    "peerDependencyRules": {
+      "allowedVersions": {
+        "react": "18",
+        "react-dom": "18"
+      }
+    },
+    "allowedDeprecatedVersions": {
+      "eslint": "8",
+      "@humanwhocodes/config-array": "*",
+      "@humanwhocodes/object-schema": "*",
+      "glob": "*",
+      "inflight": "*",
+      "rimraf": "*"
+    }
+  }
 }
