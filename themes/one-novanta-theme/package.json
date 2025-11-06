@@ -1,0 +1,23 @@
+{
+	"name": "one-novanta-theme",
+	"version": "1.0.0",
+	"description": "Theme for One Novanta initiative.",
+	"main": "src/index.js",
+	"author": "rtCamp Inc,",
+	"license": "GPL-3.0-or-later",
+	"scripts": {
+		"start": "rm -rf build && wp-scripts start",
+		"build": "rm -rf build && wp-scripts build",
+		"lint:js": "wp-scripts lint-js",
+		"lint:css": "wp-scripts lint-style",
+		"lint:package-json": "wp-scripts lint-pkg-json",
+		"format:js": "wp-scripts format-js",
+		"format:css": "wp-scripts format-style"
+	},
+	"dependencies": {
+		"@rtcamp/web-components": "^1.1.6",
+		"@wordpress/icons": "^10.21.0",
+		"classnames": "^2.5.1",
+		"dompurify": "^3.2.5"
+	}
+}

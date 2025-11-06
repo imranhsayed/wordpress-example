@@ -1,0 +1,27 @@
+/**
+ * Functions.
+ */
+
+@use "sass:math";
+
+@function calculate-percentage( $target, $context: 1500px ) {
+
+	@return 100% * ( $target / $context );
+}
+
+@function calculate-em( $px-value, $parent-px-value: 16px ) {
+
+	@return math.div( $px-value, $parent-px-value ) * 1em;
+}
+
+@function calculate-rem( $px-value, $parent-px-value: 16px ) {
+
+	@return math.div( $px-value, $parent-px-value ) * 1rem;
+}
+
+@function clamp-size($min-width, $max-width, $size-at-min-width, $size-at-max-width) {
+	$slope: math.div(($size-at-max-width - $size-at-min-width), ($max-width - $min-width));
+	$intercept: $size-at-min-width - $slope * $min-width;
+
+	@return clamp(#{$size-at-min-width}, #{$intercept} + #{$slope * 100}vw, #{$size-at-max-width});
+}

@@ -1,0 +1,31 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "one-novanta/two-columns-column",
+	"version": "0.1.0",
+	"title": "Column",
+	"category": "one-novanta",
+	"icon": "image-flip-horizontal",
+	"description": "Add content in a column.",
+	"supports": {
+		"alignWide": false,
+		"anchor": false,
+		"className": false,
+		"html": false,
+		"customClassName": false,
+		"inserter": false
+	},
+	"attributes": {
+		"templateLock": {
+			"type": [ "string", "boolean" ],
+			"enum": [ "all", "insert", "contentOnly", false ]
+		},
+		"allowedBlocks": {
+			"type": [ "array" ]
+		}
+	},
+	"parent": ["one-novanta/two-columns"],
+	"textdomain": "one-novanta-theme",
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php"
+}

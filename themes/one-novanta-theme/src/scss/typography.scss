@@ -1,0 +1,169 @@
+/**
+ * Typography.
+ */
+
+@use "../scss/variables";
+@use "../scss/mixins";
+@use "../scss/placeholders";
+
+body {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-rendering: optimizelegibility;
+	overflow-x: hidden;
+
+	/* Default word wrapping for Western languages */
+	word-break: break-word;
+
+	/* Language-specific overrides for CJK languages */
+	&:lang(ja), /* Japanese */
+	&:lang(zh), /* Chinese */
+	&:lang(zh-cn), /* Simplified Chinese */
+	&:lang(zh-tw) { /* Traditional Chinese */
+		word-break: normal; /* Use default CJK breaking rules */
+		hyphens: none; /* Disable hyphens for CJK */
+
+		/* Use auto-phrase if supported (Chrome 119+) */
+		@supports (word-break: auto-phrase) {
+			word-break: auto-phrase;
+		}
+	}
+}
+
+@for $i from 1 through 6 {
+
+	h#{ $i },
+	.h#{ $i } {
+
+		@extend %h#{ $i };
+	}
+}
+
+img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+a {
+	display: inline-flex;
+	align-items: center;
+
+	&:hover {
+
+		@media (hover: hover) {
+			text-decoration: none;
+		}
+	}
+
+	&.disabled {
+		pointer-events: none;
+		opacity: 0.4;
+	}
+}
+
+a.wp-one-novanta__link--variation-two {
+	text-decoration: none;
+
+	&:hover {
+
+		@media (hover: hover) {
+			text-decoration: underline;
+		}
+	}
+}
+
+p,
+ul,
+ol,
+dl,
+figure,
+blockquote {
+	margin-block-start: 0;
+	margin-block-end: var(--wp--preset--spacing--typography);
+	word-wrap: break-word;
+
+	&:last-child {
+		margin-block-end: 0;
+	}
+}
+
+figure {
+	margin-left: 0;
+	margin-right: 0;
+}
+
+figcaption {
+	margin-block-start: 0.8rem;
+}
+
+ul {
+	padding-left: 1rem;
+}
+
+ol {
+	padding-left: 1rem;
+}
+
+dt {
+	color: var(--color-gray-70);
+	font-size: var(--wp--preset--font-size--small);
+}
+
+dd {
+	margin-left: 0;
+	margin-block-end: var(--wp--preset--spacing--30);
+
+	&:last-child {
+		margin-block-end: 0;
+	}
+}
+
+// Legacy IFRAME support (fallback).
+p > iframe {
+	width: 100%;
+	height: auto;
+	aspect-ratio: 16 / 9;
+	display: block;
+}
+
+.typography-spacing {
+
+	@extend %typography-spacing;
+}
+
+.has-display-font-size,
+.has-xxx-large-font-size {
+	line-height: 1;
+	letter-spacing: 0;
+}
+
+.has-xx-large-font-size {
+	letter-spacing: -0.04em;
+	line-height: 1.04;
+}
+
+.has-x-large-font-size {
+	line-height: 1.222;
+}
+
+.has-large-font-size {
+	line-height: 1.20833;
+}
+
+.has-medium-font-size {
+	line-height: 1.2;
+}
+
+.has-small-font-size {
+	line-height: 1.25;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+.has-tiny-font-size {
+	font-weight: 500;
+	line-height: 1.2;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}

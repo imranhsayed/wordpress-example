@@ -1,0 +1,51 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "one-novanta/articles-collage",
+	"version": "0.1.0",
+	"title": "Articles Collage",
+	"category": "one-novanta",
+	"icon": "editor-table",
+	"description": "Displays a collage of latest articles using Image Tile blocks.",
+	"example": {
+		"attributes": {
+			"numberOfPosts": 3,
+			"editMode": false
+		},
+		"innerBlocks": [
+			{
+				"name": "one-novanta/image-tile",
+				"attributes": {
+					"title": "Article 1"
+				}
+			},
+			{
+				"name": "one-novanta/image-tile",
+				"attributes": {
+					"title": "Article 2"
+				}
+			}
+		]
+	},
+	"supports": {
+		"inserter": false,
+		"html": false
+	},
+	"attributes": {
+		"numberOfPosts": {
+			"type": "number",
+			"default": 3
+		},
+		"editMode": {
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"providesContext": {
+		"one-novanta/editMode": "editMode"
+	},
+	"textdomain": "one-novanta-theme",
+	"editorStyle": "file:./index.css",
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php"
+}

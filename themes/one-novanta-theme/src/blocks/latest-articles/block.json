@@ -1,0 +1,44 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "one-novanta/latest-articles",
+	"version": "0.1.0",
+	"title": "Latest Articles",
+	"category": "one-novanta",
+	"description": "Displays latest articles.",
+	"textdomain": "one-novanta-theme",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php",
+	"supports": {
+		"inserter": false
+	},
+	"attributes": {
+		"template": {
+			"type": "string",
+			"default": "tiles",
+			"enum": ["tiles", "article-collection"]
+		},
+		"categoryId": {
+			"type": "number",
+			"default": 0
+		},
+		"order": {
+			"type": "string",
+			"default": "asc"
+		},
+		"orderBy": {
+			"type": "string",
+			"default": "title"
+		},
+		"numberOfItems": {
+			"type": "number",
+			"default": 4
+		},
+		"headingLevel": {
+			"type": "string",
+			"default": "h3"
+		}
+	}
+}

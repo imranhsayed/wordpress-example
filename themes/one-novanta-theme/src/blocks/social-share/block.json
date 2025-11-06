@@ -1,0 +1,20 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "one-novanta/social-share",
+	"version": "1.0.0",
+	"title": "Social Share",
+	"category": "one-novanta",
+	"icon": "share-alt",
+	"example": {},
+	"description": "A custom block for sharing content on social media platforms.",
+	"keywords": [ "one-novanta", "social", "share", "Novanta" ],
+	"supports": {
+		"html": false
+	},
+	"textdomain": "one-novanta-theme",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php",
+	"viewScript": "file:./view.js"
+}

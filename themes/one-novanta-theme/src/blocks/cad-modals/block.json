@@ -1,0 +1,32 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "one-novanta/cad-modals",
+	"version": "0.1.0",
+	"title": "CAD Modals",
+	"category": "one-novanta",
+	"icon": "editor-table",
+	"description": "Table displaying multiple CAD Modals.",
+	"example": {
+		"innerBlocks": [
+			{
+				"name": "one-novanta/cad-modal-item",
+				"attributes": {
+					"label": "Document 1",
+					"description": "Description 1"
+				}
+			},
+			{
+				"name": "one-novanta/cad-modal-item",
+				"attributes": {
+					"label": "Label 2",
+					"description": "Description 2"
+				}
+			}
+		]
+	},
+	"textdomain": "one-novanta-theme",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"render": "file:./render.php"
+}

@@ -1,0 +1,13 @@
+/**
+ * Block: Latest articles
+ *
+ * Renders Front-end styles.
+ */
+
+@use "../../scss/mixins";
+
+.wp-block-one-novanta-latest-articles .grid > div {
+	opacity: 1;
+
+	@include mixins.fade-in(0.5s, ease);
+}

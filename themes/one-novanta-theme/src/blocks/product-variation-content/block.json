@@ -1,0 +1,19 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "one-novanta/product-variation-content",
+	"version": "0.1.0",
+	"title": "Product Variation Content",
+	"category": "one-novanta",
+	"example": {},
+	"description": "Show product variation content.",
+	"textdomain": "one-novanta-theme",
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php",
+	"parent": [
+		"core/post-content"
+	],
+	"supports": {
+		"multiple": false
+	}
+}

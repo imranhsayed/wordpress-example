@@ -1,0 +1,20 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "one-novanta/search-results-title-count",
+	"version": "0.1.0",
+	"title": "Search Results Title & Count",
+	"category": "one-novanta",
+	"example": {},
+	"icon": "schedule",
+	"supports": {
+		"html": false
+	},
+	"description": "A customized search results count and search title block for search page.",
+	"attributes": {},
+	"textdomain": "one-novanta-theme",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

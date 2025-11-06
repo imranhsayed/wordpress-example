@@ -1,0 +1,135 @@
+/**
+ * Block: Feature Banner
+ *
+ * Renders editor styles.
+ */
+
+@use "../../scss/variables";
+@use "../../scss/functions";
+
+.one-novanta-feature-banner,
+.hero {
+	$self: &;
+
+	&:not(:has(.hero)) {
+		display: flex;
+		flex-flow: row wrap;
+		align-items: center;
+		justify-content: space-between;
+		position: relative;
+		padding-block: var(--wp--preset--spacing--50);
+	}
+
+	min-height: functions.clamp-size(variables.$sm, variables.$xxxl, 400px, 640px);
+
+	&--large {
+		min-height: functions.clamp-size(variables.$sm, variables.$xxxl, 520px, 920px);
+	}
+
+	&__setting--image-wrapper {
+		margin-block-end: var(--wp--preset--spacing--10);
+
+		img {
+			margin-block-start: var(--wp--preset--spacing--10);
+		}
+	}
+
+	&__image-wrap {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		margin-block-end: 0;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+		// Add overlay.
+		&::after {
+			content: "";
+			display: block;
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			height: 100%;
+			background: linear-gradient(90deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 100%);
+		}
+	}
+
+	&__content {
+		color: var(--wp--preset--color--background);
+		margin-inline: auto;
+		max-width: var(--wp--style--global--wide-size);
+		width: 100%;
+		position: relative;
+	}
+
+	&--narrow &__content-wrap {
+		max-width: 500px;
+	}
+
+	&--vertical-align-top &__content {
+		align-self: flex-start;
+	}
+
+	&--vertical-align-bottom &__content {
+		align-self: flex-end;
+	}
+
+	&__heading {
+		position: relative;
+		margin-block-start: 0;
+		margin-block-end: var(--wp--preset--spacing--30);
+		padding-block-end: var(--wp--preset--spacing--30);
+		font-weight: 600;
+		line-height: 1;
+
+		@media screen and (min-width: variables.$md) {
+			margin-block-end: var(--wp--preset--spacing--40);
+		}
+
+		&::after {
+			content: "";
+			background-color: var(--wp--preset--color--primary);
+			display: inline-block;
+			width: 97px;
+			height: 2px;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+		}
+
+		#{$self}--large & {
+
+			@media screen and (min-width: variables.$lg) {
+				margin-block-end: var(--wp--preset--spacing--60);
+			}
+		}
+	}
+
+	&__pre-heading {
+		color: var(--wp--preset--color--primary);
+		font-weight: 700;
+		margin-block-start: 0;
+		text-transform: uppercase;
+	}
+}
+
+.has-overlay-light {
+
+	.one-novanta-feature-banner__image-wrap {
+
+		&::after {
+			background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(0, 0, 0, 0) 100%);
+		}
+	}
+
+	.one-novanta-feature-banner__content {
+		color: var(--wp--preset--color--foreground);
+	}
+}

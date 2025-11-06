@@ -1,0 +1,114 @@
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+
+<!-- wp:group {"tagName":"main","layout":{"type":"constrained"}} -->
+<main class="wp-block-group">
+	<!-- wp:one-novanta/featured-banner {"imageID":"","imageURL":"","hasButtons":false,"verticalAlign":"bottom","isDynamic":true,"taxonomy":"novanta_application_categories"} /-->
+
+	<!-- wp:one-novanta/section {"showTitle":false,"showDescription":false,"className":"large-text-block--cover"} -->
+	<div class="alignfull large-text-block--cover" style="padding-top:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--80)">
+		<!-- wp:one-novanta/section-content -->
+		<div class="wp-block-one-novanta-section-content alignwide">
+			<!-- wp:post-excerpt {"className":"large-text-block__text","style":{"typography":{"fontStyle":"normal","fontWeight":"600"}},"fontSize":"xx-large","fontFamily":"heading"} /-->
+		</div>
+		<!-- /wp:one-novanta/section-content -->
+	</div>
+	<!-- /wp:one-novanta/section -->
+	<!-- wp:columns {"align":"wide","className":"blog-single-columns","style":{"spacing":{"blockGap":{"left":"0"}}}} -->
+	<div class="wp-block-columns alignwide blog-single-columns">
+		<!-- wp:column {"width":"34.72%","className":"blog-single-columns__sidebar","style":{"spacing":{"padding":{"right":"7.6%"},"blockGap":"var:preset|spacing|40"}}} -->
+		<div class="wp-block-column blog-single-columns__sidebar" style="padding-right:7.6%;flex-basis:34.72%">
+			<!-- wp:group {"style":{"position":{"type":"sticky","top":"0px"},"spacing":{"blockGap":"var:preset|spacing|40"}},"layout":{"type":"constrained"}} -->
+			<div class="wp-block-group">
+				<!-- wp:group {"metadata":{"patternName":"one-novanta-theme/blog-meta","name":"Blog Meta","categories":["one-novanta-theme"]},"className":"blog-meta","style":{"border":{"radius":"10px"},"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|40","right":"var:preset|spacing|40"},"blockGap":"var:preset|spacing|30"}},"backgroundColor":"quaternary","fontSize":"small","layout":{"type":"constrained"},"templateLock":"all"} -->
+				<div class="wp-block-group blog-meta has-quaternary-background-color has-background has-small-font-size" style="border-radius:10px;padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--40)">
+					<!-- wp:group {"layout":{"type":"constrained"}} -->
+					<div class="wp-block-group">
+						<!-- wp:paragraph {"style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.08em"}}} -->
+						<p style="letter-spacing:0.08em;text-transform:uppercase"><strong>Published</strong></p>
+						<!-- /wp:paragraph -->
+
+						<!-- wp:post-date {"style":{"spacing":{"margin":{"top":"var:preset|spacing|10"}}}} /-->
+					</div>
+					<!-- /wp:group -->
+
+					<!-- wp:pattern {"slug":"one-novanta-theme/estimated-reading-time"} /-->
+
+					<!-- wp:group {"layout":{"type":"constrained"}} -->
+					<div class="wp-block-group">
+						<!-- wp:paragraph {"style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.08em"}}} -->
+						<p style="letter-spacing:0.08em;text-transform:uppercase"><strong>Category</strong></p>
+						<!-- /wp:paragraph -->
+
+						<!-- wp:post-terms {"term":"novanta_application_categories","style":{"spacing":{"margin":{"top":"var:preset|spacing|10"}},"elements":{"link":{"color":{"text":"var:preset|color|foreground"}}},"typography":{"textDecoration":"none"}}} /-->
+					</div>
+					<!-- /wp:group -->
+				</div>
+				<!-- /wp:group -->
+
+				<!-- wp:one-novanta/toc {"className":"wp-block-one-novanta-toc table-of-content has-small-font-size has-heading-font-family"} /-->
+
+				<!-- wp:group {"metadata":{"patternName":"one-novanta-theme/blog-meta","name":"Blog Meta","categories":["one-novanta-theme"]},"className":"blog-meta","style":{"border":{"radius":"10px"},"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|40","right":"var:preset|spacing|40"},"blockGap":"var:preset|spacing|30"}},"backgroundColor":"quaternary","fontSize":"small","layout":{"type":"constrained"}} -->
+				<div id="one-novanta-blog-social-share" class="wp-block-group blog-meta has-quaternary-background-color has-background has-small-font-size" style="border-radius:10px;padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--40)">
+					<!-- wp:group {"layout":{"type":"constrained"}} -->
+					<div class="wp-block-group">
+						<!-- wp:paragraph {"style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.08em"}}} -->
+						<p style="letter-spacing:0.08em;text-transform:uppercase"><strong>Share</strong></p>
+						<!-- /wp:paragraph -->
+
+						<!-- wp:one-novanta/social-share /-->
+					</div>
+					<!-- /wp:group -->
+				</div>
+				<!-- /wp:group -->
+			</div>
+			<!-- /wp:group -->
+		</div>
+		<!-- /wp:column -->
+
+		<!-- wp:column {"width":"65.28%","className":"blog-single-columns__content","style":{"spacing":{"padding":{"left":"7.6%"}},"border":{"left":{"color":"var:preset|color|foreground","width":"1px"}}}} -->
+		<div class="wp-block-column blog-single-columns__content" style="border-left-color:var(--wp--preset--color--foreground);border-left-width:1px;padding-left:7.6%;flex-basis:65.28%">
+			<!-- wp:post-content {"layout":{"inherit":true}} /-->
+		</div>
+		<!-- /wp:column -->
+	</div>
+	<!-- /wp:columns -->
+
+	<!-- wp:one-novanta/section {"template":"related-articles"} -->
+	<div class="alignfull" style="padding-top:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--80)">
+		<!-- wp:one-novanta/section-heading {"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|60"}}}} -->
+		<div class="wp-block-one-novanta-section-heading alignwide" style="margin-bottom:var(--wp--preset--spacing--60)">
+			<!-- wp:heading {"placeholder":"Section title…","className":"one-novanta-section__title","fontSize":"xx-large"} -->
+			<h2 class="wp-block-heading one-novanta-section__title has-xx-large-font-size" id="h-related-news">Related news</h2>
+			<!-- /wp:heading -->
+
+			<!-- wp:paragraph {"placeholder":"Add description…","className":"one-novanta-section__description"} -->
+			<p class="one-novanta-section__description has-medium-font-size has-heading-font-family">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor didunt ut labore et dolore magna aliqua. Ut enim ad minim.</p>
+			<!-- /wp:paragraph -->
+		</div>
+		<!-- /wp:one-novanta/section-heading -->
+
+		<!-- wp:one-novanta/section-content {"templateLock":"all"} -->
+		<div class="wp-block-one-novanta-section-content alignwide">
+			<!-- wp:one-novanta/related-articles /-->
+		</div>
+		<!-- /wp:one-novanta/section-content -->
+	</div>
+	<!-- /wp:one-novanta/section -->
+
+	<!-- wp:one-novanta/section {"showTitle":false,"showDescription":false,"template":"one-novanta/media-form-variation"} -->
+	<div class="alignfull" style="padding-top:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--80)">
+		<!-- wp:one-novanta/section-content {"templateLock":"all"} -->
+		<div class="wp-block-one-novanta-section-content alignwide">
+			<!-- wp:one-novanta/media-form {"imageID":0,"backgroundColor":"secondary"} -->
+			<div class="wp-block-one-novanta-media-form">
+				<!-- wp:gravityforms/form {"formId":"5","inputPrimaryColor":"#204ce5"} /-->
+			</div>
+			<!-- /wp:one-novanta/media-form -->
+		</div>
+		<!-- /wp:one-novanta/section-content -->
+	</div>
+	<!-- /wp:one-novanta/section -->
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

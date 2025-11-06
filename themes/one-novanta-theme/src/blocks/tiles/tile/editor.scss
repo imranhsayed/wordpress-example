@@ -1,0 +1,77 @@
+/**
+ * Editor Styles.
+ *
+ * Block: Tile
+ */
+
+.tile-editor {
+	$self: &;
+
+	background-color: var(--wp--preset--color--secondary);
+	border-radius: var(--wp--custom--border-radius-normal);
+	color: var(--wp--preset--color--foreground);
+	display: flex;
+  flex-direction: column;
+	text-decoration: none;
+
+	&__figure {
+		margin: 0;
+		text-align: center;
+		min-height: 211px;
+    flex: 1;
+    margin-bottom: 1em;
+    
+    .components-placeholder{
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+    }
+	}
+
+	&__image {
+		border-radius: var(--wp--custom--border-radius-normal) var(--wp--custom--border-radius-normal) 0 0;
+		aspect-ratio: 1.3;
+		object-fit: cover;
+		width: 100%;
+		display: block;
+	}
+
+	&__content-wrapper {
+		box-sizing: border-box;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: var(--wp--preset--spacing--20);
+		gap: var(--wp--preset--spacing--30);
+		min-height: 90px;
+
+		svg {
+			min-width: 16px;
+		}
+	}
+
+	&__subheading {
+		font-weight: 500;
+		margin: 0 0 4px;
+		text-transform: uppercase;
+		letter-spacing: 0.8px;
+	}
+
+	&__heading {
+		font-size: var(--wp--preset--font-size--large);
+		letter-spacing: 0;
+		font-weight: 600;
+		margin: 0;
+
+		#{$self}--has-description & {
+			font-size: var(--wp--preset--font-size--medium);
+			margin-bottom: 4px;
+		}
+	}
+	
+	&__description {
+		margin: 0;
+	}
+	
+}

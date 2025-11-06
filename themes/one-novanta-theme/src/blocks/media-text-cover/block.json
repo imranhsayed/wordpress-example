@@ -1,0 +1,47 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "one-novanta/media-text-cover",
+	"version": "0.1.0",
+	"title": "Boxed Image CTA",
+	"category": "one-novanta",
+	"icon": "editor-table",
+	"description": "A custom CTA block.",
+	"example": {
+		"attributes": {
+			"heading": "Lorem ipsum dolor sit amet",
+			"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+			"contentAlignment": "left"
+		}
+	},
+	"supports": {
+		"inserter": false
+	},
+	"attributes" : {
+		"heading": {
+			"type": "string",
+			"default": ""
+		},
+		"description": {
+			"type": "string",
+			"default": ""
+		},
+		"imageID": {
+			"type": "integer",
+			"default": 0
+		},
+		"imageURL": {
+			"type": "string",
+			"default": ""
+		},
+		"contentAlignment": {
+			"type": "string",
+			"default": "left"
+		}
+	},
+	"textdomain": "one-novanta-theme",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

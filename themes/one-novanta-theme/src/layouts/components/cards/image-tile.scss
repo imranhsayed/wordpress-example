@@ -1,0 +1,107 @@
+/**
+ * Component: Image Tile.
+ */
+
+@use "../../../scss/mixins";
+
+.image-tile {
+	position: relative;
+	border-radius: var(--wp--custom--border-radius-normal);
+	overflow: hidden;
+	transition: box-shadow 0.4s ease-in-out;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	aspect-ratio: 1/1;
+
+	&--three-two {
+		aspect-ratio: 3 / 2;
+	}
+
+	&--two-one {
+		aspect-ratio: 2 / 1;
+	}
+
+	&--sixteen-nine {
+		aspect-ratio: 16 / 9;
+	}
+
+	&__image-wrap {
+		border-radius: var(--wp--custom--border-radius-normal);
+		overflow: hidden;
+		margin: 0;
+		min-width: 0;
+		position: absolute;
+		height: 100%;
+		width: 100%;
+
+		&::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			border-radius: var(--wp--custom--border-radius-normal);
+			background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.5) 30%, rgba(0, 0, 0, 0) 70%);
+		}
+
+		img {
+			height: 100%;
+			width: 100%;
+			object-fit: cover;
+		}
+	}
+
+	// Apply an outline to the parent when a child with `--stretched-link` is focus-visible.
+	&:has(.stretched-link:focus-visible) {
+		outline: 1px auto Highlight; /* Fallback color */
+		outline: 1px auto -webkit-focus-ring-color; /* WebKit-specific */
+	}
+
+	&__content {
+		color: var(--wp--preset--color--background);
+		margin-top: auto;
+		padding: 0 var(--wp--preset--spacing--20) var(--wp--preset--spacing--20);
+		width: 100%;
+		position: relative;
+		box-sizing: border-box;
+
+		svg {
+			min-width: 12px;
+		}
+	}
+
+	&__pre_heading {
+		font-family: var(--wp--preset--font-family--heading);
+		margin-block-end: 8px;
+
+		@include mixins.line-clamp(1);
+	}
+
+	&__heading {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: var(--wp--preset--spacing--10);
+	}
+
+	&__pre_heading,
+	&__heading-text {
+		overflow-wrap: break-word;
+	}
+
+	&__heading-text {
+
+		@include mixins.line-clamp(2);
+	}
+
+	&__link {
+		height: 100%;
+		width: 100%;
+		opacity: 0;
+		line-height: 0;
+		position: absolute;
+	}
+}

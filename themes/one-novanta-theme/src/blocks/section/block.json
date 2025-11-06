@@ -1,0 +1,119 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "one-novanta/section",
+	"version": "0.1.0",
+	"title": "Section",
+	"category": "one-novanta",
+	"icon": "welcome-widgets-menus",
+	"description": "Gather blocks in a layout container.",
+	"example": {
+		"innerBlocks": [
+			{
+				"name": "one-novanta/section-heading",
+				"innerBlocks": [
+					{
+						"name": "core/heading",
+						"attributes": {
+							"content": "Heading"
+						}
+					},
+					{
+						"name": "core/paragraph",
+						"attributes": {
+							"content": "Description"
+						}
+					}
+				]
+			},
+			{
+				"name": "one-novanta/section-content",
+				"innerBlocks": [
+					{
+						"name": "core/paragraph",
+						"attributes": {
+							"content": "Content"
+						}
+					}
+				]
+			}
+		]
+	},
+	"keywords": [
+		"section",
+		"container",
+		"layout",
+		"novanta"
+	],
+	"supports": {
+		"align": [ "full" ],
+		"anchor": true,
+		"className": false,
+		"html": false,
+		"customClassName": true,
+		"color": {
+			"background": true
+		},
+		"spacing": {
+			"padding": true
+		},
+		"layout": {
+			"allowEditing": false,
+			"default": {
+				"type": "constrained"
+			}
+		}
+	},
+	"attributes": {
+		"style": {
+			"type": "object",
+			"default": {
+				"spacing": {
+					"padding": {
+						"top": "var:preset|spacing|80",
+						"bottom": "var:preset|spacing|80"
+					}
+				}
+			}
+		},
+		"align": {
+			"type": "string",
+			"default": "full"
+		},
+		"showTitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"showDescription": {
+			"type": "boolean",
+			"default": true
+		},
+		"showButtons": {
+			"type": "boolean",
+			"default": false
+		},
+		"headingLayout": {
+			"type": "string",
+			"default": "stack"
+		},
+		"template": {
+			"type": "string"
+		},
+		"templateLock": {
+			"type": [ "string", "boolean" ],
+			"enum": [ "all", "insert", "contentOnly", false ]
+		}
+	},
+	"providesContext": {
+		"backgroundColor": "backgroundColor",
+		"showTitle": "showTitle",
+		"showDescription": "showDescription",
+		"showButtons": "showButtons",
+		"headingLayout": "headingLayout",
+		"template": "template"
+	},
+	"textdomain": "one-novanta-theme",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

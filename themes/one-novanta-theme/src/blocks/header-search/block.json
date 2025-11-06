@@ -1,0 +1,22 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "one-novanta/header-search",
+	"version": "1.0.0",
+	"title": "Header Search",
+	"category": "one-novanta",
+	"example": {},
+	"icon": "search",
+	"description": "Search form block for one novanta theme.",
+	"keywords": [ "one-novanta", "search", "header search", "Novanta" ],
+	"supports": {
+		"html": false
+	},
+	"attributes": {},
+	"textdomain": "one-novanta-theme",
+	"editorScript": "file:./index.js",
+	"viewScript": "file:./view.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

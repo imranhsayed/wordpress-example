@@ -1,0 +1,42 @@
+/**
+ * Custom Variables.
+ */
+
+@use "variables";
+
+:root {
+
+	// Grid.
+	--grid-section-gutter: var(--wp--preset--spacing--70);
+	--grid-row-gutter: var(--wp--preset--spacing--40);
+	--grid-col-gutter: var(--wp--preset--spacing--40);
+
+	// Forms.
+	--forms-field-spacing: var(--wp--preset--spacing--20);
+
+	// Transitions.
+	--ease-in-out-quart: cubic-bezier(0.87, 0, 0.13, 1);
+	--ease-in-out-quad: cubic-bezier(0.42, 0, 0.58, 1);
+	--transition-time: 0.3s;
+	--transition-easing: var(--ease-in-out-quad);
+
+	// Misc.
+	--header-height: 50px;
+	--wp-admin-bar-height: 0px; // stylelint-disable-line
+	--scroll-offset: 32px;
+	--scroll-padding-top: calc(var(--wp-admin-bar-height) + var(--scroll-offset));
+
+	// Media queries for responsive design.
+	@media screen and (min-width: variables.$xl) {
+		--wp--style--global--wide-size: 1200px;
+		--wp--style--global--content-size: 840px;
+	}
+
+	@media screen and (min-width: variables.$xxl) {
+		--wp--style--global--wide-size: 1400px;
+	}
+
+	@media screen and (min-width: variables.$xxxl) {
+		--wp--style--global--wide-size: 1680px;
+	}
+}

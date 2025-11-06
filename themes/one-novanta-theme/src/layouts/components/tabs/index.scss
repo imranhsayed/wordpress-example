@@ -1,0 +1,59 @@
+/*------------------------------------------------------------------
+ * rt-tabs Customizations
+ *------------------------------------------------------------------*/
+
+@use "../../../scss/variables";
+@use "~@rtcamp/web-components/build/tabs/style";
+
+/* Style the navigation container */
+.novanta-tabs-nav {
+	display: flex;
+	gap: var(--wp--preset--spacing--60);
+
+	/* Add padding to make scrollbar less intrusive */
+	margin-block-end: var(--wp--preset--spacing--80);
+	overflow-x: auto;
+
+	/* Enable horizontal scrolling */
+	white-space: nowrap;
+
+	/* Prevent tabs from wrapping */
+	-webkit-overflow-scrolling: touch;
+
+	/* Smoother scrolling on iOS */
+
+	a {
+		text-decoration: none;
+		font-weight: 400;
+	}
+}
+
+/* Mobile Scrolling for Tab Navigation */
+@media (max-width: variables.$md) {
+
+	.novanta-tabs-nav {
+		// Hide scrollbar
+		scrollbar-width: none;
+		-ms-overflow-style: none;
+
+		&::-webkit-scrollbar {
+			display: none;
+		}
+	}
+}
+
+/* Ensure nav items don't shrink */
+rt-tabs-nav-item {
+	flex-shrink: 0;
+
+	a {
+		padding: 0.75rem 0.5rem;
+    }
+}
+
+rt-tabs-nav-item[active="yes"] a {
+	color: var(--wp--preset--color--foreground);;
+	font-weight: 700;
+	border-bottom: 2px solid var(--wp--preset--color--primary);
+	padding-bottom: 1px;
+}

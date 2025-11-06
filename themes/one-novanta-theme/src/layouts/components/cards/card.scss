@@ -1,0 +1,23 @@
+/**
+ * Component: Card.
+ */
+
+.card {
+
+	&__image {
+		border-radius: var(--wp--custom--border-radius-normal);
+		overflow: hidden;
+		aspect-ratio: 20 / 11;
+
+		img {
+			height: 100%;
+			width: 100%;
+			object-fit: cover;
+		}
+	}
+
+	&__heading {
+		font-weight: 400;
+		margin-block-end: var(--wp--preset--spacing--10);
+	}
+}

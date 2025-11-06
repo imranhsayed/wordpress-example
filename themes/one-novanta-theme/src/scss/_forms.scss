@@ -1,0 +1,201 @@
+/**
+ * Form Fields.
+ */
+
+@use "variables";
+@use "mixins";
+
+button {
+	border: 0;
+	cursor: pointer;
+	margin: 0;
+	padding: 0;
+	background: none;
+	outline: 0;
+	box-shadow: none;
+	-webkit-appearance: none;
+	appearance: none;
+
+	&[type="submit"] {
+
+		@media screen and (max-width: calc( variables.$sm - 1px )) {
+			width: 100%;
+		}
+	}
+}
+
+input[type="text"],
+input[type="email"],
+input[type="search"],
+input[type="tel"],
+input[type="number"],
+input[type="password"],
+input[type="checkbox"],
+input[type="radio"],
+select,
+textarea {
+	background-color: var(--wp--preset--color--background);
+	border-radius: var(--wp--custom--border-radius-normal);
+	padding: 5px var(--wp--preset--spacing--10);
+	outline: none;
+	border: 1px solid var(--wp--preset--color--tertiary);
+	width: 100%;
+
+	@include mixins.transition(border);
+
+	&:disabled,
+	&.disabled,
+	*[inert] & {
+		background-color: var(--wp--preset--color--tertiary);
+	}
+
+	&:focus {
+		border-color: var(--wp--preset--color--foreground);
+	}
+}
+
+input[type="text"],
+input[type="email"],
+input[type="search"],
+input[type="tel"],
+input[type="number"],
+input[type="password"],
+select,
+textarea {
+	font-family: inherit;
+	color: var(--wp--preset--color--foreground);
+	height: 44px;
+
+	&:disabled,
+	&.disabled,
+	*[inert] & {
+		color: var(--wp--preset--color--tertiary);
+	}
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+	flex-shrink: 0;
+}
+
+textarea {
+	resize: none;
+	vertical-align: top; // Fixes extra space under textarea, that differs across browsers.
+	margin: 0;
+	height: 120px;
+	padding: var(--wp--preset--spacing--10);
+}
+
+select {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	/* stylelint-disable-next-line function-url-quotes */
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M7.41 8.2998L12 12.8798L16.59 8.2998L18 9.7098L12 15.7098L6 9.7098L7.41 8.2998Z' fill='%23232933'/%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+	background-position: center right 10px;
+	padding-right: 30px;
+	background-size: 24px;
+	opacity: 1;
+	text-overflow: ellipsis;
+	color: var(--wp--preset--color--foreground);
+}
+
+input[type="checkbox"] {
+	appearance: none;
+	width: 14px;
+	height: 14px;
+	border-radius: 4px;
+	padding: 0;
+	border: 1px solid var(--wp--custom--color-silver-gray);
+
+	&:focus {
+		border-color: var(--wp--custom--color-silver-gray);
+	}
+}
+
+input[type="checkbox"]:checked {
+	background-color: var(--wp--preset--color--background);
+	position: relative;
+
+	&::before {
+		background-color: var(--wp--custom--color-silver-gray);
+		content: "";
+		height: 8px;
+		width: 8px;
+		position: absolute;
+		inset: 2px;
+	}
+}
+
+input[type="radio"] {
+	appearance: none;
+	width: 14px;
+	height: 14px;
+	border-radius: 50%;
+	padding: 0;
+
+	&:focus {
+		border-color: var(--wp--custom--color-silver-gray);
+	}
+}
+
+input[type="radio"]:checked {
+	position: relative;
+
+	&::before {
+		content: "";
+		background-color: var(--wp--custom--color-silver-gray);
+		height: 6px;
+		width: 6px;
+		border-radius: 50%;
+		position: absolute;
+		inset: 2px;
+	}
+}
+
+input[type="search"] {
+	/* stylelint-disable-next-line function-url-quotes */
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' height='24' viewBox='0 0 25 24' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M19.4394 11.2C19.4394 7.22355 16.2159 4 12.2394 4C8.26298 4 5.03943 7.22355 5.03943 11.2C5.03943 15.1765 8.26298 18.4 12.2394 18.4C13.9393 18.4 15.5015 17.811 16.7332 16.8258L19.6737 19.7657L19.7491 19.8322C20.0629 20.0763 20.5167 20.0541 20.8051 19.7657C21.1175 19.4533 21.1175 18.9467 20.8051 18.6343L17.8653 15.6937C18.8504 14.4621 19.4394 12.8998 19.4394 11.2ZM6.63943 11.2C6.63943 8.10718 9.14664 5.59998 12.2394 5.59998C15.3322 5.59998 17.8394 8.10718 17.8394 11.2C17.8394 14.2928 15.3322 16.8 12.2394 16.8C9.14664 16.8 6.63943 14.2928 6.63943 11.2Z' fill='%23868FA3'/%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+	background-position: center left 8px;
+	background-size: 20px;
+	padding: var(--wp--preset--spacing--10) var(--wp--preset--spacing--10) var(--wp--preset--spacing--10) var(--wp--preset--spacing--40);
+	height: 50px;
+	font-size: var(--wp--preset--font-size--normal);
+	line-height: inherit;
+
+	&::placeholder {
+		font-size: var(--wp--preset--font-size--normal);
+		line-height: inherit;
+	}
+
+	&:focus {
+		/* stylelint-disable-next-line function-url-quotes */
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' height='24' viewBox='0 0 25 24' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M19.4394 11.2C19.4394 7.22355 16.2159 4 12.2394 4C8.26298 4 5.03943 7.22355 5.03943 11.2C5.03943 15.1765 8.26298 18.4 12.2394 18.4C13.9393 18.4 15.5015 17.811 16.7332 16.8258L19.6737 19.7657L19.7491 19.8322C20.0629 20.0763 20.5167 20.0541 20.8051 19.7657C21.1175 19.4533 21.1175 18.9467 20.8051 18.6343L17.8653 15.6937C18.8504 14.4621 19.4394 12.8998 19.4394 11.2ZM6.63943 11.2C6.63943 8.10718 9.14664 5.59998 12.2394 5.59998C15.3322 5.59998 17.8394 8.10718 17.8394 11.2C17.8394 14.2928 15.3322 16.8 12.2394 16.8C9.14664 16.8 6.63943 14.2928 6.63943 11.2Z' fill='%23232933'/%3E%3C/svg%3E");
+	}
+
+	&::-webkit-search-decoration,
+	&::-webkit-search-cancel-button,
+	&::-webkit-search-results-button,
+	&::-webkit-search-results-decoration {
+		display: none;
+	}
+
+	@media screen and (min-width: variables.$sm) {
+		background-size: 24px;
+		height: 56px;
+		padding: var(--wp--preset--spacing--10) var(--wp--preset--spacing--20) var(--wp--preset--spacing--10) var(--wp--preset--spacing--50);
+		background-position: center left 16px;
+	}
+
+	@media screen and (min-width: variables.$lg) {
+		padding: var(--wp--preset--spacing--10) var(--wp--preset--spacing--20) var(--wp--preset--spacing--10) var(--wp--preset--spacing--50);
+	}
+}
+
+fieldset {
+	border: none;
+	margin: 0;
+	padding: 0;
+}

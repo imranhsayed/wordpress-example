@@ -1,0 +1,39 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "one-novanta/featured-media-slider",
+	"version": "0.1.0",
+	"title": "Featured Media Slider",
+	"category": "one-novanta",
+	"icon": "image-flip-horizontal",
+	"description": "A custom Featured Media Slider for OneNovanta theme.",
+	"example": {
+		"attributes": {
+			"heading": "Featured Media Slider",
+			"headingAlignment": "center",
+			"content": [
+				{
+					"imageID": 99999999,
+					"url": "https://placehold.co/280x100",
+					"caption": "Lorem ipsum dolor sit amet"
+				},
+				{
+					"imageID": 99999999,
+					"url": "https://placehold.co/280x100",
+					"caption": "Lorem ipsum dolor sit amet"
+				}
+			]
+		}
+	},
+	"supports": {
+		"inserter": false
+	},
+	"attributes": {
+		"content": { "type": "array", "default": [] }
+	},
+	"textdomain": "one-novanta-theme",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"render": "file:./render.php",
+	"viewScript": "one-novanta-web-component-slider"
+}

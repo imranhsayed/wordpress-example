@@ -1,0 +1,16 @@
+{
+	"name": "one-novanta/components",
+	"title": "Components",
+	"description": "",
+	"category": "one-novanta",
+	"icon": "groups",
+	"keywords": [],
+	"acf": {
+		"mode": "auto",
+		"renderTemplate": "render.php"
+	},
+	"example": {},
+	"supports": {
+		"anchor": true
+	}
+}

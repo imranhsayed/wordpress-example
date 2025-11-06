@@ -1,0 +1,53 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "one-novanta/image-cta",
+	"version": "0.1.0",
+	"title": "50-50 Image CTA",
+	"category": "one-novanta",
+	"icon": "format-image",
+	"description": "A block with image and a content section.",
+	"textdomain": "one-novanta-theme",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"render": "file:./render.php",
+	"attributes": {
+		"mediaAlign": {
+			"type": "string",
+			"default": "left",
+			"enum": [
+				"left",
+				"right"
+			]
+		},
+		"imageID": {
+			"type": "number",
+			"default": 0
+		},
+		"imageURL": {
+			"type": "string",
+			"default": ""
+		},
+		"imageAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"backgroundColor": {
+			"type": "string",
+			"default": "background",
+			"enum": [
+				"background",
+				"secondary"
+			]
+		},
+		"template": {
+			"type": "string"
+		}
+	},
+	"usesContext": [
+		"backgroundColor"
+	],
+	"supports": {
+		"inserter": false
+	}
+}

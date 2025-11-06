@@ -1,0 +1,36 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "one-novanta/card",
+	"version": "1.0.0",
+	"title": "Card",
+	"category": "one-novanta",
+	"example": {
+		"attributes": {
+			"imageID": 0,
+			"heading": "Extremely High Repeatability",
+			"content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+		}
+	},
+	"icon": "cover-image",
+	"description": "A custom card block for OneNovanta theme.",
+	"keywords": [ "one-novanta", "card", "Card", "Novanta" ],
+	"supports": {
+		"align": false,
+		"className": false,
+		"html": false
+	},
+	"parent": ["one-novanta/cards"],
+	"attributes": {
+		"imageID": { "type": "number", "default": 0 },
+		"imageURL": { "type": "string", "default": "" },
+		"imageAlt": { "type": "string", "default": "" },
+		"heading": { "type": "string", "default": "" },
+		"headingTag": { "type": "string", "default": "h3" },
+		"content": { "type": "string", "default": "" }
+	},
+	"textdomain": "one-novanta-theme",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"render": "file:./render.php"
+}

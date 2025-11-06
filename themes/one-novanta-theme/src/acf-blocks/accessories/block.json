@@ -1,0 +1,16 @@
+{
+	"name": "one-novanta/accessories",
+	"title": "Accessories",
+	"description": "",
+	"category": "one-novanta",
+	"icon": "groups",
+	"keywords": [],
+	"acf": {
+		"mode": "auto",
+		"renderTemplate": "render.php"
+	},
+	"example": {},
+	"supports": {
+		"anchor": true
+	}
+}

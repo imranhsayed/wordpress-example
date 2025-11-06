@@ -1,0 +1,44 @@
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+@use "../../../scss/custom-properties";
+@use "../../../layouts/components/cards/card" as *;
+
+// Need these styles to override the default card styles in the editor.
+.card {
+	position: relative;
+	margin-top: 0;
+	padding: 0;
+	min-width: unset;
+	max-width: unset;
+	border: none;
+	box-shadow: none;
+	background: unset;
+	box-sizing: border-box;
+
+	&__heading {
+		margin-block-start: 0;
+	}
+
+	&__content {
+
+		p {
+			margin: 0;
+		}
+	}
+
+  &__image{
+    margin-bottom: 1em;
+  }
+
+  .components-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    border-radius: var(--wp--custom--border-radius-normal);
+  }
+}

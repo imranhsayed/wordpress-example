@@ -1,0 +1,103 @@
+/**
+ * Buttons Block style Variations.
+ */
+
+@use "../mixins";
+@use "../placeholders";
+
+.wp-block-button {
+	min-width: fit-content;
+
+	.wp-block-button__link {
+
+		@extend %button;
+
+		&::after {
+			background-color: var(--wp--preset--color--background);
+		}
+
+		&:hover::after {
+			background-color: var(--wp--preset--color--foreground);
+		}
+	}
+
+	&.is-style-outline {
+
+		.wp-block-button__link {
+
+			@extend %button--secondary;
+			border: 2px solid var(--wp--preset--color--primary) !important;
+
+			&::after {
+				background-color: var(--wp--preset--color--foreground);
+			}
+
+			&:hover::after {
+				background-color: var(--wp--preset--color--background);
+			}
+		}
+	}
+
+	&.is-style-fill-dark {
+
+		.wp-block-button__link {
+
+			@extend %button--primary-dark;
+
+			&::after, &:hover::after {
+				background-color: var(--wp--preset--color--background);
+			}
+		}
+	}
+
+	&.is-style-outline-dark {
+
+		.wp-block-button__link {
+
+			@extend %button--secondary-dark;
+
+			&::after, &:hover::after {
+				background-color: var(--wp--preset--color--background);
+			}
+		}
+	}
+
+	&.has-arrow .wp-block-button__link::after {
+		content: '';
+		width: 8px;
+		height: 12px;
+		display: inline-block;
+		transform: translateY( 1px );
+		/* stylelint-disable-next-line function-url-quotes */
+		mask: url("data:image/svg+xml,%3Csvg width='8' height='12' viewBox='0 0 8 12' fill='currentColor' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 10.59 4.58 6 0 1.41 1.41 0l6 6-6 6L0 10.59z' fill='currentColor'/%3E%3C/svg%3E") no-repeat 50% 50%;
+		transition: all .3s;
+	}
+
+	.wp-block-button__link[disabled],
+	.wp-block-button__link:disabled {
+		pointer-events: none;
+		color: var(--wp--custom--color-graphite-gray);
+		background-color: var(--wp--custom--color-cloud-gray);
+		border-color: var(--wp--custom--color-cloud-gray);
+
+		&:hover {
+			color: var(--wp--custom--color-graphite-gray);
+			background-color: var(--wp--custom--color-cloud-gray);
+			border-color: var(--wp--custom--color-cloud-gray);
+		}
+	}
+}
+
+.has-overlay-light {
+
+	@include mixins.button-variations( var(--wp--preset--color--foreground), var(--wp--preset--color--background) );
+}
+
+.has-overlay-dark {
+
+	@include mixins.button-variations( var(--wp--preset--color--background), var(--wp--preset--color--foreground) );
+
+	.is-style-outline .wp-block-button__link:hover {
+		border-color: transparent !important;
+	}
+}

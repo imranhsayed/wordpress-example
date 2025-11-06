@@ -1,0 +1,62 @@
+/**
+ * Component: Listing Card.
+ */
+
+@use "../../../scss/variables";
+@use "../../../scss/mixins";
+
+.listing-card {
+	display: flex;
+	align-items: start;
+	flex-direction: column;
+	
+	@media screen and (min-width: variables.$md) {
+		align-items: center;
+		flex-direction: row;
+	}
+
+	// Overwrite the parent grid.
+	.grid:has( > & ) {
+		row-gap: var(--wp--preset--spacing--40);
+
+		@include mixins.grid-columns(1);
+
+		@media screen and (min-width: variables.$lg) {
+
+			@include mixins.grid-columns(2);
+		}
+	}
+
+	&__image-wrap {
+		border-radius: var(--wp--custom--border-radius-normal);
+		overflow: hidden;
+		aspect-ratio: 10 / 7;
+		margin: 0;
+		min-width: 0;
+		width: 100%;
+
+		@media screen and (min-width: variables.$sm) {
+			flex: 0 0 47.62%;
+		}
+
+		img {
+			height: 100%;
+			width: 100%;
+			object-fit: cover;
+		}
+	}
+
+	&__content {
+		flex: 1;
+		min-width: 0;
+		padding-block: var(--wp--preset--spacing--40);
+
+		@media screen and (min-width: variables.$md) {
+			padding: var(--wp--preset--spacing--40);
+		}
+
+		a {
+			color: var(--wp--preset--color--primary);
+		}
+	}
+}

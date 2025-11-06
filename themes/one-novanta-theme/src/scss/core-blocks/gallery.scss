@@ -1,0 +1,42 @@
+/**
+ * Gallery Block style Variations.
+ */
+
+@use "../variables";
+@use "sass:math";
+
+.wp-block-gallery {
+
+	&.novanta-logo-plate-wrapper {
+		// Center align gallery items when they contain logo plates
+		justify-content: center;
+		gap: var(--wp--preset--spacing--30) !important;
+
+		.size-novanta-logo-plate.wp-block-image {
+			max-width: calc(50% - var(--wp--preset--spacing--30)) !important;
+			aspect-ratio: math.div(320, 140);
+			width: 100% !important;
+
+			@media screen and (min-width: variables.$sm) {
+				max-width: calc(25% - var(--wp--preset--spacing--30)) !important;
+			}
+
+			@media screen and (min-width: variables.$md) {
+				max-width: calc(20% - var(--wp--preset--spacing--30)) !important;
+			}
+
+			// Image styles to fill container
+			img {
+				width: 100% !important;
+				object-fit: contain !important;
+				margin: auto;
+				max-width: 80% !important;
+				height: auto !important;
+
+				@media screen and (min-width: variables.$xxl) {
+					max-width: 180px !important;
+				}
+			}
+		}
+	}
+}

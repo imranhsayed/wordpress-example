@@ -1,0 +1,66 @@
+/**
+ * Component: Featured Content.
+ */
+
+@use "../../../scss/variables";
+
+.featured-content {
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+	justify-content: space-between;
+	margin-block-start: var(--grid-section-gutter);
+
+	&:first-child {
+		margin-block-start: 0;
+	}
+
+	@media screen and (min-width: variables.$md) {
+		flex-flow: nowrap;
+	}
+
+	&--media-align-right {
+
+		@media screen and (min-width: variables.$md) {
+			flex-direction: row-reverse;
+		}
+	}
+
+	&__content {
+		flex: 0 0 100%;
+		min-width: 0;
+		margin-block-start: var(--wp--preset--spacing--40);
+
+		@media screen and (min-width: variables.$md) {
+			flex: 0 0 44.05%;
+			margin-block-start: 0;
+		}
+	}
+
+	&__media {
+		border-radius: var(--wp--custom--border-radius-normal);
+		flex: 0 0 100%;
+		margin-bottom: 0;
+		min-width: 0;
+		overflow: hidden;
+		aspect-ratio: 840 / 460;
+
+		@media screen and (min-width: variables.$md) {
+			flex: 0 0 50%;
+		}
+
+		img {
+			height: 100%;
+			width: 100%;
+			object-fit: cover;
+		}
+	}
+
+	.buttons {
+		margin-block-start: var(--wp--preset--spacing--30);
+
+		&:first-child {
+			margin-block-start: 0;
+		}
+	}
+}

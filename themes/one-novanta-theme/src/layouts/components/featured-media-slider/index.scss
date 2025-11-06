@@ -1,0 +1,96 @@
+/**
+ * Component: Featured Media Slider
+ */
+
+@use "../../../scss/variables";
+@use "~@rtcamp/web-components/build/slider/style";
+
+.featured-media-slider {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		max-width: var(--wp--style--global--wide-size);
+	}
+
+	&__slider {
+		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	&__slides {
+		display: flex;
+		gap: clamp(8px, 2vw, 24px);
+	}
+
+	// Ensure the image fills the space correctly since it's not cropped by default.
+	&__slide img {
+		width: 100%;
+		object-fit: cover;
+		aspect-ratio: 14/5;
+		border-radius: var(--wp--custom--border-radius-medium);
+	}
+
+	&__caption {
+		text-align: center;
+	}
+
+	&__navigation {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		position: absolute;
+		padding: 0 clamp(20px, 5vw, 90px);
+	}
+
+	&-arrow-button {
+		display: flex;
+		border-radius: 50%;
+		align-items: center;
+		justify-content: center;
+		border: none;
+		cursor: pointer;
+		background-color: var(--wp--preset--color--secondary);
+
+		// Responsive size with clamp
+		height: clamp(36px, 6vw, 60px);
+		width: clamp(36px, 6vw, 60px);
+
+
+		// Smooth transition for background and border
+		transition: background-color var(--transition-time) var(--transition-easing), border 0.2s var(--transition-easing);
+
+		// Show focus style for keyboard navigation (accessibility)
+		&:focus-visible {
+			background-color: var(--wp--preset--color--tertiary);
+			border: 2px solid var(--wp--preset--color--foreground);
+		}
+
+		&:hover {
+			background-color: var(--wp--preset--color--tertiary);
+		}
+
+		&:active {
+			transform: scale(0.95);
+		}
+
+		svg {
+			width: clamp(16px, 3vw, 40px);
+			height: clamp(16px, 3vw, 40px);
+			color: var(--wp--preset--color--foreground);
+		}
+	}
+
+	&-arrow--previous {
+		margin-right: clamp(8px, 2vw, 30px);
+
+		svg {
+			transform: rotate(180deg);
+		}
+	}
+}

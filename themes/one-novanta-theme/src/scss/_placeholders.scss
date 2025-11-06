@@ -1,0 +1,180 @@
+@use "sass:list";
+
+// Typography.
+%h1,
+%h2,
+%h3,
+%h4,
+%h5,
+%h6 {
+	margin-top: 0;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+%h1 {
+	letter-spacing: -0.04em;
+	line-height: 1.04;
+	margin-bottom: calc(var(--wp--preset--spacing--typography) / 2);
+}
+
+%h2 {
+	line-height: 1.222;
+	margin-bottom: var(--wp--preset--spacing--typography);
+}
+
+%h3 {
+	line-height: 1.20833;
+	margin-bottom: var(--wp--preset--spacing--typography);
+}
+
+%h4 {
+	line-height: 1.25;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	margin-bottom: var(--wp--preset--spacing--typography);
+}
+
+%h5 {
+	margin-bottom: var(--wp--preset--spacing--typography);
+}
+
+%h6 {
+	margin-bottom: var(--wp--preset--spacing--typography);
+}
+
+%typography-spacing {
+	margin-bottom: var(--wp--preset--spacing--typography);
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+%body-small {
+	font-size: var(--wp--preset--font-size--small);
+}
+
+%body-large {
+	font-size: var(--h5-font-size);
+	line-height: var(--h5-line-height);
+}
+
+/**
+ * Button.
+ * Note: color and background-color are having important tag to override the default button block styles in editor.
+ */
+%button {
+	cursor: pointer;
+	padding: 12px var( --wp--preset--spacing--20 );
+	text-decoration: none;
+	font-family: var(--wp--preset--font-family--heading);
+	font-size: var( --wp--preset--font-size--medium );
+	font-weight: 500;
+	border: 2px solid var( --wp--preset--color--primary );
+	border-radius: var( --wp--custom--border-radius-extra-large );
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	gap: var( --wp--preset--spacing--15 );
+	line-height: var( --wp--custom--button-line-height );
+	color: var( --wp--preset--color--background );
+	background-color: var( --wp--preset--color--primary );
+	transition: all .3s;
+	width: max-content;
+	flex-shrink: 0;
+
+	&:hover {
+		color: var( --wp--preset--color--foreground );
+		background-color: transparent;
+	}
+
+	// Secondary Variation.
+	&--secondary {
+		color: var( --wp--preset--color--foreground ) !important;
+		background-color: transparent !important;
+
+		&:hover {
+			color: var( --wp--preset--color--background ) !important;
+			background-color: var( --wp--preset--color--primary ) !important;
+		}
+	}
+
+	// Primary - Dark Variation.
+	&--primary-dark {
+		color: var( --wp--preset--color--background ) !important;
+		background-color: var( --wp--preset--color--primary ) !important;
+
+		&:hover {
+			color: var( --wp--preset--color--background ) !important;
+			background-color: transparent !important;
+		}
+	}
+
+	// Secondary - Dark Variation.
+	&--secondary-dark {
+		color: var( --wp--preset--color--background ) !important;
+		background-color: transparent !important;
+
+		&:hover {
+			color: var( --wp--preset--color--background ) !important;
+			background-color: var( --wp--preset--color--primary ) !important;
+		}
+	}
+}
+
+%lightbox-button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: clamp(36px, 6vw, 64px);
+	width: clamp(36px, 6vw, 64px);
+	background-color: var(--wp--preset--color--background);
+	color: var(--wp--preset--color--foreground);
+	border: none;
+	border-radius: 50%;
+	transition-duration: 0.3s;
+	transition-property: background-color, border, color;
+	transition-timing-function: ease-in-out;
+	padding: 0;
+	aspect-ratio: 1;
+
+	svg {
+		width: clamp(16px, 3vw, 30px);
+		height: clamp(16px, 3vw, 30px);
+	}
+
+	&:hover {
+		background-color: var(--wp--preset--color--tertiary);
+	}
+
+	&:focus-visible {
+		outline: 2px solid var(--wp--preset--color--quinary);
+	}
+}
+
+%pagination-button {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	font-family: var(--wp--preset--font-family--heading);
+	font-size: var(--wp--preset--font-size--medium);
+	font-weight: 500;
+	padding: 0;
+	margin: 0;
+	border-radius: var(--wp--preset--spacing--10);
+	border: 1px solid var(--wp--custom--color-dark-gray);
+	text-decoration: none;
+	color: var(--wp--custom--color-dark-gray);
+	transition: all 0.3s ease-in-out;
+	line-height: var(--wp--preset--spacing--40);
+	height: var(--wp--preset--spacing--40);
+	min-width: var(--wp--preset--spacing--40);
+
+	&:hover {
+		color: var(--wp--custom--color-snow-white);
+		background-color: var(--wp--custom--color-dark-gray);
+	}
+}

@@ -1,0 +1,57 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "one-novanta/accordion",
+	"version": "0.1.0",
+	"title": "Accordion",
+	"category": "one-novanta",
+	"description": "A custom accordion block for OneNovanta theme.",
+	"example": {
+		"attributes": {
+			"align": "wide",
+			"className": "one-novanta-accordion"
+		},
+		"innerBlocks": [
+			{
+				"name": "one-novanta/accordion-item",
+				"attributes": {
+					"title": "Accordion Item 1",
+					"content": "Content for Accordion Item 1"
+				}
+			},
+			{
+				"name": "one-novanta/accordion-item",
+				"attributes": {
+					"title": "Accordion Item 2",
+					"content": "Content for Accordion Item 2"
+				}
+			}
+		]
+	},
+	"supports": {
+		"inserter": false,
+		"anchor": false,
+		"className": false,
+		"html": false,
+		"customClassName": false,
+		"align": [
+			"wide"
+		]
+	},
+	"attributes": {
+		"align": {
+			"type": "string",
+			"default": "wide"
+		},
+		"className": {
+			"type": "string",
+			"default": "one-novanta-accordion"
+		}
+	},
+	"textdomain": "one-novanta-theme",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+}

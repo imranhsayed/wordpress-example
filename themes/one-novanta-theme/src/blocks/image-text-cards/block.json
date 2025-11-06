@@ -1,0 +1,58 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "one-novanta/image-text-cards",
+	"version": "0.1.0",
+	"title": "Image text cards",
+	"category": "one-novanta",
+	"icon": "grid-view",
+	"description": "An interactive block to add image text cards.",
+	"example": {
+		"attributes": {
+			"heading": "Image text cards",
+			"description": "Description of block",
+			"headingAlignment": "center"
+		},
+		"innerBlocks": [
+			{
+				"name": "one-novanta/image-tile",
+				"attributes": {
+					"heading": "Card Heading 1",
+					"preHeading": "Card Pre-Heading 1"
+				}
+			},
+			{
+				"name": "one-novanta/image-tile",
+				"attributes": {
+					"heading": "Card Heading 2",
+					"preHeading": "Card Pre-Heading 2"
+				}
+			}
+		]
+	},
+	"attributes": {
+		"imageRatio": {
+			"type": "string",
+			"default": "3:2"
+		},
+		"imageSize": {
+			"type": "string",
+			"default": "text-card"
+		},
+		"templateLock": {
+			"type": ["string", "boolean"],
+			"enum": ["all", "insert", "contentOnly", false]
+		}
+	},
+	"providesContext": {
+		"one-novanta/imageRatio": "imageRatio",
+		"one-novanta/imageSize": "imageSize"
+	},
+	"supports": {
+		"inserter": false
+	},
+	"textdomain": "one-novanta-theme",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"render": "file:./render.php"
+}

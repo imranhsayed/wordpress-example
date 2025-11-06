@@ -1,0 +1,73 @@
+/**
+ * Component: Component Table.
+ */
+
+@use "../../../scss/variables";
+
+.component-table {
+	border-collapse: collapse;
+	border-spacing: 0;
+
+	&__head {
+		color: var(--wp--preset--color--background);
+		text-align: left;
+		background-color: var(--wp--preset--color--tertiary);
+	}
+
+	td,
+	th {
+		padding: 25px var(--wp--preset--spacing--20);
+	}
+
+	td:first-child,
+	td:last-child {
+		min-width: 280px;
+	}
+
+	td:last-child {
+		text-align: center;
+	}
+
+	.wp-one-novanta-button {
+		font-size: inherit;
+	}
+
+	&__row {
+
+		box-shadow: 0 1px 0 0 var(--wp--preset--color--foreground);
+	}
+
+	&__label {
+		font-weight: 700;
+		margin-bottom: var(--wp--preset--spacing--10);
+
+		@media screen and (min-width: variables.$md) {
+			display: none;
+		}
+	}
+
+	@media screen and (max-width: calc(variables.$md - 1px)) {
+
+		&__head {
+			display: none;
+		}
+
+		&__row {
+			display: flex;
+			flex-direction: column;
+
+			td:first-child {
+				padding-top: var(--wp--preset--spacing--20);
+			}
+		}
+
+		td,
+		th {
+			padding: 0 0 var(--wp--preset--spacing--20) 0;
+		}
+
+		td:last-child {
+			text-align: left;
+		}
+	}
+}

@@ -1,0 +1,59 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "one-novanta/listing",
+    "title": "Listing",
+    "description": "Add listing cards with an image, heading, and content.",
+    "category": "one-novanta",
+    "textdomain": "one-novanta-theme",
+    "supports": {
+        "alignWide": false,
+        "anchor": false,
+        "html": false,
+        "customClassName": true
+    },
+	"example": {
+		"innerBlocks": [
+			{
+				"name": "one-novanta/listing-item",
+				"innerBlocks": [
+					{
+						"name": "core/heading",
+						"attributes": {
+							"content": "Heading 1"
+						}
+					},
+					{
+						"name": "core/paragraph",
+						"attributes": {
+							"content": "Description 1"
+						}
+					}
+				]
+			},
+			{
+				"name": "one-novanta/listing-item",
+				"innerBlocks": [
+					{
+						"name": "core/heading",
+						"attributes": {
+							"content": "Heading 2"
+						}
+					},
+					{
+						"name": "core/paragraph",
+						"attributes": {
+							"content": "Description 2"
+						}
+					}
+				]
+			}
+		]
+	},
+    "allowedBlocks": [
+        "one-novanta/listing-item"
+    ],
+    "editorScript": "file:./index.js",
+    "render": "file:./render.php",
+    "editorStyle": "file:./index.css"
+}

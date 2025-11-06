@@ -46,6 +46,9 @@ class Assets {
 
 		// Enqueue frontend assets.
 		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_frontend_assets' ] );
+
+		// Enqueue component assets when components are rendered.
+		add_action( 'aquila_before_get_component', [ $this, 'enqueue_component_assets' ] );
 	}
 
 	/**

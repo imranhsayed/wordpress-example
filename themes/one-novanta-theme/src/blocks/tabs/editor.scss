@@ -1,0 +1,30 @@
+@import "../../layouts/components/tabs/index";
+
+.novanta-tabs-nav {
+
+	&__item {
+            background-color: transparent;
+            border: 0;
+            font-size: 20px;
+            font-weight: 400;
+            padding: 0;
+            // Make sure the text does not go to next line
+            white-space: nowrap;
+
+		&--active {
+			color: #000;
+            font-weight: 700;
+            border-bottom: 2px solid var(--wp--preset--color--primary);
+            padding-bottom: 1px;
+		}
+	}
+
+    &__title {
+        // Using !important to override the default style, since it is set inline by WP in the core RichText block, instead of overriding the inline style of the block.
+        white-space: nowrap !important;
+    }
+
+    .block-editor-button-block-appender {
+        width: 60px;
+    }
+}

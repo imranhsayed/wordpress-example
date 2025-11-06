@@ -1,0 +1,34 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "one-novanta/tiles",
+	"version": "0.1.0",
+	"title": "Tiles",
+	"category": "one-novanta",
+	"example": {
+		"attributes": {
+			"numberOfColumns": 2
+		}
+	},
+	"icon": "images-alt2",
+	"description": "A custom tiles block for OneNovanta theme.",
+	"keywords": [ "one-novanta", "tiles", "Tiles", "Novanta" ],
+	"supports": {
+		"html": false,
+		"inserter": false
+	},
+	"attributes": {
+		"numberOfColumns": {
+			"type": "number",
+			"default": 2
+		}
+	},
+	"providesContext": {
+		"one-novanta/backgroundColor": "backgroundColor"
+	},
+	"textdomain": "one-novanta-theme",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

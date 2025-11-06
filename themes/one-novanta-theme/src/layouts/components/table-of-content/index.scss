@@ -1,0 +1,141 @@
+/**
+ * Component: Table of Content.
+ */
+
+.table-of-content {
+	background: var(--wp--preset--color--quaternary);
+	border-radius: var(--wp--custom--border-radius-normal);
+	padding: var(--wp--preset--spacing--30) var(--wp--preset--spacing--40);
+	position: relative;
+
+	/* Add variables for all TOC items to use */
+	--toc-dot-color: var(--wp--preset--color--quaternary);
+	--toc-dot-border: #888;
+	--toc-line-color: #888;
+	--toc-progress: 0%;
+
+	&__label {
+		font-weight: 600;
+		display: block;
+		letter-spacing: 0.08em;
+		margin-block-end: 0;
+		text-transform: uppercase;
+	}
+
+	a {
+		color: inherit;
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	&__list {
+		display: flex;
+		flex-direction: column;
+		list-style: none;
+		margin-block-start: var(--wp--preset--spacing--30);
+		padding-left: 0;
+	}
+
+	&__list-item {
+		display: flex;
+		gap: 12px;
+		padding-bottom: 15px;
+		position: relative;
+
+		/* Default values for inactive items */
+		--toc-dot-color: var(--wp--preset--color--quaternary);
+		--toc-dot-border: #888;
+		--toc-line-color: #888;
+		--toc-progress: 0%;
+		--toc-active: 0;
+		--toc-visited: 0;
+
+		&::before {
+			background: var(--toc-dot-color);
+			content: "";
+			border: 1px solid var(--toc-dot-border);
+			border-radius: 50%;
+			height: 9px;
+			flex: 0 0 9px;
+			margin-top: 2px;
+			position: relative;
+			z-index: 1;
+			transition: background-color 0.4s ease, border-color 0.4s ease;
+		}
+
+		&:not(:last-child)::after {
+			content: "";
+			height: 100%;
+			flex: 0 0 1px;
+			width: 1px;
+			position: absolute;
+			bottom: -4px;
+			left: 4px;
+			transition: background 0.4s ease;
+
+			/* Create a gradient based on progress */
+			background: linear-gradient(
+				to bottom,
+				var(--wp--preset--color--foreground) calc(var(--toc-progress) - 0.5%),
+				var(--toc-line-color) calc(var(--toc-progress) + 0.5%),
+				var(--toc-line-color) 100%
+			);
+		}
+
+		/* Active item - controlled by --toc-active variable */
+		&[data-active="1"] {
+			--toc-dot-color: var(--wp--preset--color--foreground);
+			--toc-dot-border: var(--wp--preset--color--foreground);
+
+			/* Progress is set via inline style --toc-progress */
+		}
+
+		/* Visited item - controlled by --toc-visited variable */
+		&[data-visited="1"] {
+			--toc-dot-color: var(--wp--preset--color--foreground);
+			--toc-dot-border: var(--wp--preset--color--foreground);
+			--toc-line-color: var(--wp--preset--color--foreground);
+			--toc-progress: 100%;
+		}
+	}
+
+	@media (max-width: 781px) {
+
+		&::after {
+			/* stylelint-disable-next-line function-url-quotes */
+			content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath fill='currentColor' d='M1.41.297 6 4.877l4.59-4.58L12 1.707l-6 6-6-6L1.41.297Z'/%3E%3C/svg%3E");
+			display: block;
+			position: absolute;
+			top: var(--wp--preset--spacing--30);
+			right: var(--wp--preset--spacing--40);
+			transition: all 0.3s;
+		}
+
+		&[aria-expanded="true"]::after {
+			transform: rotate(180deg);
+		}
+
+		&__list {
+			height: 0;
+			margin-block-start: 0;
+			visibility: hidden;
+			max-height: fit-content;
+			overflow-y: auto;
+			transition: all 0.3s;
+		}
+
+		&__list-item[data-active="1"] {
+			--toc-dot-color: var(--wp--preset--color--quaternary);
+			--toc-dot-border: #888;
+		}
+
+		&[aria-expanded="true"] &__list {
+			height: 300px;
+			visibility: visible;
+			margin-block-start: var(--wp--preset--spacing--30);
+		}
+	}
+}

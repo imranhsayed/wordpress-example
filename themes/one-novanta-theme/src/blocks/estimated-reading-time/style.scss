@@ -1,0 +1,7 @@
+.post-reading-time {
+	display: none;
+
+	&:has( .yoast-reading-time__wrapper ) {
+		display: block;
+	}
+}

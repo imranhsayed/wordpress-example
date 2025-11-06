@@ -1,0 +1,68 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "one-novanta/tile-carousel",
+	"version": "0.1.0",
+	"title": "Tile Carousel",
+	"category": "one-novanta",
+	"icon": "image-flip-horizontal",
+	"description": "A custom Tile Carousel for OneNovanta theme.",
+	"example": {
+		"attributes": {
+			"slides": [
+				{
+					"heading": "Sample Heading",
+					"imageSize": "large",
+					"imageRatio": "16:9",
+					"preHeading": "Sample Pre-Heading",
+					"showURLInput": true
+				},
+				{
+					"heading": "Sample Heading",
+					"imageSize": "large",
+					"imageRatio": "16:9",
+					"preHeading": "Sample Pre-Heading",
+					"showURLInput": true
+				},
+				{
+					"heading": "Sample Heading",
+					"imageSize": "large",
+					"imageRatio": "16:9",
+					"preHeading": "Sample Pre-Heading",
+					"showURLInput": true
+				}
+			]
+		}
+	},
+	"attributes": {
+		"editMode": {
+			"type": "boolean",
+			"default": true
+		},
+		"imageRatio": {
+			"type": "string",
+			"default": "1:1"
+		},
+		"imageSize": {
+			"type": "string",
+			"default": "tile-carousel"
+		},
+		"totalSlides": {
+			"type": "number",
+			"default": 1
+		}
+	},
+	"providesContext": {
+		"one-novanta/editMode": "editMode",
+		"one-novanta/imageSize": "imageSize",
+		"one-novanta/imageRatio": "imageRatio"
+	},
+	"supports": {
+		"inserter": false
+	},
+	"textdomain": "one-novanta-theme",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"render": "file:./render.php",
+	"viewScript": "one-novanta-web-component-slider"
+}

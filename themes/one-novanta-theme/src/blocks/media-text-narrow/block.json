@@ -1,0 +1,63 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "one-novanta/media-text-narrow",
+	"version": "1.0.0",
+	"title": "Media Text Narrow",
+	"category": "design",
+	"icon": "welcome-widgets-menus",
+	"description": "A custom media text narrow block for OneNovanta theme.",
+	"example": {
+		"attributes": {
+			"overline": "Overline",
+			"heading": "Heading"
+		}
+	},
+	"keywords": [ "media text", "Media Text", "narrow", "Narrow", "novanta", "OneNovanta" ],
+	"supports": {
+		"className": false,
+		"html": false,
+		"customClassName": true,
+		"inserter": false
+	},
+	"attributes": {
+		"overline": {
+			"type": "string",
+			"default": ""
+		},
+		"heading": {
+			"type": "string",
+			"default": ""
+		},
+		"imageID": {
+			"type": "number",
+			"default": 0
+		},
+		"imageURL": {
+			"type": "string",
+			"default": ""
+		},
+		"imageAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"mediaPosition": {
+			"type": "string",
+			"default": "left"
+		},
+		"verticalAlign": {
+			"type": "string",
+			"default": "middle"
+		}
+	},
+	"allowedBlocks": [
+		"core/paragraph",
+		"core/list",
+		"core/buttons"
+	],
+	"textdomain": "one-novanta-theme",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

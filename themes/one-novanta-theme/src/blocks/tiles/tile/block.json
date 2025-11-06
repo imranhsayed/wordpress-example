@@ -1,0 +1,47 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "one-novanta/tile",
+	"version": "0.1.0",
+	"title": "Tile",
+	"category": "one-novanta",
+	"example": {
+		"attributes": {
+			"imageID": 0,
+			"heading": "Tile Heading",
+			"subheading": "Tile Subheading",
+			"url": "#",
+			"showURLInput": false,
+			"backgroundColor": "secondary"
+		}
+	},
+	"icon": "format-image",
+	"description": "A custom tile block for OneNovanta theme.",
+	"keywords": [ "one-novanta", "tile", "Tile", "Novanta" ],
+	"supports": {
+		"align": false,
+		"className": false,
+		"html": false,
+		"inserter": false
+	},
+	"parent": ["one-novanta/tiles"],
+	"attributes": {
+		"imageID": { "type": "number", "default": 0 },
+		"imageURL": { "type": "string" },
+		"heading": { "type": "string", "default": "" },
+		"subheading": { "type": "string", "default": "" },
+		"hasDescription": { "type": "boolean", "default": false },
+		"description": { "type": "string", "default": "" },
+		"url": { "type": "string", "default": "" },
+		"showURLInput": { "type": "boolean", "default": false },
+		"backgroundColor": { "type": "string", "default": "secondary" }
+	},
+	"usesContext": [
+		"backgroundColor"
+	],
+	"textdomain": "one-novanta-theme",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

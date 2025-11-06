@@ -1,0 +1,116 @@
+/**
+ * Locale Switcher.
+ */
+
+@use "../../../scss/variables";
+
+.locale-switcher {
+	$self: &;
+
+	display: inline-flex;
+	position: relative;
+
+	&__button {
+		background: var(--wp--preset--color--background);
+		border: 1px solid var(--wp--custom--color-dark-gray);
+		border-radius: var(--wp--custom--border-radius-large);
+		cursor: pointer;
+		display: inline-flex;
+		align-items: center;
+		justify-content: space-around;
+		min-height: 44px;
+		min-width: 74px;
+		padding: 0 var(--wp--preset--spacing--10);
+		gap: 8px;
+
+		#{$self}[active] & {
+			border-color: var(--wp--custom--color-dark-gray);
+		}
+
+		img {
+			width: 26px;
+			height: 26px;
+			min-height: 26px;
+			border-radius: 50%;
+			object-fit: cover;
+		}
+	}
+
+	&__button-name {
+		display: none;
+	}
+
+	&__button-arrow {
+		display: inline-flex;
+		height: 6px;
+		width: 10px;
+
+		#{$self}[active] & {
+			transform: rotate(180deg);
+		}
+	}
+
+	&__dropdown {
+		background: var(--wp--preset--color--background);
+		border: 1px solid rgba(0, 0, 0, 0.15);
+		border-bottom-right-radius: var(--wp--custom--border-radius-normal);
+		border-bottom-left-radius: var(--wp--custom--border-radius-normal);
+		list-style: none;
+		padding: var(--wp--preset--spacing--20) 0;
+		position: absolute;
+		top: calc(100% + 14px);
+		right: 0;
+		min-width: 260px;
+		left: 50%;
+		transform: translate(-50%);
+		display: none;
+		overflow: auto;
+		z-index: 999;
+
+		#{$self}[active] & {
+			display: block;
+		}
+
+		@media screen and (min-width: variables.$md) {
+			left: auto;
+			transform: none;
+		}
+
+		@media screen and (min-width: variables.$xxl) {
+			top: calc(100% + 18px);
+		}
+	}
+
+	& &__dropdown-button {
+		border: 0;
+		background: transparent;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		flex-flow: nowrap;
+		font-family: inherit;
+		font-size: var(--wp--preset--font-size--navigation);
+		gap: 8px;
+		line-height: 1;
+		margin: 1px 0;
+		padding: 8px 20px;
+		width: 100%;
+		text-align: left;
+
+		img {
+			width: 26px;
+			height: 26px;
+			border-radius: 50%;
+			object-fit: cover;
+		}
+
+		&:hover {
+			color: var(--wp--custom--color-dark-gray);
+		}
+	}
+
+	&__disabled {
+		pointer-events: none;
+		opacity: 0.5;
+	}
+}

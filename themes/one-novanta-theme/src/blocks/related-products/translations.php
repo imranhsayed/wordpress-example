@@ -1,0 +1,12 @@
+<?php
+/**
+ * Translations for 'one-novanta/related-products' block.
+ * 
+ * @package OneNovantaTheme\Blocks
+ */
+
+return [
+	'categoryId' => 'taxonomy',
+	'order'      => 'string',
+	'orderBy'    => 'string',
+];

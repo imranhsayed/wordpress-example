@@ -1,0 +1,74 @@
+/**
+ * Component: Media Text.
+ */
+
+@use "../../../scss/variables";
+
+.media-text {
+	border-radius: var(--wp--custom--border-radius-medium);
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	margin-block-start: var(--grid-section-gutter);
+	overflow: hidden;
+
+	&:first-child {
+		margin-block-start: 0;
+	}
+
+	@media screen and (min-width: variables.$md) {
+		flex-flow: nowrap;
+	}
+
+	&--media-align-right {
+
+		@media screen and (min-width: variables.$md) {
+			flex-direction: row-reverse;
+		}
+	}
+
+	&__content {
+		align-self: center;
+		flex: 0 0 100%;
+		min-width: 0;
+		margin-block: var(--wp--preset--spacing--40);
+		padding-inline: 7.143%;
+
+		@media screen and (min-width: variables.$md) {
+			flex: 1;
+		}
+	}
+
+	&__media {
+		flex: 0 0 100%;
+		margin-bottom: 0;
+		min-width: 0;
+		aspect-ratio: 820 / 710;
+
+		@media screen and (min-width: variables.$md) {
+			flex: 0 0 48.81%;
+		}
+
+		img {
+			height: 100%;
+			width: 100%;
+			object-fit: cover;
+		}
+	}
+
+	&__heading {
+		margin-block-end: var(--wp--preset--spacing--40);
+
+		&:last-child {
+			margin-block-end: 0;
+		}
+	}
+
+	.wp-block-buttons {
+		margin-block-start: var(--wp--preset--spacing--40);
+
+		&:first-child {
+			margin-block-start: 0;
+		}
+	}
+}

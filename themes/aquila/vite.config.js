@@ -33,15 +33,26 @@ function getEntries() {
 
 				if (stat.isDirectory()) {
 					// Check if this directory has an index file (is a block)
-					const possibleFiles = ['index.js', 'index.jsx', 'index.ts', 'index.tsx'];
+					const possibleIndexFiles = ['index.js', 'index.jsx', 'index.ts', 'index.tsx'];
 					let foundEntry = false;
 
-					for (const file of possibleFiles) {
+					for (const file of possibleIndexFiles) {
 						const entry = path.resolve(itemPath, file);
 						if (fs.existsSync(entry)) {
 							const entryKey = basePath ? `blocks/${basePath}/${item}/index` : `blocks/${item}/index`;
 							entries[entryKey] = entry;
 							foundEntry = true;
+							break;
+						}
+					}
+
+					// Also check for view.js file (frontend script for blocks)
+					const possibleViewFiles = ['view.js', 'view.jsx', 'view.ts', 'view.tsx'];
+					for (const file of possibleViewFiles) {
+						const viewEntry = path.resolve(itemPath, file);
+						if (fs.existsSync(viewEntry)) {
+							const viewEntryKey = basePath ? `blocks/${basePath}/${item}/view` : `blocks/${item}/view`;
+							entries[viewEntryKey] = viewEntry;
 							break;
 						}
 					}
@@ -126,6 +137,54 @@ function placeCssWithEntry() {
 					delete bundle[ cssAssetName ];
 
 					idx++;
+				}
+			}
+		},
+	};
+}
+
+// --- inline cross-references between entries
+function inlineCrossReferences() {
+	return {
+		name: 'inline-cross-references',
+		apply: 'build',
+		// Run before wrapInIIFE so imports are still valid ES modules
+		generateBundle(options, bundle) {
+			// Find all entry chunks that have import statements
+			for (const [fileName, chunk] of Object.entries(bundle)) {
+				if (chunk.type === 'chunk' && chunk.isEntry) {
+					let code = chunk.code;
+
+					// Check if this entry has cross-references to other entries (import statements)
+					const importRegex = /import\s*(?:{[^}]*}\s*from\s*)?"([^"]+)"|import\s*(?:{[^}]*}\s*from\s*)'([^']+)'/g;
+					let match;
+					let hasInlinedContent = false;
+
+					while ((match = importRegex.exec(code)) !== null) {
+						const importPath = match[1] || match[2];
+
+						// Convert relative import path to the actual chunk filename
+						// e.g., "../../blocks/accordion/view.js" -> "blocks/accordion/view.js"
+						// Remove all leading ../ and ./ segments
+						const cleanPath = importPath.replace(/^(\.\.\/|\.\/)+/, '');
+
+						// Find the referenced chunk in the bundle
+						const referencedChunk = bundle[cleanPath];
+
+						if (referencedChunk && referencedChunk.type === 'chunk') {
+							// Remove the import statement
+							code = code.replace(match[0], '');
+
+							// Inline the referenced chunk's code
+							// Place it before the importing code
+							code = referencedChunk.code + '\n' + code;
+							hasInlinedContent = true;
+						}
+					}
+
+					if (hasInlinedContent) {
+						chunk.code = code;
+					}
 				}
 			}
 		},
@@ -509,6 +568,7 @@ export default defineConfig( {
 			include: '**/*.{js,jsx,ts,tsx}', // <— enable JSX transform for .js files too
 		} ),
 		watchPhpFiles(), // Watch and copy PHP files during dev mode
+		inlineCrossReferences(), // Inline cross-references between entries (must run before wrapInIIFE)
 		wrapInIIFE(), // Convert ES modules to IIFE with WordPress globals
 		placeCssWithEntry(),
 		copyBlockJson(),
@@ -540,8 +600,6 @@ export default defineConfig( {
 				format: 'es', // ES modules format
 				entryFileNames: ( chunk ) => `${ chunk.name }.js`,
 				assetFileNames: `[name][extname]`,
-				// Preserve module structure for WordPress
-				preserveModules: false,
 				// Use paths to map WordPress globals
 				paths: {
 					'react': 'react',

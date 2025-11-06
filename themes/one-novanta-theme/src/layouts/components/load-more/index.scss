@@ -1,0 +1,44 @@
+/**
+ * Component: Load More.
+ */
+
+.button-load-more-wrapper {
+	display: flex;
+	justify-content: center;
+	margin-block: var(--wp--preset--spacing--40);
+
+	&--hidden {
+		display: none;
+	}
+}
+
+.button-load-more {
+	$self: &;
+
+	background: transparent;
+	border: 0;
+	cursor: pointer;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: var(--wp--preset--spacing--10);
+	color: var(--wp--preset--color--foreground);
+
+	&-text--loading {
+		display: none;
+	}
+
+	&[disabled],
+	&:disabled {
+		cursor: not-allowed;
+		color: var(--wp--custom--color-graphite-gray);
+
+		#{$self}-text--loading {
+			display: block;
+		}
+
+		#{$self}-text {
+			display: none;
+		}
+	}
+}

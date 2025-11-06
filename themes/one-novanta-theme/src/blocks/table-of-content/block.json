@@ -1,0 +1,28 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "one-novanta/toc",
+	"version": "0.1.0",
+	"title": "Table of Content",
+	"attributes": {
+		"heading": {
+			"type": "string",
+			"default": ""
+		},
+		"tocList": {
+			"type": "array",
+			"default": []
+		}
+	},
+	"category": "one-novanta",
+	"example": {},
+	"icon": "media-interactive",
+	"description": "A custom separator block for OneNovanta theme.",
+	"textdomain": "one-novanta-theme",
+	"editorScript": "file:./index.js",
+	"supports": {
+		"align": ["full"]
+	},
+	"render": "file:./render.php",
+	"editorStyle": "file:./index.css"
+}

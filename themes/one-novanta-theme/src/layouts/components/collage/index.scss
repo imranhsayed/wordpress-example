@@ -1,0 +1,10 @@
+/**
+ * Component: Collage
+ */
+
+@use "../../../scss/blocks/collage" as *;
+
+.component-collage {
+	// Use Mixin to include the styles for the collage component.
+	@include collage-styles;
+}

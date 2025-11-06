@@ -1,0 +1,8 @@
+
+.blog-meta > :nth-child(3) {
+	display: none;
+
+	&:has( > .wp-block-post-terms ) {
+		display: block;
+	}
+}

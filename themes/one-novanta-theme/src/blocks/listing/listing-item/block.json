@@ -1,0 +1,52 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "one-novanta/listing-item",
+	"title": "Listing Item",
+	"description": "Add a single list item",
+	"parent": [
+		"one-novanta/listing"
+	],
+	"category": "one-novanta",
+	"textdomain": "one-novanta-theme",
+	"supports": {
+		"alignWide": false,
+		"anchor": false,
+		"className": false,
+		"html": false,
+		"customClassName": true
+	},
+	"attributes": {
+		"imageID": {
+			"type": "number",
+			"default": 0
+		},
+		"imageURL": {
+			"type": "string",
+			"default": ""
+		},
+		"imageAlt": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"example": {
+		"innerBlocks": [
+			{
+				"name": "core/heading",
+				"attributes": {
+					"content": "Heading"
+				}
+			},
+			{
+				"name": "core/paragraph",
+				"attributes": {
+					"content": "Description"
+				}
+			}
+		]
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"render": "file:./render.php"
+}

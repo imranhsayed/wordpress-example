@@ -1,0 +1,16 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "one-novanta/your-quote-table",
+	"version": "0.1.0",
+	"title": "Your Quote Table",
+	"icon": "table",
+	"category": "one-novanta",
+	"description": "A dynamic block to load Your Quote table.",
+	"supports": {
+		"inserter": false
+	},
+	"textdomain": "one-novanta-theme",
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php"
+}

@@ -1,0 +1,58 @@
+/**
+ * Component: Article Card.
+ */
+
+@use "../../../scss/variables";
+@use "../../../scss/mixins";
+
+.article-card {
+	display: flex;
+	flex-direction: column;
+	text-decoration: none;
+	color: inherit;
+	align-items: flex-start;
+	position: relative;
+
+	// Overwrite the parent grid.
+	.grid:has(> &) {
+		gap: var(--wp--preset--spacing--30);
+	}
+
+	&__image-wrap {
+		border-radius: var(--wp--custom--border-radius-normal);
+		overflow: hidden;
+		aspect-ratio: 4 / 3;
+		margin: 0;
+		min-width: 0;
+
+		img {
+			height: 100%;
+			width: 100%;
+			object-fit: cover;
+		}
+	}
+
+	&__category {
+		font-family: var(--wp--preset--font-family--heading);
+		font-weight: 500;
+		letter-spacing: 0.08em;
+		margin-block-end: 4px;
+		text-transform: uppercase;
+	}
+
+	&__content {
+		margin-block-start: var(--wp--preset--spacing--20);
+	}
+
+	&__heading {
+		word-break: break-word;
+
+		a {
+			color: inherit;
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+}

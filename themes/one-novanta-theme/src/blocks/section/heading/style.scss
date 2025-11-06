@@ -1,0 +1,18 @@
+@use "../../../scss/variables";
+@use "../../../scss/functions";
+
+.one-novanta-section__first-column {
+	flex-basis: 100%;
+
+	@media screen and (min-width: variables.$md) {
+		flex-basis: 45%;
+	}
+}
+
+.wp-block-buttons.is-vertical {
+	flex-direction: row;
+
+	@media screen and (min-width: variables.$md) {
+		flex-direction: column;
+	}
+}

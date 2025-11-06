@@ -1,0 +1,94 @@
+/**
+ * Component: Two Columns.
+ */
+
+@use "../../../scss/variables";
+
+.two-columns {
+	$self: &;
+
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	margin-block-start: var(--grid-section-gutter);
+
+	@media screen and (min-width: variables.$md) {
+		flex-flow: nowrap;
+	}
+
+	&:first-child {
+		margin-block-start: 0;
+	}
+
+	&--media-align-right {
+
+		@media screen and (min-width: variables.$md) {
+			flex-direction: row-reverse;
+		}
+	}
+
+	&__column {
+		flex: 0 0 100%;
+		min-width: 0;
+		margin-block-start: var(--wp--preset--spacing--40);
+
+		&:first-child {
+			margin-block-start: 0;
+		}
+
+		@media screen and (min-width: variables.$md) {
+			margin-block-start: 0;
+
+			/*
+			 * We need to use nth-of-type.
+			 * Reason: In gutenberg editor adds additional invisible elements.
+			*/
+			&:nth-of-type(1) {
+				margin-block-start: 0;
+				flex: 0 0 44%;
+			}
+
+			&:nth-of-type(2) {
+				margin-block-start: 0;
+				flex: 0 0 50%;
+			}
+		}
+	}
+
+	&--vertical-align-center {
+		align-items: center;
+	}
+
+	&--vertical-align-top {
+		align-items: flex-start;
+	}
+
+	&--vertical-align-bottom {
+		align-items: flex-end;
+	}
+
+	&--content-align-right {
+		#{$self}__column:only-child {
+
+			@media screen and (min-width: variables.$md) {
+				margin-left: auto;
+			}
+		}
+	}
+
+	// Reverse column order on mobile
+	&--reverse-order {
+
+		@media screen and (max-width: calc(variables.$md - 1px)) {
+			#{$self}__column:nth-of-type(2) {
+				order: 1;
+				margin-block-start: 0;
+			}
+
+			#{$self}__column:nth-of-type(1) {
+				order: 2;
+				margin-block-start: var(--wp--preset--spacing--40);
+			}
+		}
+	}
+}

@@ -1,0 +1,19 @@
+{
+	"name": "one-novanta/related-modules",
+	"title": "Related Modules",
+	"description": "Related Modules block displays a list of modules related to the current post or page. It is useful for showing compatible modules that can be used together.",
+	"category": "one-novanta",
+	"icon": "groups",
+	"keywords": [
+		"related",
+		"modules",
+		"compatible",
+		"compatible modules"
+	],
+	"supports": {
+		"anchor": true,
+		"inserter": false
+	},
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php"
+}

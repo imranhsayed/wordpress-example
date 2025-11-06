@@ -1,0 +1,34 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "one-novanta/related-products",
+	"version": "0.1.0",
+	"title": "Related Products",
+	"category": "one-novanta",
+	"description": "Displays 4 latest products from a selected category.",
+	"textdomain": "one-novanta-theme",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"render": "file:./render.php",
+	"supports": {
+		"inserter": false
+	},
+	"attributes": {
+		"categoryId": {
+			"type": "number",
+			"default": 0
+		},
+		"order": {
+			"type": "string",
+			"default": "asc"
+		},
+		"orderBy": {
+			"type": "string",
+			"default": "title"
+		},
+		"numberOfItems": {
+			"type": "number",
+			"default": 4
+		}
+	}
+}

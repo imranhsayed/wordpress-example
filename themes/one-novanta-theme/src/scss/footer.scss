@@ -1,0 +1,72 @@
+/**
+ * Footer.
+ */
+
+@use "variables";
+
+.one-novanta-footer {
+
+	a {
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	// Mobile only styles.
+	@media screen and (max-width: calc(variables.$xl - 1px)) {
+
+		&__widgets,
+		.wp-block-separator {
+			display: none !important;
+		}
+
+		.wp-container-core-social-links-is-layout-1 {
+			justify-content: flex-start;
+		}
+
+		&__social-icons {
+			margin-block-start: var(--wp--preset--spacing--40) !important;
+		}
+
+		.wp-block-columns {
+			gap: 0;
+		}
+
+		&__copyright {
+			margin-block-start: var(--wp--preset--spacing--20);
+		}
+
+		&__quick-links {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: var(--wp--preset--spacing--20);
+			margin-block-start: var(--wp--preset--spacing--40);
+			padding-top: var(--wp--preset--spacing--20);
+		}
+
+		&__bottom-columns {
+			flex-direction: column;
+		}
+
+		.wp-block-social-links {
+			justify-content: flex-start;
+		}
+	}
+
+	@media screen and (min-width: variables.$xl) {
+
+		&__quick-links {
+			gap: 0;
+
+			li + li {
+				padding-left: 5px;
+
+				&::before {
+					content: "|";
+					margin-right: 5px;
+				}
+			}
+		}
+	}
+}

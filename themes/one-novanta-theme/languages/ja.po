@@ -1,0 +1,599 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: One Novanta Theme\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/one-novanta-"
+"theme\n"
+"POT-Creation-Date: 2025-07-08 18:51+0530\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.6\n"
+
+#: client-mu-plugins/one-novanta/src/Controllers/ATI/PostType/Application.php:56
+msgid "Applications"
+msgstr "アプリケーション"
+
+#: client-mu-plugins/one-novanta/src/Controllers/ATI/PostType/Application.php:57
+msgid "Application"
+msgstr "申し込み"
+
+#: client-mu-plugins/one-novanta/src/Controllers/ATI/PostType/Document.php:187
+msgid "Documents"
+msgstr "書類"
+
+#: client-mu-plugins/one-novanta/src/Controllers/ATI/PostType/Document.php:188
+msgid "Document"
+msgstr "ドキュメント"
+
+#: client-mu-plugins/one-novanta/src/Controllers/ATI/Taxonomy/ApplicationCategories.php:41
+msgid "Application Categories"
+msgstr "アプリケーション・カテゴリー"
+
+#: client-mu-plugins/one-novanta/src/Controllers/ATI/Taxonomy/ApplicationCategories.php:42
+msgid "Application Category"
+msgstr "応募カテゴリー"
+
+#: client-mu-plugins/one-novanta/src/Controllers/ATI/Taxonomy/DownloadTypes.php:41
+msgid "Download Types"
+msgstr "ダウンロードの種類"
+
+#: client-mu-plugins/one-novanta/src/Controllers/ATI/Taxonomy/DownloadTypes.php:42
+#: themes/one-novanta-theme/src/acf-blocks/documents/render.php:76
+#: themes/one-novanta-theme/src/blocks/documents-and-downloads/render.php:98
+msgid "Download Type"
+msgstr "ダウンロードタイプ"
+
+#: client-mu-plugins/one-novanta/src/Controllers/ATI/Taxonomy/Industries.php:41
+msgid "Industries"
+msgstr "産業"
+
+#: client-mu-plugins/one-novanta/src/Controllers/ATI/Taxonomy/Industries.php:42
+msgid "Industry"
+msgstr "産業"
+
+#: client-mu-plugins/one-novanta/src/Controllers/ATI/Taxonomy/Technologies.php:41
+msgid "Technologies"
+msgstr "テクノロジー"
+
+#: client-mu-plugins/one-novanta/src/Controllers/ATI/Taxonomy/Technologies.php:42
+msgid "Technology"
+msgstr "テクノロジー"
+
+#: plugins/ati-woocommerce/inc/namespace.php:764
+#: plugins/ati-woocommerce/inc/namespace.php:789
+#: themes/one-novanta-theme/patterns/product-tabs.php:22
+#: themes/one-novanta-theme/patterns/product-tabs.php:27
+msgid "Product Features"
+msgstr "製品の特徴"
+
+#: plugins/ati-woocommerce/inc/namespace.php:799
+#: plugins/ati-woocommerce/inc/namespace.php:817
+#: themes/one-novanta-theme/patterns/product-tabs.php:30
+#: themes/one-novanta-theme/patterns/product-tabs.php:42
+msgid "Product Feature Heading"
+msgstr "製品の特徴見出し"
+
+#: plugins/ati-woocommerce/inc/namespace.php:808
+#: plugins/ati-woocommerce/inc/namespace.php:826
+#: themes/one-novanta-theme/patterns/product-tabs.php:36
+#: themes/one-novanta-theme/patterns/product-tabs.php:48
+msgid "Product Feature"
+msgstr "製品の特徴"
+
+#: plugins/ati-woocommerce/inc/namespace.php:838
+#: themes/one-novanta-theme/patterns/product-tabs.php:57
+msgid "Primary"
+msgstr "プライマリー"
+
+#: plugins/ati-woocommerce/inc/namespace.php:845
+#: themes/one-novanta-theme/patterns/product-tabs.php:63
+msgid "Secondary"
+msgstr "セカンダリー"
+
+#: plugins/ati-woocommerce/inc/namespace.php:860
+#: themes/one-novanta-theme/patterns/product-tabs.php:76
+msgid "Specifications"
+msgstr "仕様"
+
+#: plugins/ati-woocommerce/inc/namespace.php:875
+msgid "Documents & Downloads"
+msgstr "ドキュメント＆ダウンロード"
+
+#: plugins/ati-woocommerce/inc/namespace.php:888
+#: themes/one-novanta-theme/patterns/product-tabs.php:86
+msgid "3D CAD Models"
+msgstr "3D CADモデル"
+
+#: plugins/ati-woocommerce/inc/namespace.php:903
+#: themes/one-novanta-theme/patterns/product-tabs.php:92
+msgid "Accessories"
+msgstr "アクセサリー"
+
+#: plugins/ati-woocommerce/inc/namespace.php:916
+#: themes/one-novanta-theme/patterns/product-tabs.php:96
+msgid "Components"
+msgstr "コンポーネント"
+
+#: plugins/ati-woocommerce/inc/namespace.php:1423
+#: themes/one-novanta-theme/inc/helpers/custom-functions.php:315
+#: themes/one-novanta-theme/woocommerce/single-product/add-to-cart/simple.php:48
+#: themes/one-novanta-theme/woocommerce/single-product/add-to-cart/variable.php:97
+msgid "N/A"
+msgstr "該当なし"
+
+#: themes/one-novanta-theme/inc/Blocks.php:69
+msgid "One Novanta"
+msgstr "ワン・ノバンタ"
+
+#: themes/one-novanta-theme/inc/Customizations/GravityForms.php:359
+#: themes/one-novanta-theme/inc/Customizations/GravityForms.php:362
+msgid "*Required"
+msgstr "*必須"
+
+#: themes/one-novanta-theme/inc/helpers/custom-functions.php:1073
+#, php-format
+msgid "%s min read"
+msgstr "%s 分読み"
+
+#: themes/one-novanta-theme/inc/helpers/custom-functions.php:1209
+msgid "...[Read More]"
+msgstr "...[続きを読む］"
+
+#: themes/one-novanta-theme/patterns/estimated-reading-time.php:35
+msgid "Reading time"
+msgstr "読書時間"
+
+#: themes/one-novanta-theme/patterns/estimated-reading-time.php:46
+msgid "minute"
+msgid_plural "minutes"
+msgstr[0] "微細"
+
+#: themes/one-novanta-theme/patterns/footer.php:105
+#, php-format
+msgid "&copy; %s Novanta Inc. All Rights Reserved."
+msgstr "&copy; %s Novanta Inc. 無断複写・転載を禁じます。"
+
+#: themes/one-novanta-theme/patterns/media-text-interactive.php:24
+msgid "Title"
+msgstr "タイトル"
+
+#: themes/one-novanta-theme/patterns/media-text-interactive.php:34
+msgid "Play"
+msgstr "プレー"
+
+#: themes/one-novanta-theme/patterns/product-tabs.php:82
+msgid "Documents \\u0026 Downloads"
+msgstr "資料ダウンロード"
+
+#: themes/one-novanta-theme/patterns/search-query-loop.php:36
+msgid ""
+"Sorry, but nothing was found. Please try a search with different keywords."
+msgstr ""
+"申し訳ありませんが、何も見つかりませんでした。別のキーワードで検索してみて"
+"ください。"
+
+#: themes/one-novanta-theme/src/acf-blocks/accessories/render.php:21
+msgid "No accessories found. Please select any accessory."
+msgstr "アクセサリーが見つかりません。アクセサリーを選択してください。"
+
+#: themes/one-novanta-theme/src/acf-blocks/accessories/render.php:72
+#: themes/one-novanta-theme/src/acf-blocks/accessories/render.php:79
+#: themes/one-novanta-theme/src/acf-blocks/components/render.php:70
+#: themes/one-novanta-theme/src/acf-blocks/components/render.php:77
+#: themes/one-novanta-theme/src/layouts/components/your-quote-table/index.php:138
+#: themes/one-novanta-theme/src/layouts/components/your-quote-table/index.php:176
+msgid "Part Number"
+msgstr "品番"
+
+#: themes/one-novanta-theme/src/acf-blocks/accessories/render.php:73
+#: themes/one-novanta-theme/src/acf-blocks/components/render.php:71
+#: themes/one-novanta-theme/src/blocks/cad-modals/render.php:31
+msgid "Description"
+msgstr "説明"
+
+#: themes/one-novanta-theme/src/acf-blocks/components/render.php:20
+msgid "Please add Components."
+msgstr "コンポーネントを追加してください。"
+
+#: themes/one-novanta-theme/src/acf-blocks/documents/render.php:21
+msgid "Please add any Document."
+msgstr "ドキュメントを追加してください。"
+
+#: themes/one-novanta-theme/src/acf-blocks/documents/render.php:75
+#: themes/one-novanta-theme/src/blocks/cad-modals/render.php:30
+msgid "Download"
+msgstr "ダウンロード"
+
+#: themes/one-novanta-theme/src/acf-blocks/documents/render.php:77
+#: themes/one-novanta-theme/src/blocks/documents-and-downloads/render.php:99
+#: themes/one-novanta-theme/src/layouts/components/documents-filter/index.php:106
+msgid "Language"
+msgstr "言語"
+
+#: themes/one-novanta-theme/src/acf-blocks/documents/render.php:82
+msgid "Type"
+msgstr "タイプ"
+
+#: themes/one-novanta-theme/src/blocks/50-50-wrapper/render.php:45
+msgid "Content Image"
+msgstr "コンテンツイメージ"
+
+#: themes/one-novanta-theme/src/blocks/cart-button/render.php:19
+msgid "Get a quote"
+msgstr "お見積もり"
+
+#: themes/one-novanta-theme/src/blocks/documents-and-downloads/render.php:66
+#: themes/one-novanta-theme/src/blocks/search-results-title-count/render.php:27
+msgid "result"
+msgid_plural "results"
+msgstr[0] "結果"
+
+#: themes/one-novanta-theme/src/blocks/documents-and-downloads/render.php:74
+#: themes/one-novanta-theme/src/layouts/components/documents-filter/index.js:344
+msgid "No Documents were found"
+msgstr "書類は見つかりませんでした"
+
+#: themes/one-novanta-theme/src/blocks/documents-and-downloads/render.php:97
+msgid "File Name"
+msgstr "ファイル名"
+
+#: themes/one-novanta-theme/src/blocks/featured-banner/renderer/dynamic.php:55
+msgid "Published on"
+msgstr "公開日"
+
+#: themes/one-novanta-theme/src/blocks/form-wrapper/render.php:46
+msgid "Form Image"
+msgstr "フォームイメージ"
+
+#: themes/one-novanta-theme/src/blocks/header-search/render.php:37
+msgid "Search..."
+msgstr "検索..."
+
+#: themes/one-novanta-theme/src/blocks/header-search/render.php:42
+msgid "clear"
+msgstr "クリア"
+
+#: themes/one-novanta-theme/src/blocks/header-search/render.php:45
+msgid "Search button for desktop"
+msgstr "デスクトップ用検索ボタン"
+
+#: themes/one-novanta-theme/src/blocks/header-search/render.php:66
+msgid "Search button for mobile"
+msgstr "モバイル用検索ボタン"
+
+#: themes/one-novanta-theme/src/blocks/related-modules/render.php:154
+msgid "Product Category"
+msgstr "製品カテゴリー"
+
+#: themes/one-novanta-theme/src/blocks/related-modules/render.php:164
+msgid "Product Tag"
+msgstr "商品タグ"
+
+#: themes/one-novanta-theme/src/blocks/related-products/render.php:86
+msgid "New"
+msgstr "新しい"
+
+#: themes/one-novanta-theme/src/blocks/search-results-title-count/render.php:34
+#, php-format
+msgid ""
+"Search results <sub class=\"has-large-font-size search-results-title-"
+"count__count\">%1$1d %2$2s for \"%3$3s\"</sub>"
+msgstr ""
+"検索結果 <sub class=\"has-large-font-size search-results-title-"
+"count__count\">\"%3$3s\"  の検索%2$2s  %1$1d件</sub>"
+
+#: themes/one-novanta-theme/src/blocks/single-product-detail/render.php:52
+msgid "Attention: This product has been discontinued."
+msgstr "ご注意この製品は製造中止となりました。"
+
+#: themes/one-novanta-theme/src/blocks/single-product-detail/render.php:61
+#, php-format
+msgid ""
+"Attention: This product has been discontinued. An upgraded product is <a "
+"href='%1$s'><strong>%2$s</strong></a>."
+msgstr ""
+"ご注意この製品は製造中止となりました。アップグレード製品は<a "
+"href='%1$s'><strong>%2$s</strong></a> です。"
+
+#: themes/one-novanta-theme/src/blocks/social-share/render.php:32
+msgid "Share on LinkedIn"
+msgstr "LinkedInで共有する"
+
+#: themes/one-novanta-theme/src/blocks/social-share/render.php:37
+msgid "Share on Facebook"
+msgstr "Facebookでシェアする"
+
+#: themes/one-novanta-theme/src/blocks/social-share/render.php:42
+msgid "Copy Post link"
+msgstr "投稿リンクをコピーする"
+
+#: themes/one-novanta-theme/src/blocks/social-share/render.php:47
+msgid "Email this Page"
+msgstr "このページをメールする"
+
+#: themes/one-novanta-theme/src/blocks/specifications/render.php:32
+msgid "Specification"
+msgstr "仕様"
+
+#: themes/one-novanta-theme/src/blocks/specifications/render.php:33
+msgid "Value"
+msgstr "価値"
+
+#: themes/one-novanta-theme/src/blocks/table-of-content/render.php:75
+#: themes/one-novanta-theme/src/layouts/components/table-of-content/index.php:67
+msgid "Topics"
+msgstr "トピックス"
+
+#: themes/one-novanta-theme/src/layouts/components/add-to-cart-button/index.php:35
+#: themes/one-novanta-theme/src/layouts/components/compare-model-table/index.php:61
+#: themes/one-novanta-theme/woocommerce/single-product/add-to-cart/simple.php:75
+#: themes/one-novanta-theme/woocommerce/single-product/add-to-cart/variable.php:124
+msgid "Add to quote"
+msgstr "見積りに追加"
+
+#: themes/one-novanta-theme/src/layouts/components/add-to-cart-button/index.php:36
+msgid "Added to quote"
+msgstr "引用に追加"
+
+#: themes/one-novanta-theme/src/layouts/components/add-to-cart-button/index.php:37
+msgid "Failed"
+msgstr "失敗"
+
+#: themes/one-novanta-theme/src/layouts/components/button/index.php:41
+msgid "Button"
+msgstr "ボタン"
+
+#: themes/one-novanta-theme/src/layouts/components/cards/article-collection.php:43
+msgid "Read more"
+msgstr "もっと読む"
+
+#: themes/one-novanta-theme/src/layouts/components/compare-model-table/index.php:94
+#: themes/one-novanta-theme/src/layouts/components/table/index.php:111
+msgid "Filter by"
+msgstr "フィルター"
+
+#: themes/one-novanta-theme/src/layouts/components/documents-filter/index.php:73
+msgid "Keyword"
+msgstr "キーワード"
+
+#: themes/one-novanta-theme/src/layouts/components/documents-filter/index.php:91
+msgid "Document Type"
+msgstr "文書タイプ"
+
+#: themes/one-novanta-theme/src/layouts/components/documents-filter/index.php:120
+msgid "Search"
+msgstr "検索"
+
+#: themes/one-novanta-theme/src/layouts/components/featured-media-slider/index.php:90
+#: themes/one-novanta-theme/src/layouts/components/tile-carousel/index.php:77
+msgid "Previous slide"
+msgstr "前のスライド"
+
+#: themes/one-novanta-theme/src/layouts/components/featured-media-slider/index.php:102
+#: themes/one-novanta-theme/src/layouts/components/tile-carousel/index.php:89
+msgid "Next slide"
+msgstr "次のスライド"
+
+#: themes/one-novanta-theme/src/layouts/components/image/index.php:145
+msgid "Default Image"
+msgstr "デフォルト画像"
+
+#: themes/one-novanta-theme/src/layouts/components/load-more/index.php:83
+msgid "Load more results"
+msgstr "結果をもっと読み込む"
+
+#: themes/one-novanta-theme/src/layouts/components/load-more/index.php:92
+msgid "Load more"
+msgstr "もっと読む"
+
+#: themes/one-novanta-theme/src/layouts/components/load-more/index.php:93
+msgid "Loading..."
+msgstr "読み込み中..."
+
+#: themes/one-novanta-theme/src/layouts/components/locale-switcher/index.php:45
+msgid "Current language flag"
+msgstr "現在の言語フラグ"
+
+#: themes/one-novanta-theme/src/layouts/components/media-lightbox/index.php:74
+msgid "Close"
+msgstr "閉じる"
+
+#: themes/one-novanta-theme/src/layouts/components/media-lightbox/index.php:89
+msgid "Previous"
+msgstr "前へ"
+
+#: themes/one-novanta-theme/src/layouts/components/media-lightbox/index.php:104
+msgid "Next"
+msgstr "次のページ"
+
+#: themes/one-novanta-theme/src/layouts/components/media-lightbox/index.php:128
+msgid "Open Lightbox"
+msgstr "オープンライトボックス"
+
+#: themes/one-novanta-theme/src/layouts/components/product-details/description.php:43
+msgid "View all features"
+msgstr "すべての機能を見る"
+
+#: themes/one-novanta-theme/src/layouts/components/product-details/gallery.php:99
+msgid "View all"
+msgstr "すべてを見る"
+
+#: themes/one-novanta-theme/src/layouts/components/product-details/option.php:25
+msgid "Please select"
+msgstr "選択してください"
+
+#: themes/one-novanta-theme/src/layouts/components/product-search/filter-widget.php:136
+#: themes/one-novanta-theme/src/layouts/components/product-search/filter-widget.php:140
+msgid "See All"
+msgstr "すべて見る"
+
+#: themes/one-novanta-theme/src/layouts/components/product-search/filter-widget.php:137
+msgid "See Less"
+msgstr "もっと見る"
+
+#: themes/one-novanta-theme/src/layouts/components/product-search/index.php:137
+#, php-format
+msgid "%d Result"
+msgid_plural "%d Results"
+msgstr[0] "%d d結果"
+
+#: themes/one-novanta-theme/src/layouts/components/product-search/index.php:155
+#: themes/one-novanta-theme/src/layouts/components/product-search/index.php:159
+msgid "Show Filters"
+msgstr "フィルター表示"
+
+#: themes/one-novanta-theme/src/layouts/components/product-search/index.php:156
+msgid "Hide Filters"
+msgstr "フィルターを隠す"
+
+#: themes/one-novanta-theme/src/layouts/components/search-filter/index.php:50
+msgid "All"
+msgstr "すべて"
+
+#: themes/one-novanta-theme/src/layouts/components/table/row.php:60
+msgid "Uploaded date: "
+msgstr "アップロード日 "
+
+#: themes/one-novanta-theme/src/layouts/components/table/row.php:67
+msgid "Version number: "
+msgstr "バージョン番号 "
+
+#: themes/one-novanta-theme/src/layouts/components/video/index.php:97
+msgid "Video play button"
+msgstr "ビデオ再生ボタン"
+
+#: themes/one-novanta-theme/src/layouts/components/your-quote-table/index.php:121
+msgid "Clear quote"
+msgstr "明確な見積もり"
+
+#: themes/one-novanta-theme/src/layouts/components/your-quote-table/index.php:136
+#: themes/one-novanta-theme/src/layouts/components/your-quote-table/index.php:166
+msgid "Product"
+msgstr "製品"
+
+#: themes/one-novanta-theme/src/layouts/components/your-quote-table/index.php:137
+#: themes/one-novanta-theme/src/layouts/components/your-quote-table/index.php:171
+msgid "Summary"
+msgstr "概要"
+
+#: themes/one-novanta-theme/src/layouts/components/your-quote-table/index.php:139
+#: themes/one-novanta-theme/src/layouts/components/your-quote-table/index.php:181
+#: themes/one-novanta-theme/src/layouts/components/your-quote-table/index.php:206
+msgid "Quantity"
+msgstr "数量"
+
+#: themes/one-novanta-theme/src/layouts/components/your-quote-table/index.php:184
+msgid "Increase quantity"
+msgstr "数量の増加"
+
+#: themes/one-novanta-theme/src/layouts/components/your-quote-table/index.php:207
+msgid "Decrease quantity"
+msgstr "数量減少"
+
+#: themes/one-novanta-theme/src/layouts/components/your-quote-table/index.php:233
+msgid "Remove"
+msgstr "削除"
+
+#: themes/one-novanta-theme/src/layouts/components/your-quote-table/index.php:255
+msgid "Your quote is currently empty"
+msgstr "あなたの見積もりは現在空です"
+
+#: themes/one-novanta-theme/src/layouts/components/your-quote-table/index.php:262
+msgid "Add products"
+msgstr "製品を追加する"
+
+#: themes/one-novanta-theme/woocommerce/single-product/add-to-cart/simple.php:47
+#: themes/one-novanta-theme/woocommerce/single-product/add-to-cart/variable.php:96
+msgid "Model Number: "
+msgstr "モデル番号 "
+
+#: themes/one-novanta-theme/woocommerce/single-product/add-to-cart/simple.php:59
+#: themes/one-novanta-theme/woocommerce/single-product/add-to-cart/variable.php:108
+msgid "Speak to our experts"
+msgstr "専門家に相談する"
+
+#: themes/one-novanta-theme/woocommerce/single-product/add-to-cart/variable.php:51
+msgid "This product is currently out of stock and unavailable."
+msgstr "この商品は現在在庫切れで入手できません。"
+
+#: themes/one-novanta-theme/woocommerce/single-product/add-to-cart/variable.php:74
+msgid "Clear options"
+msgstr "明確なオプション"
+
+#: themes/one-novanta-theme/woocommerce/single-product/add-to-cart/variable.php:74
+msgid "Clear"
+msgstr "クリア"
+
+#~ msgid "Pages"
+#~ msgstr "ページ"
+
+#~ msgid "Page"
+#~ msgstr "ページ"
+
+#~ msgid "Posts"
+#~ msgstr "投稿"
+
+#~ msgid "Post"
+#~ msgstr "ポスト"
+
+#~ msgid "Categories"
+#~ msgstr "カテゴリー"
+
+#~ msgid "Category"
+#~ msgstr "カテゴリー"
+
+#~ msgid "Post Tags"
+#~ msgstr "投稿タグ"
+
+#~ msgid "Post Tag"
+#~ msgstr "投稿タグ"
+
+#~ msgid "Product Tags"
+#~ msgstr "商品タグ"
+
+#~ msgid "Product Categories"
+#~ msgstr "製品カテゴリー"
+
+#~ msgid "Products"
+#~ msgstr "製品紹介"
+
+#~ msgid "January"
+#~ msgstr "1月"
+
+#~ msgid "February"
+#~ msgstr "2月"
+
+#~ msgid "March"
+#~ msgstr "3月"
+
+#~ msgid "April"
+#~ msgstr "4月"
+
+#~ msgid "May"
+#~ msgstr "5月"
+
+#~ msgid "June"
+#~ msgstr "6月"
+
+#~ msgid "July"
+#~ msgstr "7月"
+
+#~ msgid "August"
+#~ msgstr "8月"
+
+#~ msgid "September"
+#~ msgstr "9月"
+
+#~ msgid "October"
+#~ msgstr "10月"
+
+#~ msgid "November"
+#~ msgstr "11月"
+
+#~ msgid "December"
+#~ msgstr "12月"

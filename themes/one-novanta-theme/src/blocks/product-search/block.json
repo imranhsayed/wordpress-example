@@ -1,0 +1,40 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "one-novanta/product-search",
+	"version": "0.1.0",
+	"title": "Product Search",
+	"category": "one-novanta",
+	"icon": "grid-view",
+	"description": "An interactive block for product search.",
+	"attributes": {
+		"perPage": {
+			"type": "number",
+			"default": 6
+		},
+		"postType": {
+			"type": "string",
+			"default": "product"
+		},
+		"taxQuery": {
+			"type": "object",
+			"default": {}
+		},
+		"hasAddToCart": {
+			"type": "boolean",
+			"default": false
+		},
+		"headingLevel": {
+			"type": "string",
+			"default": "h3"
+		}
+	},
+	"supports": {
+		"inserter": false
+	},
+	"usesContext": ["query"],
+	"textdomain": "one-novanta-theme",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"render": "file:./render.php"
+}

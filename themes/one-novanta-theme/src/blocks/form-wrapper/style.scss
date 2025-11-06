@@ -1,0 +1,35 @@
+@use "../../scss/variables";
+@use "../../layouts/components/two-columns/index";
+
+.one-novanta-form-wrapper__content,
+.wp-block-one-novanta-form-wrapper {
+
+	h2 {
+		margin-top: 0;
+		margin-bottom: var(--wp--preset--spacing--20);
+	}
+
+	p {
+		margin-top: 0;
+		margin-bottom: var(--wp--preset--spacing--40);
+	}
+}
+
+.one-novanta-form-wrapper__media-placeholder {
+	width: 100%;
+	aspect-ratio: 740/1003;
+
+	.components-placeholder {
+		height: 100%;
+		justify-content: center;
+		border-radius: var(--wp--preset--spacing--10);
+	}
+}
+
+.one-novanta-form-wrapper__image {
+	width: 100%;
+	aspect-ratio: 740 / 1003;
+	border-radius: var(--wp--custom--border-radius-normal);
+	object-fit: cover;
+	display: block;
+}

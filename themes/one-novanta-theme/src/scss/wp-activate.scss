@@ -1,0 +1,22 @@
+@use "placeholders";
+
+#signup-content {
+	margin-block: var(--wp--preset--spacing--100);
+
+	.wp-activate-container {
+		max-width: var(--wp--style--global--content-size);
+	}
+
+	label ~ input {
+		margin-block-start: var(--wp--preset--spacing--20);
+	}
+
+	input#submit {
+
+		@extend %button;
+	}
+
+	#signup-welcome {
+		margin-block-end: var(--wp--preset--spacing--20);
+	}
+}

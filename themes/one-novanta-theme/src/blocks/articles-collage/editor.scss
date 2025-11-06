@@ -1,0 +1,15 @@
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+@use "../../scss/blocks/collage" as *;
+
+.component-collage-editor {
+	// We need to wrap collage styles in it, because Editor innerblock have nested styles.
+	.block-editor-block-list__layout {
+		// Use Mixin to include the styles for the collage block.
+		@include collage-styles;
+	}
+}

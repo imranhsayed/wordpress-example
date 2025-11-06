@@ -1,0 +1,601 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: One Novanta Theme\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/one-novanta-theme\n"
+"POT-Creation-Date: 2025-07-08 18:51+0530\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.6\n"
+
+#: client-mu-plugins/one-novanta/src/Controllers/ATI/PostType/Application.php:56
+msgid "Applications"
+msgstr "Anwendungen"
+
+#: client-mu-plugins/one-novanta/src/Controllers/ATI/PostType/Application.php:57
+msgid "Application"
+msgstr "Anmeldung"
+
+#: client-mu-plugins/one-novanta/src/Controllers/ATI/PostType/Document.php:187
+msgid "Documents"
+msgstr "Dokumente"
+
+#: client-mu-plugins/one-novanta/src/Controllers/ATI/PostType/Document.php:188
+msgid "Document"
+msgstr "Dokument"
+
+#: client-mu-plugins/one-novanta/src/Controllers/ATI/Taxonomy/ApplicationCategories.php:41
+msgid "Application Categories"
+msgstr "Anwendungs-Kategorien"
+
+#: client-mu-plugins/one-novanta/src/Controllers/ATI/Taxonomy/ApplicationCategories.php:42
+msgid "Application Category"
+msgstr "Kategorie der Anwendung"
+
+#: client-mu-plugins/one-novanta/src/Controllers/ATI/Taxonomy/DownloadTypes.php:41
+msgid "Download Types"
+msgstr "Arten herunterladen"
+
+#: client-mu-plugins/one-novanta/src/Controllers/ATI/Taxonomy/DownloadTypes.php:42
+#: themes/one-novanta-theme/src/acf-blocks/documents/render.php:76
+#: themes/one-novanta-theme/src/blocks/documents-and-downloads/render.php:98
+msgid "Download Type"
+msgstr "Typ herunterladen"
+
+#: client-mu-plugins/one-novanta/src/Controllers/ATI/Taxonomy/Industries.php:41
+msgid "Industries"
+msgstr "Branchen"
+
+#: client-mu-plugins/one-novanta/src/Controllers/ATI/Taxonomy/Industries.php:42
+msgid "Industry"
+msgstr "Industrie"
+
+#: client-mu-plugins/one-novanta/src/Controllers/ATI/Taxonomy/Technologies.php:41
+msgid "Technologies"
+msgstr "Technologien"
+
+#: client-mu-plugins/one-novanta/src/Controllers/ATI/Taxonomy/Technologies.php:42
+msgid "Technology"
+msgstr "Technologie"
+
+#: plugins/ati-woocommerce/inc/namespace.php:764
+#: plugins/ati-woocommerce/inc/namespace.php:789
+#: themes/one-novanta-theme/patterns/product-tabs.php:22
+#: themes/one-novanta-theme/patterns/product-tabs.php:27
+msgid "Product Features"
+msgstr "Produktmerkmale"
+
+#: plugins/ati-woocommerce/inc/namespace.php:799
+#: plugins/ati-woocommerce/inc/namespace.php:817
+#: themes/one-novanta-theme/patterns/product-tabs.php:30
+#: themes/one-novanta-theme/patterns/product-tabs.php:42
+msgid "Product Feature Heading"
+msgstr "Produktmerkmal Überschrift"
+
+#: plugins/ati-woocommerce/inc/namespace.php:808
+#: plugins/ati-woocommerce/inc/namespace.php:826
+#: themes/one-novanta-theme/patterns/product-tabs.php:36
+#: themes/one-novanta-theme/patterns/product-tabs.php:48
+msgid "Product Feature"
+msgstr "Produktmerkmal"
+
+#: plugins/ati-woocommerce/inc/namespace.php:838
+#: themes/one-novanta-theme/patterns/product-tabs.php:57
+msgid "Primary"
+msgstr "Primäre"
+
+#: plugins/ati-woocommerce/inc/namespace.php:845
+#: themes/one-novanta-theme/patterns/product-tabs.php:63
+msgid "Secondary"
+msgstr "Sekundäres"
+
+#: plugins/ati-woocommerce/inc/namespace.php:860
+#: themes/one-novanta-theme/patterns/product-tabs.php:76
+msgid "Specifications"
+msgstr "Spezifikationen"
+
+#: plugins/ati-woocommerce/inc/namespace.php:875
+msgid "Documents & Downloads"
+msgstr "Dokumente & Downloads"
+
+#: plugins/ati-woocommerce/inc/namespace.php:888
+#: themes/one-novanta-theme/patterns/product-tabs.php:86
+msgid "3D CAD Models"
+msgstr "3D-CAD-Modelle"
+
+#: plugins/ati-woocommerce/inc/namespace.php:903
+#: themes/one-novanta-theme/patterns/product-tabs.php:92
+msgid "Accessories"
+msgstr "Zubehör"
+
+#: plugins/ati-woocommerce/inc/namespace.php:916
+#: themes/one-novanta-theme/patterns/product-tabs.php:96
+msgid "Components"
+msgstr "Komponenten"
+
+#: plugins/ati-woocommerce/inc/namespace.php:1423
+#: themes/one-novanta-theme/inc/helpers/custom-functions.php:315
+#: themes/one-novanta-theme/woocommerce/single-product/add-to-cart/simple.php:48
+#: themes/one-novanta-theme/woocommerce/single-product/add-to-cart/variable.php:97
+msgid "N/A"
+msgstr "K.A"
+
+#: themes/one-novanta-theme/inc/Blocks.php:69
+msgid "One Novanta"
+msgstr "Eine Novanta"
+
+#: themes/one-novanta-theme/inc/Customizations/GravityForms.php:359
+#: themes/one-novanta-theme/inc/Customizations/GravityForms.php:362
+msgid "*Required"
+msgstr "*erforderlich"
+
+#: themes/one-novanta-theme/inc/helpers/custom-functions.php:1073
+#, php-format
+msgid "%s min read"
+msgstr "%s min gelesen"
+
+#: themes/one-novanta-theme/inc/helpers/custom-functions.php:1209
+msgid "...[Read More]"
+msgstr "...[Mehr lesen]"
+
+#: themes/one-novanta-theme/patterns/estimated-reading-time.php:35
+msgid "Reading time"
+msgstr "Lesezeit"
+
+#: themes/one-novanta-theme/patterns/estimated-reading-time.php:46
+msgid "minute"
+msgid_plural "minutes"
+msgstr[0] "minute"
+msgstr[1] "minuten"
+
+#: themes/one-novanta-theme/patterns/footer.php:105
+#, php-format
+msgid "&copy; %s Novanta Inc. All Rights Reserved."
+msgstr "&copy; %s Novanta Inc. Alle Rechte vorbehalten."
+
+#: themes/one-novanta-theme/patterns/media-text-interactive.php:24
+msgid "Title"
+msgstr "Titel"
+
+#: themes/one-novanta-theme/patterns/media-text-interactive.php:34
+msgid "Play"
+msgstr "Spielen"
+
+#: themes/one-novanta-theme/patterns/product-tabs.php:82
+msgid "Documents \\u0026 Downloads"
+msgstr "Dokumente \\u0026 Downloads"
+
+#: themes/one-novanta-theme/patterns/search-query-loop.php:36
+msgid ""
+"Sorry, but nothing was found. Please try a search with different keywords."
+msgstr ""
+"Tut mir leid, aber es wurde nichts gefunden. Bitte versuchen Sie eine Suche "
+"mit anderen Suchbegriffen."
+
+#: themes/one-novanta-theme/src/acf-blocks/accessories/render.php:21
+msgid "No accessories found. Please select any accessory."
+msgstr "Kein Zubehör gefunden. Bitte wählen Sie ein beliebiges Zubehör."
+
+#: themes/one-novanta-theme/src/acf-blocks/accessories/render.php:72
+#: themes/one-novanta-theme/src/acf-blocks/accessories/render.php:79
+#: themes/one-novanta-theme/src/acf-blocks/components/render.php:70
+#: themes/one-novanta-theme/src/acf-blocks/components/render.php:77
+#: themes/one-novanta-theme/src/layouts/components/your-quote-table/index.php:138
+#: themes/one-novanta-theme/src/layouts/components/your-quote-table/index.php:176
+msgid "Part Number"
+msgstr "Teil Nummer"
+
+#: themes/one-novanta-theme/src/acf-blocks/accessories/render.php:73
+#: themes/one-novanta-theme/src/acf-blocks/components/render.php:71
+#: themes/one-novanta-theme/src/blocks/cad-modals/render.php:31
+msgid "Description"
+msgstr "Beschreibung"
+
+#: themes/one-novanta-theme/src/acf-blocks/components/render.php:20
+msgid "Please add Components."
+msgstr "Bitte fügen Sie Komponenten hinzu."
+
+#: themes/one-novanta-theme/src/acf-blocks/documents/render.php:21
+msgid "Please add any Document."
+msgstr "Bitte fügen Sie ein beliebiges Dokument hinzu."
+
+#: themes/one-novanta-theme/src/acf-blocks/documents/render.php:75
+#: themes/one-novanta-theme/src/blocks/cad-modals/render.php:30
+msgid "Download"
+msgstr "Herunterladen"
+
+#: themes/one-novanta-theme/src/acf-blocks/documents/render.php:77
+#: themes/one-novanta-theme/src/blocks/documents-and-downloads/render.php:99
+#: themes/one-novanta-theme/src/layouts/components/documents-filter/index.php:106
+msgid "Language"
+msgstr "Sprache"
+
+#: themes/one-novanta-theme/src/acf-blocks/documents/render.php:82
+msgid "Type"
+msgstr "Typ"
+
+#: themes/one-novanta-theme/src/blocks/50-50-wrapper/render.php:45
+msgid "Content Image"
+msgstr "Inhalt Bild"
+
+#: themes/one-novanta-theme/src/blocks/cart-button/render.php:19
+msgid "Get a quote"
+msgstr "Angebot einholen"
+
+#: themes/one-novanta-theme/src/blocks/documents-and-downloads/render.php:66
+#: themes/one-novanta-theme/src/blocks/search-results-title-count/render.php:27
+msgid "result"
+msgid_plural "results"
+msgstr[0] "Ergebnis"
+msgstr[1] "Ergebnisse"
+
+#: themes/one-novanta-theme/src/blocks/documents-and-downloads/render.php:74
+#: themes/one-novanta-theme/src/layouts/components/documents-filter/index.js:344
+msgid "No Documents were found"
+msgstr "Es wurden keine Dokumente gefunden"
+
+#: themes/one-novanta-theme/src/blocks/documents-and-downloads/render.php:97
+msgid "File Name"
+msgstr "Datei Name"
+
+#: themes/one-novanta-theme/src/blocks/featured-banner/renderer/dynamic.php:55
+msgid "Published on"
+msgstr "Veröffentlicht am"
+
+#: themes/one-novanta-theme/src/blocks/form-wrapper/render.php:46
+msgid "Form Image"
+msgstr "Form Image"
+
+#: themes/one-novanta-theme/src/blocks/header-search/render.php:37
+msgid "Search..."
+msgstr "Suche..."
+
+#: themes/one-novanta-theme/src/blocks/header-search/render.php:42
+msgid "clear"
+msgstr "klar"
+
+#: themes/one-novanta-theme/src/blocks/header-search/render.php:45
+msgid "Search button for desktop"
+msgstr "Suchtaste für Desktop"
+
+#: themes/one-novanta-theme/src/blocks/header-search/render.php:66
+msgid "Search button for mobile"
+msgstr "Suchtaste für Mobiltelefon"
+
+#: themes/one-novanta-theme/src/blocks/related-modules/render.php:154
+msgid "Product Category"
+msgstr "Produktkategorie"
+
+#: themes/one-novanta-theme/src/blocks/related-modules/render.php:164
+msgid "Product Tag"
+msgstr "Produkt-Tag"
+
+#: themes/one-novanta-theme/src/blocks/related-products/render.php:86
+msgid "New"
+msgstr "Neu"
+
+#: themes/one-novanta-theme/src/blocks/search-results-title-count/render.php:34
+#, php-format
+msgid ""
+"Search results <sub class=\"has-large-font-size search-results-title-"
+"count__count\">%1$1d %2$2s for \"%3$3s\"</sub>"
+msgstr ""
+"Suchergebnisse <sub class=\"has-large-font-size search-results-title-"
+"count__count\">%1$1d %2$2s für \"%3$3s\"</sub>"
+
+#: themes/one-novanta-theme/src/blocks/single-product-detail/render.php:52
+msgid "Attention: This product has been discontinued."
+msgstr "Achtung! Dieses Produkt ist nicht mehr lieferbar."
+
+#: themes/one-novanta-theme/src/blocks/single-product-detail/render.php:61
+#, php-format
+msgid ""
+"Attention: This product has been discontinued. An upgraded product is <a "
+"href='%1$s'><strong>%2$s</strong></a>."
+msgstr ""
+"Achtung! Dieses Produkt wurde abgekündigt. Ein aktualisiertes Produkt ist <a "
+"href='%1$s'><strong>%2$s</strong></a>."
+
+#: themes/one-novanta-theme/src/blocks/social-share/render.php:32
+msgid "Share on LinkedIn"
+msgstr "Auf LinkedIn teilen"
+
+#: themes/one-novanta-theme/src/blocks/social-share/render.php:37
+msgid "Share on Facebook"
+msgstr "Auf Facebook teilen"
+
+#: themes/one-novanta-theme/src/blocks/social-share/render.php:42
+msgid "Copy Post link"
+msgstr "Post-Link kopieren"
+
+#: themes/one-novanta-theme/src/blocks/social-share/render.php:47
+msgid "Email this Page"
+msgstr "Diese Seite per E-Mail versenden"
+
+#: themes/one-novanta-theme/src/blocks/specifications/render.php:32
+msgid "Specification"
+msgstr "Spezifikation"
+
+#: themes/one-novanta-theme/src/blocks/specifications/render.php:33
+msgid "Value"
+msgstr "Wert"
+
+#: themes/one-novanta-theme/src/blocks/table-of-content/render.php:75
+#: themes/one-novanta-theme/src/layouts/components/table-of-content/index.php:67
+msgid "Topics"
+msgstr "Themen"
+
+#: themes/one-novanta-theme/src/layouts/components/add-to-cart-button/index.php:35
+#: themes/one-novanta-theme/src/layouts/components/compare-model-table/index.php:61
+#: themes/one-novanta-theme/woocommerce/single-product/add-to-cart/simple.php:75
+#: themes/one-novanta-theme/woocommerce/single-product/add-to-cart/variable.php:124
+msgid "Add to quote"
+msgstr "Zum Angebot hinzufügen"
+
+#: themes/one-novanta-theme/src/layouts/components/add-to-cart-button/index.php:36
+msgid "Added to quote"
+msgstr "Zum Zitat hinzugefügt"
+
+#: themes/one-novanta-theme/src/layouts/components/add-to-cart-button/index.php:37
+msgid "Failed"
+msgstr "Gescheitert"
+
+#: themes/one-novanta-theme/src/layouts/components/button/index.php:41
+msgid "Button"
+msgstr "Schaltfläche"
+
+#: themes/one-novanta-theme/src/layouts/components/cards/article-collection.php:43
+msgid "Read more"
+msgstr "Mehr lesen"
+
+#: themes/one-novanta-theme/src/layouts/components/compare-model-table/index.php:94
+#: themes/one-novanta-theme/src/layouts/components/table/index.php:111
+msgid "Filter by"
+msgstr "Filtern nach"
+
+#: themes/one-novanta-theme/src/layouts/components/documents-filter/index.php:73
+msgid "Keyword"
+msgstr "Schlüsselwort"
+
+#: themes/one-novanta-theme/src/layouts/components/documents-filter/index.php:91
+msgid "Document Type"
+msgstr "Dokumenttyp"
+
+#: themes/one-novanta-theme/src/layouts/components/documents-filter/index.php:120
+msgid "Search"
+msgstr "Suche"
+
+#: themes/one-novanta-theme/src/layouts/components/featured-media-slider/index.php:90
+#: themes/one-novanta-theme/src/layouts/components/tile-carousel/index.php:77
+msgid "Previous slide"
+msgstr "Vorheriges Dia"
+
+#: themes/one-novanta-theme/src/layouts/components/featured-media-slider/index.php:102
+#: themes/one-novanta-theme/src/layouts/components/tile-carousel/index.php:89
+msgid "Next slide"
+msgstr "Nächstes Dia"
+
+#: themes/one-novanta-theme/src/layouts/components/image/index.php:145
+msgid "Default Image"
+msgstr "Standardbild"
+
+#: themes/one-novanta-theme/src/layouts/components/load-more/index.php:83
+msgid "Load more results"
+msgstr "Weitere Ergebnisse laden"
+
+#: themes/one-novanta-theme/src/layouts/components/load-more/index.php:92
+msgid "Load more"
+msgstr "Mehr laden"
+
+#: themes/one-novanta-theme/src/layouts/components/load-more/index.php:93
+msgid "Loading..."
+msgstr "Laden..."
+
+#: themes/one-novanta-theme/src/layouts/components/locale-switcher/index.php:45
+msgid "Current language flag"
+msgstr "Aktuelle Sprachflagge"
+
+#: themes/one-novanta-theme/src/layouts/components/media-lightbox/index.php:74
+msgid "Close"
+msgstr "Schließen Sie"
+
+#: themes/one-novanta-theme/src/layouts/components/media-lightbox/index.php:89
+msgid "Previous"
+msgstr "Vorherige"
+
+#: themes/one-novanta-theme/src/layouts/components/media-lightbox/index.php:104
+msgid "Next"
+msgstr "Weiter"
+
+#: themes/one-novanta-theme/src/layouts/components/media-lightbox/index.php:128
+msgid "Open Lightbox"
+msgstr "Leuchtkasten öffnen"
+
+#: themes/one-novanta-theme/src/layouts/components/product-details/description.php:43
+msgid "View all features"
+msgstr "Alle Funktionen anzeigen"
+
+#: themes/one-novanta-theme/src/layouts/components/product-details/gallery.php:99
+msgid "View all"
+msgstr "Alle anzeigen"
+
+#: themes/one-novanta-theme/src/layouts/components/product-details/option.php:25
+msgid "Please select"
+msgstr "Bitte auswählen"
+
+#: themes/one-novanta-theme/src/layouts/components/product-search/filter-widget.php:136
+#: themes/one-novanta-theme/src/layouts/components/product-search/filter-widget.php:140
+msgid "See All"
+msgstr "Alle sehen"
+
+#: themes/one-novanta-theme/src/layouts/components/product-search/filter-widget.php:137
+msgid "See Less"
+msgstr "Weniger sehen"
+
+#: themes/one-novanta-theme/src/layouts/components/product-search/index.php:137
+#, php-format
+msgid "%d Result"
+msgid_plural "%d Results"
+msgstr[0] "%d Ergebnis"
+msgstr[1] "%d Ergebnisse"
+
+#: themes/one-novanta-theme/src/layouts/components/product-search/index.php:155
+#: themes/one-novanta-theme/src/layouts/components/product-search/index.php:159
+msgid "Show Filters"
+msgstr "Filter anzeigen"
+
+#: themes/one-novanta-theme/src/layouts/components/product-search/index.php:156
+msgid "Hide Filters"
+msgstr "Filter ausblenden"
+
+#: themes/one-novanta-theme/src/layouts/components/search-filter/index.php:50
+msgid "All"
+msgstr "Alle"
+
+#: themes/one-novanta-theme/src/layouts/components/table/row.php:60
+msgid "Uploaded date: "
+msgstr "Hochgeladen am: "
+
+#: themes/one-novanta-theme/src/layouts/components/table/row.php:67
+msgid "Version number: "
+msgstr "Versionsnummer: "
+
+#: themes/one-novanta-theme/src/layouts/components/video/index.php:97
+msgid "Video play button"
+msgstr "Schaltfläche \"Video abspielen"
+
+#: themes/one-novanta-theme/src/layouts/components/your-quote-table/index.php:121
+msgid "Clear quote"
+msgstr "Klares Zitat"
+
+#: themes/one-novanta-theme/src/layouts/components/your-quote-table/index.php:136
+#: themes/one-novanta-theme/src/layouts/components/your-quote-table/index.php:166
+msgid "Product"
+msgstr "Produkt"
+
+#: themes/one-novanta-theme/src/layouts/components/your-quote-table/index.php:137
+#: themes/one-novanta-theme/src/layouts/components/your-quote-table/index.php:171
+msgid "Summary"
+msgstr "Zusammenfassung"
+
+#: themes/one-novanta-theme/src/layouts/components/your-quote-table/index.php:139
+#: themes/one-novanta-theme/src/layouts/components/your-quote-table/index.php:181
+#: themes/one-novanta-theme/src/layouts/components/your-quote-table/index.php:206
+msgid "Quantity"
+msgstr "Menge"
+
+#: themes/one-novanta-theme/src/layouts/components/your-quote-table/index.php:184
+msgid "Increase quantity"
+msgstr "Menge erhöhen"
+
+#: themes/one-novanta-theme/src/layouts/components/your-quote-table/index.php:207
+msgid "Decrease quantity"
+msgstr "Verringerung der Menge"
+
+#: themes/one-novanta-theme/src/layouts/components/your-quote-table/index.php:233
+msgid "Remove"
+msgstr "Entfernen"
+
+#: themes/one-novanta-theme/src/layouts/components/your-quote-table/index.php:255
+msgid "Your quote is currently empty"
+msgstr "Ihr Angebot ist derzeit leer"
+
+#: themes/one-novanta-theme/src/layouts/components/your-quote-table/index.php:262
+msgid "Add products"
+msgstr "Produkte hinzufügen"
+
+#: themes/one-novanta-theme/woocommerce/single-product/add-to-cart/simple.php:47
+#: themes/one-novanta-theme/woocommerce/single-product/add-to-cart/variable.php:96
+msgid "Model Number: "
+msgstr "Modellnummer: "
+
+#: themes/one-novanta-theme/woocommerce/single-product/add-to-cart/simple.php:59
+#: themes/one-novanta-theme/woocommerce/single-product/add-to-cart/variable.php:108
+msgid "Speak to our experts"
+msgstr "Sprechen Sie mit unseren Experten"
+
+#: themes/one-novanta-theme/woocommerce/single-product/add-to-cart/variable.php:51
+msgid "This product is currently out of stock and unavailable."
+msgstr "Dieses Produkt ist derzeit nicht auf Lager und nicht verfügbar."
+
+#: themes/one-novanta-theme/woocommerce/single-product/add-to-cart/variable.php:74
+msgid "Clear options"
+msgstr "Klare Optionen"
+
+#: themes/one-novanta-theme/woocommerce/single-product/add-to-cart/variable.php:74
+msgid "Clear"
+msgstr "Klar"
+
+#~ msgid "Pages"
+#~ msgstr "Seiten"
+
+#~ msgid "Page"
+#~ msgstr "Seite"
+
+#~ msgid "Posts"
+#~ msgstr "Beiträge"
+
+#~ msgid "Post"
+#~ msgstr "Beitrag"
+
+#~ msgid "Categories"
+#~ msgstr "Kategorien"
+
+#~ msgid "Category"
+#~ msgstr "Kategorie"
+
+#~ msgid "Post Tags"
+#~ msgstr "Beitrag Tags"
+
+#~ msgid "Post Tag"
+#~ msgstr "Post Tag"
+
+#~ msgid "Product Tags"
+#~ msgstr "Produkt-Tags"
+
+#~ msgid "Product Categories"
+#~ msgstr "Produkt-Kategorien"
+
+#~ msgid "Products"
+#~ msgstr "Produkte"
+
+#~ msgid "January"
+#~ msgstr "Januar"
+
+#~ msgid "February"
+#~ msgstr "Februar"
+
+#~ msgid "March"
+#~ msgstr "März"
+
+#~ msgid "April"
+#~ msgstr "April"
+
+#~ msgid "May"
+#~ msgstr "Mai"
+
+#~ msgid "June"
+#~ msgstr "Juni"
+
+#~ msgid "July"
+#~ msgstr "Juli"
+
+#~ msgid "August"
+#~ msgstr "August"
+
+#~ msgid "September"
+#~ msgstr "September"
+
+#~ msgid "October"
+#~ msgstr "Oktober"
+
+#~ msgid "November"
+#~ msgstr "November"
+
+#~ msgid "December"
+#~ msgstr "Dezember"

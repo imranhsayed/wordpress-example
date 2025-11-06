@@ -18,12 +18,6 @@
 
 use Aquila\Theme\Template;
 
-//echo '<pre/>';
-//print_r('hisss');
-//print_r($attributes);
-//print_r($content);
-//print_r($block);
-
 // If no content is provided, return.
 if ( empty( $content ) ) {
 	return;

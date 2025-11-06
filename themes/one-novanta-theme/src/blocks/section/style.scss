@@ -1,0 +1,18 @@
+/**
+ * Front-end Styles.
+ *
+ * Block: Section
+ */
+
+.wp-block-one-novanta-section-heading:empty {
+	display: none;
+}
+
+.wp-block-section-is-layout-constrained:has( > .wp-block-one-novanta-section-content:empty) {
+	display: none;
+}
+
+.wp-block-one-novanta-section-heading:has(.wp-block-heading.screen-reader-text) {
+	margin: 0 !important;
+	padding: 0 !important;
+}

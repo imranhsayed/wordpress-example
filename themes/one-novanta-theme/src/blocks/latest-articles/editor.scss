@@ -1,0 +1,15 @@
+@use "../../layouts/components/cards/article-collection";
+@use "../../layouts/components/tile";
+@use "../../layouts/components/load-more/index";
+
+.article-collection-card,
+.tile {
+	pointer-events: none;
+	cursor: default;
+}
+
+// Fix Site-editor broken height. This style will only effect site-editor.
+.wp-site-blocks .wp-block-one-novanta-latest-articles img {
+	height: auto;
+	max-width: 100%;
+}

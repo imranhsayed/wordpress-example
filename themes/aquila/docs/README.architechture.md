@@ -9,3 +9,16 @@ Why These Warnings Were Unavoidable:
 
 1. ESLint 8.57.1 - WordPress ecosystem isn't ready for ESLint 9 yet
 2. 5 subdependencies(added to allowedDeprecatedVersions) - These are internal ESLint 8 dependencies that will be replaced when ESLint 9 becomes the standard
+
+### Reason for creating inlineCrossReferences plugin
+Problem: The accordion component's built JS file (build/components/accordion/index.js) was only 0.12 kB and contained an ES module import inside an IIFE:
+import"../../blocks/accordion/view.js", which doesn't work in browsers. This prevented the accordion from working in the Component Viewer admin preview.
+
+Root Cause: When both the accordion component and accordion block imported the same web components library (@rtcamp/web-components/build/accordion), Vite
+optimized the build by creating a shared chunk and having entries cross-reference each other instead of bundling the code twice.
+
+Solution: The custom Vite plugin (inlineCrossReferences()) that:
+1. Runs before the wrapInIIFE plugin in the generateBundle hook
+2. Detects cross-references between entries (import statements in entry chunks)
+3. Inlines the referenced module's code directly into the entry that imports it
+4. Each entry becomes self-contained and can load independently

@@ -1,0 +1,22 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "one-novanta/documents-and-downloads",
+	"version": "0.1.0",
+    "title": "Documents and Downloads",
+    "description": "Documents and Downloads Block",
+    "icon": "media-document",
+    "category": "one-novanta",
+    "textdomain": "one-novanta",
+    "supports": {
+        "alignWide": false,
+        "anchor": false,
+        "html": false
+    },
+	"example": {},
+    "editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+    "render": "file:./render.php",
+    "style": "file:./style-index.css",
+	"script": [ "wp-i18n" ]
+}

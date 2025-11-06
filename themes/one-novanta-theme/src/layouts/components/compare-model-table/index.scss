@@ -1,0 +1,249 @@
+/**
+ * Component: Table.
+ */
+
+@use "../../../scss/variables";
+
+.wp-one-novanta-compare-model-table {
+	$self: &;
+
+	&__wrapper {
+		border-spacing: 0;
+		table-layout: auto;
+		width: 100%;
+	}
+
+	&__head {
+		color: var(--wp--preset--color--foreground);
+	}
+
+	&__head-cell {
+		padding: var(--wp--preset--spacing--40) var(--wp--preset--spacing--20);
+		font-weight: 700;
+		background-color: var(--wp--preset--color--secondary);
+	}
+
+	&__body-row {
+		display: table-row;
+
+		&.hidden {
+			display: none;
+		}
+	}
+
+	&__body-cell {
+		padding: var(--wp--preset--spacing--40) var(--wp--preset--spacing--20);
+		background-color: var(--wp--preset--color--background);
+		border-bottom: 1px solid var(--wp--preset--color--black);
+
+		a {
+			color: var(--wp--preset--color--foreground);
+		}
+
+		&:has(> ati-add-to-cart-button) {
+			min-width: 240px;
+			width: 240px;
+		}
+	}
+
+	&__head-cell,
+	&__body-cell {
+		text-align: left;
+		font-size: var(--wp--preset--font-size--medium);
+	}
+
+	&__body-content {
+		min-width: 300px;
+
+		#{$self}--variant--quick-compare-models & {
+			min-width: unset;
+		}
+
+		#{$self}--variant--quick-compare-models &[data-head="Description"] {
+
+			@media screen and ( min-width: variables.$xxxl ) {
+				min-width: 530px;
+			}
+		}
+	}
+
+	&__body-image {
+		padding-block: var(--wp--preset--spacing--20);
+		padding-inline-start: var(--wp--preset--spacing--30);
+		padding-inline-end: var(--wp--preset--spacing--50);
+		width: 260px;
+
+		img {
+			width: 180px;
+			height: 180px;
+			max-width: none;
+			aspect-ratio: 1 / 1;
+			object-fit: contain;
+		}
+	}
+
+	&__body-cta {
+		padding: 25px var(--wp--preset--spacing--50);
+
+		.wp-one-novanta-button {
+			width: max-content;
+		}
+	}
+
+	&__filter {
+		position: relative;
+		display: inline-block;
+		width: auto;
+		height: auto;
+		max-width: 100%;
+		margin-block-end: var(--wp--preset--spacing--60);
+	}
+
+	@media screen and ( min-width: variables.$xl ) {
+
+		.wp-block-one-novanta-accessories &__wrapper,
+		.wp-block-one-novanta-components &__wrapper {
+			table-layout: fixed;
+		}
+
+		.wp-block-one-novanta-accessories &__head-cell,
+		.wp-block-one-novanta-components &__head-cell {
+
+			&:nth-child(1) {
+				width: 260px;
+			}
+
+			&:nth-child(2) {
+				width: 30%;
+			}
+
+			&:nth-child(3) {
+				width: 70%;
+			}
+
+			&:nth-child(4) {
+				width: 250px;
+			}
+		}
+	}
+
+	@media screen and ( max-width: variables.$xl ) {
+
+		&__wrapper {
+			width: 100%;
+		}
+
+		&__head {
+			position: absolute;
+			left: -999em;
+			top: -999em;
+		}
+
+		&__body-content {
+			min-width: unset;
+		}
+
+		&__body,
+		&__body-row {
+			display: block;
+		}
+
+		&__body-row {
+			float: left;
+			width: 100%;
+			position: relative;
+			background-color: var(--wp--preset--color--background);
+			margin-block-end: var(--wp--preset--spacing--30);
+			padding-block: var(--wp--preset--spacing--10);
+		}
+
+		&__body-cell {
+			position: relative;
+			display: block;
+			float: left; /* ie9 and under hack */
+			width: 100%;
+			clear: both;
+			border-bottom: none;
+			padding: var(--wp--preset--spacing--10) var(--wp--preset--spacing--20);
+			background-color: transparent;
+			padding-inline-start: 220px;
+			z-index: 10;
+
+			@media screen and ( max-width: variables.$md ) {
+				padding: 5px var(--wp--preset--spacing--10);
+				padding-inline-start: 110px;
+			}
+
+			&::before {
+				content: attr(data-head);
+				font-size: var(--wp--preset--font-size--medium);
+				display: block;
+				font-weight: 700;
+				color: var(--wp--preset--color--foreground);
+				margin-block-end: 4px;
+			}
+
+			&:has(> ati-add-to-cart-button) {
+				width: auto;
+			}
+		}
+
+		&__body-image::before,
+		&__body-cta::before {
+			margin-block-end: 0;
+		}
+
+
+		&__body-image {
+			position: absolute;
+			padding-inline-start: var(--wp--preset--spacing--20);
+			z-index: initial;
+
+			@media screen and ( max-width: variables.$md ) {
+				padding-inline-start: var(--wp--preset--spacing--10);
+
+				img {
+					width: 80px;
+					height: 80px;
+				}
+			}
+		}
+
+		&__body-cta {
+			padding: var(--wp--preset--spacing--10) var(--wp--preset--spacing--20);
+			padding-inline-start: 220px;
+
+			@media screen and ( max-width: variables.$md ) {
+				padding-inline-start: 110px;
+			}
+		}
+	}
+}
+
+.wp-block-section-is-layout-constrained.has-background:not(.has-background-background-color) .wp-one-novanta-compare-model-table,
+.wp-block-one-novanta-section.has-background:not(.has-background-background-color) .wp-one-novanta-compare-model-table {
+
+	&__head {
+		color: var(--wp--preset--color--background);
+	}
+
+	&__head-cell {
+		background-color: var(--wp--custom--color-mid-gray);
+	}
+
+	&__body-cell {
+		background-color: var(--wp--preset--color--secondary);
+	}
+
+	@media screen and ( max-width: variables.$xl ) {
+
+		&__body-row {
+			background-color: var(--wp--preset--color--secondary);
+			padding-block: 5px;
+		}
+
+		&__body-cell {
+			background-color: transparent;
+		}
+	}
+}

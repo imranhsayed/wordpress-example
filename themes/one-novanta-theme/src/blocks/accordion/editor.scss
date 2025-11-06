@@ -1,0 +1,33 @@
+/**
+ * Block: Accordion
+ *
+ * Renders editor styles.
+ */
+
+.one-novanta-accordion {
+
+	&--has-background {
+		padding-inline: var(--wp--preset--spacing--20);
+		padding-block: var(--wp--preset--spacing--20);
+	}
+
+	&--background {
+
+		&--background {
+			background-color: var(--wp--preset--color--background);
+		}
+
+		&--secondary {
+			background-color: var(--wp--preset--color--secondary);
+		}
+	}
+
+	.block-list-appender.block-list-appender {
+		position: relative;
+		width: 65%;
+		height: 100px;
+		margin-block-start: 10px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
