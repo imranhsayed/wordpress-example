@@ -121,6 +121,9 @@ class AjaxHandler {
 					<button class="wp-component-viewer__tab-btn" data-tab="usage">
 						<?php esc_html_e( 'Usage', 'wp-component-viewer' ); ?>
 					</button>
+					<button class="wp-component-viewer__tab-btn" data-tab="html-markup">
+						<?php esc_html_e( 'HTML Markup', 'wp-component-viewer' ); ?>
+					</button>
 					<!-- Width toggle dropdown on the right -->
 					<div class="wp-component-viewer__tab-width-dropdown" style="margin-left:auto; position:relative;">
 						<button type="button" class="wp-component-viewer__tab-width-toggle" aria-haspopup="listbox" aria-expanded="false">
@@ -294,7 +297,120 @@ class AjaxHandler {
 					<pre><code class="wp-component-viewer__code-content language-php"><?php echo esc_html( "<?php echo get_component('{$component['slug']}', [\n    // props\n]); ?>" ); ?></code></pre>
 				</div>
 			</div>
+
+			<div class="wp-component-viewer__tab-content" data-tab="html-markup">
+				<div class="wp-component-viewer__code-block">
+					<div class="wp-component-viewer__code-header">
+						<?php esc_html_e( 'Rendered HTML Markup', 'wp-component-viewer' ); ?>
+					</div>
+					<pre><code class="wp-component-viewer__code-content language-html"><?php
+						// Get the rendered HTML output
+						$html_output = '';
+						if ( ! empty( $component['variations'] ) ) {
+							// Render the first variation
+							$variations = ComponentRenderer::render_variations( $component['slug'], $component['variations'] );
+							if ( ! empty( $variations ) ) {
+								$first_variation = array_key_first( $variations );
+								$html_output = $variations[ $first_variation ]['output'];
+							}
+						} else {
+							// Render with default props
+							$html_output = ComponentRenderer::render( $component['slug'] );
+						}
+
+						// Format HTML with proper indentation
+						$formatted_html = self::format_html( $html_output );
+
+						echo esc_html( $formatted_html );
+					?></code></pre>
+				</div>
+			</div>
 		</div>
 		<?php
+	}
+
+	/**
+	 * Format HTML with proper indentation.
+	 *
+	 * @param string $html Raw HTML string.
+	 * @return string Formatted HTML string.
+	 */
+	private static function format_html( $html ) {
+		// Remove all existing whitespace between tags
+		$html = preg_replace( '/>\s+</', '><', $html );
+
+		// Self-closing tags and inline elements that shouldn't have line breaks
+		$inline_elements = array( 'b', 'big', 'i', 'small', 'tt', 'abbr', 'acronym', 'cite', 'code', 'dfn', 'em', 'kbd', 'strong', 'samp', 'var', 'a', 'bdo', 'br', 'img', 'map', 'object', 'q', 'script', 'span', 'sub', 'sup', 'button', 'input', 'label', 'select', 'textarea' );
+
+		$indent = 0;
+		$output = '';
+		$in_inline = false;
+
+		// Split on tags
+		$parts = preg_split( '/(<[^>]+>)/', $html, -1, PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY );
+
+		foreach ( $parts as $part ) {
+			$part = trim( $part );
+
+			if ( empty( $part ) ) {
+				continue;
+			}
+
+			// Check if this is a tag
+			if ( preg_match( '/^<([a-zA-Z0-9]+)/', $part, $matches ) ) {
+				$tag = $matches[1];
+				$is_inline = in_array( strtolower( $tag ), $inline_elements, true );
+
+				// Closing tag
+				if ( strpos( $part, '</' ) === 0 ) {
+					if ( ! $is_inline && ! $in_inline ) {
+						$indent--;
+						$output .= "\n" . str_repeat( '  ', max( 0, $indent ) );
+					}
+					$output .= $part;
+
+					if ( $is_inline ) {
+						$in_inline = false;
+					}
+				}
+				// Self-closing tag or opening tag
+				else {
+					$is_self_closing = ( strpos( $part, '/>' ) !== false );
+
+					if ( ! $is_inline && ! $in_inline ) {
+						$output .= "\n" . str_repeat( '  ', max( 0, $indent ) );
+					}
+					$output .= $part;
+
+					if ( ! $is_self_closing && ! $is_inline ) {
+						$indent++;
+					}
+
+					if ( $is_inline ) {
+						$in_inline = true;
+					}
+				}
+			}
+			// Text content
+			else {
+				// Trim text content but preserve meaningful spaces
+				$text = trim( $part );
+				if ( ! empty( $text ) ) {
+					if ( ! $in_inline ) {
+						$output .= "\n" . str_repeat( '  ', max( 0, $indent ) );
+					}
+					$output .= $text;
+				}
+			}
+		}
+
+		// Clean up and return
+		$output = trim( $output );
+		// Ensure proper line breaks after block elements
+		$output = preg_replace( '/(<\/(?:div|section|article|header|footer|nav|main|aside|ul|ol|li|table|tbody|thead|tr|td|th)>)/', "$1\n", $output );
+		// Remove multiple consecutive newlines
+		$output = preg_replace( '/\n{3,}/', "\n\n", $output );
+
+		return $output;
 	}
 }
