@@ -1,0 +1,772 @@
+/**
+ * Design Tokens
+ *
+ * This file contains all design system tokens including:
+ * - Color palette
+ * - Typography (font families, sizes, weights, line heights, letter spacing)
+ * - Border radius values
+ * - Box shadows
+ * - Component styling for design token showcase
+ */
+
+// =============================================================================
+// CSS Custom Properties (Design Tokens)
+// =============================================================================
+
+:root {
+  // ---------------------------------------------------------------------------
+  // Color Tokens
+  // ---------------------------------------------------------------------------
+
+  // Primary Solids / Natives
+  --color-bunker: #242F3A;
+  --color-bunker-dark: #181D1B;
+  --color-tan: #CCBB8D;
+  --color-tan-dark: #A08F73;
+  --color-sand: #E6E6E6;
+
+  // Blues
+  --color-navy: #043357;
+  --color-navy-dark: #031E33;
+  --color-sky-blue: #B2E1FC;
+  --color-sky-blue-dark: #A3DDFC;
+  --color-blue: #1DA6A6;
+
+  // Grayscale
+  --color-black: #000000;
+  --color-gray-900: #3F3F3F;
+  --color-gray-800: #595959;
+  --color-gray-700: #808080;
+  --color-gray-600: #9E9E9E;
+  --color-gray-500: #BDBDBD;
+  --color-gray-400: #D6D6D6;
+  --color-gray-300: #DEDEDE;
+  --color-gray-200: #F0F0F0;
+  --color-gray-100: #F9F9F9;
+  --color-white: #FFFFFF;
+
+  // Accent Colors
+  --color-green: #4EA690;
+  --color-red: #D24567;
+  --color-yellow: #DCBA71;
+
+  // ---------------------------------------------------------------------------
+  // Typography Tokens
+  // ---------------------------------------------------------------------------
+
+  // Font Families
+  --font-family-heading: 'Domaine Display', Georgia, serif;
+  --font-family-body: 'Untitled Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+  // Font Weights
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+
+  // Heading Font Sizes
+  --font-size-h1: 64px;
+  --font-size-h2: 48px;
+  --font-size-h3: 36px;
+  --font-size-h4: 24px;
+  --font-size-h5: 18px;
+  --font-size-h6: 16px;
+
+  // Heading Line Heights
+  --line-height-h1: 72px;
+  --line-height-h2: 56px;
+  --line-height-h3: 44px;
+  --line-height-h4: 32px;
+  --line-height-h5: 24px;
+  --line-height-h6: 24px;
+
+  // Heading Letter Spacing
+  --letter-spacing-h1: -0.01em;
+  --letter-spacing-h2: -0.01em;
+  --letter-spacing-h3: 0;
+  --letter-spacing-h4: 0;
+  --letter-spacing-h5: 0;
+  --letter-spacing-h6: 0;
+
+  // Body Text Font Sizes
+  --font-size-body-xl: 20px;
+  --font-size-body-lg: 18px;
+  --font-size-body-md: 16px;
+  --font-size-body-sm: 14px;
+  --font-size-body-xs: 12px;
+
+  // Body Text Line Heights
+  --line-height-body-xl: 32px;
+  --line-height-body-lg: 28px;
+  --line-height-body-md: 24px;
+  --line-height-body-sm: 20px;
+  --line-height-body-xs: 16px;
+
+  // UI Text Font Sizes
+  --font-size-ui-lg: 18px;
+  --font-size-ui-md: 16px;
+  --font-size-ui-sm: 14px;
+
+  // UI Text Line Heights
+  --line-height-ui-lg: 24px;
+  --line-height-ui-md: 24px;
+  --line-height-ui-sm: 20px;
+
+  // UI Text Letter Spacing
+  --letter-spacing-ui: 0.02em;
+
+  // ---------------------------------------------------------------------------
+  // Border Radius Tokens
+  // ---------------------------------------------------------------------------
+
+  --border-radius-sharp: 0.02em;
+  --border-radius-s: 3px;
+  --border-radius: 5px;
+  --border-radius-pill: 999px;
+  --border-radius-circle: 50%;
+
+  // ---------------------------------------------------------------------------
+  // Box Shadow Tokens
+  // ---------------------------------------------------------------------------
+
+  --box-shadow: 0 1px 3px rgba(12, 12, 12, 0.09);
+  --box-shadow-header: 0 1px 5px rgba(12, 12, 12, 0.05);
+  --box-shadow-card: 0 0 0 1px var(--color-gray-300), 0 1px 5px rgba(12, 12, 12, 0.05), 0 0 40px rgba(12, 12, 12, 0.015);
+  --box-shadow-nav: 0 0 0 1px var(--color-gray-300), 0 5px 17px rgba(12, 12, 12, 0.14);
+  --box-shadow-popout: 0 4px 12px rgba(12, 12, 12, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.05);
+  --box-shadow-modal: 0 0 0 1px var(--color-gray-300);
+}
+
+// =============================================================================
+// Design Tokens Component Styling
+// =============================================================================
+
+.design-tokens {
+  padding: 40px;
+  background-color: var(--color-white);
+  max-width: 1400px;
+  margin: 0 auto;
+
+  &__section {
+    margin-bottom: 80px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__section-title {
+    font-family: var(--font-family-heading);
+    font-size: var(--font-size-h2);
+    line-height: var(--line-height-h2);
+    font-weight: var(--font-weight-medium);
+    margin: 0 0 40px 0;
+    color: var(--color-bunker);
+  }
+
+  &__category {
+    margin-bottom: 48px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__category-title {
+    font-family: var(--font-family-heading);
+    font-size: var(--font-size-h4);
+    line-height: var(--line-height-h4);
+    font-weight: var(--font-weight-medium);
+    margin: 0 0 24px 0;
+    color: var(--color-bunker);
+  }
+
+  // ---------------------------------------------------------------------------
+  // Color Showcase Styles
+  // ---------------------------------------------------------------------------
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 24px;
+
+    &--grayscale {
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+  }
+
+  &__color-item {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__color-swatch {
+    width: 100%;
+    height: 120px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+
+    &--bordered {
+      border: 2px solid var(--color-gray-300);
+    }
+  }
+
+  &__color-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  &__color-name {
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-body-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-bunker);
+  }
+
+  &__color-value {
+    font-family: 'Monaco', 'Courier New', monospace;
+    font-size: var(--font-size-body-xs);
+    color: var(--color-gray-700);
+    text-transform: uppercase;
+  }
+
+  // ---------------------------------------------------------------------------
+  // Typography Showcase Styles
+  // ---------------------------------------------------------------------------
+
+  &__font-family-list {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  &__font-family-item {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 24px;
+    border: 1px solid var(--color-gray-300);
+    border-radius: var(--border-radius);
+  }
+
+  &__font-family-name {
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-body-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-gray-700);
+  }
+
+  &__font-family-value {
+    font-size: 32px;
+    color: var(--color-bunker);
+  }
+
+  &__typography-list {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  &__typography-item {
+    display: flex;
+    gap: 32px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--color-gray-200);
+
+    &:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+  }
+
+  &__typography-meta {
+    flex: 0 0 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    @media (max-width: 768px) {
+      flex: 1;
+    }
+  }
+
+  &__typography-name {
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-body-md);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-bunker);
+  }
+
+  &__typography-specs {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    span {
+      font-family: var(--font-family-body);
+      font-size: var(--font-size-body-xs);
+      color: var(--color-gray-700);
+    }
+  }
+
+  &__typography-sample {
+    flex: 1;
+    margin: 0;
+    color: var(--color-bunker);
+  }
+
+  // Apply actual heading styles
+  &__h1 {
+    font-family: var(--font-family-heading);
+    font-size: var(--font-size-h1);
+    line-height: var(--line-height-h1);
+    font-weight: var(--font-weight-medium);
+    letter-spacing: var(--letter-spacing-h1);
+  }
+
+  &__h2 {
+    font-family: var(--font-family-heading);
+    font-size: var(--font-size-h2);
+    line-height: var(--line-height-h2);
+    font-weight: var(--font-weight-medium);
+    letter-spacing: var(--letter-spacing-h2);
+  }
+
+  &__h3 {
+    font-family: var(--font-family-heading);
+    font-size: var(--font-size-h3);
+    line-height: var(--line-height-h3);
+    font-weight: var(--font-weight-medium);
+    letter-spacing: var(--letter-spacing-h3);
+  }
+
+  &__h4 {
+    font-family: var(--font-family-heading);
+    font-size: var(--font-size-h4);
+    line-height: var(--line-height-h4);
+    font-weight: var(--font-weight-medium);
+    letter-spacing: var(--letter-spacing-h4);
+  }
+
+  &__h5 {
+    font-family: var(--font-family-heading);
+    font-size: var(--font-size-h5);
+    line-height: var(--line-height-h5);
+    font-weight: var(--font-weight-medium);
+    letter-spacing: var(--letter-spacing-h5);
+  }
+
+  &__h6 {
+    font-family: var(--font-family-heading);
+    font-size: var(--font-size-h6);
+    line-height: var(--line-height-h6);
+    font-weight: var(--font-weight-medium);
+    letter-spacing: var(--letter-spacing-h6);
+  }
+
+  &__body-xl {
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-body-xl);
+    line-height: var(--line-height-body-xl);
+    font-weight: var(--font-weight-regular);
+  }
+
+  &__body-lg {
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-body-lg);
+    line-height: var(--line-height-body-lg);
+    font-weight: var(--font-weight-regular);
+  }
+
+  &__body-md {
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-body-md);
+    line-height: var(--line-height-body-md);
+    font-weight: var(--font-weight-regular);
+  }
+
+  &__body-sm {
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-body-sm);
+    line-height: var(--line-height-body-sm);
+    font-weight: var(--font-weight-regular);
+  }
+
+  &__body-xs {
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-body-xs);
+    line-height: var(--line-height-body-xs);
+    font-weight: var(--font-weight-regular);
+  }
+
+  &__ui-lg,
+  &__ui-md,
+  &__ui-sm {
+    font-family: var(--font-family-body);
+    font-weight: var(--font-weight-medium);
+    text-transform: uppercase;
+  }
+
+  &__ui-lg {
+    font-size: var(--font-size-ui-lg);
+    line-height: var(--line-height-ui-lg);
+    letter-spacing: var(--letter-spacing-ui);
+  }
+
+  &__ui-md {
+    font-size: var(--font-size-ui-md);
+    line-height: var(--line-height-ui-md);
+    letter-spacing: var(--letter-spacing-ui);
+  }
+
+  &__ui-sm {
+    font-size: var(--font-size-ui-sm);
+    line-height: var(--line-height-ui-sm);
+    letter-spacing: var(--letter-spacing-ui);
+  }
+
+  // ---------------------------------------------------------------------------
+  // Font Size Showcase Styles
+  // ---------------------------------------------------------------------------
+
+  &__size-list {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  &__size-item {
+    display: grid;
+    grid-template-columns: 250px 1fr 200px;
+    gap: 32px;
+    padding: 24px;
+    border: 1px solid var(--color-gray-200);
+    border-radius: var(--border-radius);
+    align-items: center;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+  }
+
+  &__size-example {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__size-sample {
+    font-family: var(--font-family-body);
+    font-weight: var(--font-weight-regular);
+    color: var(--color-bunker);
+  }
+
+  &__size-meta {
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-body-xs);
+    color: var(--color-gray-600);
+  }
+
+  &__size-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__size-name {
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-body-md);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-bunker);
+  }
+
+  &__size-description {
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-body-sm);
+    color: var(--color-gray-700);
+  }
+
+  &__size-token {
+    display: flex;
+    justify-content: flex-end;
+
+    @media (max-width: 768px) {
+      justify-content: flex-start;
+    }
+  }
+
+  // ---------------------------------------------------------------------------
+  // Line Height Showcase Styles
+  // ---------------------------------------------------------------------------
+
+  &__lineheight-list {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  &__lineheight-item {
+    display: grid;
+    grid-template-columns: 200px 1fr 250px;
+    gap: 32px;
+    padding: 24px;
+    border: 1px solid var(--color-gray-200);
+    border-radius: var(--border-radius);
+    align-items: center;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+  }
+
+  &__lineheight-example {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__lineheight-sample {
+    font-family: var(--font-family-body);
+    font-size: 32px;
+    font-weight: var(--font-weight-regular);
+    color: var(--color-bunker);
+  }
+
+  &__lineheight-meta {
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-body-xs);
+    color: var(--color-gray-600);
+  }
+
+  &__lineheight-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__lineheight-name {
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-body-md);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-bunker);
+  }
+
+  &__lineheight-description {
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-body-sm);
+    color: var(--color-gray-700);
+  }
+
+  &__lineheight-token {
+    display: flex;
+    justify-content: flex-end;
+
+    @media (max-width: 768px) {
+      justify-content: flex-start;
+    }
+  }
+
+  // ---------------------------------------------------------------------------
+  // Token List Styles (for Letter Spacing, Font Weight)
+  // ---------------------------------------------------------------------------
+
+  &__token-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__token-item {
+    display: grid;
+    grid-template-columns: 150px 100px 1fr;
+    gap: 24px;
+    padding: 16px 24px;
+    border: 1px solid var(--color-gray-200);
+    border-radius: var(--border-radius);
+    align-items: center;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+  }
+
+  &__token-name {
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-body-md);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-bunker);
+  }
+
+  &__token-value {
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-body-md);
+    color: var(--color-gray-700);
+  }
+
+  &__token-var {
+    font-family: 'Monaco', 'Courier New', monospace;
+    font-size: var(--font-size-body-sm);
+    color: var(--color-gray-600);
+  }
+
+  // ---------------------------------------------------------------------------
+  // Border Radius Showcase Styles
+  // ---------------------------------------------------------------------------
+
+  &__border-radius-list {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  &__border-radius-item {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 24px;
+    border: 1px solid var(--color-gray-300);
+    border-radius: var(--border-radius);
+  }
+
+  &__border-radius-swatch {
+    flex: 0 0 120px;
+    height: 120px;
+    background-color: var(--color-gray-300);
+
+    &--sharp {
+      border-radius: var(--border-radius-sharp);
+    }
+
+    &--small {
+      border-radius: var(--border-radius-s);
+    }
+
+    &--default {
+      border-radius: var(--border-radius);
+    }
+
+    &--pill {
+      border-radius: var(--border-radius-pill);
+    }
+
+    &--circle {
+      border-radius: var(--border-radius-circle);
+    }
+  }
+
+  &__border-radius-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__border-radius-name {
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-body-md);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-bunker);
+  }
+
+  &__border-radius-value,
+  &__border-radius-token {
+    font-family: 'Monaco', 'Courier New', monospace;
+    font-size: var(--font-size-body-sm);
+    color: var(--color-gray-700);
+  }
+
+  // ---------------------------------------------------------------------------
+  // Box Shadow Showcase Styles
+  // ---------------------------------------------------------------------------
+
+  &__shadow-list {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  &__shadow-item {
+    display: flex;
+    gap: 32px;
+    padding: 24px;
+    border: 1px solid var(--color-gray-200);
+    border-radius: var(--border-radius);
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+  }
+
+  &__shadow-swatch {
+    flex: 0 0 200px;
+    height: 120px;
+    background-color: var(--color-white);
+    border-radius: var(--border-radius);
+
+    &--default {
+      box-shadow: var(--box-shadow);
+    }
+
+    &--header {
+      box-shadow: var(--box-shadow-header);
+    }
+
+    &--card {
+      box-shadow: var(--box-shadow-card);
+    }
+
+    &--nav {
+      box-shadow: var(--box-shadow-nav);
+    }
+
+    &--popout {
+      box-shadow: var(--box-shadow-popout);
+    }
+
+    &--modal {
+      box-shadow: var(--box-shadow-modal);
+    }
+
+    @media (max-width: 768px) {
+      flex: 1;
+    }
+  }
+
+  &__shadow-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__shadow-name {
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-body-md);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-bunker);
+  }
+
+  &__shadow-value,
+  &__shadow-token {
+    font-family: 'Monaco', 'Courier New', monospace;
+    font-size: var(--font-size-body-xs);
+    color: var(--color-gray-700);
+    word-break: break-all;
+  }
+
+  &__shadow-description {
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-body-sm);
+    line-height: var(--line-height-body-sm);
+    color: var(--color-gray-700);
+    margin-top: 4px;
+  }
+}
