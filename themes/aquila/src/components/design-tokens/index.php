@@ -463,6 +463,11 @@ $section = $args['section'] ?? 'all';
 						</div>
 						<div class="design-tokens__size-token">
 							<span class="design-tokens__token-var">var(--font-size-xxxl)</span>
+							<button class="design-tokens__copy-btn" data-copy="var(--font-size-xxxl)" aria-label="Copy to clipboard">
+								<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+									<path d="M10.5 2H3.5C2.67 2 2 2.67 2 3.5V10.5H3.5V3.5H10.5V2ZM12.5 5H6.5C5.67 5 5 5.67 5 6.5V13.5C5 14.33 5.67 15 6.5 15H12.5C13.33 15 14 14.33 14 13.5V6.5C14 5.67 13.33 5 12.5 5ZM12.5 13.5H6.5V6.5H12.5V13.5Z" fill="currentColor"/>
+								</svg>
+							</button>
 						</div>
 					</div>
 
@@ -477,6 +482,11 @@ $section = $args['section'] ?? 'all';
 						</div>
 						<div class="design-tokens__size-token">
 							<span class="design-tokens__token-var">var(--font-size-xxl)</span>
+							<button class="design-tokens__copy-btn" data-copy="var(--font-size-xxl)" aria-label="Copy to clipboard">
+								<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+									<path d="M10.5 2H3.5C2.67 2 2 2.67 2 3.5V10.5H3.5V3.5H10.5V2ZM12.5 5H6.5C5.67 5 5 5.67 5 6.5V13.5C5 14.33 5.67 15 6.5 15H12.5C13.33 15 14 14.33 14 13.5V6.5C14 5.67 13.33 5 12.5 5ZM12.5 13.5H6.5V6.5H12.5V13.5Z" fill="currentColor"/>
+								</svg>
+							</button>
 						</div>
 					</div>
 
@@ -491,6 +501,11 @@ $section = $args['section'] ?? 'all';
 						</div>
 						<div class="design-tokens__size-token">
 							<span class="design-tokens__token-var">var(--font-size-xl)</span>
+							<button class="design-tokens__copy-btn" data-copy="var(--font-size-xl)" aria-label="Copy to clipboard">
+								<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+									<path d="M10.5 2H3.5C2.67 2 2 2.67 2 3.5V10.5H3.5V3.5H10.5V2ZM12.5 5H6.5C5.67 5 5 5.67 5 6.5V13.5C5 14.33 5.67 15 6.5 15H12.5C13.33 15 14 14.33 14 13.5V6.5C14 5.67 13.33 5 12.5 5ZM12.5 13.5H6.5V6.5H12.5V13.5Z" fill="currentColor"/>
+								</svg>
+							</button>
 						</div>
 					</div>
 
@@ -505,6 +520,11 @@ $section = $args['section'] ?? 'all';
 						</div>
 						<div class="design-tokens__size-token">
 							<span class="design-tokens__token-var">var(--font-size-l)</span>
+							<button class="design-tokens__copy-btn" data-copy="var(--font-size-l)" aria-label="Copy to clipboard">
+								<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+									<path d="M10.5 2H3.5C2.67 2 2 2.67 2 3.5V10.5H3.5V3.5H10.5V2ZM12.5 5H6.5C5.67 5 5 5.67 5 6.5V13.5C5 14.33 5.67 15 6.5 15H12.5C13.33 15 14 14.33 14 13.5V6.5C14 5.67 13.33 5 12.5 5ZM12.5 13.5H6.5V6.5H12.5V13.5Z" fill="currentColor"/>
+								</svg>
+							</button>
 						</div>
 					</div>
 
@@ -519,6 +539,11 @@ $section = $args['section'] ?? 'all';
 						</div>
 						<div class="design-tokens__size-token">
 							<span class="design-tokens__token-var">var(--font-size-m)</span>
+							<button class="design-tokens__copy-btn" data-copy="var(--font-size-m)" aria-label="Copy to clipboard">
+								<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+									<path d="M10.5 2H3.5C2.67 2 2 2.67 2 3.5V10.5H3.5V3.5H10.5V2ZM12.5 5H6.5C5.67 5 5 5.67 5 6.5V13.5C5 14.33 5.67 15 6.5 15H12.5C13.33 15 14 14.33 14 13.5V6.5C14 5.67 13.33 5 12.5 5ZM12.5 13.5H6.5V6.5H12.5V13.5Z" fill="currentColor"/>
+								</svg>
+							</button>
 						</div>
 					</div>
 
@@ -533,6 +558,11 @@ $section = $args['section'] ?? 'all';
 						</div>
 						<div class="design-tokens__size-token">
 							<span class="design-tokens__token-var">var(--font-size-s)</span>
+							<button class="design-tokens__copy-btn" data-copy="var(--font-size-s)" aria-label="Copy to clipboard">
+								<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+									<path d="M10.5 2H3.5C2.67 2 2 2.67 2 3.5V10.5H3.5V3.5H10.5V2ZM12.5 5H6.5C5.67 5 5 5.67 5 6.5V13.5C5 14.33 5.67 15 6.5 15H12.5C13.33 15 14 14.33 14 13.5V6.5C14 5.67 13.33 5 12.5 5ZM12.5 13.5H6.5V6.5H12.5V13.5Z" fill="currentColor"/>
+								</svg>
+							</button>
 						</div>
 					</div>
 
@@ -547,6 +577,11 @@ $section = $args['section'] ?? 'all';
 						</div>
 						<div class="design-tokens__size-token">
 							<span class="design-tokens__token-var">var(--font-size-xs)</span>
+							<button class="design-tokens__copy-btn" data-copy="var(--font-size-xs)" aria-label="Copy to clipboard">
+								<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+									<path d="M10.5 2H3.5C2.67 2 2 2.67 2 3.5V10.5H3.5V3.5H10.5V2ZM12.5 5H6.5C5.67 5 5 5.67 5 6.5V13.5C5 14.33 5.67 15 6.5 15H12.5C13.33 15 14 14.33 14 13.5V6.5C14 5.67 13.33 5 12.5 5ZM12.5 13.5H6.5V6.5H12.5V13.5Z" fill="currentColor"/>
+								</svg>
+							</button>
 						</div>
 					</div>
 				</div>
@@ -571,6 +606,11 @@ $section = $args['section'] ?? 'all';
 						</div>
 						<div class="design-tokens__lineheight-token">
 							<span class="design-tokens__token-var">var(--line-height-tight)</span>
+							<button class="design-tokens__copy-btn" data-copy="var(--line-height-tight)" aria-label="Copy to clipboard">
+								<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+									<path d="M10.5 2H3.5C2.67 2 2 2.67 2 3.5V10.5H3.5V3.5H10.5V2ZM12.5 5H6.5C5.67 5 5 5.67 5 6.5V13.5C5 14.33 5.67 15 6.5 15H12.5C13.33 15 14 14.33 14 13.5V6.5C14 5.67 13.33 5 12.5 5ZM12.5 13.5H6.5V6.5H12.5V13.5Z" fill="currentColor"/>
+								</svg>
+							</button>
 						</div>
 					</div>
 
@@ -585,6 +625,11 @@ $section = $args['section'] ?? 'all';
 						</div>
 						<div class="design-tokens__lineheight-token">
 							<span class="design-tokens__token-var">var(--line-height-heading)</span>
+							<button class="design-tokens__copy-btn" data-copy="var(--line-height-heading)" aria-label="Copy to clipboard">
+								<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+									<path d="M10.5 2H3.5C2.67 2 2 2.67 2 3.5V10.5H3.5V3.5H10.5V2ZM12.5 5H6.5C5.67 5 5 5.67 5 6.5V13.5C5 14.33 5.67 15 6.5 15H12.5C13.33 15 14 14.33 14 13.5V6.5C14 5.67 13.33 5 12.5 5ZM12.5 13.5H6.5V6.5H12.5V13.5Z" fill="currentColor"/>
+								</svg>
+							</button>
 						</div>
 					</div>
 
@@ -599,6 +644,11 @@ $section = $args['section'] ?? 'all';
 						</div>
 						<div class="design-tokens__lineheight-token">
 							<span class="design-tokens__token-var">var(--line-height-caption)</span>
+							<button class="design-tokens__copy-btn" data-copy="var(--line-height-caption)" aria-label="Copy to clipboard">
+								<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+									<path d="M10.5 2H3.5C2.67 2 2 2.67 2 3.5V10.5H3.5V3.5H10.5V2ZM12.5 5H6.5C5.67 5 5 5.67 5 6.5V13.5C5 14.33 5.67 15 6.5 15H12.5C13.33 15 14 14.33 14 13.5V6.5C14 5.67 13.33 5 12.5 5ZM12.5 13.5H6.5V6.5H12.5V13.5Z" fill="currentColor"/>
+								</svg>
+							</button>
 						</div>
 					</div>
 
@@ -613,6 +663,11 @@ $section = $args['section'] ?? 'all';
 						</div>
 						<div class="design-tokens__lineheight-token">
 							<span class="design-tokens__token-var">var(--line-height)</span>
+							<button class="design-tokens__copy-btn" data-copy="var(--line-height)" aria-label="Copy to clipboard">
+								<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+									<path d="M10.5 2H3.5C2.67 2 2 2.67 2 3.5V10.5H3.5V3.5H10.5V2ZM12.5 5H6.5C5.67 5 5 5.67 5 6.5V13.5C5 14.33 5.67 15 6.5 15H12.5C13.33 15 14 14.33 14 13.5V6.5C14 5.67 13.33 5 12.5 5ZM12.5 13.5H6.5V6.5H12.5V13.5Z" fill="currentColor"/>
+								</svg>
+							</button>
 						</div>
 					</div>
 
@@ -627,6 +682,11 @@ $section = $args['section'] ?? 'all';
 						</div>
 						<div class="design-tokens__lineheight-token">
 							<span class="design-tokens__token-var">var(--line-height-form)</span>
+							<button class="design-tokens__copy-btn" data-copy="var(--line-height-form)" aria-label="Copy to clipboard">
+								<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+									<path d="M10.5 2H3.5C2.67 2 2 2.67 2 3.5V10.5H3.5V3.5H10.5V2ZM12.5 5H6.5C5.67 5 5 5.67 5 6.5V13.5C5 14.33 5.67 15 6.5 15H12.5C13.33 15 14 14.33 14 13.5V6.5C14 5.67 13.33 5 12.5 5ZM12.5 13.5H6.5V6.5H12.5V13.5Z" fill="currentColor"/>
+								</svg>
+							</button>
 						</div>
 					</div>
 				</div>
@@ -646,32 +706,74 @@ $section = $args['section'] ?? 'all';
 					<div class="design-tokens__token-item">
 						<span class="design-tokens__token-name">H1</span>
 						<span class="design-tokens__token-value">-1%</span>
+						<span class="design-tokens__letter-spacing-wrap">
 						<span class="design-tokens__token-var">var(--letter-spacing-h1)</span>
+							<button class="design-tokens__copy-btn" data-copy="var(--letter-spacing-h1)" aria-label="Copy to clipboard">
+								<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+									<path d="M10.5 2H3.5C2.67 2 2 2.67 2 3.5V10.5H3.5V3.5H10.5V2ZM12.5 5H6.5C5.67 5 5 5.67 5 6.5V13.5C5 14.33 5.67 15 6.5 15H12.5C13.33 15 14 14.33 14 13.5V6.5C14 5.67 13.33 5 12.5 5ZM12.5 13.5H6.5V6.5H12.5V13.5Z" fill="currentColor"/>
+								</svg>
+							</button>
+						</span>
 					</div>
 					<div class="design-tokens__token-item">
 						<span class="design-tokens__token-name">H2</span>
 						<span class="design-tokens__token-value">-1%</span>
+						<span class="design-tokens__letter-spacing-wrap">
 						<span class="design-tokens__token-var">var(--letter-spacing-h2)</span>
+							<button class="design-tokens__copy-btn" data-copy="var(--letter-spacing-h2)" aria-label="Copy to clipboard">
+								<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+									<path d="M10.5 2H3.5C2.67 2 2 2.67 2 3.5V10.5H3.5V3.5H10.5V2ZM12.5 5H6.5C5.67 5 5 5.67 5 6.5V13.5C5 14.33 5.67 15 6.5 15H12.5C13.33 15 14 14.33 14 13.5V6.5C14 5.67 13.33 5 12.5 5ZM12.5 13.5H6.5V6.5H12.5V13.5Z" fill="currentColor"/>
+								</svg>
+							</button>
+						</span>
 					</div>
 					<div class="design-tokens__token-item">
 						<span class="design-tokens__token-name">H3</span>
 						<span class="design-tokens__token-value">0%</span>
-						<span class="design-tokens__token-var">var(--letter-spacing-h3)</span>
+						<span class="design-tokens__letter-spacing-wrap">
+							<span class="design-tokens__token-var">var(--letter-spacing-h3)</span>
+						<button class="design-tokens__copy-btn" data-copy="var(--letter-spacing-h3)" aria-label="Copy to clipboard">
+							<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+								<path d="M10.5 2H3.5C2.67 2 2 2.67 2 3.5V10.5H3.5V3.5H10.5V2ZM12.5 5H6.5C5.67 5 5 5.67 5 6.5V13.5C5 14.33 5.67 15 6.5 15H12.5C13.33 15 14 14.33 14 13.5V6.5C14 5.67 13.33 5 12.5 5ZM12.5 13.5H6.5V6.5H12.5V13.5Z" fill="currentColor"/>
+							</svg>
+						</button>
+							</span>
 					</div>
 					<div class="design-tokens__token-item">
 						<span class="design-tokens__token-name">H4</span>
 						<span class="design-tokens__token-value">0%</span>
-						<span class="design-tokens__token-var">var(--letter-spacing-h4)</span>
+						<span class="design-tokens__letter-spacing-wrap">
+							<span class="design-tokens__token-var">var(--letter-spacing-h4)</span>
+						<button class="design-tokens__copy-btn" data-copy="var(--letter-spacing-h4)" aria-label="Copy to clipboard">
+							<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+								<path d="M10.5 2H3.5C2.67 2 2 2.67 2 3.5V10.5H3.5V3.5H10.5V2ZM12.5 5H6.5C5.67 5 5 5.67 5 6.5V13.5C5 14.33 5.67 15 6.5 15H12.5C13.33 15 14 14.33 14 13.5V6.5C14 5.67 13.33 5 12.5 5ZM12.5 13.5H6.5V6.5H12.5V13.5Z" fill="currentColor"/>
+							</svg>
+						</button>
+							</span>
 					</div>
 					<div class="design-tokens__token-item">
 						<span class="design-tokens__token-name">H5</span>
 						<span class="design-tokens__token-value">0%</span>
-						<span class="design-tokens__token-var">var(--letter-spacing-h5)</span>
+						<span class="design-tokens__letter-spacing-wrap">
+							<span class="design-tokens__token-var">var(--letter-spacing-h5)</span>
+						<button class="design-tokens__copy-btn" data-copy="var(--letter-spacing-h5)" aria-label="Copy to clipboard">
+							<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+								<path d="M10.5 2H3.5C2.67 2 2 2.67 2 3.5V10.5H3.5V3.5H10.5V2ZM12.5 5H6.5C5.67 5 5 5.67 5 6.5V13.5C5 14.33 5.67 15 6.5 15H12.5C13.33 15 14 14.33 14 13.5V6.5C14 5.67 13.33 5 12.5 5ZM12.5 13.5H6.5V6.5H12.5V13.5Z" fill="currentColor"/>
+							</svg>
+						</button>
+							</span>
 					</div>
 					<div class="design-tokens__token-item">
 						<span class="design-tokens__token-name">H6</span>
 						<span class="design-tokens__token-value">0%</span>
-						<span class="design-tokens__token-var">var(--letter-spacing-h6)</span>
+						<span class="design-tokens__letter-spacing-wrap">
+							<span class="design-tokens__token-var">var(--letter-spacing-h6)</span>
+						<button class="design-tokens__copy-btn" data-copy="var(--letter-spacing-h6)" aria-label="Copy to clipboard">
+							<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+								<path d="M10.5 2H3.5C2.67 2 2 2.67 2 3.5V10.5H3.5V3.5H10.5V2ZM12.5 5H6.5C5.67 5 5 5.67 5 6.5V13.5C5 14.33 5.67 15 6.5 15H12.5C13.33 15 14 14.33 14 13.5V6.5C14 5.67 13.33 5 12.5 5ZM12.5 13.5H6.5V6.5H12.5V13.5Z" fill="currentColor"/>
+							</svg>
+						</button>
+							</span>
 					</div>
 				</div>
 			</div>
@@ -683,7 +785,14 @@ $section = $args['section'] ?? 'all';
 					<div class="design-tokens__token-item">
 						<span class="design-tokens__token-name">UI Text</span>
 						<span class="design-tokens__token-value">2%</span>
+						<span class="design-tokens__letter-spacing-wrap">
 						<span class="design-tokens__token-var">var(--letter-spacing-ui)</span>
+						<button class="design-tokens__copy-btn" data-copy="var(--letter-spacing-ui)" aria-label="Copy to clipboard">
+							<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+								<path d="M10.5 2H3.5C2.67 2 2 2.67 2 3.5V10.5H3.5V3.5H10.5V2ZM12.5 5H6.5C5.67 5 5 5.67 5 6.5V13.5C5 14.33 5.67 15 6.5 15H12.5C13.33 15 14 14.33 14 13.5V6.5C14 5.67 13.33 5 12.5 5ZM12.5 13.5H6.5V6.5H12.5V13.5Z" fill="currentColor"/>
+							</svg>
+						</button>
+						</span>
 					</div>
 				</div>
 			</div>
@@ -699,17 +808,47 @@ $section = $args['section'] ?? 'all';
 					<div class="design-tokens__token-item">
 						<span class="design-tokens__token-name">Regular</span>
 						<span class="design-tokens__token-value">400</span>
-						<span class="design-tokens__token-var">var(--font-weight-regular)</span>
+						<div class="design-tokens__token-wrapper">
+							<span class="design-tokens__token-var">var(--font-weight-regular)</span>
+							<div class="design-tokens__copy-btn-wrapper">
+								<button class="design-tokens__copy-btn" data-copy="var(--font-weight-regular)" aria-label="Copy to clipboard" title="Copy to clipboard">
+									<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+										<path d="M10.5 2H3.5C2.67 2 2 2.67 2 3.5V10.5H3.5V3.5H10.5V2ZM12.5 5H6.5C5.67 5 5 5.67 5 6.5V13.5C5 14.33 5.67 15 6.5 15H12.5C13.33 15 14 14.33 14 13.5V6.5C14 5.67 13.33 5 12.5 5ZM12.5 13.5H6.5V6.5H12.5V13.5Z" fill="currentColor"/>
+									</svg>
+								</button>
+								<span class="design-tokens__copy-message">Copied to clipboard</span>
+							</div>
+						</div>
 					</div>
 					<div class="design-tokens__token-item">
 						<span class="design-tokens__token-name">Medium</span>
 						<span class="design-tokens__token-value">500</span>
-						<span class="design-tokens__token-var">var(--font-weight-medium)</span>
+						<div class="design-tokens__token-wrapper">
+							<span class="design-tokens__token-var">var(--font-weight-medium)</span>
+							<div class="design-tokens__copy-btn-wrapper">
+								<button class="design-tokens__copy-btn" data-copy="var(--font-weight-medium)" aria-label="Copy to clipboard" title="Copy to clipboard">
+									<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+										<path d="M10.5 2H3.5C2.67 2 2 2.67 2 3.5V10.5H3.5V3.5H10.5V2ZM12.5 5H6.5C5.67 5 5 5.67 5 6.5V13.5C5 14.33 5.67 15 6.5 15H12.5C13.33 15 14 14.33 14 13.5V6.5C14 5.67 13.33 5 12.5 5ZM12.5 13.5H6.5V6.5H12.5V13.5Z" fill="currentColor"/>
+									</svg>
+								</button>
+								<span class="design-tokens__copy-message">Copied to clipboard</span>
+							</div>
+						</div>
 					</div>
 					<div class="design-tokens__token-item">
 						<span class="design-tokens__token-name">Bold</span>
 						<span class="design-tokens__token-value">700</span>
-						<span class="design-tokens__token-var">var(--font-weight-bold)</span>
+						<div class="design-tokens__token-wrapper">
+							<span class="design-tokens__token-var">var(--font-weight-bold)</span>
+							<div class="design-tokens__copy-btn-wrapper">
+								<button class="design-tokens__copy-btn" data-copy="var(--font-weight-bold)" aria-label="Copy to clipboard" title="Copy to clipboard">
+									<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+										<path d="M10.5 2H3.5C2.67 2 2 2.67 2 3.5V10.5H3.5V3.5H10.5V2ZM12.5 5H6.5C5.67 5 5 5.67 5 6.5V13.5C5 14.33 5.67 15 6.5 15H12.5C13.33 15 14 14.33 14 13.5V6.5C14 5.67 13.33 5 12.5 5ZM12.5 13.5H6.5V6.5H12.5V13.5Z" fill="currentColor"/>
+									</svg>
+								</button>
+								<span class="design-tokens__copy-message">Copied to clipboard</span>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -727,7 +866,14 @@ $section = $args['section'] ?? 'all';
 						<div class="design-tokens__border-radius-info">
 							<span class="design-tokens__border-radius-name">Border Radius Sharp</span>
 							<span class="design-tokens__border-radius-value">0.02em</span>
-							<span class="design-tokens__border-radius-token">var(--border-radius-sharp)</span>
+							<div class="design-tokens__border-radius-token-wrapper">
+								<span class="design-tokens__border-radius-token">var(--border-radius-sharp)</span>
+								<button class="design-tokens__copy-btn" data-copy="var(--border-radius-sharp)" aria-label="Copy to clipboard">
+									<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+										<path d="M10.5 2H3.5C2.67 2 2 2.67 2 3.5V10.5H3.5V3.5H10.5V2ZM12.5 5H6.5C5.67 5 5 5.67 5 6.5V13.5C5 14.33 5.67 15 6.5 15H12.5C13.33 15 14 14.33 14 13.5V6.5C14 5.67 13.33 5 12.5 5ZM12.5 13.5H6.5V6.5H12.5V13.5Z" fill="currentColor"/>
+									</svg>
+								</button>
+							</div>
 						</div>
 					</div>
 
@@ -736,7 +882,14 @@ $section = $args['section'] ?? 'all';
 						<div class="design-tokens__border-radius-info">
 							<span class="design-tokens__border-radius-name">Border Radius Small</span>
 							<span class="design-tokens__border-radius-value">3px</span>
-							<span class="design-tokens__border-radius-token">var(--border-radius-s)</span>
+							<div class="design-tokens__border-radius-token-wrapper">
+								<span class="design-tokens__border-radius-token">var(--border-radius-s)</span>
+								<button class="design-tokens__copy-btn" data-copy="var(--border-radius-s)" aria-label="Copy to clipboard">
+									<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+										<path d="M10.5 2H3.5C2.67 2 2 2.67 2 3.5V10.5H3.5V3.5H10.5V2ZM12.5 5H6.5C5.67 5 5 5.67 5 6.5V13.5C5 14.33 5.67 15 6.5 15H12.5C13.33 15 14 14.33 14 13.5V6.5C14 5.67 13.33 5 12.5 5ZM12.5 13.5H6.5V6.5H12.5V13.5Z" fill="currentColor"/>
+									</svg>
+								</button>
+							</div>
 						</div>
 					</div>
 
@@ -745,7 +898,14 @@ $section = $args['section'] ?? 'all';
 						<div class="design-tokens__border-radius-info">
 							<span class="design-tokens__border-radius-name">Border Radius</span>
 							<span class="design-tokens__border-radius-value">5px</span>
-							<span class="design-tokens__border-radius-token">var(--border-radius)</span>
+							<div class="design-tokens__border-radius-token-wrapper">
+								<span class="design-tokens__border-radius-token">var(--border-radius)</span>
+								<button class="design-tokens__copy-btn" data-copy="var(--border-radius)" aria-label="Copy to clipboard">
+									<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+										<path d="M10.5 2H3.5C2.67 2 2 2.67 2 3.5V10.5H3.5V3.5H10.5V2ZM12.5 5H6.5C5.67 5 5 5.67 5 6.5V13.5C5 14.33 5.67 15 6.5 15H12.5C13.33 15 14 14.33 14 13.5V6.5C14 5.67 13.33 5 12.5 5ZM12.5 13.5H6.5V6.5H12.5V13.5Z" fill="currentColor"/>
+									</svg>
+								</button>
+							</div>
 						</div>
 					</div>
 
@@ -754,7 +914,14 @@ $section = $args['section'] ?? 'all';
 						<div class="design-tokens__border-radius-info">
 							<span class="design-tokens__border-radius-name">Border Radius Pill</span>
 							<span class="design-tokens__border-radius-value">999px</span>
-							<span class="design-tokens__border-radius-token">var(--border-radius-pill)</span>
+							<div class="design-tokens__border-radius-token-wrapper">
+								<span class="design-tokens__border-radius-token">var(--border-radius-pill)</span>
+								<button class="design-tokens__copy-btn" data-copy="var(--border-radius-pill)" aria-label="Copy to clipboard">
+									<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+										<path d="M10.5 2H3.5C2.67 2 2 2.67 2 3.5V10.5H3.5V3.5H10.5V2ZM12.5 5H6.5C5.67 5 5 5.67 5 6.5V13.5C5 14.33 5.67 15 6.5 15H12.5C13.33 15 14 14.33 14 13.5V6.5C14 5.67 13.33 5 12.5 5ZM12.5 13.5H6.5V6.5H12.5V13.5Z" fill="currentColor"/>
+									</svg>
+								</button>
+							</div>
 						</div>
 					</div>
 
@@ -763,7 +930,14 @@ $section = $args['section'] ?? 'all';
 						<div class="design-tokens__border-radius-info">
 							<span class="design-tokens__border-radius-name">Border Radius Circle</span>
 							<span class="design-tokens__border-radius-value">50%</span>
-							<span class="design-tokens__border-radius-token">var(--border-radius-circle)</span>
+							<div class="design-tokens__border-radius-token-wrapper">
+								<span class="design-tokens__border-radius-token">var(--border-radius-circle)</span>
+								<button class="design-tokens__copy-btn" data-copy="var(--border-radius-circle)" aria-label="Copy to clipboard">
+									<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+										<path d="M10.5 2H3.5C2.67 2 2 2.67 2 3.5V10.5H3.5V3.5H10.5V2ZM12.5 5H6.5C5.67 5 5 5.67 5 6.5V13.5C5 14.33 5.67 15 6.5 15H12.5C13.33 15 14 14.33 14 13.5V6.5C14 5.67 13.33 5 12.5 5ZM12.5 13.5H6.5V6.5H12.5V13.5Z" fill="currentColor"/>
+									</svg>
+								</button>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -782,7 +956,14 @@ $section = $args['section'] ?? 'all';
 						<div class="design-tokens__shadow-info">
 							<span class="design-tokens__shadow-name">Box Shadow</span>
 							<span class="design-tokens__shadow-value">0 1px 3px rgba(12, 12, 12, 0.09)</span>
-							<span class="design-tokens__shadow-token">var(--box-shadow)</span>
+							<div class="design-tokens__shadow-token-wrapper">
+								<span class="design-tokens__shadow-token">var(--box-shadow)</span>
+								<button class="design-tokens__copy-btn" data-copy="var(--box-shadow)" aria-label="Copy to clipboard">
+									<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+										<path d="M10.5 2H3.5C2.67 2 2 2.67 2 3.5V10.5H3.5V3.5H10.5V2ZM12.5 5H6.5C5.67 5 5 5.67 5 6.5V13.5C5 14.33 5.67 15 6.5 15H12.5C13.33 15 14 14.33 14 13.5V6.5C14 5.67 13.33 5 12.5 5ZM12.5 13.5H6.5V6.5H12.5V13.5Z" fill="currentColor"/>
+									</svg>
+								</button>
+							</div>
 							<span class="design-tokens__shadow-description">Default box shadow. Used with buttons, active states, and such.</span>
 						</div>
 					</div>
@@ -792,7 +973,14 @@ $section = $args['section'] ?? 'all';
 						<div class="design-tokens__shadow-info">
 							<span class="design-tokens__shadow-name">Box Shadow Header</span>
 							<span class="design-tokens__shadow-value">0 1px 5px rgba(12, 12, 12, 0.05)</span>
-							<span class="design-tokens__shadow-token">var(--box-shadow-header)</span>
+							<div class="design-tokens__shadow-token-wrapper">
+								<span class="design-tokens__shadow-token">var(--box-shadow-header)</span>
+								<button class="design-tokens__copy-btn" data-copy="var(--box-shadow-header)" aria-label="Copy to clipboard">
+									<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+										<path d="M10.5 2H3.5C2.67 2 2 2.67 2 3.5V10.5H3.5V3.5H10.5V2ZM12.5 5H6.5C5.67 5 5 5.67 5 6.5V13.5C5 14.33 5.67 15 6.5 15H12.5C13.33 15 14 14.33 14 13.5V6.5C14 5.67 13.33 5 12.5 5ZM12.5 13.5H6.5V6.5H12.5V13.5Z" fill="currentColor"/>
+									</svg>
+								</button>
+							</div>
 							<span class="design-tokens__shadow-description">Default box shadow for header component.</span>
 						</div>
 					</div>
@@ -802,7 +990,14 @@ $section = $args['section'] ?? 'all';
 						<div class="design-tokens__shadow-info">
 							<span class="design-tokens__shadow-name">Box Shadow Card</span>
 							<span class="design-tokens__shadow-value">0 0 0 1px var(--n-color-border), 0 1px 5px rgba(12, 12, 12, 0.05), 0 0 40px rgba(12, 12, 12, 0.015)</span>
-							<span class="design-tokens__shadow-token">var(--box-shadow-card)</span>
+							<div class="design-tokens__shadow-token-wrapper">
+								<span class="design-tokens__shadow-token">var(--box-shadow-card)</span>
+								<button class="design-tokens__copy-btn" data-copy="var(--box-shadow-card)" aria-label="Copy to clipboard">
+									<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+										<path d="M10.5 2H3.5C2.67 2 2 2.67 2 3.5V10.5H3.5V3.5H10.5V2ZM12.5 5H6.5C5.67 5 5 5.67 5 6.5V13.5C5 14.33 5.67 15 6.5 15H12.5C13.33 15 14 14.33 14 13.5V6.5C14 5.67 13.33 5 12.5 5ZM12.5 13.5H6.5V6.5H12.5V13.5Z" fill="currentColor"/>
+									</svg>
+								</button>
+							</div>
 							<span class="design-tokens__shadow-description">Default box shadow for card component that creates drop shadow, raised surface, and a border around the card.</span>
 						</div>
 					</div>
@@ -812,7 +1007,14 @@ $section = $args['section'] ?? 'all';
 						<div class="design-tokens__shadow-info">
 							<span class="design-tokens__shadow-name">Box Shadow Nav</span>
 							<span class="design-tokens__shadow-value">0 0 0 1px var(--n-color-border), 0 5px 17px rgba(12, 12, 12, 0.14)</span>
-							<span class="design-tokens__shadow-token">var(--box-shadow-nav)</span>
+							<div class="design-tokens__shadow-token-wrapper">
+								<span class="design-tokens__shadow-token">var(--box-shadow-nav)</span>
+								<button class="design-tokens__copy-btn" data-copy="var(--box-shadow-nav)" aria-label="Copy to clipboard">
+									<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+										<path d="M10.5 2H3.5C2.67 2 2 2.67 2 3.5V10.5H3.5V3.5H10.5V2ZM12.5 5H6.5C5.67 5 5 5.67 5 6.5V13.5C5 14.33 5.67 15 6.5 15H12.5C13.33 15 14 14.33 14 13.5V6.5C14 5.67 13.33 5 12.5 5ZM12.5 13.5H6.5V6.5H12.5V13.5Z" fill="currentColor"/>
+									</svg>
+								</button>
+							</div>
 							<span class="design-tokens__shadow-description">Default box shadow for navigation component. Used in collapsed state.</span>
 						</div>
 					</div>
@@ -822,7 +1024,14 @@ $section = $args['section'] ?? 'all';
 						<div class="design-tokens__shadow-info">
 							<span class="design-tokens__shadow-name">Box Shadow Popout</span>
 							<span class="design-tokens__shadow-value">0 4px 12px rgba(12, 12, 12, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.05)</span>
-							<span class="design-tokens__shadow-token">var(--box-shadow-popout)</span>
+							<div class="design-tokens__shadow-token-wrapper">
+								<span class="design-tokens__shadow-token">var(--box-shadow-popout)</span>
+								<button class="design-tokens__copy-btn" data-copy="var(--box-shadow-popout)" aria-label="Copy to clipboard">
+									<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+										<path d="M10.5 2H3.5C2.67 2 2 2.67 2 3.5V10.5H3.5V3.5H10.5V2ZM12.5 5H6.5C5.67 5 5 5.67 5 6.5V13.5C5 14.33 5.67 15 6.5 15H12.5C13.33 15 14 14.33 14 13.5V6.5C14 5.67 13.33 5 12.5 5ZM12.5 13.5H6.5V6.5H12.5V13.5Z" fill="currentColor"/>
+									</svg>
+								</button>
+							</div>
 							<span class="design-tokens__shadow-description">Default box shadow to be used with all pop out windows.</span>
 						</div>
 					</div>
@@ -832,7 +1041,14 @@ $section = $args['section'] ?? 'all';
 						<div class="design-tokens__shadow-info">
 							<span class="design-tokens__shadow-name">Box Shadow Modal</span>
 							<span class="design-tokens__shadow-value">0 0 0 1px var(--n-color-border)</span>
-							<span class="design-tokens__shadow-token">var(--box-shadow-modal)</span>
+							<div class="design-tokens__shadow-token-wrapper">
+								<span class="design-tokens__shadow-token">var(--box-shadow-modal)</span>
+								<button class="design-tokens__copy-btn" data-copy="var(--box-shadow-modal)" aria-label="Copy to clipboard">
+									<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+										<path d="M10.5 2H3.5C2.67 2 2 2.67 2 3.5V10.5H3.5V3.5H10.5V2ZM12.5 5H6.5C5.67 5 5 5.67 5 6.5V13.5C5 14.33 5.67 15 6.5 15H12.5C13.33 15 14 14.33 14 13.5V6.5C14 5.67 13.33 5 12.5 5ZM12.5 13.5H6.5V6.5H12.5V13.5Z" fill="currentColor"/>
+									</svg>
+								</button>
+							</div>
 							<span class="design-tokens__shadow-description">Default box shadow for modal component. Used in dialogs, modals, and such.</span>
 						</div>
 					</div>

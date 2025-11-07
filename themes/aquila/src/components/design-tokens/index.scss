@@ -442,7 +442,7 @@
 
   &__size-item {
     display: grid;
-    grid-template-columns: 250px 1fr 200px;
+    grid-template-columns: 800px 1fr 200px;
     gap: 32px;
     padding: 24px;
     border: 1px solid var(--color-gray-200);
@@ -494,11 +494,143 @@
 
   &__size-token {
     display: flex;
+    align-items: center;
+    gap: 8px;
     justify-content: flex-end;
 
     @media (max-width: 768px) {
       justify-content: flex-start;
     }
+  }
+
+  &__lineheight-token {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: flex-end;
+
+    @media (max-width: 768px) {
+      justify-content: flex-start;
+    }
+  }
+
+  &__border-radius-token-wrapper,
+  &__shadow-token-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+	  position: relative;
+  }
+
+  // Token wrapper for inline display
+  &__token-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  // Copy button wrapper with message
+  &__copy-btn-wrapper {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  // Copy message
+  &__copy-message {
+    position: absolute;
+    left: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--color-gray-900);
+    color: var(--color-white);
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: -4px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-top: 4px solid transparent;
+      border-bottom: 4px solid transparent;
+      border-right: 4px solid var(--color-gray-900);
+    }
+
+    &.show {
+      opacity: 1;
+    }
+  }
+
+  // Copy button styling
+  &__copy-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    background: var(--color-gray-100);
+    border: 1px solid var(--color-gray-300);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+    position: relative;
+
+    svg {
+      width: 16px;
+      height: 16px;
+      color: var(--color-gray-700);
+      transition: color 0.2s ease;
+    }
+
+    &:hover {
+      background: var(--color-gray-200);
+      border-color: var(--color-gray-400);
+
+      svg {
+        color: var(--color-gray-900);
+      }
+    }
+
+    &:active {
+      background: var(--color-gray-300);
+      transform: scale(0.95);
+    }
+
+    &:focus {
+      outline: 2px solid var(--color-blue);
+      outline-offset: 2px;
+    }
+
+    // Copied state
+    &.copied {
+      background: var(--color-green);
+      border-color: var(--color-green);
+
+      svg {
+        color: var(--color-white);
+      }
+    }
+  }
+
+  &__token-var {
+    font-family: 'Monaco', 'Courier New', monospace;
+    font-size: 14px;
+    color: var(--color-gray-800);
+    background: var(--color-gray-100);
+    padding: 4px 8px;
+    border-radius: 3px;
   }
 
   // ---------------------------------------------------------------------------
@@ -567,11 +699,16 @@
   &__lineheight-token {
     display: flex;
     justify-content: flex-end;
+	  position: relative;
 
     @media (max-width: 768px) {
       justify-content: flex-start;
     }
   }
+
+	&__letter-spacing-wrap {
+		position: relative;
+	}
 
   // ---------------------------------------------------------------------------
   // Token List Styles (for Letter Spacing, Font Weight)

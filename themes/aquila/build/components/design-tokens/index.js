@@ -1,5 +1,5 @@
 (function() {
 'use strict';
-
+document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll(".design-tokens__copy-btn").forEach(t=>{let e=t.nextElementSibling;(!e||!e.classList.contains("design-tokens__copy-message"))&&(e=document.createElement("span"),e.className="design-tokens__copy-message",e.textContent="Copied to clipboard",t.parentNode.appendChild(e)),t.addEventListener("click",function(){const c=this.getAttribute("data-copy");navigator.clipboard&&navigator.clipboard.writeText?navigator.clipboard.writeText(c).then(()=>{s(this,e)}).catch(o=>{console.error("Failed to copy:",o),n(c,this,e)}):n(c,this,e)})});function s(t,e){t.classList.add("copied"),e.classList.add("show"),setTimeout(()=>{e.classList.remove("show")},300),setTimeout(()=>{t.classList.remove("copied")},2e3)}function n(t,e,c){const o=document.createElement("textarea");o.value=t,o.style.position="fixed",o.style.opacity="0",document.body.appendChild(o),o.select();try{document.execCommand("copy"),s(e,c)}catch(a){console.error("Fallback copy failed:",a)}document.body.removeChild(o)}});
 
 })();
