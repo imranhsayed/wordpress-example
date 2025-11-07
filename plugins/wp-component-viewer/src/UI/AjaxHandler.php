@@ -299,31 +299,34 @@ class AjaxHandler {
 			</div>
 
 			<div class="wp-component-viewer__tab-content" data-tab="html-markup">
-				<div class="wp-component-viewer__code-block">
-					<div class="wp-component-viewer__code-header">
-						<?php esc_html_e( 'Rendered HTML Markup', 'wp-component-viewer' ); ?>
-					</div>
-					<pre><code class="wp-component-viewer__code-content language-html"><?php
-						// Get the rendered HTML output
-						$html_output = '';
-						if ( ! empty( $component['variations'] ) ) {
-							// Render the first variation
-							$variations = ComponentRenderer::render_variations( $component['slug'], $component['variations'] );
-							if ( ! empty( $variations ) ) {
-								$first_variation = array_key_first( $variations );
-								$html_output = $variations[ $first_variation ]['output'];
-							}
-						} else {
+				<?php if ( ! empty( $component['variations'] ) ) : ?>
+					<?php $variations = ComponentRenderer::render_variations( $component['slug'], $component['variations'] ); ?>
+					<?php foreach ( $variations as $variation_name => $variation ) : ?>
+						<div class="wp-component-viewer__code-block">
+							<div class="wp-component-viewer__code-header">
+								<?php echo esc_html( $variation_name ); ?>
+							</div>
+							<pre><code class="wp-component-viewer__code-content language-html"><?php
+								// Format HTML with proper indentation
+								$formatted_html = self::format_html( $variation['output'] );
+								echo esc_html( $formatted_html );
+							?></code></pre>
+						</div>
+					<?php endforeach; ?>
+				<?php else : ?>
+					<div class="wp-component-viewer__code-block">
+						<div class="wp-component-viewer__code-header">
+							<?php esc_html_e( 'Rendered HTML Markup', 'wp-component-viewer' ); ?>
+						</div>
+						<pre><code class="wp-component-viewer__code-content language-html"><?php
 							// Render with default props
 							$html_output = ComponentRenderer::render( $component['slug'] );
-						}
-
-						// Format HTML with proper indentation
-						$formatted_html = self::format_html( $html_output );
-
-						echo esc_html( $formatted_html );
-					?></code></pre>
-				</div>
+							// Format HTML with proper indentation
+							$formatted_html = self::format_html( $html_output );
+							echo esc_html( $formatted_html );
+						?></code></pre>
+					</div>
+				<?php endif; ?>
 			</div>
 		</div>
 		<?php
@@ -339,17 +342,19 @@ class AjaxHandler {
 		// Remove all existing whitespace between tags
 		$html = preg_replace( '/>\s+</', '><', $html );
 
-		// Self-closing tags and inline elements that shouldn't have line breaks
-		$inline_elements = array( 'b', 'big', 'i', 'small', 'tt', 'abbr', 'acronym', 'cite', 'code', 'dfn', 'em', 'kbd', 'strong', 'samp', 'var', 'a', 'bdo', 'br', 'img', 'map', 'object', 'q', 'script', 'span', 'sub', 'sup', 'button', 'input', 'label', 'select', 'textarea' );
+		// Inline elements that should stay on the same line with their content
+		$inline_elements = array( 'span', 'strong', 'em', 'b', 'i', 'u', 'small', 'mark', 'del', 'ins', 'sub', 'sup', 'code', 'kbd', 'samp', 'var', 'abbr', 'cite', 'q', 'time' );
 
 		$indent = 0;
 		$output = '';
-		$in_inline = false;
 
 		// Split on tags
 		$parts = preg_split( '/(<[^>]+>)/', $html, -1, PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY );
 
-		foreach ( $parts as $part ) {
+		$prev_was_opening = false;
+		$prev_tag = '';
+
+		foreach ( $parts as $i => $part ) {
 			$part = trim( $part );
 
 			if ( empty( $part ) ) {
@@ -357,57 +362,59 @@ class AjaxHandler {
 			}
 
 			// Check if this is a tag
-			if ( preg_match( '/^<([a-zA-Z0-9]+)/', $part, $matches ) ) {
+			if ( preg_match( '/^<\/?([a-zA-Z0-9\-]+)/', $part, $matches ) ) {
 				$tag = $matches[1];
 				$is_inline = in_array( strtolower( $tag ), $inline_elements, true );
+				$is_closing = ( strpos( $part, '</' ) === 0 );
+				$is_self_closing = ( strpos( $part, '/>' ) !== false );
 
 				// Closing tag
-				if ( strpos( $part, '</' ) === 0 ) {
-					if ( ! $is_inline && ! $in_inline ) {
+				if ( $is_closing ) {
+					// Decrease indent before adding closing tag
+					if ( ! $is_inline ) {
 						$indent--;
+					}
+
+					// Add newline and indentation for block-level closing tags
+					if ( ! $is_inline && ! $prev_was_opening ) {
 						$output .= "\n" . str_repeat( '  ', max( 0, $indent ) );
 					}
-					$output .= $part;
 
-					if ( $is_inline ) {
-						$in_inline = false;
-					}
+					$output .= $part;
+					$prev_was_opening = false;
 				}
-				// Self-closing tag or opening tag
+				// Opening or self-closing tag
 				else {
-					$is_self_closing = ( strpos( $part, '/>' ) !== false );
-
-					if ( ! $is_inline && ! $in_inline ) {
+					// Add newline and indentation before block-level opening tags
+					if ( ! $is_inline ) {
 						$output .= "\n" . str_repeat( '  ', max( 0, $indent ) );
 					}
+
 					$output .= $part;
 
+					// Increase indent after opening tag (but not for self-closing)
 					if ( ! $is_self_closing && ! $is_inline ) {
 						$indent++;
-					}
-
-					if ( $is_inline ) {
-						$in_inline = true;
+						$prev_was_opening = true;
+					} else {
+						$prev_was_opening = false;
 					}
 				}
+
+				$prev_tag = $tag;
 			}
 			// Text content
 			else {
-				// Trim text content but preserve meaningful spaces
 				$text = trim( $part );
 				if ( ! empty( $text ) ) {
-					if ( ! $in_inline ) {
-						$output .= "\n" . str_repeat( '  ', max( 0, $indent ) );
-					}
 					$output .= $text;
+					$prev_was_opening = false;
 				}
 			}
 		}
 
 		// Clean up and return
 		$output = trim( $output );
-		// Ensure proper line breaks after block elements
-		$output = preg_replace( '/(<\/(?:div|section|article|header|footer|nav|main|aside|ul|ol|li|table|tbody|thead|tr|td|th)>)/', "$1\n", $output );
 		// Remove multiple consecutive newlines
 		$output = preg_replace( '/\n{3,}/', "\n\n", $output );
 

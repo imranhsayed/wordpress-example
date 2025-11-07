@@ -88,21 +88,23 @@ $wrapper_attributes = aquila_get_wrapper_attributes( $extra_attributes, $wrapper
 ?>
 
 <div <?php echo wp_kses_data( $wrapper_attributes ); ?>>
-	<figure class="image-tile__image-wrap">
-		<?php
-		Template::render_component(
-			'image',
-			null,
-			array(
-				'id'              => $image_id,
-				'size'            => $image_size,
-				'icon'            => false,
-				'attr'            => '',
-				'use_focal_point' => true, // Use focal point for the image.
-			)
-		);
-		?>
-	</figure>
+	<?php if ( ! empty( $image_id ) ) : ?>
+		<figure class="image-tile__image-wrap">
+			<?php
+			Template::render_component(
+				'image',
+				null,
+				array(
+					'id'              => $image_id,
+					'size'            => $image_size,
+					'icon'            => false,
+					'attr'            => '',
+					'use_focal_point' => true, // Use focal point for the image.
+				)
+			);
+			?>
+		</figure>
+	<?php endif; ?>
 
 	<div class="image-tile__content">
 		<p class="image-tile__pre_heading has-tiny-font-size"><?php echo esc_html( $pre_heading ); ?></p>

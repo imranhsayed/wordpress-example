@@ -44,11 +44,6 @@ class Blocks {
 
 		// Translation.
 		add_action( 'init', array( $this, 'register_translations' ), 100 );
-
-		// Debug: Add admin notice to show registered blocks
-		if ( is_admin() ) {
-			add_action( 'admin_notices', [ $this, 'debug_registered_blocks' ] );
-		}
 	}
 
 	/**
@@ -293,24 +288,5 @@ class Blocks {
 		}
 
 		return $block_content;
-	}
-
-	/**
-	 * Debug method to show registered blocks in admin.
-	 *
-	 * @return void
-	 */
-	public function debug_registered_blocks(): void {
-		if ( ! current_user_can( 'manage_options' ) ) {
-			return;
-		}
-
-		$registered_blocks = $this->registered_blocks;
-		$block_names = array_keys( $registered_blocks );
-
-		echo '<div class="notice notice-info"><p>';
-		echo '<strong>Aquila Theme Debug:</strong> Registered blocks: ';
-		echo empty( $block_names ) ? 'None' : implode( ', ', $block_names );
-		echo '</p></div>';
 	}
 }

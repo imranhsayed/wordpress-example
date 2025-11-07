@@ -90,7 +90,7 @@ class ComponentScanner {
 
 				if ( ! empty( $doc_block ) && isset( $doc_block['component'] ) ) {
 					$component_name = sanitize_title( $doc_block['component'] );
-					$css_file_path  = self::find_component_css( $component_name );
+					$css_file_path  = self::find_component_css( $component_name, $file );
 					$js_file_path   = self::find_component_js( $component_name );
 
 					$components[ $component_name ] = array(
@@ -121,19 +121,84 @@ class ComponentScanner {
 	}
 
 	/**
-	 * Find component CSS file in build directory
+	 * Find component CSS file in build directory with cascading lookup
+	 *
+	 * Lookup strategy:
+	 * 1. /build/css/{component_name}.css (exact match in css build path)
+	 * 2. /build/{type}/{parent_dir}/style.css (parent index style in component directory)
+	 * 3. /build/{type}/{parent_dir}/index.css (parent alternative naming in component directory)
+	 * 4. /build/css/{parent_dir}/style.css (parent index style in css build path)
+	 * 5. /build/css/{parent_dir}/index.css (parent alternative naming in css build path)
 	 *
 	 * @param string $component_name The component name/slug.
+	 * @param string $file_path      The relative file path (e.g., "cards/article.php").
 	 * @return string|null CSS file path if found, null otherwise.
 	 */
-	private static function find_component_css( $component_name ) {
+	private static function find_component_css( $component_name, $file_path = '' ) {
 		$default_paths = self::get_scan_paths();
-		// Replace the placeholder with the actual component name.
+		$theme_dir     = get_template_directory();
+
+		// Strategy 1: Look for exact component CSS file in /build/css/
 		$component_css_path = str_replace( '{{component_name}}', $component_name, $default_paths['css_build_path'] );
-		$css_file_path      = get_template_directory() . $component_css_path;
+		$css_file_path      = $theme_dir . $component_css_path;
 
 		if ( file_exists( $css_file_path ) ) {
 			return $component_css_path;
+		}
+
+		// Strategy 2-5: Look for parent directory style files
+		// Extract parent directory from file path (e.g., "cards" from "cards/article.php")
+		if ( ! empty( $file_path ) ) {
+			$file_parts = explode( '/', $file_path );
+
+			// If file has a parent directory (e.g., cards/article.php)
+			if ( count( $file_parts ) > 1 ) {
+				// Get the parent directory name (e.g., "cards")
+				$parent_dir = $file_parts[0];
+
+				// Determine the component type directory (components, blocks, etc.)
+				// by checking which scan path directory contains this file
+				$scan_paths = self::get_scan_paths();
+				$type_dir   = '';
+
+				foreach ( $scan_paths as $type => $path ) {
+					if ( in_array( $type, array( 'css_build_path', 'js_build_path' ), true ) ) {
+						continue;
+					}
+
+					$full_path = $theme_dir . $path . '/' . $parent_dir;
+					if ( is_dir( $full_path ) ) {
+						$type_dir = $type;
+						break;
+					}
+				}
+
+				// Strategy 2: Try /build/{type}/{parent_dir}/style.css
+				if ( ! empty( $type_dir ) ) {
+					$build_component_style = '/build/' . $type_dir . '/' . $parent_dir . '/style.css';
+					if ( file_exists( $theme_dir . $build_component_style ) ) {
+						return $build_component_style;
+					}
+
+					// Strategy 3: Try /build/{type}/{parent_dir}/index.css
+					$build_component_index = '/build/' . $type_dir . '/' . $parent_dir . '/index.css';
+					if ( file_exists( $theme_dir . $build_component_index ) ) {
+						return $build_component_index;
+					}
+				}
+
+				// Strategy 4: Try /build/css/{parent_dir}/style.css
+				$parent_style_path = str_replace( '{{component_name}}', $parent_dir . '/style', $default_paths['css_build_path'] );
+				if ( file_exists( $theme_dir . $parent_style_path ) ) {
+					return $parent_style_path;
+				}
+
+				// Strategy 5: Try /build/css/{parent_dir}/index.css
+				$parent_index_path = str_replace( '{{component_name}}', $parent_dir . '/index', $default_paths['css_build_path'] );
+				if ( file_exists( $theme_dir . $parent_index_path ) ) {
+					return $parent_index_path;
+				}
+			}
 		}
 
 		return null;
