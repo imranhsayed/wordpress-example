@@ -1,11 +1,6 @@
 <?php
 /**
- * Component Tile Carousel Slide
- *
- * @component Tile Carousel
- * @description Carousel slide component.
- *
- * @group UI Elements
+ * Tile Carousel slide item component.
  *
  * @uses components/cards/image-tile
  *

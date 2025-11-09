@@ -74,6 +74,7 @@ aquila/
 │
 ├── template-parts/               # Template partials
 ├── vite.config.js               # Vite configuration ⭐
+├── theme.json                   # WordPress design tokens ⭐
 ├── package.json                 # Dependencies
 └── functions.php                # Theme initialization
 ```

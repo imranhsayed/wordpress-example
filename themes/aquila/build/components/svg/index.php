@@ -2,7 +2,7 @@
 /**
  * SVG Component.
  *
- * @package OneNovantaTheme\Components
+ * @package AquilaTheme\Components
  *
  * @component SVG
  * @description A reusable SVG component
@@ -12,12 +12,12 @@
  * }
  *
  * @example render_component( 'svg', [
- *   'name' => 'arrow-right',
+ *   'name' => 'arrow-right-thin',
  * ] );
  */
 
 // Return if required parameters are missing.
-if ( empty( $args ) || empty( $args['name'] ) || ! defined( 'ONE_NOVANTA_THEME_DIR' ) ) {
+if ( empty( $args ) || empty( $args['name'] ) || ! defined( 'AQUILA_THEME_DIR' ) ) {
 	return;
 }
 
@@ -27,7 +27,7 @@ $svg_name = $args['name'];
 // Generate file path.
 $file = sprintf(
 	'%1$s/src/svg/%2$s.svg',
-	untrailingslashit( ONE_NOVANTA_THEME_DIR ),
+	untrailingslashit( AQUILA_THEME_DIR ),
 	$svg_name,
 );
 

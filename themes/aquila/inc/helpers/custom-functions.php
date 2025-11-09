@@ -186,8 +186,31 @@ function aquila_kses_post( string $data ): string {
 		],
 	];
 
+	$slider_web_component_args = [
+		'rt-slider'        => [
+			'behavior'       => true,
+			'class'          => true,
+			'slides-to-show' => true,
+			'total'          => true,
+			'responsive'     => true,
+		],
+		'rt-slider-track'  => [
+			'class' => true,
+		],
+		'rt-slider-slides' => [
+			'class' => true,
+		],
+		'rt-slider-slide'  => [
+			'class' => true,
+		],
+		'rt-slider-arrow'  => [
+			'direction' => true,
+			'class'     => true,
+		],
+	];
+
 	// Updated allowed HTML tags array.
-	$allowed_tags = array_merge( $kses_defaults, $allowed_tags, $accordion_web_component_args );
+	$allowed_tags = array_merge( $kses_defaults, $allowed_tags, $accordion_web_component_args, $slider_web_component_args );
 
 	// Return escaped content.
 	return wp_kses( $data, $allowed_tags );

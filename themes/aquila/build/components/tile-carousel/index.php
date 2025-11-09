@@ -6,10 +6,24 @@
  * @description A reusable Carousel component.
  * @group UI Elements
  * @props {
- *   "heading": {"type": "string", "required": true, "description": "Main heading"},
- *   "content": {"type": "array", "required": true, "description": "List of cards (passed to image-text-card component)"},
+ *   "content": {"type": "string", "required": true, "description": "HTML markup for carousel slides"},
+ *   "totalSlides": {"type": "string", "required": false, "description": "Total number of slides"},
+ *   "wrapper_attributes": {"type": "string", "required": false, "description": "Additional wrapper attributes"}
  * }
- * @variations {}
+ * @variations {
+ *   "default": {
+ *     "content": "<rt-slider-slide class=\"tile-carousel__slide\"><div class=\"image-tile\"><a href=\"#\" class=\"image-tile__link\"><div class=\"image-tile__image-wrapper\"><img width=\"400\" height=\"400\" src=\"https://picsum.photos/400/400\" alt=\"Electronics\" class=\"image-tile__image\" /></div><div class=\"image-tile__content\"><span class=\"image-tile__pre-heading\">Industry 01</span><h3 class=\"image-tile__heading\">Electronics</h3></div></a></div></rt-slider-slide><rt-slider-slide class=\"tile-carousel__slide\"><div class=\"image-tile\"><a href=\"#\" class=\"image-tile__link\"><div class=\"image-tile__image-wrapper\"><img width=\"400\" height=\"400\" src=\"https://picsum.photos/400/400\" alt=\"Manufacturing\" class=\"image-tile__image\" /></div><div class=\"image-tile__content\"><span class=\"image-tile__pre-heading\">Industry 02</span><h3 class=\"image-tile__heading\">Manufacturing</h3></div></a></div></rt-slider-slide><rt-slider-slide class=\"tile-carousel__slide\"><div class=\"image-tile\"><a href=\"#\" class=\"image-tile__link\"><div class=\"image-tile__image-wrapper\"><img width=\"400\" height=\"400\" src=\"https://picsum.photos/400/400\" alt=\"Healthcare\" class=\"image-tile__image\" /></div><div class=\"image-tile__content\"><span class=\"image-tile__pre-heading\">Industry 03</span><h3 class=\"image-tile__heading\">Healthcare</h3></div></a></div></rt-slider-slide><rt-slider-slide class=\"tile-carousel__slide\"><div class=\"image-tile\"><a href=\"#\" class=\"image-tile__link\"><div class=\"image-tile__image-wrapper\"><img width=\"400\" height=\"400\" src=\"https://picsum.photos/400/400\" alt=\"Automotive\" class=\"image-tile__image\" /></div><div class=\"image-tile__content\"><span class=\"image-tile__pre-heading\">Industry 04</span><h3 class=\"image-tile__heading\">Automotive</h3></div></a></div></rt-slider-slide>",
+ *     "totalSlides": "4",
+ *     "wrapper_attributes": ""
+ *   }
+ * }
+ * @extra_allowed_tags {
+ *   "rt-slider": {"behavior": true, "class": true, "slides-to-show": true, "total": true, "responsive": true},
+ *   "rt-slider-track": {"class": true},
+ *   "rt-slider-slides": {"class": true},
+ *   "rt-slider-slide": {"class": true},
+ *   "rt-slider-arrow": {"direction": true, "class": true}
+ * }
  * @default {
  *      'heading'       => '',
  *      'content' => [],
