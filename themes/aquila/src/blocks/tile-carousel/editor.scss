@@ -1,0 +1,103 @@
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+@use "../../scss/mixins";
+@use "../../scss/variables";
+
+.tile-carousel-editor {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		margin-block: var(--wp--preset--spacing--40);
+		max-width: var(--wp--style--global--wide-size);
+	}
+
+	&__heading {
+		text-align: center;
+		margin-block-end: var(--wp--preset--spacing--50);
+	}
+
+	&__track {
+		margin-block-end: var(--wp--preset--spacing--60);
+	}
+
+	&__slides {
+		// Default style: It will be applied when the block is not in edit mode.
+		.block-editor-block-list__layout {
+			display: flex;
+			align-items: flex-start;
+			column-gap: var(--wp--preset--spacing--20);
+			max-width: 100%;
+			overflow-x: auto;
+
+			.image-tile {
+				// Only show 1 slide for mobile.
+				flex: 0 0 100%;
+
+				@media screen and (min-width: variables.$md) {
+					flex: 0 0 30%;
+				}
+			}
+		}
+
+		&--edit .block-editor-block-list__layout {
+			overflow-x: auto;
+			flex-wrap: wrap;
+			row-gap: var(--wp--preset--spacing--20);
+		}
+	}
+
+	&__slide {
+		// Only show 1 slide for mobile.
+		flex: 0 0 100%;
+
+		@media screen and (min-width: variables.$md) {
+			// Show multiple slide more screen larger than tab.
+			flex: none;
+		}
+	}
+
+	&__navigation {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		&-arrow {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			&-button {
+				border: none;
+				border-radius: 50%;
+				cursor: not-allowed;
+				background-color: #dbdbdb;
+				width: var(--wp--preset--spacing--60);
+				height: var(--wp--preset--spacing--60);
+			}
+
+			&--previous {
+				margin-right: var(--wp--preset--spacing--30);
+
+				img {
+					transform: rotate(180deg);
+				}
+			}
+		}
+	}
+}
+
+.tile-carousel-editor__settings-panel {
+	// The settings panel for the carousel block.
+	&__media--info {
+		margin-block-start: var(--wp--preset--spacing--20);
+		color: var(--textAlert);
+	}
+}
