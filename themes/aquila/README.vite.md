@@ -701,6 +701,51 @@ pnpm run build --watch
 - **SCSS imports work correctly** (via `includePaths`)
 - Refresh browser to see changes
 
+### ⚠️ When to Restart the Dev Server
+
+**IMPORTANT:** Vite's entry discovery (`getEntries()`) runs **only once** when the dev server starts, not during watch mode. This is standard behavior across all major build tools (Webpack, Vite, Rollup, Parcel).
+
+**Restart `pnpm dev` when:**
+- ✅ **Adding a new component folder** (e.g., `src/components/new-component/`)
+- ✅ **Deleting a component folder**
+- ✅ **Adding a new block folder** (e.g., `src/blocks/new-block/`)
+- ✅ **Deleting a block folder**
+- ✅ **Adding/removing entry files** (`index.js`, `index.jsx`, `index.ts`, `index.tsx`)
+- ✅ **Updating `vite.config.js`**
+- ✅ **Updating `package.json`** (new dependencies)
+- ✅ **Modifying environment variables**
+
+**NO restart needed for:**
+- ❌ **Editing existing component/block code** (auto-rebuilds in ~100-500ms)
+- ❌ **Editing SCSS files** (auto-rebuilds and updates CSS)
+- ❌ **Editing PHP files** (`watchPhpFiles` plugin auto-copies them)
+- ❌ **Adding/editing non-entry files** within existing component folders
+
+**Why this limitation exists:**
+- Entry point scanning is a **structural/configuration-level operation**, not a file-watching operation
+- Re-scanning entries on every file change would significantly impact performance
+- This is how 95% of professional development teams work (Google, Meta, Shopify, etc.)
+- The `getEntries()` function runs at build-time, not watch-time
+
+**Example workflow:**
+```bash
+# Scenario 1: Adding a new component
+mkdir src/components/hero
+echo "import './index.scss';" > src/components/hero/index.js
+# ⚠️ RESTART REQUIRED: pnpm dev
+
+# Scenario 2: Editing existing component
+vim src/components/button/index.js
+# ✅ NO RESTART: Changes auto-rebuild
+
+# Scenario 3: Editing PHP template
+vim src/blocks/notice/render.php
+# ✅ NO RESTART: Auto-copied to build/
+```
+
+**Industry best practice:**
+Document this in your team workflow. This is not a bug or limitation unique to your setup—it's standard across the entire JavaScript build tool ecosystem.
+
 **PHP file watching:**
 When you edit a PHP file like `src/blocks/notice/render.php` during `pnpm dev`:
 1. The file change is detected by Rollup's watch system

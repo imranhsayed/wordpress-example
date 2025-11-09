@@ -2,8 +2,8 @@
  * Component: Title Carousel.
  */
 
-@use "../../../scss/variables";
-@use "~@rtcamp/web-components/build/slider/style";
+@use "@/scss/variables";
+@use "@rtcamp/web-components/build/slider/style";
 
 .tile-carousel {
 	$self: &;
