@@ -210,6 +210,7 @@ function wrapInIIFE() {
 				'@wordpress/dom-ready': 'wp.domReady',
 				'@wordpress/server-side-render': 'wp.serverSideRender',
 				'@wordpress/core-data': 'wp.coreData',
+				'@wordpress/notices': 'wp.notices',
 				'react': 'React',
 				'react-dom': 'ReactDOM',
 				'react/jsx-runtime': 'ReactJSXRuntime',
@@ -444,6 +445,7 @@ function copyBlockJson() {
 						'@wordpress/dom-ready': 'wp-dom-ready',
 						'@wordpress/server-side-render': 'wp-server-side-render',
 						'@wordpress/core-data': 'wp-core-data',
+						'@wordpress/notices': 'wp-notices',
 					};
 
 					const dependencies = new Set();
@@ -595,6 +597,7 @@ export default defineConfig( {
 				'@wordpress/dom-ready',
 				'@wordpress/server-side-render',
 				'@wordpress/core-data',
+				'@wordpress/notices',
 			],
 			output: {
 				format: 'es', // ES modules format

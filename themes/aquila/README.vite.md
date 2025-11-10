@@ -185,6 +185,59 @@ if (chunk.type === 'chunk') {
 
 This allows default imports like `import ServerSideRender from '@wordpress/server-side-render'` to work correctly even when code-split.
 
+#### Adding New WordPress Packages
+
+When you need to use a new WordPress package in your blocks or components, you must add it to **THREE places** in `vite.config.js`:
+
+**Example:** Adding `@wordpress/notices`
+
+1. **Find the error**: Vite will show a resolution error:
+   ```
+   Rollup failed to resolve import "@wordpress/notices" from "src/block-components/MediaPreview/index.jsx"
+   ```
+
+2. **Add to wpDependencies mapping** in `vite.config.js` (around line 435):
+   ```javascript
+   const wpDependencies = {
+     '@wordpress/blocks': 'wp-blocks',
+     '@wordpress/i18n': 'wp-i18n',
+     // ... other packages
+     '@wordpress/notices': 'wp-notices',  // ← Add here for .asset.php generation
+   };
+   ```
+
+3. **Add to wpGlobals mapping** in `vite.config.js` (around line 200):
+   ```javascript
+   const wpGlobals = {
+     '@wordpress/blocks': 'wp.blocks',
+     '@wordpress/i18n': 'wp.i18n',
+     // ... other packages
+     '@wordpress/notices': 'wp.notices',  // ← Add here for IIFE wrapper
+   };
+   ```
+
+4. **Add to external array** in `vite.config.js` (around line 585):
+   ```javascript
+   external: [
+     'react',
+     'react-dom',
+     'react/jsx-runtime',
+     '@wordpress/element',
+     '@wordpress/i18n',
+     // ... other packages
+     '@wordpress/notices',  // ← Add here to prevent bundling
+   ],
+   ```
+   - Reference: [WordPress Packages documentation](https://developer.wordpress.org/block-editor/reference-guides/packages/)
+
+**Common WordPress Packages:**
+- `@wordpress/notices` → `wp.notices` (for notifications)
+- `@wordpress/editor` → `wp.editor` (editor functionality)
+- `@wordpress/rich-text` → `wp.richText` (rich text formatting)
+- `@wordpress/compose` → `wp.compose` (higher-order components)
+- `@wordpress/keycodes` → `wp.keycodes` (keyboard shortcuts)
+- `@wordpress/url` → `wp.url` (URL utilities)
+
 ### 4. Block Metadata & Asset Generation (Recursive)
 
 ```javascript

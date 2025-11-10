@@ -2,6 +2,47 @@
 
 The `theme.json` file defines WordPress design tokens that are automatically converted to CSS custom properties.
 
+## Adding Brand Colors.
+
+```json
+  {
+    "settings": {
+      "color": {
+        "defaultPalette": false,    // Disables WordPress default colors
+        "text": false,              // Disables text color control
+        "background": true,         // Enables background color control
+        "link": false,              // Disables link color control
+        "custom": false,            // Disables custom color picker
+        "defaultGradients": false,  // Disables default gradients
+        "palette": [
+          {
+            "slug": "foreground",
+            "color": "#000",
+            "name": "Foreground"
+          },
+          {
+            "slug": "primary",
+            "color": "#d9272d",
+            "name": "Primary"
+          },
+          {
+            "slug": "secondary",
+            "color": "#f5f5f5",
+            "name": "Secondary"
+          }
+          // ... more colors
+        ]
+      }
+    }
+  }
+```
+
+How to use:
+- Colors will be available in the block editor color picker
+- Accessible via CSS: var(--wp--preset--color--primary), var(--wp--preset--color--secondary), etc.
+- The slug is used in CSS variables
+- The name is what users see in the editor
+
 ## Spacing Presets
 
 The theme defines 6 responsive spacing presets:
