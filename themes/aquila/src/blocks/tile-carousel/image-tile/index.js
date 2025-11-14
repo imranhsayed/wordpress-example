@@ -29,7 +29,7 @@ import metadata from './block.json';
  *
  * @see https://developer.wordpress.org/block-editor/developers/block-api/#registering-a-block
  */
-registerBlockType( metadata.name, {
+const registeredBlock = registerBlockType( metadata.name, {
 	/**
 	 * @see ./edit.js
 	 */
@@ -40,3 +40,28 @@ registerBlockType( metadata.name, {
 	 */
 	save: Save,
 } );
+
+// Client-side debugging
+// eslint-disable-next-line no-console
+console.log('Aquila Notice Block Registration:', {
+	blockName: metadata.name,
+	registered: !!registeredBlock,
+	metadata,
+});
+
+// Check if block is available in the editor
+if (typeof wp !== 'undefined' && wp.data) {
+	wp.data.subscribe(() => {
+		const blockTypes = wp.data.select('core/blocks').getBlockTypes();
+		const ourBlock = blockTypes.find(
+			(block) => block.name === metadata.name
+		);
+		if (ourBlock) {
+			// eslint-disable-next-line no-console
+			console.log(
+				'✅ Image Tile Block is available in editor:',
+				ourBlock
+			);
+		}
+	});
+}

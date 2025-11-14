@@ -17,9 +17,7 @@
 		}
 	},
 	"parent": [
-		"aquila/articles-collage",
-		"aquila/tile-carousel",
-		"aquila/image-text-cards"
+		"aquila/tile-carousel"
 	],
 	"supports": {
 		"inserter": false
@@ -43,6 +41,6 @@
 	],
 	"textdomain": "aquila-theme",
 	"editorScript": "file:./index.js",
-	"editorStyle": "file:./index.css",
+  "style": "file:./style.css",
 	"render": "file:./render.php"
 }

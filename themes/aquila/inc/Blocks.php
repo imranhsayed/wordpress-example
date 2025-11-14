@@ -148,18 +148,28 @@ class Blocks {
 	 */
 	public function test_block_registration(): void {
 		$registry = \WP_Block_Type_Registry::get_instance();
+		$all_blocks = $registry->get_all_registered();
 
-		if ($registry->is_registered('aquila/notice')) {
-			error_log('SUCCESS: Notice block is registered!');
-			$notice_block = $registry->get_registered('aquila/notice');
-			error_log('Block name: ' . $notice_block->name);
-			error_log('Block title: ' . $notice_block->title);
+		// Get all aquila blocks
+		$aquila_blocks = array_filter(array_keys($all_blocks), function($block_name) {
+			return strpos($block_name, 'aquila/') === 0;
+		});
+
+		error_log('=== AQUILA BLOCKS REGISTERED ===');
+		error_log('Total Aquila blocks: ' . count($aquila_blocks));
+		error_log('Aquila blocks: ' . implode(', ', $aquila_blocks));
+
+		// Check for tile-carousel and image-tile specifically
+		if ($registry->is_registered('aquila/tile-carousel')) {
+			error_log('✓ tile-carousel is registered');
 		} else {
-			error_log('ERROR: Notice block is NOT registered');
-			// Get all registered blocks using a different approach
-			$all_blocks = $registry->get_all_registered();
-			error_log('Total registered blocks: ' . count($all_blocks));
-			error_log('Available blocks: ' . implode(', ', array_keys($all_blocks)));
+			error_log('✗ tile-carousel is NOT registered');
+		}
+
+		if ($registry->is_registered('aquila/image-tile')) {
+			error_log('✓ image-tile is registered');
+		} else {
+			error_log('✗ image-tile is NOT registered');
 		}
 	}
 

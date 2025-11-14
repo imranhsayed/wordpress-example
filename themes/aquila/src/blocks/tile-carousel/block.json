@@ -58,11 +58,11 @@
 		"aquila/imageRatio": "imageRatio"
 	},
 	"supports": {
-		"inserter": false
+		"inserter": true
 	},
 	"textdomain": "aquila-theme",
 	"editorScript": "file:./index.js",
-	"editorStyle": "file:./index.css",
+	"editorStyle": "file:./style.css",
 	"render": "file:./render.php",
-	"viewScript": "aquila-web-component-slider"
+  "viewScript": "file:./view.js"
 }

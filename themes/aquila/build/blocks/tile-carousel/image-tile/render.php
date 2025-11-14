@@ -16,7 +16,7 @@
  * @package AquilaTheme\Blocks
  */
 
-use Aquila\Controllers\Common\Template;
+use Aquila\Theme\Template;
 
 // Get the button block attributes.
 $wrapper_attributes = get_block_wrapper_attributes();
