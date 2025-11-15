@@ -29,7 +29,7 @@ import metadata from './block.json';
  *
  * @see https://developer.wordpress.org/block-editor/developers/block-api/#registering-a-block
  */
-const registeredBlock = registerBlockType( metadata.name, {
+const registeredBlock = registerBlockType(metadata.name, {
 	/**
 	 * @see ./edit.js
 	 */
@@ -39,7 +39,7 @@ const registeredBlock = registerBlockType( metadata.name, {
 	 * @see ./save.js
 	 */
 	save: Save,
-} );
+});
 
 // Client-side debugging
 // eslint-disable-next-line no-console

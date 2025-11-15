@@ -17,14 +17,14 @@
 	.block-editor-media-placeholder {
 		width: 100%;
 		height: 100%;
-    border-radius: var(--wp--custom--border-radius-normal);
-    display: flex;
-    justify-content: center;
+		border-radius: var(--wp--custom--border-radius-normal);
+		display: flex;
+		justify-content: center;
 	}
 
-  &__image-wrap{
-    margin-bottom: 1em;
-  }
+	&__image-wrap {
+		margin-bottom: 1em;
+	}
 }
 
 .image-tile__settings-panel {

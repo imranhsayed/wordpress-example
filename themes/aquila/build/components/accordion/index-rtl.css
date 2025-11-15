@@ -1,0 +1,126 @@
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/.pnpm/css-loader@6.11.0_webpack@5.102.1/node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!../../node_modules/.pnpm/postcss-loader@6.2.1_postcss@8.5.6_webpack@5.102.1/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!../../node_modules/.pnpm/sass-loader@16.0.6_sass@1.93.3_webpack@5.102.1/node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/components/accordion/index.scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/**
+ * Component: Accordion.
+ */
+/**
+ * SCSS Variables
+ */
+rt-accordion, rt-accordion-item, rt-accordion-handle {
+  display: block;
+}
+rt-accordion-expand-all, rt-accordion-collapse-all {
+  display: inline-block;
+}
+rt-accordion-content {
+  display: block;
+  height: 0;
+  overflow: hidden;
+  transition-property: height;
+  transition-duration: 0.5s;
+  transition-timing-function: ease;
+}
+rt-accordion-item[open-by-default=yes] rt-accordion-content {
+  height: auto;
+}
+.wp-aquila-accordion {
+  max-width: 100%;
+}
+.wp-aquila-accordion__wrapper {
+  display: block;
+}
+.wp-aquila-accordion__item {
+  padding-block: 26px;
+  border-bottom: 1px solid var(--wp--preset--color--black);
+}
+.wp-aquila-accordion__item:first-child {
+  border-top: 1px solid var(--wp--preset--color--black);
+}
+.wp-aquila-accordion__item[aria-expanded=true] .wp-aquila-accordion__heading::after {
+  transform: rotate(90deg);
+}
+.wp-aquila-accordion__handle {
+  display: block;
+  width: 100%;
+  cursor: pointer;
+}
+.wp-aquila-accordion__handle button {
+  width: 100%;
+}
+.wp-aquila-accordion__heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--wp--preset--font-size--medium);
+  text-align: right;
+  width: 100%;
+  color: var(--wp--preset--color--foreground);
+  font-weight: 600;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
+  line-height: 1.4;
+}
+@media screen and (min-width: 768px) {
+  .wp-aquila-accordion__heading {
+    font-size: var(--wp--preset--font-size--medium);
+  }
+}
+.wp-aquila-accordion__heading {
+  /* stylelint-disable-next-line no-descending-specificity */
+}
+.wp-aquila-accordion__heading::after {
+  content: "";
+  display: inline-block;
+  flex-shrink: 0;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzEiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMSAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMjkuNDgwNSAxLjUyMDExVjMxSDAuMDAwNTcwMjk3IiBzdHJva2U9ImN1cnJlbnRDb2xvciIvPjxsaW5lIHgxPSIwLjM1MzU1MyIgeTE9IjEuMTY2NTYiIHgyPSIyOS44MzM1IiB5Mj0iMzAuNjQ2NSIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiLz48L3N2Zz4=);
+  transition: transform 0.3s ease;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  width: var(--wp--preset--spacing--20);
+  height: var(--wp--preset--spacing--20);
+  margin-right: 16px;
+}
+@media screen and (min-width: 768px) {
+  .wp-aquila-accordion__heading::after {
+    width: var(--wp--preset--spacing--30);
+    height: var(--wp--preset--spacing--30);
+    margin-right: 24px;
+  }
+}
+.wp-aquila-accordion__heading:hover {
+  opacity: 0.8;
+}
+.wp-aquila-accordion__heading:focus-visible {
+  outline: 2px solid Highlight;
+  outline-offset: 2px;
+}
+@media (prefers-contrast: more) {
+  .wp-aquila-accordion__heading:focus-visible {
+    outline: 2px solid CanvasText;
+  }
+}
+.wp-aquila-accordion__content {
+  overflow: hidden;
+  transition-duration: 0.3s;
+  transition-property: height, opacity;
+}
+.wp-aquila-accordion__content-wrap {
+  padding-block-end: 0;
+  padding-block-start: var(--wp--preset--spacing--20);
+}
+@media screen and (min-width: 768px) {
+  .wp-aquila-accordion__content-wrap {
+    padding-block-start: 25px;
+  }
+}
+.wp-aquila-accordion__content-wrap p {
+  margin-bottom: 1em;
+}
+.wp-aquila-accordion__content-wrap p:last-child {
+  margin-bottom: 0;
+}

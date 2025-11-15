@@ -9,14 +9,14 @@
 	display: flex;
 	align-items: start;
 	flex-direction: column;
-	
+
 	@media screen and (min-width: variables.$md) {
 		align-items: center;
 		flex-direction: row;
 	}
 
 	// Overwrite the parent grid.
-	.grid:has( > & ) {
+	.grid:has(> &) {
 		row-gap: var(--wp--preset--spacing--40);
 
 		@include mixins.grid-columns(1);

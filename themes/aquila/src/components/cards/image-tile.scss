@@ -54,7 +54,8 @@
 		}
 	}
 
-	// Apply an outline to the parent when a child with `--stretched-link` is focus-visible.
+	// Apply an outline to the parent when a child with
+	// `--stretched-link` is focus-visible.
 	&:has(.stretched-link:focus-visible) {
 		outline: 1px auto Highlight; /* Fallback color */
 		outline: 1px auto -webkit-focus-ring-color; /* WebKit-specific */

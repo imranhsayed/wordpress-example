@@ -5,5 +5,3 @@
  */
 import './index.scss';
 import '@rtcamp/web-components/build/accordion';
-
-console.log('Accordion component loaded');

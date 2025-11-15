@@ -21,37 +21,37 @@ import { store as noticesStore } from '@wordpress/notices';
  *
  * @return {Element} Element to render.
  */
-export default function MediaControls( {
-   imageID,
-   imageURL,
-   hasImageLabel = __( 'Replace image', 'one-novanta-theme' ),
-   noImageLabel = __( 'Add image', 'one-novanta-theme' ),
-   onSelectMedia,
-   onResetMedia,
-   noticeId = 'media-upload-error',
-} ) {
+export default function MediaControls({
+	imageID,
+	imageURL,
+	hasImageLabel = __('Replace image', 'one-novanta-theme'),
+	noImageLabel = __('Add image', 'one-novanta-theme'),
+	onSelectMedia,
+	onResetMedia,
+	noticeId = 'media-upload-error',
+}) {
 	// Check if image is present
-	const hasImage = Boolean( imageID ) && imageID > 0;
-	
+	const hasImage = Boolean(imageID) && imageID > 0;
+
 	// Create media upload error notice
-	const errorNotice = ( message ) => {
-		dispatch( noticesStore ).createErrorNotice( message, {
+	const errorNotice = (message) => {
+		dispatch(noticesStore).createErrorNotice(message, {
 			type: 'snackbar',
 			id: noticeId,
-		} );
+		});
 	};
-	
+
 	return (
 		<ToolbarGroup>
 			<MediaReplaceFlow
-				mediaId={ imageID }
-				mediaURL={ imageURL }
-				allowedTypes={ [ 'image' ] }
+				mediaId={imageID}
+				mediaURL={imageURL}
+				allowedTypes={['image']}
 				accept="image/*"
-				name={ hasImage ? hasImageLabel : noImageLabel }
-				onSelect={ onSelectMedia }
-				onError={ errorNotice }
-				onReset={ onResetMedia }
+				name={hasImage ? hasImageLabel : noImageLabel}
+				onSelect={onSelectMedia}
+				onError={errorNotice}
+				onReset={onResetMedia}
 			/>
 		</ToolbarGroup>
 	);

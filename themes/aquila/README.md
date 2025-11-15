@@ -1,8 +1,8 @@
 # Aquila Theme - WordPress Block Theme
 
-A modern WordPress theme built with Vite for blazing-fast development and optimized production builds. This theme demonstrates how to integrate modern build tooling with WordPress's block editor and theme architecture.
+A modern WordPress theme built with `@wordpress/scripts` for optimized development and production builds. This theme demonstrates how to integrate WordPress's official build tooling with the block editor and theme architecture.
 
-> 📖 **For detailed Vite configuration and build system documentation, see [README.vite.md](./README.vite.md)**
+> 📖 **For detailed build system documentation, see [docs/README.build.md](./docs/README.build.md)**
 
 ## 📁 Project Structure
 
@@ -73,7 +73,11 @@ aquila/
 │       └── custom-functions.php # Helper functions
 │
 ├── template-parts/               # Template partials
-├── vite.config.js               # Vite configuration ⭐
+├── docs/                         # Documentation
+│   ├── README.build.md          # Build system documentation ⭐
+│   ├── README.fonts.md          # Font configuration
+│   └── README.theme-json.md     # theme.json guide
+├── webpack.config.js            # Webpack configuration ⭐
 ├── theme.json                   # WordPress design tokens ⭐
 ├── package.json                 # Dependencies
 └── functions.php                # Theme initialization
@@ -155,15 +159,16 @@ public function enqueue_frontend_assets() {
 
 ## 📖 Documentation
 
-- **[README.vite.md](./README.vite.md)** - Complete Vite configuration guide
+- **[docs/README.build.md](./docs/README.build.md)** - Complete build system guide
+  - How @wordpress/scripts is configured
+  - Custom webpack configuration
   - Entry point discovery
-  - CSS co-location plugin
-  - WordPress IIFE wrapper
-  - Block metadata generation
-  - PHP file watching
-  - SCSS configuration with includePaths
-  - Build configuration
+  - Custom webpack plugins
+  - CSS naming conventions (style.css)
+  - TypeScript support
+  - Build process flow
   - Development workflow
+  - Performance optimization
   - Troubleshooting
 
 - **[src/blocks/README.md](./src/blocks/README.md)** - Block development guide
@@ -172,6 +177,10 @@ public function enqueue_frontend_assets() {
   - How render.php works
   - Dynamic vs static blocks
   - Common patterns
+
+- **[docs/README.fonts.md](./docs/README.fonts.md)** - Font configuration guide
+
+- **[docs/README.theme-json.md](./docs/README.theme-json.md)** - Theme.json documentation
 
 ## 🛠️ Quick Start
 
@@ -186,18 +195,19 @@ pnpm run dev
 pnpm run build
 ```
 
-For detailed build system documentation, see [README.vite.md](./README.vite.md).
+For detailed build system documentation, see [docs/README.build.md](./docs/README.build.md).
 
 ## 📚 Additional Resources
 
 - [WordPress Block Editor Handbook](https://developer.wordpress.org/block-editor/)
 - [Block API Reference](https://developer.wordpress.org/block-editor/reference-guides/block-api/)
+- [@wordpress/scripts Documentation](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-scripts/)
 - [React Documentation](https://react.dev/)
-- [README.vite.md](./README.vite.md) - Complete Vite configuration guide
+- [docs/README.build.md](./docs/README.build.md) - Complete build system guide
 - [src/blocks/README.md](./src/blocks/README.md) - Block development guide
 
 ---
 
-**Last Updated**: November 2024
+**Last Updated**: January 2025
 
 **Happy coding! 🎉**
