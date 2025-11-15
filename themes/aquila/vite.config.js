@@ -603,6 +603,8 @@ export default defineConfig( {
 				format: 'es', // ES modules format
 				entryFileNames: ( chunk ) => `${ chunk.name }.js`,
 				assetFileNames: `[name][extname]`,
+				// Prevent code splitting - bundle all dependencies into each entry
+				manualChunks: undefined,
 				// Use paths to map WordPress globals
 				paths: {
 					'react': 'react',
