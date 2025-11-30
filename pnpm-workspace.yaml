@@ -1,6 +1,5 @@
 packages:
   - themes/aquila
-  - themes/postmedia-master
 
 onlyBuiltDependencies:
   - '@parcel/watcher'
