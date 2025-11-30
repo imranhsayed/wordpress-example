@@ -7,9 +7,9 @@ A modern WordPress development environment demonstrating best practices for them
 This `wp-content` directory showcases a production-ready WordPress setup using:
 
 - **Monorepo Management**: PNPM workspaces
-- **Modern Build Tools**: Vite for theme assets, @wordpress/scripts for plugins
+- **Modern Build Tools**: @wordpress/scripts with custom webpack configuration
 - **Component Architecture**: Reusable blocks and components
-- **Type Safety**: PHP namespaces and modern JavaScript
+- **Type Safety**: TypeScript support (optional), PHP namespaces and modern JavaScript
 
 ## 📦 Technology Stack
 
@@ -19,15 +19,24 @@ This `wp-content` directory showcases a production-ready WordPress setup using:
 
 ### Build Tools
 
-#### Aquila Theme (Vite-based)
-- **Vite** (v7.1.9): Lightning-fast build tool with HMR
-- **React** (v19.2.0): For building interactive block editor components
-- **Sass**: CSS preprocessing
-- **PostCSS + Autoprefixer**: CSS post-processing
-- **Custom Vite Plugins**:
-  - `wrapInIIFE()`: Converts ES modules to WordPress-compatible IIFE format
-  - `placeCssWithEntry()`: Co-locates CSS with JS bundles
-  - `copyBlockJson()`: Handles WordPress block metadata and generates `.asset.php` files
+#### Aquila Theme (@wordpress/scripts)
+- **@wordpress/scripts**: Official WordPress build tooling with custom webpack configuration
+- **Webpack**: Module bundler (used internally by @wordpress/scripts)
+- **React** (v19+): For building interactive block editor components
+- **Sass**: CSS preprocessing via webpack loaders
+- **PostCSS + Autoprefixer**: CSS post-processing (built-in)
+- **TypeScript**: Optional type safety for non-block files
+- **Custom Webpack Plugins**:
+  - `CopyPhpFilesPlugin`: Copies PHP files from src to build
+  - `BlockAssetsPlugin`: Handles block.json and render.php copying
+  - `CleanupScssEntriesPlugin`: Removes unnecessary JS files from CSS builds
+  - `RenameBlockCssPlugin`: Renames index.css → style.css for WordPress conventions
+- **Features**:
+  - Automatic entry point discovery (blocks, components, SCSS)
+  - Automatic `.asset.php` generation for dependency management
+  - Recursive block scanning (supports nested blocks)
+  - SVG imports as React components (@svgr/webpack)
+  - RTL CSS generation
 
 #### Todo-List Plugin (@wordpress/scripts)
 - **@wordpress/scripts**: Official WordPress build tooling
@@ -42,24 +51,58 @@ This `wp-content` directory showcases a production-ready WordPress setup using:
 
 ## 🎯 Key Features
 
-### 1. **Vite + WordPress Integration**
-The Aquila theme demonstrates how to use Vite (a modern, fast build tool) with WordPress:
+### 1. **@wordpress/scripts + Custom Webpack Configuration**
+The Aquila theme demonstrates how to extend @wordpress/scripts with custom webpack configuration:
 
 ```javascript
-// Custom Vite plugin wraps ES modules in IIFE for WordPress compatibility
-function wrapInIIFE() {
-  // Converts: import { registerBlockType } from '@wordpress/blocks'
-  // To: const { registerBlockType } = wp.blocks
+// Custom webpack plugin for WordPress block CSS naming conventions
+class RenameBlockCssPlugin {
+  apply(compiler) {
+    compiler.hooks.compilation.tap('RenameBlockCssPlugin', (compilation) => {
+      // Renames index.css → style.css in-memory before writing to disk
+      compilation.hooks.processAssets.tap({
+        name: 'RenameBlockCssPlugin',
+        stage: compilation.PROCESS_ASSETS_STAGE_OPTIMIZE_TRANSFER,
+      }, (assets) => {
+        // In-memory renaming for optimal performance
+      });
+    });
+  }
 }
 ```
 
 **Benefits:**
-- ⚡ Instant HMR (Hot Module Replacement)
-- 📦 Optimized production builds
-- 🔧 Modern JavaScript (ES2020+)
-- 🎨 SCSS/PostCSS support
+- 🎯 WordPress standards and best practices out-of-the-box
+- 📦 Optimized production builds with automatic dependency extraction
+- 🔧 Modern JavaScript (ES2020+) with optional TypeScript
+- 🎨 SCSS/PostCSS support with RTL CSS generation
+- 🚀 Fast rebuilds with webpack's caching
+- 🔄 Automatic WordPress externals (React, @wordpress/* packages)
 
-### 2. **Monorepo with PNPM Workspaces**
+### 2. **Automatic Entry Point Discovery**
+The custom webpack configuration automatically discovers all entry points:
+
+```javascript
+function getEntries() {
+  const entries = {};
+
+  // Automatically finds:
+  // - All blocks (recursive scan supports nested blocks)
+  // - All components
+  // - All SCSS files
+  // - Global entry point
+
+  return entries;
+}
+```
+
+**Benefits:**
+- ✅ No manual entry configuration needed
+- ✅ Supports nested blocks (e.g., accordion/accordion-item)
+- ✅ Automatic SCSS compilation
+- ✅ Scalable architecture
+
+### 3. **Monorepo with PNPM Workspaces**
 Efficient workspace management across themes and plugins:
 
 ```json
@@ -75,35 +118,48 @@ Efficient workspace management across themes and plugins:
 - 📦 Shared dependencies
 - 🔧 Consistent tooling
 
-### 3. **Custom Gutenberg Blocks**
-Both theme and plugin include custom blocks:
+### 4. **Custom Gutenberg Blocks**
+Theme includes custom blocks with advanced features:
 
 **Aquila Theme Blocks:**
+- `aquila/accordion` + `aquila/accordion-item`: Nested block pattern
+- `aquila/tile-carousel` + `aquila/image-tile`: Interactive carousel with nested tiles
 - `aquila/notice`: Server-side rendered notice block
 - `aquila/todo-list`: Interactive todo list block
+- `aquila/related-articles`: Dynamic content block
 
 **Features:**
 - ✅ Server-side rendering with `render.php`
+- ✅ Nested block support (parent/child relationships)
 - ✅ RichText editing with WordPress block editor
 - ✅ Custom attributes and supports
 - ✅ Automatic dependency injection via `.asset.php`
+- ✅ Frontend interactivity with view.js scripts
 
-### 4. **Asset Management**
-Sophisticated asset handling system:
+### 5. **Asset Management**
+Sophisticated asset handling system powered by webpack's DependencyExtractionWebpackPlugin:
 
 ```php
-// Automatic .asset.php generation by Vite
+// Automatic .asset.php generation by @wordpress/scripts
 <?php return array(
-  'dependencies' => array('wp-blocks', 'wp-i18n', 'wp-block-editor', 'react-jsx-runtime'),
-  'version' => 'mh8azskx'
+  'dependencies' => array(
+    'react-jsx-runtime',
+    'wp-block-editor',
+    'wp-blocks',
+    'wp-components',
+    'wp-element',
+    'wp-i18n'
+  ),
+  'version' => '304bc867941f7fe38749'
 );
 ```
 
 **Features:**
-- 📝 Auto-generated dependency manifests
-- 🔄 Version hashing for cache busting
-- 🎯 Scoped CSS per component/block
-- 📦 Code splitting and lazy loading
+- 📝 Auto-generated dependency manifests with accurate WordPress package detection
+- 🔄 Content-based version hashing for cache busting
+- 🎯 Scoped CSS per component/block (named style.css for WordPress conventions)
+- 📦 WordPress externals automatically configured (React, @wordpress/* not bundled)
+- 🌍 Automatic RTL CSS generation for internationalization
 
 ## 📁 Directory Structure
 
@@ -111,17 +167,40 @@ Sophisticated asset handling system:
 wp-content/
 ├── package.json              # Root workspace config
 ├── pnpm-workspace.yaml       # PNPM workspace definition
+├── README.md                 # This file
 │
 ├── themes/
-│   └── aquila/              # Custom theme with Vite
+│   └── aquila/              # Custom theme with @wordpress/scripts
 │       ├── src/
-│       │   ├── blocks/      # Custom Gutenberg blocks
+│       │   ├── blocks/      # Custom Gutenberg blocks (nested support)
+│       │   │   ├── accordion/
+│       │   │   │   └── accordion-item/  # Nested child block
+│       │   │   ├── tile-carousel/
+│       │   │   │   └── image-tile/      # Nested child block
+│       │   │   ├── notice/
+│       │   │   ├── todo-list/
+│       │   │   └── related-articles/
 │       │   ├── components/  # Reusable components
+│       │   │   ├── accordion/
+│       │   │   ├── button/
+│       │   │   ├── cards/
+│       │   │   ├── grid/
+│       │   │   └── tile-carousel/
+│       │   ├── scss/        # Global SCSS files
 │       │   ├── style.scss   # Main stylesheet
 │       │   └── index.js     # Entry point
-│       ├── build/           # Compiled assets
+│       ├── build/           # Compiled assets (auto-generated)
+│       │   ├── blocks/      # Compiled blocks with .asset.php files
+│       │   ├── components/  # Compiled components
+│       │   └── css/         # Compiled stylesheets
 │       ├── inc/             # PHP classes (OOP)
-│       ├── vite.config.js   # Vite configuration
+│       ├── docs/            # Documentation
+│       │   ├── README.build.md      # Build system guide ⭐
+│       │   ├── README.fonts.md      # Font configuration
+│       │   └── README.theme-json.md # theme.json guide
+│       ├── webpack.config.js # Custom webpack configuration ⭐
+│       ├── tsconfig.json    # TypeScript configuration
+│       ├── theme.json       # WordPress design tokens
 │       └── package.json     # Theme dependencies
 │
 └── plugins/
@@ -153,7 +232,7 @@ pnpm dev
 
 # Or run specific theme
 cd themes/aquila
-pnpm run build --watch
+pnpm run dev
 ```
 
 3. **Production build:**
@@ -164,6 +243,12 @@ pnpm build
 # Or build specific theme
 cd themes/aquila
 pnpm run build
+```
+
+4. **Type checking (optional):**
+```bash
+cd themes/aquila
+pnpm run type-check
 ```
 
 ### Using NVM (Node Version Manager)
@@ -177,18 +262,26 @@ pnpm dev
 
 ### Theme Development (Aquila)
 ```bash
-
-# Development with watch mode( Run from the root )
-pnpm dev
+# Development with watch mode (from theme directory)
+cd themes/aquila
+pnpm run dev
 
 # Production build
-pnpm build
+pnpm run build
+
+# Type checking (TypeScript)
+pnpm run type-check
 
 # Linting
-pnpm lint
+pnpm run lint
+pnpm run lint:fix
+
+# CSS linting
+pnpm run lint:css
+pnpm run lint:css:fix
 
 # Format code
-pnpm format
+pnpm run format
 ```
 
 ### Plugin Development (Todo-List)
@@ -224,43 +317,77 @@ src/blocks/my-block/
   "category": "aquila",
   "editorScript": "file:./index.js",
   "style": "file:./style.css",
-  "render": "file:./render.php"
+  "render": "file:./render.php",
+  "viewScript": "file:./view.js"
 }
 ```
 
-### 3. Vite Auto-handles:
-- ✅ Compiles JSX to JavaScript
-- ✅ Processes SCSS to CSS
-- ✅ Generates `.asset.php` with dependencies
-- ✅ Copies `block.json` and `render.php` to build
-- ✅ Wraps code in WordPress-compatible IIFE
+### 3. Webpack Auto-handles:
+- ✅ Compiles JSX to JavaScript (Babel)
+- ✅ Processes SCSS to CSS (sass-loader + MiniCssExtractPlugin)
+- ✅ Generates `.asset.php` with WordPress dependencies (DependencyExtractionWebpackPlugin)
+- ✅ Copies `block.json` and `render.php` to build (BlockAssetsPlugin)
+- ✅ Renames CSS files to WordPress conventions (RenameBlockCssPlugin)
+- ✅ Generates RTL CSS automatically
+- ✅ Externalizes WordPress globals (React, @wordpress/*)
 
-## 🔍 Key Differences: Vite vs @wordpress/scripts
+## 🔍 Why @wordpress/scripts?
 
-| Feature | Vite (Aquila) | @wordpress/scripts (Plugin) |
-|---------|---------------|----------------------------|
-| **Speed** | ⚡ Extremely fast (ESBuild) | 🐢 Slower (Webpack) |
-| **HMR** | ✅ Instant | ⏱️ Slower |
-| **Config** | Custom `vite.config.js` | Minimal config needed |
-| **Output** | ES modules → IIFE (custom) | IIFE (automatic) |
-| **Asset Files** | Custom plugin generates | Automatic |
-| **Learning Curve** | Steeper (custom setup) | Easier (WordPress standard) |
+The Aquila theme uses @wordpress/scripts with custom webpack configuration for several key reasons:
+
+| Aspect | Benefit |
+|--------|---------|
+| **WordPress Standards** | 🎯 Follows official WordPress development practices |
+| **Dependency Management** | 📦 Automatic and accurate WordPress package detection |
+| **WordPress Externals** | 🔄 Built-in support for wp.*, React as globals |
+| **RTL Support** | 🌍 Automatic RTL CSS generation for internationalization |
+| **Asset PHP Files** | ✅ Reliable `.asset.php` generation with correct dependencies |
+| **Community Support** | 👥 Large WordPress developer community using same tools |
+| **Plugin Ecosystem** | 🔌 Compatible with WordPress plugin development |
+| **Maintenance** | 🛠️ Maintained by WordPress core team |
+| **Customizable** | ⚙️ Easily extended with custom webpack plugins |
+
+**Custom Webpack Configuration Additions:**
+- Automatic entry point discovery (blocks, components, SCSS)
+- Nested block support (recursive scanning)
+- WordPress CSS naming conventions (style.css)
+- TypeScript support (optional)
+- SVG as React components
+- PHP file copying from src to build
 
 ## 🏆 Best Practices Demonstrated
 
-1. **Separation of Concerns**: PHP classes in `/inc`, JS/CSS in `/src`
+1. **Separation of Concerns**: PHP classes in `/inc`, JS/CSS in `/src`, build output in `/build`
 2. **Namespacing**: PHP namespaces (`Aquila\Theme`)
 3. **Singleton Pattern**: For theme initialization
 4. **Server-side Rendering**: Dynamic blocks with `render.php`
-5. **Asset Optimization**: Code splitting, minification, tree-shaking
-6. **Type Safety**: JSDoc comments, PHP type hints
-7. **Monorepo Benefits**: Shared dependencies, consistent tooling
+5. **Asset Optimization**: Minification, tree-shaking, automatic WordPress externals
+6. **Type Safety**: TypeScript support (optional for non-block files), PHP type hints
+7. **WordPress Standards**: Following official build tooling and conventions
+8. **Recursive Block Registration**: Automatic discovery and registration of nested blocks
+9. **CSS Naming Conventions**: WordPress-standard `style.css` for blocks
+10. **Dependency Management**: Automatic `.asset.php` generation with accurate dependencies
+11. **Monorepo Benefits**: Shared dependencies, consistent tooling via PNPM workspaces
 
 ## 📚 Additional Resources
 
-- [Vite Documentation](https://vitejs.dev/)
+### WordPress & Block Development
 - [WordPress Block Editor Handbook](https://developer.wordpress.org/block-editor/)
+- [Block API Reference](https://developer.wordpress.org/block-editor/reference-guides/block-api/)
+- [@wordpress/scripts Documentation](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-scripts/)
+- [WordPress Coding Standards](https://developer.wordpress.org/coding-standards/)
+
+### Build Tools & JavaScript
+- [Webpack Documentation](https://webpack.js.org/)
+- [React Documentation](https://react.dev/)
+- [TypeScript Handbook](https://www.typescriptlang.org/docs/)
 - [PNPM Workspaces](https://pnpm.io/workspaces)
+
+### Theme Documentation
+- [Aquila Theme Build System Guide](./themes/aquila/docs/README.build.md)
+- [Aquila Block Development Guide](./themes/aquila/src/blocks/README.md)
+- [Font Configuration](./themes/aquila/docs/README.fonts.md)
+- [Theme.json Documentation](./themes/aquila/docs/README.theme-json.md)
 
 ## 🤝 Contributing
 
@@ -272,5 +399,7 @@ GPL-3.0-or-later (WordPress compatible)
 
 ---
 
-**Built with ❤️ using modern web technologies and WordPress**
+**Last Updated**: January 2025
+
+**Built with ❤️ using @wordpress/scripts, custom webpack configuration, and modern WordPress development practices**
 

@@ -57,13 +57,13 @@ const ArrowRightSVG = () => (
  *
  * @return {Element} Element to render.
  */
-export default function Edit( {
+export default function Edit({
 	attributes,
 	setAttributes,
 	context,
 	clientId,
 	isSelected,
-} ) {
+}) {
 	// Show LinkControl near card.
 	const cardRef = useRef();
 	const {
@@ -74,73 +74,81 @@ export default function Edit( {
 		linkMeta,
 	} = attributes;
 
-	const editMode = context[ 'aquila/editMode' ] ?? true;
-	const imageRatio = context[ 'aquila/imageRatio' ] ?? '';
-	const imageSize = context[ 'aquila/imageSize' ] ?? '';
+	const editMode = context['aquila/editMode'] ?? true;
+	const imageRatio = context['aquila/imageRatio'] ?? '';
+	const imageSize = context['aquila/imageSize'] ?? '';
 
 	// Set image ratio and size as attributes, to be used in render.php.
-	useEffect( () => {
-		setAttributes( { imageSize, imageRatio } );
-	}, [ imageSize, imageRatio, setAttributes ] );
+	useEffect(() => {
+		setAttributes({ imageSize, imageRatio });
+	}, [imageSize, imageRatio, setAttributes]);
 
 	// Get select/dispatch functions for block operations
 	const { getBlockParents, getBlockName } = useSelect(
-		( select ) => ( {
-			getBlockParents: select( blockEditorStore ).getBlockParents,
-			getBlockName: select( blockEditorStore ).getBlockName,
-		} ),
-		[],
+		(select) => ({
+			getBlockParents: select(blockEditorStore).getBlockParents,
+			getBlockName: select(blockEditorStore).getBlockName,
+		}),
+		[]
 	);
 
-	const { selectBlock } = useDispatch( blockEditorStore );
+	const { selectBlock } = useDispatch(blockEditorStore);
 
 	// Move focus to parent carousel block when edit mode is disabled
-	useEffect( () => {
-		if ( ! editMode && isSelected ) {
+	useEffect(() => {
+		if (!editMode && isSelected) {
 			// Get parent block ID (should be the tile-carousel)
-			const parentBlockIds = getBlockParents( clientId );
+			const parentBlockIds = getBlockParents(clientId);
 
-			if ( parentBlockIds.length > 0 ) {
-				const immediateParentId = parentBlockIds[ parentBlockIds.length - 1 ];
-				const parentBlockName = getBlockName( immediateParentId );
+			if (parentBlockIds.length > 0) {
+				const immediateParentId =
+					parentBlockIds[parentBlockIds.length - 1];
+				const parentBlockName = getBlockName(immediateParentId);
 
 				// Only redirect if parent is the carousel block
-				if ( parentBlockName === 'aquila/tile-carousel' ) {
+				if (parentBlockName === 'aquila/tile-carousel') {
 					// We use requestAnimationFrame to ensure this happens after the selection
-					requestAnimationFrame( () => {
-						selectBlock( immediateParentId );
-					} );
+					requestAnimationFrame(() => {
+						selectBlock(immediateParentId);
+					});
 				}
 			}
 		}
-	}, [ clientId, editMode, getBlockParents, getBlockName, selectBlock, isSelected ] );
+	}, [
+		clientId,
+		editMode,
+		getBlockParents,
+		getBlockName,
+		selectBlock,
+		isSelected,
+	]);
 
 	const extraClasses = [];
 
 	// Set the image ratio classes based on the imageRatio attribute.
-	switch ( imageRatio ) {
+	switch (imageRatio) {
 		case '2:1':
-			extraClasses.push( 'image-tile--two-one' );
+			extraClasses.push('image-tile--two-one');
 			break;
 		case '3:2':
-			extraClasses.push( 'image-tile--three-two' );
+			extraClasses.push('image-tile--three-two');
 			break;
 		case '16:9':
-			extraClasses.push( 'image-tile--sixteen-nine' );
+			extraClasses.push('image-tile--sixteen-nine');
 			break;
 		default:
-			extraClasses.push( 'image-tile--one-one' );
+			extraClasses.push('image-tile--one-one');
 			break;
 	}
 
 	// Set the image size classes based on the imageSize attribute, in the blockProps itself.
-	const blockProps = useBlockProps( {
-		className: classNames( 'image-tile', extraClasses ),
-	} );
+	const blockProps = useBlockProps({
+		className: classNames('image-tile', extraClasses),
+	});
 
-	const setMediaHandler = ( media ) => {
+	const setMediaHandler = (media) => {
 		// If no media is selected, return early.
-		if ( ! media ) {
+		if (!media) {
 			return;
 		}
 
@@ -151,19 +159,19 @@ export default function Edit( {
 		 */
 		const mediaUrl = media?.sizes?.large?.url || media?.url || null;
 
-		setAttributes( {
+		setAttributes({
 			imageURL: mediaUrl,
 			imageID: media?.id ?? 0,
 			imageAlt: media?.alt_text ?? '',
-		} );
+		});
 	};
 
 	const resetMediaHandler = () => {
-		setAttributes( {
+		setAttributes({
 			imageURL: '',
 			imageID: 0,
 			imageAlt: '',
-		} );
+		});
 	};
 
 	return (
@@ -171,92 +179,100 @@ export default function Edit( {
 			<BlockControls>
 				<ToolbarGroup>
 					<ToolbarButton
-						icon={ linkIcon }
-						onClick={ () =>
-							setAttributes( {
-								showURLInput: ! attributes.showURLInput,
-							} )
+						icon={linkIcon}
+						onClick={() =>
+							setAttributes({
+								showURLInput: !attributes.showURLInput,
+							})
 						}
-						label={ __( 'Add Link for the Tile', 'aquila-theme' ) }
+						label={__('Add Link for the Tile', 'aquila-theme')}
 					/>
 				</ToolbarGroup>
 				<MediaControls
-					imageID={ imageID }
-					imageURL={ imageURL }
-					onSelectMedia={ setMediaHandler }
-					onResetMedia={ resetMediaHandler }
+					imageID={imageID}
+					imageURL={imageURL}
+					onSelectMedia={setMediaHandler}
+					onResetMedia={resetMediaHandler}
 				/>
 			</BlockControls>
 
-			{ attributes.showURLInput && editMode && (
+			{attributes.showURLInput && editMode && (
 				<Popover
 					position="bottom center"
-					onClose={ () => setAttributes( { showURLInput: false } ) }
-					anchor={ cardRef.current }
+					onClose={() => setAttributes({ showURLInput: false })}
+					anchor={cardRef.current}
 				>
 					<LinkControl
-						settings={ [] }
-						value={ linkMeta }
-						key={ `image-tile-link-${ clientId }` }
-						onRemove={ () =>
-							setAttributes( { linkMeta: {}, link: '' } )
+						settings={[]}
+						value={linkMeta}
+						key={`image-tile-link-${clientId}`}
+						onRemove={() =>
+							setAttributes({ linkMeta: {}, link: '' })
 						}
-						onChange={ ( newLinkMeta ) =>
-							setAttributes( {
+						onChange={(newLinkMeta) =>
+							setAttributes({
 								linkMeta: newLinkMeta,
 								link: newLinkMeta?.url ?? '',
-							} )
+							})
 						}
 					/>
 				</Popover>
-			) }
+			)}
 
-			<div { ...blockProps }>
+			<div {...blockProps}>
 				<MediaPreview
-					url={ imageURL }
-					placeholderTitle={ __( 'Image', 'aquila-theme' ) }
-					onSelect={ setMediaHandler }
+					url={imageURL}
+					placeholderTitle={__('Image', 'aquila-theme')}
+					onSelect={setMediaHandler}
 					wrapperClassName="image-tile__image-wrap"
-					imgAlt={ imageAlt || __( 'Image tile image', 'aquila-theme' ) }
+					imgAlt={imageAlt || __('Image tile image', 'aquila-theme')}
 				/>
-				<div className="image-tile__content" ref={ cardRef }>
-					{ imageURL && <>
-						{ editMode ? (
-							<RichText
-								tagName="p"
-								value={ attributes.preHeading }
-								onChange={ ( preHeading ) =>
-									setAttributes( { preHeading } )
-								}
-								placeholder={ __( 'Pre Heading', 'aquila-theme' ) }
-								className="image-tile__pre_heading has-tiny-font-size"
-								allowedFormats={ [] }
-							/>
-						) : (
-							<p className="image-tile__pre_heading has-tiny-font-size">
-								{ attributes.preHeading }
-							</p>
-						) }
-						<h3 className="image-tile__heading has-large-font-size">
-							{ editMode ? (
+				<div className="image-tile__content" ref={cardRef}>
+					{imageURL && (
+						<>
+							{editMode ? (
 								<RichText
-									tagName="span"
-									value={ attributes.heading }
-									onChange={ ( heading ) =>
-										setAttributes( { heading } )
+									tagName="p"
+									value={attributes.preHeading}
+									onChange={(preHeading) =>
+										setAttributes({ preHeading })
 									}
-									placeholder={ __( 'Heading', 'aquila-theme' ) }
-									className="image-tile__heading-text"
-									allowedFormats={ [] }
+									placeholder={__(
+										'Pre Heading',
+										'aquila-theme'
+									)}
+									className="image-tile__pre_heading has-tiny-font-size"
+									allowedFormats={[]}
 								/>
 							) : (
-								<span className="image-tile__heading-text">
-									{ attributes.heading }
-								</span>
-							) }
-							{ cardLink && <ArrowRightSVG /> }
-						</h3>
-					</> }
+								<p className="image-tile__pre_heading has-tiny-font-size">
+									{attributes.preHeading}
+								</p>
+							)}
+							<h3 className="image-tile__heading has-large-font-size">
+								{editMode ? (
+									<RichText
+										tagName="span"
+										value={attributes.heading}
+										onChange={(heading) =>
+											setAttributes({ heading })
+										}
+										placeholder={__(
+											'Heading',
+											'aquila-theme'
+										)}
+										className="image-tile__heading-text"
+										allowedFormats={[]}
+									/>
+								) : (
+									<span className="image-tile__heading-text">
+										{attributes.heading}
+									</span>
+								)}
+								{cardLink && <ArrowRightSVG />}
+							</h3>
+						</>
+					)}
 				</div>
 			</div>
 		</>

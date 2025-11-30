@@ -4,6 +4,12 @@
 	"settings": {
     "appearanceTools": true,
     "useRootPaddingAwareAlignments": false,
+    "custom": {
+      "spacing": {
+        "grid-col-gutter": "clamp(16px, 2vw, 24px)",
+        "wrap-width": "clamp(260px, 88vw, 1200px)"
+      }
+    },
 		"spacing": {
 			"units": ["px", "em", "rem", "vw", "vh", "%"],
 			"defaultSpacingSizes": false,

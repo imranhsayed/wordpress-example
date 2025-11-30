@@ -1,0 +1,32 @@
+.gumponents-image-control {
+	padding: 0;
+
+	.components-base-control__label {
+		display: block;
+		margin-bottom: 4px;
+	}
+
+	&__preview {
+		margin-bottom: 8px;
+		display: block;
+		width: 100%;
+		padding: 0;
+		transition: all 0.1s ease-out;
+	}
+
+	&--selected &__preview {
+		height: auto;
+	}
+
+	.components-spinner {
+		float: none;
+		margin: 0;
+	}
+
+	.components-responsive-wrapper__content {
+		width: 100% !important;
+		height: 100% !important;
+		object-fit: contain;
+		object-position: left center;
+	}
+}

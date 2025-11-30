@@ -1,0 +1,88 @@
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/.pnpm/css-loader@6.11.0_webpack@5.102.1/node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!../../node_modules/.pnpm/postcss-loader@6.2.1_postcss@8.5.6_webpack@5.102.1/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!../../node_modules/.pnpm/sass-loader@16.0.6_sass@1.93.3_webpack@5.102.1/node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/section/style.scss ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/**
+ * Section Block Frontend Styles
+ *
+ * This file imports the component styles for the section.
+ * The actual styles are defined in the component directory.
+ */
+/**
+ * Section Component Styles
+ */
+.section__title, .section__description {
+  text-align: center;
+}
+.section__title:has(+ .section) {
+  margin-bottom: var(--typography-spacing);
+}
+.section__title:has(+ .section__description) {
+  margin-bottom: 0;
+}
+.section__title--left,
+.section__title--left + .section__description {
+  text-align: right;
+}
+.section__description {
+  margin-bottom: var(--typography-spacing);
+}
+.section--has-background {
+  background-color: var(--color-gray-10);
+}
+.section--has-background-black {
+  background-color: var(--color-black);
+}
+.section--has-background-black .section__title,
+.section--has-background-black .section__description {
+  color: var(--color-white);
+}
+.section .section {
+  clear: both;
+}
+.section .section:not(:last-child) {
+  margin-top: 0;
+  margin-bottom: var(--spacing-7);
+}
+.section--narrow {
+  max-width: var(--narrow-wrap-width) !important;
+}
+.section__title-and-cta {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: baseline;
+  margin-top: var(--typography-spacing);
+  margin-bottom: var(--typography-spacing);
+}
+@media screen and (min-width: 768px) {
+  .section__title-and-cta {
+    flex-direction: row;
+  }
+}
+.section__cta-button {
+  margin-top: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .section__cta-button {
+    margin-top: 0;
+  }
+}
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/.pnpm/css-loader@6.11.0_webpack@5.102.1/node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!../../node_modules/.pnpm/postcss-loader@6.2.1_postcss@8.5.6_webpack@5.102.1/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!../../node_modules/.pnpm/sass-loader@16.0.6_sass@1.93.3_webpack@5.102.1/node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/section/editor.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/**
+ * Section Block Editor Styles
+ *
+ * Styles specifically for the block editor.
+ */
+.wp-block-aquila-section .section__content {
+  margin-top: 2rem;
+}
+.wp-block-aquila-section .components-placeholder__input {
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: #f0f0f0;
+  color: #555;
+  width: 100%;
+}

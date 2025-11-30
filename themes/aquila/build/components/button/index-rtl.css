@@ -1,0 +1,93 @@
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/.pnpm/css-loader@6.11.0_webpack@5.102.1/node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!../../node_modules/.pnpm/postcss-loader@6.2.1_postcss@8.5.6_webpack@5.102.1/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!../../node_modules/.pnpm/sass-loader@16.0.6_sass@1.93.3_webpack@5.102.1/node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/components/button/index.scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/* Button Component - Minimal Version */
+:root {
+  /* Core colors - customize these */
+  --btn-primary: #0067b3;
+  --btn-primary-hover: #005392;
+  --btn-secondary: #081778;
+  --btn-secondary-hover: #f5f5f5;
+  --btn-text-light: #fff;
+  --btn-text-dark: #222;
+  /* Button properties */
+  --btn-radius: 4px;
+  --btn-padding: 12px 24px;
+  --btn-border: 2px;
+  --btn-transition: all 0.3s ease;
+  --btn-icon-gap: 8px;
+}
+/* Base button styles */
+.wp-one-aquila-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--btn-padding);
+  border-radius: var(--btn-radius);
+  border: var(--btn-border) solid transparent;
+  font-weight: 600;
+  line-height: 1.4;
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--btn-transition);
+}
+/* Button icon */
+.wp-one-aquila-button__icon {
+  display: inline-flex;
+  margin-right: var(--btn-icon-gap);
+}
+/* Variants */
+/* Light background variants */
+.wp-one-aquila-button--primary {
+  background-color: var(--btn-primary);
+  color: var(--btn-text-light);
+  border-color: var(--btn-primary);
+}
+.wp-one-aquila-button--primary:hover {
+  background-color: var(--btn-primary-hover);
+  border-color: var(--btn-primary-hover);
+}
+.wp-one-aquila-button--secondary {
+  background-color: transparent;
+  color: var(--btn-primary);
+  border-color: var(--btn-primary);
+}
+.wp-one-aquila-button--secondary:hover {
+  background-color: rgba(0, 103, 179, 0.1);
+}
+/* Dark background variants */
+.wp-one-aquila-button--primary-dark {
+  background-color: var(--btn-secondary);
+  color: var(--btn-text-light);
+  border-color: var(--btn-secondary);
+}
+.wp-one-aquila-button--primary-dark:hover {
+  background-color: var(--btn-secondary-hover);
+  border-color: var(--btn-secondary-hover);
+}
+.wp-one-aquila-button--secondary-dark {
+  background-color: transparent;
+  color: var(--btn-secondary);
+  border-color: var(--btn-secondary);
+}
+.wp-one-aquila-button--secondary-dark:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+/* Utility classes */
+.wp-one-aquila-button--full-width {
+  width: 100%;
+}
+.wp-one-aquila-button[disabled] {
+  opacity: 0.7;
+  cursor: not-allowed;
+  background-color: #ccc;
+  color: #888;
+  border-color: transparent;
+}
+/* Responsive adjustments */
+@media (max-width: 767px) {
+  .wp-one-aquila-button {
+    padding: 10px 20px;
+    font-size: 0.875rem;
+  }
+}

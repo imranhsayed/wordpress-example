@@ -1,0 +1,42 @@
+@use "variables";
+
+%main {
+	padding-left: var(--wp--custom--spacing--grid-col-gutter);
+	padding-right: var(--wp--custom--spacing--grid-col-gutter);
+
+	> * {
+
+		@extend %wrap;
+	}
+
+	.full-width,
+	.alignfull {
+
+		@extend %full-width;
+	}
+}
+
+%wrap {
+	max-width: var(--wp--custom--spacing--wrap-width);
+	margin-left: auto;
+	margin-right: auto;
+}
+
+%full-width {
+
+	@if ( false == variables.$is-editor ) {
+		// Front-end.
+		margin-left: calc(-50vw + 50%);
+		margin-right: calc(-50vw + 50%);
+		max-width: 100vw;
+	} @else {
+		// Editor.
+		max-width: none !important;
+
+		// WordPress FSE compatibility.
+		.wp-site-blocks > & {
+			margin-left: calc(-1 * var(--wp--custom--spacing--grid-col-gutter));
+			margin-right: calc(-1 * var(--wp--custom--spacing--grid-col-gutter));
+		}
+	}
+}

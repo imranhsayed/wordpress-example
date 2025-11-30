@@ -1,0 +1,38 @@
+.gumponents-file-control {
+
+	.components-base-control__label {
+		display: block;
+		margin-bottom: 4px;
+	}
+
+	&__details {
+		margin: 8px 0;
+		background-color: #f3f3f4;
+		border-radius: 3px;
+		padding: 10px;
+		color: #000;
+		box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+	}
+
+	.components-spinner {
+		float: none;
+		margin: 0;
+	}
+
+	&__details-container {
+		display: flex;
+	}
+
+	&__icon {
+		margin-right: 8px;
+
+		img {
+			width: 24px;
+			max-width: none;
+		}
+	}
+
+	p {
+		margin: 0;
+	}
+}

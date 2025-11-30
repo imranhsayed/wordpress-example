@@ -1,5 +1,1 @@
-(function() {
-'use strict';
-const { registerBlockType: e } = wp.blocks;const { jsx: o } = ReactJSXRuntime;const { __: r } = wp.i18n;const { useBlockProps: t } = wp.blockEditor;function i(){return o("p",{...t(),children:r("Todo List – hello from the editor!","todo-list")})}function n(){return o("p",{...t.save(),children:"Todo List – hello from the saved content!"})}const m="create-block/todo-list",s={name:m};e(s.name,{edit:i,save:n});
-
-})();
+(()=>{"use strict";const o=window.wp.blocks,e=window.wp.i18n,t=window.wp.blockEditor,i=window.ReactJSXRuntime,s=JSON.parse('{"UU":"create-block/todo-list"}');(0,o.registerBlockType)(s.UU,{edit:function(){return(0,i.jsx)("p",{...(0,t.useBlockProps)(),children:(0,e.__)("Todo List – hello from the editor!","todo-list")})},save:function(){return(0,i.jsx)("p",{...t.useBlockProps.save(),children:"Todo List – hello from the saved content!"})}})})();

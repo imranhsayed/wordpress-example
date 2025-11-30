@@ -1,5 +1,1 @@
-(function() {
-'use strict';
-console.log("Aquila theme loaded");
-
-})();
+(()=>{"use strict";console.log("Aquila theme loaded")})();

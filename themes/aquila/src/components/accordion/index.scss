@@ -23,6 +23,7 @@
 
 		// Style when accordion is open
 		&[aria-expanded="true"] {
+
 			.wp-aquila-accordion__heading::after {
 				transform: rotate(-90deg);
 			}
@@ -63,6 +64,7 @@
 		}
 
 		// Arrow icon
+		/* stylelint-disable-next-line no-descending-specificity */
 		&::after {
 			content: "";
 			display: inline-block;
@@ -94,6 +96,7 @@
 		}
 
 		@media (prefers-contrast: more) {
+
 			&:focus-visible {
 				outline: 2px solid CanvasText;
 			}

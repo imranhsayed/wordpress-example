@@ -16,7 +16,7 @@
 /readme.html
 /wp-*.php
 /xmlrpc.php
-
+uploads
 # Configuration
 wp-config.php
 
@@ -27,6 +27,8 @@ wp-config.php
 /wp-content/plugins/hello.php
 /wp-content/plugins/newspack-newsletters/
 /wp-content/plugins/wp-component-viewer/
+
+/gumponents-master
 
 # Uploads
 /wp-content/uploads/

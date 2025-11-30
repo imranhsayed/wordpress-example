@@ -1,52 +1,54 @@
 {
-	"$schema": "https://schemas.wp.org/trunk/block.json",
-	"apiVersion": 3,
-	"name": "aquila/accordion-item",
-	"version": "0.1.0",
-	"title": "Accordion Item",
-	"category": "aquila",
-	"description": "Add an item to the accordion.",
-	"example": {
-		"attributes": {
-			"title": "Accordion Item",
-			"openByDefault": true
-		},
-		"innerBlocks": [
-			{
-				"name": "core/paragraph",
-				"attributes": {
-					"content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-				}
-			}
-		]
-	},
-	"parent": ["aquila/accordion"],
-	"supports": {
-		"align": false,
-		"anchor": false,
-		"className": false,
-		"html": false,
-		"customClassName": false
-	},
-	"allowedBlocks": [
-		"core/paragraph",
-		"core/heading",
-		"core/list",
-		"core/button"
-	],
-	"attributes": {
-		"title": {
-			"type": "string",
-			"default": ""
-		},
-		"openByDefault": {
-			"type": "boolean",
-			"default": false
-		}
-	},
-	"textdomain": "aquila-theme",
-	"editorScript": "file:./index.js",
-	"editorStyle": "file:./editor.css",
-	"style": "file:./style.css",
-	"render": "file:./render.php"
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "aquila/accordion-item",
+  "version": "0.1.0",
+  "title": "Accordion Item",
+  "category": "aquila",
+  "description": "Add an item to the accordion.",
+  "example": {
+    "attributes": {
+      "title": "Accordion Item",
+      "openByDefault": true
+    },
+    "innerBlocks": [
+      {
+        "name": "core/paragraph",
+        "attributes": {
+          "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        }
+      }
+    ]
+  },
+  "parent": [
+    "aquila/accordion"
+  ],
+  "supports": {
+    "align": false,
+    "anchor": false,
+    "className": false,
+    "html": false,
+    "customClassName": false
+  },
+  "allowedBlocks": [
+    "core/paragraph",
+    "core/heading",
+    "core/list",
+    "core/button"
+  ],
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": ""
+    },
+    "openByDefault": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "textdomain": "aquila-theme",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./editor.css",
+  "style": "file:./style.css",
+  "render": "file:./render.php"
 }

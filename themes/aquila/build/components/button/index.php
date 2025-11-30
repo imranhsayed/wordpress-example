@@ -40,6 +40,7 @@ if ( empty( $args ) || ! is_array( $args ) || empty( $args['content'] ) ) {
 $defaults = array(
 	'content'            => __( 'Button', 'one-aquila-theme' ),
 	'url'                => '',
+	'new_window'         => false,
 	'variant'            => 'primary',
 	'disabled'           => false,
 	'icon'               => false,
@@ -53,6 +54,7 @@ $args = array_merge( $defaults, array_filter( $args ) );
 // Destruct arguments.
 $content            = $args['content'];
 $url                = $args['url'];
+$new_window         = $args['new_window'];
 $variant            = $args['variant'];
 $disabled           = $args['disabled'];
 $icon               = $args['icon'];
@@ -82,7 +84,12 @@ if ( ! $disabled ) {
 // Render button.
 if ( ! empty( $url ) ) {
 	?>
-	<a href="<?php echo esc_url( $url ); ?>">
+	<a
+		href="<?php echo esc_url( $url ); ?>"
+		<?php if( ! empty( $new_window ) && 'false' !== $new_window ): ?>
+			target="_blank"
+		<?php endif; ?>
+	>
 		<button <?php echo wp_kses_data( $wrapper_attributes ); ?>>
 			<?php echo wp_kses_post( $content ); ?>
 			<?php if ( $icon ) : ?>
