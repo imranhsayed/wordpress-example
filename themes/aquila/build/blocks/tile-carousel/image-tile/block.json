@@ -1,46 +1,76 @@
 {
-	"$schema": "https://schemas.wp.org/trunk/block.json",
-	"apiVersion": 3,
-	"name": "aquila/image-tile",
-	"version": "0.1.0",
-	"title": "Image Tile",
-	"category": "aquila",
-	"icon": "image-flip-horizontal",
-	"description": "A custom Image Tile Block for Aquila theme.",
-	"example": {
-		"attributes": {
-			"heading": "Sample Heading",
-			"imageSize": "large",
-			"imageRatio": "16:9",
-			"preHeading": "Sample Pre-Heading",
-			"showURLInput": true
-		}
-	},
-	"parent": [
-		"aquila/tile-carousel"
-	],
-	"supports": {
-		"inserter": false
-	},
-	"attributes": {
-		"link": { "type": "string", "default": "" },
-		"heading": { "type": "string", "default": "" },
-		"imageID": { "type": "number", "default": 0 },
-		"imageURL": { "type": "string", "default": "" },
-		"linkMeta": { "type": "object", "default": {} },
-		"imageAlt": { "type": "string", "default": "" },
-		"preHeading": { "type": "string", "default": "" },
-		"showURLInput": { "type": "boolean", "default": false },
-		"imageRatio": { "type": "string", "default": "" },
-		"imageSize": { "type": "string", "default": "" }
-	},
-	"usesContext": [
-		"aquila/editMode",
-		"aquila/imageRatio",
-		"aquila/imageSize"
-	],
-	"textdomain": "aquila-theme",
-	"editorScript": "file:./index.js",
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "aquila/image-tile",
+  "version": "0.1.0",
+  "title": "Image Tile",
+  "category": "aquila",
+  "icon": "image-flip-horizontal",
+  "description": "A custom Image Tile Block for Aquila theme.",
+  "example": {
+    "attributes": {
+      "heading": "Sample Heading",
+      "imageSize": "large",
+      "imageRatio": "16:9",
+      "preHeading": "Sample Pre-Heading",
+      "showURLInput": true
+    }
+  },
+  "parent": [
+    "aquila/tile-carousel"
+  ],
+  "supports": {
+    "inserter": false
+  },
+  "attributes": {
+    "link": {
+      "type": "string",
+      "default": ""
+    },
+    "heading": {
+      "type": "string",
+      "default": ""
+    },
+    "imageID": {
+      "type": "number",
+      "default": 0
+    },
+    "imageURL": {
+      "type": "string",
+      "default": ""
+    },
+    "linkMeta": {
+      "type": "object",
+      "default": {}
+    },
+    "imageAlt": {
+      "type": "string",
+      "default": ""
+    },
+    "preHeading": {
+      "type": "string",
+      "default": ""
+    },
+    "showURLInput": {
+      "type": "boolean",
+      "default": false
+    },
+    "imageRatio": {
+      "type": "string",
+      "default": ""
+    },
+    "imageSize": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "usesContext": [
+    "aquila/editMode",
+    "aquila/imageRatio",
+    "aquila/imageSize"
+  ],
+  "textdomain": "aquila-theme",
+  "editorScript": "file:./index.js",
   "style": "file:./style.css",
-	"render": "file:./render.php"
+  "render": "file:./render.php"
 }

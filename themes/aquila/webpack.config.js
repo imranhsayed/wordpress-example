@@ -1,7 +1,11 @@
 /**
- * External dependencies
+ * WordPress dependencies
  */
 const defaultConfig = require( '@wordpress/scripts/config/webpack.config' );
+
+/**
+ * External dependencies
+ */
 const path = require( 'path' );
 const fs = require( 'fs' );
 
@@ -34,7 +38,7 @@ function getEntries() {
 		}
 	}
 	
-	// --- Blocks ---
+	// Blocks.
 	const blocksDir = path.resolve( __dirname, 'src/blocks' );
 	if ( fs.existsSync( blocksDir ) ) {
 		// Recursively scan for blocks
@@ -91,17 +95,17 @@ function getEntries() {
 		scanBlocks( blocksDir );
 	}
 	
-	// --- Global entry ---
+	// Global entry.
 	const globalEntry = path.resolve( __dirname, 'src/index.js' );
 	if ( fs.existsSync( globalEntry ) ) {
 		entries.index = globalEntry;
 	}
 	
-	// --- SCSS files via JS wrappers ---
+	// SCSS files via JS wrappers.
 	const scssDir = path.resolve( __dirname, 'src/scss' );
 	const jsWrappersDir = path.resolve( __dirname, 'src/js' );
 	
-	// Ensure js directory exists
+	// Ensure js directory exists.
 	if ( ! fs.existsSync( jsWrappersDir ) ) {
 		fs.mkdirSync( jsWrappersDir, { recursive: true } );
 	}
@@ -116,7 +120,7 @@ function getEntries() {
 					jsWrapperName,
 				);
 				
-				// Create JS wrapper if it doesn't exist
+				// Create JS wrapper if it doesn't exist.
 				if ( ! fs.existsSync( jsWrapperPath ) ) {
 					const wrapperContent = `// Auto-generated wrapper to compile ${ file }\nimport '../scss/${ file }';\n`;
 					fs.writeFileSync( jsWrapperPath, wrapperContent );
@@ -169,102 +173,15 @@ class CopyPhpFilesPlugin {
 			
 			// eslint-disable-next-line no-console
 			console.log( '[copy-php] Copying PHP files...' );
+
+			// Copy php files.
 			copyPhpFiles( srcDir );
+
 			// eslint-disable-next-line no-console
 			console.log( '[copy-php] ✓ PHP files copied' );
 		} );
 	}
 }
-
-/**
- * Custom plugin to copy block.json and generate .asset.php files
- */
-
-/* eslint-disable no-console */
-class BlockAssetsPlugin {
-	apply( compiler ) {
-		compiler.hooks.afterEmit.tap( 'BlockAssetsPlugin', () => {
-			const processBlock = ( blockPath, relativePath ) => {
-				const srcBlockJson = path.resolve( blockPath, 'block.json' );
-				const destBlockJson = path.resolve(
-					__dirname,
-					'build/blocks',
-					relativePath,
-					'block.json',
-				);
-				
-				if ( fs.existsSync( srcBlockJson ) ) {
-					const destDir = path.dirname( destBlockJson );
-					if ( ! fs.existsSync( destDir ) ) {
-						fs.mkdirSync( destDir, { recursive: true } );
-					}
-					fs.copyFileSync( srcBlockJson, destBlockJson );
-					console.log( `✓ Copied block.json for ${ relativePath }` );
-				}
-				
-				// Copy render.php if it exists
-				const srcRenderPhp = path.resolve( blockPath, 'render.php' );
-				const destRenderPhp = path.resolve(
-					__dirname,
-					'build/blocks',
-					relativePath,
-					'render.php',
-				);
-				
-				if ( fs.existsSync( srcRenderPhp ) ) {
-					fs.copyFileSync( srcRenderPhp, destRenderPhp );
-					console.log( `✓ Copied render.php for ${ relativePath }` );
-				}
-				
-				// Generate .asset.php file
-				const assetPhpPath = path.resolve(
-					__dirname,
-					'build/blocks',
-					relativePath,
-					'index.asset.php',
-				);
-				
-				// Check if webpack already generated it (via DependencyExtractionWebpackPlugin)
-				if ( fs.existsSync( assetPhpPath ) ) {
-					console.log(
-						`✓ index.asset.php already exists for ${ relativePath }`,
-					);
-				}
-			};
-			
-			// Scan for blocks
-			const blocksDir = path.resolve( __dirname, 'src/blocks' );
-			if ( fs.existsSync( blocksDir ) ) {
-				const scanBlocks = ( dir, basePath = '' ) => {
-					for( const item of fs.readdirSync( dir ) ) {
-						const itemPath = path.resolve( dir, item );
-						const stat = fs.statSync( itemPath );
-						
-						if ( stat.isDirectory() ) {
-							const relativePath = basePath
-								? `${ basePath }/${ item }`
-								: item;
-							
-							if (
-								fs.existsSync(
-									path.resolve( itemPath, 'block.json' ),
-								)
-							) {
-								processBlock( itemPath, relativePath );
-							}
-							
-							scanBlocks( itemPath, relativePath );
-						}
-					}
-				};
-				
-				scanBlocks( blocksDir );
-			}
-		} );
-	}
-}
-
-/* eslint-enable no-console */
 
 /**
  * Custom plugin to clean up SCSS entry JS files
@@ -278,22 +195,70 @@ class CleanupScssEntriesPlugin {
 			( compilation ) => {
 				const outputPath = compilation.outputOptions.path;
 				const cssDir = path.resolve( outputPath, 'css' );
-				
+
 				if ( fs.existsSync( cssDir ) ) {
 					const files = fs.readdirSync( cssDir );
 					let deletedCount = 0;
-					
+
 					files.forEach( ( file ) => {
-						if ( file.endsWith( '.js' ) ) {
+						// Remove both .js and .asset.php files from css directory
+						if ( file.endsWith( '.js' ) || file.endsWith( '.asset.php' ) ) {
 							const filePath = path.resolve( cssDir, file );
 							fs.unlinkSync( filePath );
 							deletedCount++;
 						}
 					} );
-					
+
 					if ( deletedCount > 0 ) {
 						console.log(
-							`✓ Cleaned up ${ deletedCount } SCSS entry JS file(s)`,
+							`✓ Cleaned up ${ deletedCount } SCSS entry file(s)`,
+						);
+					}
+				}
+			},
+		);
+	}
+}
+
+/* eslint-enable no-console */
+
+/**
+ * Custom plugin to clean up component asset.php files
+ */
+
+/* eslint-disable no-console */
+class CleanupComponentAssetsPlugin {
+	apply( compiler ) {
+		compiler.hooks.afterEmit.tap(
+			'CleanupComponentAssetsPlugin',
+			( compilation ) => {
+				const outputPath = compilation.outputOptions.path;
+				const componentsDir = path.resolve( outputPath, 'components' );
+
+				if ( fs.existsSync( componentsDir ) ) {
+					let deletedCount = 0;
+
+					// Recursively find and delete .asset.php files in components
+					const cleanupAssetFiles = ( dir ) => {
+						const items = fs.readdirSync( dir );
+						items.forEach( ( item ) => {
+							const itemPath = path.resolve( dir, item );
+							const stat = fs.statSync( itemPath );
+
+							if ( stat.isDirectory() ) {
+								cleanupAssetFiles( itemPath );
+							} else if ( item.endsWith( '.asset.php' ) ) {
+								fs.unlinkSync( itemPath );
+								deletedCount++;
+							}
+						} );
+					};
+
+					cleanupAssetFiles( componentsDir );
+
+					if ( deletedCount > 0 ) {
+						console.log(
+							`✓ Cleaned up ${ deletedCount } component asset file(s)`,
 						);
 					}
 				}
@@ -376,15 +341,13 @@ module.exports = {
 	},
 	optimization: {
 		...defaultConfig.optimization,
-		// Disable code splitting to match Vite's manualChunks: undefined
 		splitChunks: false,
 	},
-	externals: defaultConfig.externals,
 	plugins: [
 		...defaultConfig.plugins,
 		new CopyPhpFilesPlugin(),
-		new BlockAssetsPlugin(),
 		new CleanupScssEntriesPlugin(),
+		new CleanupComponentAssetsPlugin(),
 		new RenameBlockCssPlugin(),
 	],
 	resolve: {
@@ -392,24 +355,5 @@ module.exports = {
 		alias: {
 			'@': path.resolve( __dirname, './src' ),
 		},
-	},
-	module: {
-		...defaultConfig.module,
-		rules: [
-			// Filter out the default SVG rule from @wordpress/scripts
-			...defaultConfig.module.rules.filter( ( rule ) => {
-				// Remove the default file-loader rule for SVGs
-				if ( rule.test && rule.test.toString().includes( 'svg' ) ) {
-					return false;
-				}
-				return true;
-			} ),
-			// Handle SVG imports as React components
-			{
-				test: /\.svg$/,
-				issuer: /\.(js|jsx|ts|tsx)$/,
-				use: [ '@svgr/webpack' ],
-			},
-		],
 	},
 };

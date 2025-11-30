@@ -10,6 +10,21 @@
 /**
  * Mixins.
  */
+main {
+  padding-right: var(--wp--custom--spacing--grid-col-gutter);
+  padding-left: var(--wp--custom--spacing--grid-col-gutter);
+}
+main > * {
+  max-width: var(--wp--custom--spacing--wrap-width);
+  margin-right: auto;
+  margin-left: auto;
+}
+main .full-width,
+main .alignfull {
+  margin-right: calc(-50vw + 50%);
+  margin-left: calc(-50vw + 50%);
+  max-width: 100vw;
+}
 .grid {
   display: grid;
   grid-template-rows: auto;

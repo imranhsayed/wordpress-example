@@ -1,68 +1,68 @@
 {
-	"$schema": "https://schemas.wp.org/trunk/block.json",
-	"apiVersion": 3,
-	"name": "aquila/tile-carousel",
-	"version": "0.1.0",
-	"title": "Tile Carousel",
-	"category": "aquila",
-	"icon": "image-flip-horizontal",
-	"description": "A custom Tile Carousel for Aquila theme.",
-	"example": {
-		"attributes": {
-			"slides": [
-				{
-					"heading": "Sample Heading",
-					"imageSize": "large",
-					"imageRatio": "16:9",
-					"preHeading": "Sample Pre-Heading",
-					"showURLInput": true
-				},
-				{
-					"heading": "Sample Heading",
-					"imageSize": "large",
-					"imageRatio": "16:9",
-					"preHeading": "Sample Pre-Heading",
-					"showURLInput": true
-				},
-				{
-					"heading": "Sample Heading",
-					"imageSize": "large",
-					"imageRatio": "16:9",
-					"preHeading": "Sample Pre-Heading",
-					"showURLInput": true
-				}
-			]
-		}
-	},
-	"attributes": {
-		"editMode": {
-			"type": "boolean",
-			"default": true
-		},
-		"imageRatio": {
-			"type": "string",
-			"default": "1:1"
-		},
-		"imageSize": {
-			"type": "string",
-			"default": "tile-carousel"
-		},
-		"totalSlides": {
-			"type": "number",
-			"default": 1
-		}
-	},
-	"providesContext": {
-		"aquila/editMode": "editMode",
-		"aquila/imageSize": "imageSize",
-		"aquila/imageRatio": "imageRatio"
-	},
-	"supports": {
-		"inserter": true
-	},
-	"textdomain": "aquila-theme",
-	"editorScript": "file:./index.js",
-	"editorStyle": "file:./style.css",
-	"render": "file:./render.php",
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "aquila/tile-carousel",
+  "version": "0.1.0",
+  "title": "Tile Carousel",
+  "category": "aquila",
+  "icon": "image-flip-horizontal",
+  "description": "A custom Tile Carousel for Aquila theme.",
+  "example": {
+    "attributes": {
+      "slides": [
+        {
+          "heading": "Sample Heading",
+          "imageSize": "large",
+          "imageRatio": "16:9",
+          "preHeading": "Sample Pre-Heading",
+          "showURLInput": true
+        },
+        {
+          "heading": "Sample Heading",
+          "imageSize": "large",
+          "imageRatio": "16:9",
+          "preHeading": "Sample Pre-Heading",
+          "showURLInput": true
+        },
+        {
+          "heading": "Sample Heading",
+          "imageSize": "large",
+          "imageRatio": "16:9",
+          "preHeading": "Sample Pre-Heading",
+          "showURLInput": true
+        }
+      ]
+    }
+  },
+  "attributes": {
+    "editMode": {
+      "type": "boolean",
+      "default": true
+    },
+    "imageRatio": {
+      "type": "string",
+      "default": "1:1"
+    },
+    "imageSize": {
+      "type": "string",
+      "default": "tile-carousel"
+    },
+    "totalSlides": {
+      "type": "number",
+      "default": 1
+    }
+  },
+  "providesContext": {
+    "aquila/editMode": "editMode",
+    "aquila/imageSize": "imageSize",
+    "aquila/imageRatio": "imageRatio"
+  },
+  "supports": {
+    "inserter": true
+  },
+  "textdomain": "aquila-theme",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./style.css",
+  "render": "file:./render.php",
   "viewScript": "file:./view.js"
 }

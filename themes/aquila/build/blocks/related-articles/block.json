@@ -1,44 +1,44 @@
 {
-	"$schema": "https://schemas.wp.org/trunk/block.json",
-	"apiVersion": 3,
-	"name": "aquila/related-articles",
-	"version": "0.1.0",
-	"title": "Related Articles",
-	"category": "aquila",
-	"icon": "grid-view",
-	"description": "Displays 4 latest posts from a selected category.",
-	"textdomain": "aquila-theme",
-	"editorScript": "file:./index.js",
-	"style": "file:./style.css",
-	"render": "file:./render.php",
-	"supports": {
-		"html": false,
-		"inserter": true
-	},
-	"attributes": {
-		"mode": {
-			"type": "string",
-			"default": "automatic"
-		},
-		"selectedPosts": {
-			"type": "array",
-			"default": []
-		},
-		"categoryId": {
-			"type": "number",
-			"default": 0
-		},
-		"order": {
-			"type": "string",
-			"default": "asc"
-		},
-		"orderBy": {
-			"type": "string",
-			"default": "title"
-		},
-		"numberOfItems": {
-			"type": "number",
-			"default": 4
-		}
-	}
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "aquila/related-articles",
+  "version": "0.1.0",
+  "title": "Related Articles",
+  "category": "aquila",
+  "icon": "grid-view",
+  "description": "Displays 4 latest posts from a selected category.",
+  "textdomain": "aquila-theme",
+  "editorScript": "file:./index.js",
+  "style": "file:./style.css",
+  "render": "file:./render.php",
+  "supports": {
+    "html": false,
+    "inserter": true
+  },
+  "attributes": {
+    "mode": {
+      "type": "string",
+      "default": "automatic"
+    },
+    "selectedPosts": {
+      "type": "array",
+      "default": []
+    },
+    "categoryId": {
+      "type": "number",
+      "default": 0
+    },
+    "order": {
+      "type": "string",
+      "default": "asc"
+    },
+    "orderBy": {
+      "type": "string",
+      "default": "title"
+    },
+    "numberOfItems": {
+      "type": "number",
+      "default": 4
+    }
+  }
 }

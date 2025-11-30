@@ -1,0 +1,77 @@
+/**
+ * Section.
+ */
+
+@import "../../scss";
+
+.section {
+	$self: &;
+
+	&__title,
+	&__description {
+		text-align: center;
+	}
+
+	&__title {
+
+		&:has(+ .section) {
+			margin-bottom: var(--typography-spacing);
+		}
+
+		// Remove margin if there is a description after the title.
+		&:has(+ #{$self}__description) {
+			margin-bottom: 0;
+		}
+	}
+
+	&__title--left {
+
+		&,
+		+ #{$self}__description {
+			text-align: left;
+		}
+	}
+
+	&__description {
+		margin-bottom: var(--typography-spacing);
+	}
+
+	&--has-background {
+		background-color: var(--color-gray-10);
+
+		&-black {
+			background-color: var(--color-black);
+
+			#{$self}__title,
+			#{$self}__description {
+				color: var(--color-white);
+			}
+		}
+	}
+
+	.section {
+		clear: both;
+
+		&:not(:last-child) {
+			margin-top: 0;
+			margin-bottom: var(--spacing-7);
+		}
+	}
+
+	&--narrow {
+		max-width: var(--narrow-wrap-width) !important;
+	}
+
+	&__title-and-cta {
+		display: flex;
+		justify-content: space-between;
+		flex-direction: column;
+		align-items: baseline;
+		margin-top: var(--typography-spacing);
+		margin-bottom: var(--typography-spacing);
+
+		@media screen and (min-width: grid-size(md)) {
+			flex-direction: row;
+		}
+	}
+}

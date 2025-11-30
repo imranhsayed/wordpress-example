@@ -1,0 +1,20 @@
+/**
+ * Section Block Editor Styles
+ *
+ * Styles specifically for the block editor.
+ */
+
+.wp-block-aquila-section {
+	.section__content {
+		margin-top: 2rem;
+	}
+
+	.components-placeholder__input {
+		padding: 0.5rem;
+		border: 1px solid #ddd;
+		border-radius: 4px;
+		background: #f0f0f0;
+		color: #555;
+		width: 100%;
+	}
+}

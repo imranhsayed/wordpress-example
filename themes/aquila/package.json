@@ -60,6 +60,7 @@
     "prettier": "^3.6.2",
     "sass": "^1.93.2",
     "storybook": "8.6.14",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "url-loader": "^4.1.1"
   }
 }

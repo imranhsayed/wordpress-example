@@ -138,6 +138,9 @@ importers:
       typescript:
         specifier: ^5.9.3
         version: 5.9.3
+      url-loader:
+        specifier: ^4.1.1
+        version: 4.1.1(webpack@5.102.1)
 
 packages:
 
@@ -7495,6 +7498,9 @@ packages:
   third-party-web@0.27.0:
     resolution: {integrity: sha512-h0JYX+dO2Zr3abCQpS6/uFjujaOjA1DyDzGQ41+oFn9VW/ARiq9g5ln7qEP9+BTzDpOMyIfsfj4OvfgXAsMUSA==}
 
+  third-party-web@0.28.0:
+    resolution: {integrity: sha512-4P798O67JmIKRJfJ1HSOkIsZrx2+FuaN2jTQX+imHXFPbGp17KSMDabYxrRT011B3gBzaoHFhUkBlEkNZN8vuQ==}
+
   through@2.3.8:
     resolution: {integrity: sha512-w89qg7PI8wAdvX60bMDP+bFoD5Dvhm9oLheFp5O4a2QF0cSBGsBX4qZmadPMvVqlLJBBci+WqGGOAPvcDeNSVg==}
 
@@ -10493,7 +10499,7 @@ snapshots:
   '@paulirish/trace_engine@0.0.59':
     dependencies:
       legacy-javascript: 0.0.1
-      third-party-web: 0.27.0
+      third-party-web: 0.28.0
 
   '@pkgr/core@0.2.9': {}
 
@@ -17700,6 +17706,8 @@ snapshots:
   text-table@0.2.0: {}
 
   third-party-web@0.27.0: {}
+
+  third-party-web@0.28.0: {}
 
   through@2.3.8: {}
 

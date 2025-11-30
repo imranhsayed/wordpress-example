@@ -1,0 +1,90 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "leboat/section",
+  "description": "Section block",
+  "title": "Section",
+  "category": "layout",
+  "textdomain": "lb",
+  "supports": {
+    "alignWide": false,
+    "anchor": true,
+    "className": false,
+    "html": false,
+    "customClassName": true
+  },
+  "attributes": {
+    "anchor": {
+      "type": "string",
+      "default": ""
+    },
+    "hasTitle": {
+      "type": "boolean",
+      "default": true
+    },
+    "title": {
+      "type": "string"
+    },
+    "titleAlignment": {
+      "type": "string",
+      "default": "center"
+    },
+    "headingLevel": {
+      "type": "string",
+      "default": "3",
+      "enum": [
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    "headingStyle": {
+      "type": "string",
+      "default": "",
+      "enum": [
+        "",
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    "hasDescription": {
+      "type": "boolean",
+      "default": false
+    },
+    "description": {
+      "type": "string"
+    },
+    "hasBorder": {
+      "type": "boolean",
+      "default": true
+    },
+    "hasBackground": {
+      "type": "boolean",
+      "default": false
+    },
+    "backgroundColor": {
+      "type": "string",
+      "default": "gray",
+      "enum": [
+        "black",
+        "gray"
+      ]
+    },
+    "hasPadding": {
+      "type": "boolean",
+      "default": false
+    },
+    "hasCta": {
+      "type": "boolean",
+      "default": false
+    },
+    "ctaButton": {
+      "type": "object"
+    },
+    "isNarrow": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

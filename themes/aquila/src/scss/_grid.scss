@@ -4,6 +4,11 @@
 
 @use "variables";
 @use "mixins";
+@use "placeholders";
+
+main {
+	@extend %main;
+}
 
 .grid {
 

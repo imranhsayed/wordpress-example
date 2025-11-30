@@ -1,57 +1,57 @@
 {
-	"$schema": "https://schemas.wp.org/trunk/block.json",
-	"apiVersion": 3,
-	"name": "aquila/accordion",
-	"version": "0.1.0",
-	"title": "Accordion",
-	"category": "aquila",
-	"description": "A custom accordion block for Aquila theme.",
-	"example": {
-		"attributes": {
-			"align": "wide",
-			"className": "aquila-accordion"
-		},
-		"innerBlocks": [
-			{
-				"name": "aquila/accordion-item",
-				"attributes": {
-					"title": "Accordion Item 1",
-					"content": "Content for Accordion Item 1"
-				}
-			},
-			{
-				"name": "aquila/accordion-item",
-				"attributes": {
-					"title": "Accordion Item 2",
-					"content": "Content for Accordion Item 2"
-				}
-			}
-		]
-	},
-	"supports": {
-		"inserter": true,
-		"anchor": false,
-		"className": false,
-		"html": false,
-		"customClassName": false,
-		"align": [
-			"wide"
-		]
-	},
-	"attributes": {
-		"align": {
-			"type": "string",
-			"default": "wide"
-		},
-		"className": {
-			"type": "string",
-			"default": "aquila-accordion"
-		}
-	},
-	"textdomain": "aquila-theme",
-	"editorScript": "file:./index.js",
-	"editorStyle": "file:./editor.css",
-	"style": "file:./style.css",
-	"viewScript": "file:./view.js",
-	"render": "file:./render.php"
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "aquila/accordion",
+  "version": "0.1.0",
+  "title": "Accordion",
+  "category": "aquila",
+  "description": "A custom accordion block for Aquila theme.",
+  "example": {
+    "attributes": {
+      "align": "wide",
+      "className": "aquila-accordion"
+    },
+    "innerBlocks": [
+      {
+        "name": "aquila/accordion-item",
+        "attributes": {
+          "title": "Accordion Item 1",
+          "content": "Content for Accordion Item 1"
+        }
+      },
+      {
+        "name": "aquila/accordion-item",
+        "attributes": {
+          "title": "Accordion Item 2",
+          "content": "Content for Accordion Item 2"
+        }
+      }
+    ]
+  },
+  "supports": {
+    "inserter": true,
+    "anchor": false,
+    "className": false,
+    "html": false,
+    "customClassName": false,
+    "align": [
+      "wide"
+    ]
+  },
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": "wide"
+    },
+    "className": {
+      "type": "string",
+      "default": "aquila-accordion"
+    }
+  },
+  "textdomain": "aquila-theme",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./editor.css",
+  "style": "file:./style.css",
+  "viewScript": "file:./view.js",
+  "render": "file:./render.php"
 }

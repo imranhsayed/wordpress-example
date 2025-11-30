@@ -1,0 +1,99 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "aquila/section",
+  "version": "0.1.0",
+  "title": "Section",
+  "category": "aquila",
+  "description": "A custom section block with title, description, background, and CTA options.",
+  "supports": {
+    "inserter": true,
+    "anchor": true,
+    "className": false,
+    "html": false,
+    "customClassName": true,
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "anchor": {
+      "type": "string",
+      "default": ""
+    },
+    "hasTitle": {
+      "type": "boolean",
+      "default": true
+    },
+    "title": {
+      "type": "string"
+    },
+    "titleAlignment": {
+      "type": "string",
+      "default": "center"
+    },
+    "headingLevel": {
+      "type": "string",
+      "default": "3",
+      "enum": [
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    "headingStyle": {
+      "type": "string",
+      "default": "",
+      "enum": [
+        "",
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    "hasDescription": {
+      "type": "boolean",
+      "default": false
+    },
+    "description": {
+      "type": "string"
+    },
+    "hasBorder": {
+      "type": "boolean",
+      "default": true
+    },
+    "hasBackground": {
+      "type": "boolean",
+      "default": false
+    },
+    "backgroundColor": {
+      "type": "string",
+      "default": "gray",
+      "enum": [
+        "black",
+        "gray"
+      ]
+    },
+    "hasPadding": {
+      "type": "boolean",
+      "default": false
+    },
+    "hasCta": {
+      "type": "boolean",
+      "default": false
+    },
+    "ctaButton": {
+      "type": "object"
+    },
+    "isNarrow": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "textdomain": "aquila-theme",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./editor.css",
+  "style": "file:./style.css",
+  "render": "file:./render.php"
+}

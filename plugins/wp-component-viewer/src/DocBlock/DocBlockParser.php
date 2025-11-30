@@ -23,6 +23,12 @@ class DocBlockParser {
 		}
 
 		global $wp_filesystem;
+
+		// Include the filesystem API if not already loaded.
+		if ( ! function_exists( 'WP_Filesystem' ) ) {
+			require_once ABSPATH . 'wp-admin/includes/file.php';
+		}
+
 		WP_Filesystem();
 
 		if ( ! $wp_filesystem->exists( $file_path ) ) {
