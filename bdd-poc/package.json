@@ -1,0 +1,16 @@
+{
+  "name": "playwright-test-bdd-poc",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@playwright/test": "^1.56.1",
+    "@types/node": "^24.10.1",
+    "@wordpress/e2e-test-utils-playwright": "^1.35.0",
+    "playwright-bdd": "^8.4.1"
+  }
+}

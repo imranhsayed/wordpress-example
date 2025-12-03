@@ -16,6 +16,20 @@
 	}
 }
 
+%section--seamless,
+%section--seamless-with-padding {
+
+	$self: &;
+
+	& + & {
+		margin-top: calc(var(--grid-section-gutter) * -1);
+	}
+
+	#{$self} + .block-library-block__reusable-block-container:has(> &) {
+		margin-top: calc(var(--grid-section-gutter) * -1);
+	}
+}
+
 %wrap {
 	max-width: var(--wp--custom--spacing--wrap-width);
 	margin-left: auto;

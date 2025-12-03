@@ -1,2 +1,286 @@
-.article-card{align-items:flex-start;color:inherit;display:flex;flex-direction:column;position:relative;text-decoration:none}.grid:has(>.article-card){gap:var(--wp--preset--spacing--30)}.article-card__image-wrap{aspect-ratio:4/3;border-radius:var(--wp--custom--border-radius-normal);margin:0;min-width:0;overflow:hidden}.article-card__image-wrap img{height:100%;-o-object-fit:cover;object-fit:cover;width:100%}.article-card__category{font-family:var(--wp--preset--font-family--heading);font-weight:500;letter-spacing:.08em;margin-block-end:4px;text-transform:uppercase}.article-card__content{margin-block-start:var(--wp--preset--spacing--20)}.article-card__heading{word-break:break-word}.article-card__heading a{color:inherit}.article-card__heading a:hover{text-decoration:underline}main{padding-left:var(--wp--custom--spacing--grid-col-gutter);padding-right:var(--wp--custom--spacing--grid-col-gutter)}main>*{margin-left:auto;margin-right:auto;max-width:var(--wp--custom--spacing--wrap-width)}main .alignfull,main .full-width{margin-left:calc(-50vw + 50%);margin-right:calc(-50vw + 50%);max-width:100vw}.grid{display:grid;grid-template-rows:auto;grid-gap:var(--grid-col-gutter);grid-template-columns:repeat(1,1fr)}.grid>*{min-width:0}@media screen and (min-width:768px){.grid--cols-2,.grid--cols-3,.grid--cols-4,.grid--cols-5{grid-template-columns:repeat(2,1fr)}}@media screen and (min-width:1280px){.grid--cols-3,.grid--cols-4{grid-template-columns:repeat(3,1fr)}.grid--cols-5{grid-template-columns:repeat(4,1fr)}}@media screen and (min-width:1536px){.grid--cols-4{grid-template-columns:repeat(4,1fr)}.grid--cols-5{grid-template-columns:repeat(5,1fr)}}.grid--gap-none{gap:0}.grid--gap-small{gap:var(--wp--preset--spacing--10)}.grid--gap-medium{gap:var(--wp--preset--spacing--20)}.article-card{cursor:default;pointer-events:none}
-.aquila-relationship .components-base-control__label{display:block;margin-bottom:4px}.aquila-relationship__modal__actions{padding:16px;text-align:right}.aquila-relationship__modal .components-modal__header{height:auto;margin:0;padding:16px 16px 0!important;position:relative}.aquila-relationship__modal .components-modal__header-heading{font-size:1.3em}.aquila-relationship__modal .components-modal__content{margin-top:0;padding:0;position:relative}@media screen and (min-width:600px){.aquila-relationship__modal{width:50%}}.aquila-relationship__search-container{padding:16px}.aquila-relationship__search{border:1px solid #ddd;border-radius:4px;font-size:14px;padding:11px 16px!important;width:100%}.aquila-relationship__search:focus{border-color:#007cba;box-shadow:0 0 0 1px #007cba;outline:none}.aquila-relationship__panel{border-bottom:1px solid #e2e4e7;border-top:1px solid #e2e4e7;display:flex;font-size:.9em}.aquila-relationship__panel__search-items,.aquila-relationship__panel__selected-items{display:flex;height:250px;overflow-y:auto;width:50%}.aquila-relationship__panel__search-items{background-color:#f9f9f9;border-right:1px solid #e2e4e7}.aquila-relationship__panel__selected-items a{cursor:grab}.aquila-relationship__items{height:100%;list-style-type:none;margin:0;overflow-y:auto;padding:0;position:relative;width:100%}.aquila-relationship__items .components-spinner{left:50%;margin:-9px 0 0 -9px;position:absolute;top:50%;z-index:5}.aquila-relationship__items--disabled,.aquila-relationship__items--loading{overflow:hidden}.aquila-relationship__items--disabled:before,.aquila-relationship__items--loading:before{background-color:#fff;bottom:0;content:"";left:0;opacity:.5;position:absolute;right:0;top:0;z-index:3}.aquila-relationship__item{margin:0;padding:10px 43px 10px 10px;position:relative;text-align:left}.aquila-relationship__item:hover{background-color:#0073aa;color:#fff}.aquila-relationship__item>button{height:100%;margin:-10px;width:100%}.aquila-relationship__item--selected{cursor:default!important;opacity:.35}.aquila-relationship__items--search .aquila-relationship__item{cursor:pointer}.aquila-relationship__item-label{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.aquila-relationship__item-action{margin-top:-13px;opacity:0;position:absolute;right:10px;top:50%}.aquila-relationship__item-action button{background-color:transparent!important;box-shadow:none!important;height:auto;min-width:auto!important;padding:0!important}.aquila-relationship__item-action .dashicon,.aquila-relationship__item-action svg{color:#fff;fill:#fff;margin:3px!important}.aquila-relationship__item:hover .aquila-relationship__item-action{opacity:1}.aquila-relationship__item--selected:hover .aquila-relationship__item-action{opacity:0!important}.aquila-relationship__selected-items{background-color:#f3f3f4;border-radius:3px;box-shadow:inset 0 0 10px rgba(0,0,0,.05);color:#000;font-size:.9em;list-style-type:none!important;margin:10px 0 0!important;padding:10px!important;position:relative}.aquila-relationship__selected-items li{margin:0}.aquila-relationship__selected-items .components-spinner{float:none;margin:0}
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/.pnpm/css-loader@6.11.0_webpack@5.102.1/node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!../../node_modules/.pnpm/postcss-loader@6.2.1_postcss@8.5.6_webpack@5.102.1/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!../../node_modules/.pnpm/sass-loader@16.0.6_sass@1.93.3_webpack@5.102.1/node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/related-articles/editor.scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/**
+ * Component: Article Card.
+ */
+/**
+ * SCSS Variables
+ */
+.article-card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  align-items: flex-start;
+  position: relative;
+}
+.grid:has(> .article-card) {
+  gap: var(--wp--preset--spacing--30);
+}
+.article-card__image-wrap {
+  border-radius: var(--wp--custom--border-radius-normal);
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  margin: 0;
+  min-width: 0;
+}
+.article-card__image-wrap img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.article-card__category {
+  font-family: var(--wp--preset--font-family--heading);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  margin-block-end: 4px;
+  text-transform: uppercase;
+}
+.article-card__content {
+  margin-block-start: var(--wp--preset--spacing--20);
+}
+.article-card__heading {
+  word-break: break-word;
+}
+.article-card__heading a {
+  color: inherit;
+}
+.article-card__heading a:hover {
+  text-decoration: underline;
+}
+/**
+ * Grid.
+ */
+/**
+ * Mixins.
+ */
+main {
+  padding-left: var(--wp--custom--spacing--grid-col-gutter);
+  padding-right: var(--wp--custom--spacing--grid-col-gutter);
+}
+main > * {
+  max-width: var(--wp--custom--spacing--wrap-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+main .full-width,
+main .alignfull {
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  max-width: 100vw;
+}
+.grid {
+  display: grid;
+  grid-template-rows: auto;
+  grid-gap: var(--grid-col-gutter);
+  grid-template-columns: repeat(1, 1fr);
+}
+.grid > * {
+  min-width: 0;
+}
+@media screen and (min-width: 768px) {
+  .grid--cols-2, .grid--cols-3, .grid--cols-4, .grid--cols-5 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (min-width: 1280px) {
+  .grid--cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .grid--cols-4 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .grid--cols-5 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media screen and (min-width: 1536px) {
+  .grid--cols-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .grid--cols-5 {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+.grid--gap-none {
+  gap: 0;
+}
+.grid--gap-small {
+  gap: var(--wp--preset--spacing--10);
+}
+.grid--gap-medium {
+  gap: var(--wp--preset--spacing--20);
+}
+.article-card {
+  pointer-events: none;
+  cursor: default;
+}
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/.pnpm/css-loader@6.11.0_webpack@5.102.1/node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!../../node_modules/.pnpm/postcss-loader@6.2.1_postcss@8.5.6_webpack@5.102.1/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!../../node_modules/.pnpm/sass-loader@16.0.6_sass@1.93.3_webpack@5.102.1/node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/block-components/Relationship/style.scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.aquila-relationship .components-base-control__label {
+  display: block;
+  margin-bottom: 4px;
+}
+.aquila-relationship__modal__actions {
+  text-align: right;
+  padding: 16px;
+}
+.aquila-relationship__modal .components-modal__header {
+  margin: 0;
+  position: relative;
+  padding: 16px 16px 0 16px !important;
+  height: auto;
+}
+.aquila-relationship__modal .components-modal__header-heading {
+  font-size: 1.3em;
+}
+.aquila-relationship__modal .components-modal__content {
+  padding: 0;
+  margin-top: 0;
+  position: relative;
+}
+@media screen and (min-width: 600px) {
+  .aquila-relationship__modal {
+    width: 50%;
+  }
+}
+.aquila-relationship__search-container {
+  padding: 16px;
+}
+.aquila-relationship__search {
+  width: 100%;
+  padding: 11px 16px !important;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+.aquila-relationship__search:focus {
+  border-color: #007cba;
+  outline: none;
+  box-shadow: 0 0 0 1px #007cba;
+}
+.aquila-relationship__panel {
+  display: flex;
+  font-size: 0.9em;
+  border-top: 1px solid #e2e4e7;
+  border-bottom: 1px solid #e2e4e7;
+}
+.aquila-relationship__panel__search-items, .aquila-relationship__panel__selected-items {
+  width: 50%;
+  height: 250px;
+  display: flex;
+  overflow-y: auto;
+}
+.aquila-relationship__panel__search-items {
+  border-right: 1px solid #e2e4e7;
+  background-color: #f9f9f9;
+}
+.aquila-relationship__panel__selected-items a {
+  cursor: grab;
+}
+.aquila-relationship__items {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+}
+.aquila-relationship__items .components-spinner {
+  position: absolute;
+  margin: -9px 0 0 -9px;
+  top: 50%;
+  left: 50%;
+  z-index: 5;
+}
+.aquila-relationship__items--loading, .aquila-relationship__items--disabled {
+  overflow: hidden;
+}
+.aquila-relationship__items--loading::before, .aquila-relationship__items--disabled::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  opacity: 0.5;
+  z-index: 3;
+}
+.aquila-relationship__item {
+  margin: 0;
+  padding: 10px 43px 10px 10px;
+  text-align: left;
+  position: relative;
+}
+.aquila-relationship__item:hover {
+  background-color: #0073aa;
+  color: #fff;
+}
+.aquila-relationship__item > button {
+  width: 100%;
+  height: 100%;
+  margin: -10px;
+}
+.aquila-relationship__item--selected {
+  opacity: 0.35;
+  cursor: default !important;
+}
+.aquila-relationship__items--search .aquila-relationship__item {
+  cursor: pointer;
+}
+.aquila-relationship__item-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.aquila-relationship__item-action {
+  opacity: 0;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  margin-top: -13px;
+}
+.aquila-relationship__item-action button {
+  padding: 0 !important;
+  height: auto;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  min-width: auto !important;
+}
+.aquila-relationship__item-action .dashicon,
+.aquila-relationship__item-action svg {
+  margin: 3px !important;
+  color: #fff;
+  fill: #fff;
+}
+.aquila-relationship__item:hover .aquila-relationship__item-action {
+  opacity: 1;
+}
+.aquila-relationship__item--selected:hover .aquila-relationship__item-action {
+  opacity: 0 !important;
+}
+.aquila-relationship__selected-items {
+  list-style-type: none !important;
+  font-size: 0.9em;
+  position: relative;
+  padding: 10px !important;
+  background-color: #f3f3f4;
+  border-radius: 3px;
+  color: #000;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+  margin: 10px 0 0 0 !important;
+}
+.aquila-relationship__selected-items li {
+  margin: 0;
+}
+.aquila-relationship__selected-items .components-spinner {
+  float: none;
+  margin: 0;
+}
+
+/*# sourceMappingURL=style.css.map*/

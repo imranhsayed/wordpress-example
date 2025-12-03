@@ -13,7 +13,7 @@ Used by:
 - Vue.js (Single File Components)
 - Angular (component architecture)
 - Modern WordPress themes with build tools
-- Design systems (Shopify Polaris, Adobe Spectrum, Material UI)
+- Design systems (Shopify Aquila, Adobe Spectrum, Material UI)
 
 Why it's popular:
 - Easy to find all related files

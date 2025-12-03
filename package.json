@@ -13,7 +13,14 @@
     "format": "pnpm -r run format",
     "dev": "pnpm -r run dev",
     "dev:hot": "pnpm -r run dev:hot",
-    "build": "pnpm -r run build"
+    "build": "pnpm -r run build",
+    "test": "pnpm -r run test",
+    "test:watch": "pnpm -r run test:watch",
+    "test:coverage": "pnpm -r run test:coverage",
+    "test:e2e": "pnpm -r run test:e2e",
+    "test:e2e:headed": "pnpm -r run test:e2e:headed",
+    "test:e2e:ui": "pnpm -r run test:e2e:ui",
+    "test:e2e:debug": "pnpm -r run test:e2e:debug"
   },
   "workspaces": [
     "themes/aquila*"

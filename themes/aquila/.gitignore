@@ -1,0 +1,22 @@
+# Playwright
+playwright-report/
+test-results/
+screenshots/
+.features-gen/
+
+# Coverage
+coverage/
+
+# Build
+build/
+dist/
+
+# Dependencies
+node_modules/
+
+# Storybook
+storybook-static/
+
+# Logs
+*.log
+npm-debug.log*
