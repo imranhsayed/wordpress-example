@@ -1,0 +1,22 @@
+.section {
+	$self: &;
+
+	&--has-background {
+		background-color: var(--wp--preset--color--grey-200);
+
+		&-grey-900 {
+			background-color: var(--wp--preset--color--grey-900);
+			color: var(--wp--preset--color--grey-50);
+		}
+
+	}
+
+	.section {
+		clear: both;
+
+		&:not(:last-child) {
+			margin-top: 0;
+			margin-bottom: var(--spacing-7);
+		}
+	}
+}
